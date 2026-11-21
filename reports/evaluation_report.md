@@ -11,8 +11,8 @@
 | Metric | Score | Target / Benchmark | Status |
 |---|---|---|---|
 | **Precision** | **1.0000** | > 0.8500 | Passed |
-| **Recall** | **0.9884** | > 0.8500 | Passed |
-| **F1-Score** | **0.9942** | > 0.8500 | Passed |
+| **Recall** | **1.0000** | > 0.8500 | Passed |
+| **F1-Score** | **1.0000** | > 0.8500 | Passed |
 | **False Positive Rate (FPR)** | **0.0000** | < 0.0500 | Passed |
 | **PR-AUC** | **1.0000** | > 0.8800 | Passed |
 | **ROC-AUC** | **1.0000** | > 0.9000 | Passed |
@@ -23,12 +23,12 @@
 
 | Metric | Value |
 |---|---|
-| **Ground Truth Rings Generated** | 18 |
-| **Candidate Rings Discovered** | 17 |
-| **Matched Ground Truth Rings** | 17 |
+| **Ground Truth Rings Generated** | 16 |
+| **Candidate Rings Discovered** | 16 |
+| **Matched Ground Truth Rings** | 16 |
 | **Ring-Level Precision** | **1.0000** |
-| **Ring-Level Recall** | **0.9444** |
-| **Ring-Level F1-Score** | **0.9714** |
+| **Ring-Level Recall** | **1.0000** |
+| **Ring-Level F1-Score** | **1.0000** |
 | **Average Member Jaccard Overlap** | **1.0000** |
 
 ---
@@ -37,11 +37,11 @@
 
 | Evaluation Aspect | Exp A: Isolated Banks | Exp B: Combined Graph | Exp C: Combined Graph + PSI |
 |---|---|---|---|
-| **Precision** | 0.1533 | 1.0000 | **1.0000** |
-| **Recall** | 0.5116 | 0.9884 | **0.9884** |
-| **F1-Score** | 0.2359 | 0.9942 | **0.9942** |
-| **False Positive Rate** | 0.4765 | 0.0000 | **0.0000** |
-| **PR-AUC** | 0.2110 | 1.0000 | **1.0000** |
+| **Precision** | 0.1467 | 1.0000 | **1.0000** |
+| **Recall** | 0.8875 | 1.0000 | **1.0000** |
+| **F1-Score** | 0.2518 | 1.0000 | **1.0000** |
+| **False Positive Rate** | 0.8004 | 0.0000 | **0.0000** |
+| **PR-AUC** | 0.2481 | 1.0000 | **1.0000** |
 
 > **Key Finding:** Isolated bank monitoring misses multi-hop cross-bank laundering chains due to fragmented visibility. Combining graph network analysis with privacy-preserving matching (PSI) provides significant recall and precision improvements without sharing raw customer ledgers.
 
@@ -53,12 +53,12 @@ Evaluating detection rates across legitimate profiles to guarantee that gig work
 
 | Customer Profile | Total Accounts | Legitimate Count | False Positives | Profile FPR |
 |---|---|---|---|---|
-| **GIG_WORKER** | 108 | 108 | 0 | 0.0000 |
-| **MERCHANT** | 95 | 95 | 0 | 0.0000 |
-| **MULE_SUSPECT** | 86 | 0 | 0 | 0.0000 |
-| **REGULAR_P2P** | 74 | 74 | 0 | 0.0000 |
-| **SALARIED** | 170 | 170 | 0 | 0.0000 |
-| **STUDENT_FIRST_TIME** | 63 | 63 | 0 | 0.0000 |
+| **GIG_WORKER** | 103 | 103 | 0 | 0.0000 |
+| **MERCHANT** | 102 | 102 | 0 | 0.0000 |
+| **MULE_SUSPECT** | 80 | 0 | 0 | 0.0000 |
+| **REGULAR_P2P** | 82 | 82 | 0 | 0.0000 |
+| **SALARIED** | 154 | 154 | 0 | 0.0000 |
+| **STUDENT_FIRST_TIME** | 75 | 75 | 0 | 0.0000 |
 
 ---
 ## 5. Multi-Source Data Strategy & Benchmark Alignment

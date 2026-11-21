@@ -1,183 +1,183 @@
 {
-  "bank_a_candidates": 28,
-  "bank_b_candidates": 29,
-  "bank_c_candidates": 28,
+  "bank_a_candidates": 32,
+  "bank_b_candidates": 28,
+  "bank_c_candidates": 20,
   "pairwise_matches": {
-    "BANK_A_x_BANK_B": 9,
-    "BANK_B_x_BANK_C": 10,
+    "BANK_A_x_BANK_B": 14,
+    "BANK_B_x_BANK_C": 5,
     "BANK_A_x_BANK_C": 10
   },
   "three_way_intersection_count": 3,
   "three_way_entities": [
     {
-      "canonical_token": "63ec999698bb748e43e81a3a03dffec74edfb82dc92540184164e859e1cd0868",
-      "BANK_A_account": "BANK_MULE_03_01",
-      "BANK_B_account": "BANK_MULE_03_05",
-      "BANK_C_account": "BANK_MULE_03_03"
-    },
-    {
       "canonical_token": "847c150d49798b88527e884e57a828ebfc11baa6f6f15ba65d633977b1ef0716",
-      "BANK_A_account": "BANK_MULE_02_01",
-      "BANK_B_account": "BANK_MULE_02_02",
-      "BANK_C_account": "BANK_MULE_02_03"
+      "BANK_A_account": "BANK_MULE_00009",
+      "BANK_B_account": "BANK_MULE_00007",
+      "BANK_C_account": "BANK_MULE_00008"
     },
     {
       "canonical_token": "ca8a28e9c45258ba343d3dbe0e2e8fdf9fe9cce6944b632e3b355c31893966ca",
-      "BANK_A_account": "BANK_MULE_01_01",
-      "BANK_B_account": "BANK_MULE_01_02",
-      "BANK_C_account": "BANK_MULE_01_03"
+      "BANK_A_account": "BANK_MULE_00004",
+      "BANK_B_account": "BANK_MULE_00002",
+      "BANK_C_account": "BANK_MULE_00003"
+    },
+    {
+      "canonical_token": "63ec999698bb748e43e81a3a03dffec74edfb82dc92540184164e859e1cd0868",
+      "BANK_A_account": "BANK_MULE_00014",
+      "BANK_B_account": "BANK_MULE_00012",
+      "BANK_C_account": "BANK_MULE_00013"
     }
   ],
   "pairwise_details": {
     "A_B": [
       {
         "canonical_token": "ca8a28e9c45258ba343d3dbe0e2e8fdf9fe9cce6944b632e3b355c31893966ca",
-        "BANK_A_account": "BANK_MULE_01_01",
-        "BANK_B_account": "BANK_MULE_01_02"
+        "BANK_A_account": "BANK_MULE_00004",
+        "BANK_B_account": "BANK_MULE_00002"
+      },
+      {
+        "canonical_token": "ca8a28e9c45258ba343d3dbe0e2e8fdf9fe9cce6944b632e3b355c31893966ca",
+        "BANK_A_account": "BANK_MULE_00004",
+        "BANK_B_account": "BANK_MULE_00002"
       },
       {
         "canonical_token": "847c150d49798b88527e884e57a828ebfc11baa6f6f15ba65d633977b1ef0716",
-        "BANK_A_account": "BANK_MULE_02_01",
-        "BANK_B_account": "BANK_MULE_02_02"
+        "BANK_A_account": "BANK_MULE_00009",
+        "BANK_B_account": "BANK_MULE_00007"
+      },
+      {
+        "canonical_token": "847c150d49798b88527e884e57a828ebfc11baa6f6f15ba65d633977b1ef0716",
+        "BANK_A_account": "BANK_MULE_00009",
+        "BANK_B_account": "BANK_MULE_00007"
       },
       {
         "canonical_token": "63ec999698bb748e43e81a3a03dffec74edfb82dc92540184164e859e1cd0868",
-        "BANK_A_account": "BANK_MULE_03_01",
-        "BANK_B_account": "BANK_MULE_03_05"
+        "BANK_A_account": "BANK_MULE_00014",
+        "BANK_B_account": "BANK_MULE_00012"
+      },
+      {
+        "canonical_token": "63ec999698bb748e43e81a3a03dffec74edfb82dc92540184164e859e1cd0868",
+        "BANK_A_account": "BANK_MULE_00014",
+        "BANK_B_account": "BANK_MULE_00012"
       },
       {
         "canonical_token": "64f8e123f88bba4c0316ddd311315d11e5df41e9d4689c16879d4385cd86d2c2",
-        "BANK_A_account": "BANK_MULE_05_06",
-        "BANK_B_account": "BANK_MULE_05_02"
+        "BANK_A_account": "BANK_MULE_00022",
+        "BANK_B_account": "BANK_MULE_00025"
       },
       {
-        "canonical_token": "e4dc90553f72fc1432f393cd56b491e809f3d441f523014fbe2c53edfaee583f",
-        "BANK_A_account": "BANK_MULE_10_01",
-        "BANK_B_account": "BANK_MULE_10_04"
+        "canonical_token": "d1968887b33afbd578102dbb6d82ccac4661da6bfb280e7ebed9bfcebf552675",
+        "BANK_A_account": "BANK_MULE_00024",
+        "BANK_B_account": "BANK_MULE_00021"
       },
       {
-        "canonical_token": "b40da2032c98fb39bd63835155922b8550f8a35ccaa0123ceb2993adad5f2bdc",
-        "BANK_A_account": "BANK_MULE_10_05",
-        "BANK_B_account": "BANK_MULE_10_02"
+        "canonical_token": "9ebf48f252b099f9c7185d7346581d47e4dde971f7815544a8c33242c0626ad8",
+        "BANK_A_account": "BANK_MULE_00051",
+        "BANK_B_account": "BANK_MULE_00054"
       },
       {
-        "canonical_token": "89db71e6c519f3fcc5f25fe2d032e6ff5578b525e8caf251df31f7698bfb754f",
-        "BANK_A_account": "BANK_MULE_13_05",
-        "BANK_B_account": "BANK_MULE_13_01"
+        "canonical_token": "caa56a4c835ab7bfd48bb2876b45f28935a6f3f61e5822da9b713cf3a5f33f54",
+        "BANK_A_account": "BANK_MULE_00055",
+        "BANK_B_account": "BANK_MULE_00052"
       },
       {
-        "canonical_token": "6a2424c90ce326d07c7a52883aa9ab51002f0fbc0e69c6e9fa1ade10a6dad35b",
-        "BANK_A_account": "BANK_MULE_16_02",
-        "BANK_B_account": "BANK_MULE_16_05"
+        "canonical_token": "6358c818eba0815e17c998135888c5f8e83d36530b919d6f14a1ac6f99c64a5d",
+        "BANK_A_account": "BANK_MULE_00057",
+        "BANK_B_account": "BANK_MULE_00060"
+      },
+      {
+        "canonical_token": "35ae44857cb9baa047d4cecae0d09d855fab422c50ab73a7a958fde080cfdf6b",
+        "BANK_A_account": "BANK_MULE_00059",
+        "BANK_B_account": "BANK_MULE_00056"
       },
       {
         "canonical_token": "da58a899773837208ce50138cd53a385b2dae43292f4825156a3c17d271492a4",
-        "BANK_A_account": "BANK_MULE_16_04",
-        "BANK_B_account": "BANK_MULE_16_01"
+        "BANK_A_account": "BANK_MULE_00076",
+        "BANK_B_account": "BANK_MULE_00079"
+      },
+      {
+        "canonical_token": "6a2424c90ce326d07c7a52883aa9ab51002f0fbc0e69c6e9fa1ade10a6dad35b",
+        "BANK_A_account": "BANK_MULE_00080",
+        "BANK_B_account": "BANK_MULE_00077"
       }
     ],
     "B_C": [
       {
         "canonical_token": "ca8a28e9c45258ba343d3dbe0e2e8fdf9fe9cce6944b632e3b355c31893966ca",
-        "BANK_B_account": "BANK_MULE_01_02",
-        "BANK_C_account": "BANK_MULE_01_03"
+        "BANK_B_account": "BANK_MULE_00002",
+        "BANK_C_account": "BANK_MULE_00003"
       },
       {
         "canonical_token": "847c150d49798b88527e884e57a828ebfc11baa6f6f15ba65d633977b1ef0716",
-        "BANK_B_account": "BANK_MULE_02_02",
-        "BANK_C_account": "BANK_MULE_02_03"
+        "BANK_B_account": "BANK_MULE_00007",
+        "BANK_C_account": "BANK_MULE_00008"
       },
       {
         "canonical_token": "63ec999698bb748e43e81a3a03dffec74edfb82dc92540184164e859e1cd0868",
-        "BANK_B_account": "BANK_MULE_03_05",
-        "BANK_C_account": "BANK_MULE_03_03"
+        "BANK_B_account": "BANK_MULE_00012",
+        "BANK_C_account": "BANK_MULE_00013"
       },
       {
-        "canonical_token": "63ec999698bb748e43e81a3a03dffec74edfb82dc92540184164e859e1cd0868",
-        "BANK_B_account": "BANK_MULE_03_05",
-        "BANK_C_account": "BANK_MULE_03_03"
-      },
-      {
-        "canonical_token": "d1968887b33afbd578102dbb6d82ccac4661da6bfb280e7ebed9bfcebf552675",
-        "BANK_B_account": "BANK_MULE_05_05",
-        "BANK_C_account": "BANK_MULE_05_01"
-      },
-      {
-        "canonical_token": "014bfb34f307745ba2063b5a9cf1bc4ed24e9bf4daa6aad27ac1407243044a6b",
-        "BANK_B_account": "BANK_MULE_06_03",
-        "BANK_C_account": "BANK_MULE_06_01"
+        "canonical_token": "2490f02cbff52b07dc4d63ca4bfa3f9e541bf1a97e7115044d073376f5701d54",
+        "BANK_B_account": "BANK_MULE_00031",
+        "BANK_C_account": "BANK_MULE_00034"
       },
       {
         "canonical_token": "7217ae5a35e691207800a655fc9370448686b767b5c833ffd542fd3b235f0fcf",
-        "BANK_B_account": "BANK_MULE_07_07",
-        "BANK_C_account": "BANK_MULE_07_02"
-      },
-      {
-        "canonical_token": "9ebf48f252b099f9c7185d7346581d47e4dde971f7815544a8c33242c0626ad8",
-        "BANK_B_account": "BANK_MULE_11_01",
-        "BANK_C_account": "BANK_MULE_11_03"
-      },
-      {
-        "canonical_token": "6358c818eba0815e17c998135888c5f8e83d36530b919d6f14a1ac6f99c64a5d",
-        "BANK_B_account": "BANK_MULE_12_02",
-        "BANK_C_account": "BANK_MULE_12_04"
-      },
-      {
-        "canonical_token": "f70852696b18913e5e4eba2a27aaea48c31c45a4805ad26ad13633e0a1c8e513",
-        "BANK_B_account": "BANK_MULE_15_06",
-        "BANK_C_account": "BANK_MULE_15_02"
+        "BANK_B_account": "BANK_MULE_00035",
+        "BANK_C_account": "BANK_MULE_00032"
       }
     ],
     "A_C": [
       {
         "canonical_token": "ca8a28e9c45258ba343d3dbe0e2e8fdf9fe9cce6944b632e3b355c31893966ca",
-        "BANK_A_account": "BANK_MULE_01_01",
-        "BANK_C_account": "BANK_MULE_01_03"
+        "BANK_A_account": "BANK_MULE_00004",
+        "BANK_C_account": "BANK_MULE_00003"
+      },
+      {
+        "canonical_token": "ca8a28e9c45258ba343d3dbe0e2e8fdf9fe9cce6944b632e3b355c31893966ca",
+        "BANK_A_account": "BANK_MULE_00004",
+        "BANK_C_account": "BANK_MULE_00003"
       },
       {
         "canonical_token": "847c150d49798b88527e884e57a828ebfc11baa6f6f15ba65d633977b1ef0716",
-        "BANK_A_account": "BANK_MULE_02_01",
-        "BANK_C_account": "BANK_MULE_02_03"
+        "BANK_A_account": "BANK_MULE_00009",
+        "BANK_C_account": "BANK_MULE_00008"
+      },
+      {
+        "canonical_token": "847c150d49798b88527e884e57a828ebfc11baa6f6f15ba65d633977b1ef0716",
+        "BANK_A_account": "BANK_MULE_00009",
+        "BANK_C_account": "BANK_MULE_00008"
       },
       {
         "canonical_token": "63ec999698bb748e43e81a3a03dffec74edfb82dc92540184164e859e1cd0868",
-        "BANK_A_account": "BANK_MULE_03_01",
-        "BANK_C_account": "BANK_MULE_03_03"
+        "BANK_A_account": "BANK_MULE_00014",
+        "BANK_C_account": "BANK_MULE_00013"
       },
       {
-        "canonical_token": "96d74d673bf4fdc211b077574b2d48914701bd0fcdb3684ff22087805e422ce3",
-        "BANK_A_account": "BANK_MULE_06_02",
-        "BANK_C_account": "BANK_MULE_06_04"
+        "canonical_token": "63ec999698bb748e43e81a3a03dffec74edfb82dc92540184164e859e1cd0868",
+        "BANK_A_account": "BANK_MULE_00014",
+        "BANK_C_account": "BANK_MULE_00013"
       },
       {
-        "canonical_token": "cf99134f4112dacb2622843584301d87f517920dd2309236ebd0477c203f75f2",
-        "BANK_A_account": "BANK_MULE_09_03",
-        "BANK_C_account": "BANK_MULE_09_01"
+        "canonical_token": "27cbe04af8a804058b2164c2237a9cf2b2d418dbfa46a331c1c12ea5dff92256",
+        "BANK_A_account": "BANK_MULE_00017",
+        "BANK_C_account": "BANK_MULE_00020"
       },
       {
-        "canonical_token": "35ae44857cb9baa047d4cecae0d09d855fab422c50ab73a7a958fde080cfdf6b",
-        "BANK_A_account": "BANK_MULE_12_03",
-        "BANK_C_account": "BANK_MULE_12_01"
+        "canonical_token": "6d044571a2cd0c273a24fc7403888e7d33702a303efd3523dc413d7a31a3b899",
+        "BANK_A_account": "BANK_MULE_00019",
+        "BANK_C_account": "BANK_MULE_00016"
+      },
+      {
+        "canonical_token": "89db71e6c519f3fcc5f25fe2d032e6ff5578b525e8caf251df31f7698bfb754f",
+        "BANK_A_account": "BANK_MULE_00061",
+        "BANK_C_account": "BANK_MULE_00064"
       },
       {
         "canonical_token": "09ef70b977f18f3a3d3eb195ba6c001f1e40c6f332da6215e7c7689441754b6d",
-        "BANK_A_account": "BANK_MULE_13_02",
-        "BANK_C_account": "BANK_MULE_13_06"
-      },
-      {
-        "canonical_token": "f6fac3ab5a2709ee69c2136261e7d6bddc5465c1c8027a6e2107c52ced01ba53",
-        "BANK_A_account": "BANK_MULE_15_01",
-        "BANK_C_account": "BANK_MULE_15_05"
-      },
-      {
-        "canonical_token": "aaa6a96cd628421c05a115ba76a930316989e2d5839cfcb17a06cab4bcdcd5f1",
-        "BANK_A_account": "BANK_MULE_18_02",
-        "BANK_C_account": "BANK_MULE_18_05"
-      },
-      {
-        "canonical_token": "560041d96d7fd78382612729925152c8a5447fd8e41dcd5edcc51ff7422f6597",
-        "BANK_A_account": "BANK_MULE_18_04",
-        "BANK_C_account": "BANK_MULE_18_01"
+        "BANK_A_account": "BANK_MULE_00065",
+        "BANK_C_account": "BANK_MULE_00062"
       }
     ]
   }
