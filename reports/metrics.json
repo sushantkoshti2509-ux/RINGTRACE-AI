@@ -1,0 +1,110 @@
+{
+  "overall_performance": {
+    "threshold": 0.75,
+    "precision": 1.0,
+    "recall": 0.9884,
+    "f1_score": 0.9942,
+    "false_positive_rate": 0.0,
+    "pr_auc": 1.0,
+    "roc_auc": 1.0,
+    "true_positives": 85,
+    "false_positives": 0,
+    "true_negatives": 510,
+    "false_negatives": 1
+  },
+  "ring_level_detection": {
+    "total_ground_truth_rings": 18,
+    "total_candidate_rings_detected": 17,
+    "matched_ground_truth_rings": 17,
+    "ring_precision": 1.0,
+    "ring_recall": 0.9444,
+    "ring_f1": 0.9714,
+    "avg_member_jaccard": 1.0
+  },
+  "profile_false_positive_analysis": {
+    "GIG_WORKER": {
+      "total_accounts": 108,
+      "legitimate_count": 108,
+      "false_positives": 0,
+      "profile_fpr": 0.0,
+      "avg_risk_score": 0.0028
+    },
+    "MERCHANT": {
+      "total_accounts": 95,
+      "legitimate_count": 95,
+      "false_positives": 0,
+      "profile_fpr": 0.0,
+      "avg_risk_score": 0.0028
+    },
+    "MULE_SUSPECT": {
+      "total_accounts": 86,
+      "legitimate_count": 0,
+      "false_positives": 0,
+      "profile_fpr": 0.0,
+      "avg_risk_score": 0.9861
+    },
+    "REGULAR_P2P": {
+      "total_accounts": 74,
+      "legitimate_count": 74,
+      "false_positives": 0,
+      "profile_fpr": 0.0,
+      "avg_risk_score": 0.0028
+    },
+    "SALARIED": {
+      "total_accounts": 170,
+      "legitimate_count": 170,
+      "false_positives": 0,
+      "profile_fpr": 0.0,
+      "avg_risk_score": 0.003
+    },
+    "STUDENT_FIRST_TIME": {
+      "total_accounts": 63,
+      "legitimate_count": 63,
+      "false_positives": 0,
+      "profile_fpr": 0.0,
+      "avg_risk_score": 0.0028
+    }
+  },
+  "comparative_experiments": {
+    "Experiment_A_Isolated_Banks": {
+      "threshold": 0.5,
+      "precision": 0.1533,
+      "recall": 0.5116,
+      "f1_score": 0.2359,
+      "false_positive_rate": 0.4765,
+      "pr_auc": 0.211,
+      "roc_auc": 0.5947,
+      "true_positives": 44,
+      "false_positives": 243,
+      "true_negatives": 267,
+      "false_negatives": 42
+    },
+    "Experiment_B_Combined_Graph": {
+      "threshold": 0.5,
+      "precision": 1.0,
+      "recall": 0.9884,
+      "f1_score": 0.9942,
+      "false_positive_rate": 0.0,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "true_positives": 85,
+      "false_positives": 0,
+      "true_negatives": 510,
+      "false_negatives": 1
+    },
+    "Experiment_C_Combined_Graph_With_PSI": {
+      "threshold": 0.5,
+      "precision": 1.0,
+      "recall": 0.9884,
+      "f1_score": 0.9942,
+      "false_positive_rate": 0.0,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "true_positives": 85,
+      "false_positives": 0,
+      "true_negatives": 510,
+      "false_negatives": 1
+    }
+  },
+  "pipeline_execution_time_sec": 6.07
+}
