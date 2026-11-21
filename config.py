@@ -11,16 +11,21 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DATA_DIR = DATA_DIR / "raw"
 PREPROCESSED_DATA_DIR = DATA_DIR / "preprocessed"
+INTEGRATED_DATA_DIR = DATA_DIR / "integrated"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
 SYNTHETIC_DATA_DIR = DATA_DIR / "synthetic"
 MODELS_DIR = PROJECT_ROOT / "models"
 REPORTS_DIR = PROJECT_ROOT / "reports"
 DOCS_DIR = PROJECT_ROOT / "docs"
 
+# Database Configuration (Defaults to local SQLite; override with DATABASE_URL for PostgreSQL)
+DEFAULT_SQLITE_URL = f"sqlite:///{INTEGRATED_DATA_DIR / 'ringtrace_integrated.db'}"
+
 # Ensure all primary directories exist
 for directory in [
     RAW_DATA_DIR,
     PREPROCESSED_DATA_DIR,
+    INTEGRATED_DATA_DIR,
     PROCESSED_DATA_DIR,
     SYNTHETIC_DATA_DIR,
     MODELS_DIR,

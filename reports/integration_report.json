@@ -1,0 +1,75 @@
+{
+  "total_raw_ledger_records": 23153,
+  "total_integrated_transactions": 13975,
+  "dual_ledger_reconciled": 9178,
+  "single_ledger_unilateral": 4797,
+  "inter_bank_transactions": 9178,
+  "intra_bank_transactions": 4797,
+  "discrepancy_count": 0,
+  "raw_ledger_counts": {
+    "BANK_A": 7749,
+    "BANK_B": 7680,
+    "BANK_C": 7724
+  },
+  "raw_ledger_volumes": {
+    "BANK_A": 45272344.910000004,
+    "BANK_B": 40074098.76,
+    "BANK_C": 40577587.21
+  },
+  "total_integrated_volume_inr": 73216757.87,
+  "pairwise_flow_matrix": {
+    "BANK_A": {
+      "BANK_A": {
+        "count": 1609,
+        "volume_inr": 8874552.66,
+        "suspicious_count": 4
+      },
+      "BANK_B": {
+        "count": 1495,
+        "volume_inr": 10266329.69,
+        "suspicious_count": 13
+      },
+      "BANK_C": {
+        "count": 1571,
+        "volume_inr": 10269920.79,
+        "suspicious_count": 9
+      }
+    },
+    "BANK_B": {
+      "BANK_A": {
+        "count": 1562,
+        "volume_inr": 7948016.77,
+        "suspicious_count": 5
+      },
+      "BANK_B": {
+        "count": 1585,
+        "volume_inr": 5550271.54,
+        "suspicious_count": 2
+      },
+      "BANK_C": {
+        "count": 1572,
+        "volume_inr": 7561950.6,
+        "suspicious_count": 9
+      }
+    },
+    "BANK_C": {
+      "BANK_A": {
+        "count": 1512,
+        "volume_inr": 7913525.0,
+        "suspicious_count": 13
+      },
+      "BANK_B": {
+        "count": 1466,
+        "volume_inr": 8747530.16,
+        "suspicious_count": 8
+      },
+      "BANK_C": {
+        "count": 1603,
+        "volume_inr": 6084660.66,
+        "suspicious_count": 4
+      }
+    }
+  },
+  "discrepancies": [],
+  "integration_timestamp": "2026-11-21T19:45:49.250878+00:00"
+}

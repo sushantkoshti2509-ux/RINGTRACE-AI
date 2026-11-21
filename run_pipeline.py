@@ -68,7 +68,7 @@ def run_full_pipeline(verbose: bool = True):
     # ---------------------------------------------------------
     # Step 2: Preprocessing and Validation
     # ---------------------------------------------------------
-    print("\n[Step 2/10] Cleaning and Validating Data...")
+    print("\n[Step 2/11] Cleaning and Validating Data...")
     cleaner = DataPreprocessor()
     accounts_clean, transactions_clean, val_report = cleaner.run_cleaning_pipeline(
         accounts_df, transactions_df
@@ -77,28 +77,47 @@ def run_full_pipeline(verbose: bool = True):
     print(f"  ✓ Transactions schema valid: {val_report['transactions_valid']}")
 
     # ---------------------------------------------------------
-    # Step 3: Directed Graph Construction
+    # Step 3: Multi-Bank Data Integration & Dual-Ledger Reconciliation
     # ---------------------------------------------------------
-    print("\n[Step 3/10] Constructing Directed Transaction Graph (NetworkX)...")
+    print("\n[Step 3/11] Multi-Bank Data Integration & Dual-Ledger Reconciliation...")
+    from src.integration.integrator import MultiBankDataIntegrator
+    integrator = MultiBankDataIntegrator()
+    preprocessed_bank_ledgers = {}
+    for b_id, b_df in bank_ledgers.items():
+        b_clean, _ = cleaner.clean_transactions(b_df, encode_categoricals=True)
+        preprocessed_bank_ledgers[b_id] = b_clean
+
+    transactions_integrated, integration_metrics = integrator.integrate_ledgers(
+        preprocessed_bank_ledgers, export_artifacts=True
+    )
+    print(f"  ✓ Ingested Bank Ledgers: {integration_metrics['total_raw_ledger_records']:,} raw rows across 3 banks.")
+    print(f"  ✓ Dual-Ledger Cross-Bank Twins Reconciled: {integration_metrics['dual_ledger_reconciled']:,}")
+    print(f"  ✓ Integrated Consolidated Transactions: {len(transactions_integrated):,}")
+    print(f"  ✓ Total Transacted Volume: ₹{integration_metrics['total_integrated_volume_inr']:,.2f}")
+
+    # ---------------------------------------------------------
+    # Step 4: Directed Graph Construction
+    # ---------------------------------------------------------
+    print("\n[Step 4/11] Constructing Directed Transaction Graph (NetworkX)...")
     graph_builder = TransactionGraphBuilder()
-    G = graph_builder.build_graph(accounts_clean, transactions_clean)
+    G = graph_builder.build_graph(accounts_clean, transactions_integrated)
     print(f"  ✓ Graph Nodes: {G.number_of_nodes()}, Directed Edges: {G.number_of_edges()}")
 
     # ---------------------------------------------------------
-    # Step 4: Graph & Temporal Feature Extraction
+    # Step 5: Graph & Temporal Feature Extraction
     # ---------------------------------------------------------
-    print("\n[Step 4/10] Extracting Network Topology & Temporal Features...")
+    print("\n[Step 5/11] Extracting Network Topology & Temporal Features...")
     feature_engine = GraphFeatureEngine()
-    features_df = feature_engine.extract_features(G, transactions_clean)
+    features_df = feature_engine.extract_features(G, transactions_integrated)
     features_path = config.PROCESSED_DATA_DIR / "features.csv"
     features_df.to_csv(features_path, index=False)
     print(f"  ✓ Computed {features_df.shape[1]} features for {len(features_df)} accounts.")
     print(f"  ✓ Saved features to: {features_path}")
 
     # ---------------------------------------------------------
-    # Step 5: Model Training with Group-Aware Split
+    # Step 6: Model Training with Group-Aware Split
     # ---------------------------------------------------------
-    print("\n[Step 5/10] Training XGBoost with Ring Group-Aware Stratification...")
+    print("\n[Step 6/11] Training XGBoost with Ring Group-Aware Stratification...")
     trainer = ModelTrainer()
     X, y, groups = trainer.prepare_data(features_df)
     model, train_meta, (X_train, X_test, y_train, y_test) = trainer.train_model(X, y, groups)
@@ -108,9 +127,9 @@ def run_full_pipeline(verbose: bool = True):
     print(f"  ✓ Calibrated alert decision threshold: {train_meta['optimal_threshold']:.4f}")
 
     # ---------------------------------------------------------
-    # Step 6: Account Risk Scoring
+    # Step 7: Account Risk Scoring
     # ---------------------------------------------------------
-    print("\n[Step 6/10] Generating Account Risk Scores and Operational Tiers...")
+    print("\n[Step 7/11] Generating Account Risk Scores and Operational Tiers...")
     predictor = RiskPredictor()
     risk_scores_df = predictor.predict_risk_scores(features_df)
     risk_scores_path = config.PROCESSED_DATA_DIR / "risk_scores.csv"
@@ -125,9 +144,9 @@ def run_full_pipeline(verbose: bool = True):
     print(f"  ✓ Saved risk scores to: {risk_scores_path}")
 
     # ---------------------------------------------------------
-    # Step 7: Candidate Mule Ring Detection
+    # Step 8: Candidate Mule Ring Detection
     # ---------------------------------------------------------
-    print("\n[Step 7/10] Discovering Candidate Suspicious Networks (Rings)...")
+    print("\n[Step 8/11] Discovering Candidate Suspicious Networks (Rings)...")
     ring_engine = RingDetectionEngine(risk_threshold=train_meta["optimal_threshold"] * 0.8)
     candidate_rings = ring_engine.discover_candidate_rings(G, risk_scores_df)
     ring_eval = ring_engine.evaluate_detected_rings(candidate_rings, mule_rings_df)
@@ -141,9 +160,9 @@ def run_full_pipeline(verbose: bool = True):
     print(f"  ✓ Ring-Level Precision: {ring_eval['ring_precision']:.4f}, Recall: {ring_eval['ring_recall']:.4f}, F1: {ring_eval['ring_f1']:.4f}")
 
     # ---------------------------------------------------------
-    # Step 8: SHAP Explainability & Multi-Modal Reason Codes
+    # Step 9: SHAP Explainability & Multi-Modal Reason Codes
     # ---------------------------------------------------------
-    print("\n[Step 8/10] Computing SHAP Explanations & Plain-Language Reason Codes...")
+    print("\n[Step 9/11] Computing SHAP Explanations & Plain-Language Reason Codes...")
     explainer = ExplainabilityEngine(model=model)
     reason_gen = ReasonCodeGenerator()
 
@@ -173,9 +192,9 @@ def run_full_pipeline(verbose: bool = True):
     print(f"  ✓ Saved alerts to: {alerts_path}")
 
     # ---------------------------------------------------------
-    # Step 9: Private Set Intersection (PSI) Demonstration
+    # Step 10: Private Set Intersection (PSI) Demonstration
     # ---------------------------------------------------------
-    print("\n[Step 9/10] Running Private Set Intersection (PSI) Protocol across 3 Banks...")
+    print("\n[Step 10/11] Running Private Set Intersection (PSI) Protocol across 3 Banks...")
     psi_coordinator = PSICoordinator()
     psi_results = psi_coordinator.run_three_bank_psi(
         risk_scores_df=risk_scores_df,
@@ -193,9 +212,9 @@ def run_full_pipeline(verbose: bool = True):
     print(f"  ✓ 3-Way Common Suspicious Entities: {psi_results['three_way_intersection_count']}")
 
     # ---------------------------------------------------------
-    # Step 10: Evaluation & Benchmarking (Experiments A vs B vs C)
+    # Step 11: Evaluation & Benchmarking (Experiments A vs B vs C)
     # ---------------------------------------------------------
-    print("\n[Step 10/10] Executing Evaluation & Comparative Baselines (A vs B vs C)...")
+    print("\n[Step 11/11] Executing Evaluation & Comparative Baselines (A vs B vs C)...")
     evaluator = SystemEvaluator()
     overall_metrics = evaluator.evaluate_predictions(
         y_true=risk_scores_df["is_mule_ground_truth"],
