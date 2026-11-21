@@ -1,0 +1,88 @@
+{
+  "pipeline_stage": "Step 4: Feature Engineering and Transaction Pattern Analysis",
+  "total_accounts_profiled": 600,
+  "total_transactions_enriched": 13975,
+  "data_leakage_safeguards": {
+    "ground_truth_isolated": true,
+    "isolated_columns": [
+      "is_mule",
+      "ring_id",
+      "ring_role"
+    ],
+    "exported_feature_matrix": "features_X.csv",
+    "exported_target_labels": "labels_y.csv"
+  },
+  "engineered_features_catalog": {
+    "time_gap_seconds": {
+      "level": "transaction",
+      "category": "Temporal Pattern",
+      "description": "Seconds elapsed since sender previous transaction",
+      "mean": 24001.394490161,
+      "median": 6153.0
+    },
+    "is_off_hours": {
+      "level": "transaction",
+      "category": "Temporal Pattern",
+      "description": "Binary flag for transactions between 11:00 PM and 5:59 AM",
+      "rate": 0.4781395348837209
+    },
+    "is_high_value": {
+      "level": "transaction",
+      "category": "Monetary Anomaly",
+      "description": "Binary flag for unusually large transactions (>= \u20b950,000 or 2.5x historical)",
+      "rate": 0.05352415026833632
+    },
+    "is_cross_bank": {
+      "level": "transaction",
+      "category": "Inter-Bank Flow",
+      "description": "Binary flag for inter-bank transactions",
+      "rate": 0.6567441860465116
+    },
+    "velocity_score": {
+      "level": "transaction",
+      "category": "Velocity Metric",
+      "description": "Normalized speed score combining frequency and short time gaps",
+      "mean": 0.3538272915921288
+    },
+    "transaction_risk_indicator": {
+      "level": "transaction",
+      "category": "Behavioral Risk",
+      "description": "Composite heuristic score for transaction suspicion",
+      "mean": 0.2833059033989267
+    },
+    "tx_frequency_total": {
+      "level": "account",
+      "category": "Volume",
+      "description": "Total combined inbound and outbound transactions",
+      "mean": 46.583333333333336,
+      "max": 99
+    },
+    "pass_through_ratio": {
+      "level": "account",
+      "category": "Mule Indicator",
+      "description": "Ratio of total money forwarded to total money received",
+      "mean": 402740008.0101629,
+      "mule_mean": 3020550050.440713
+    },
+    "min_turnaround_time_sec": {
+      "level": "account",
+      "category": "Temporal Velocity",
+      "description": "Minimum seconds between credit receipt and debit transfer",
+      "median": 1072.0,
+      "mule_median": 604800.0
+    },
+    "cross_bank_tx_ratio": {
+      "level": "account",
+      "category": "Inter-Bank Flow",
+      "description": "Fraction of account transactions crossing bank boundaries",
+      "mean": 0.682355
+    },
+    "behavioral_risk_score": {
+      "level": "account",
+      "category": "Behavioral Risk",
+      "description": "Composite heuristic anomaly score",
+      "mean": 0.476118,
+      "mule_mean": 0.45654625000000004
+    }
+  }
+}
