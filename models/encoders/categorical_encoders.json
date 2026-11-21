@@ -1,0 +1,33 @@
+{
+  "transaction_type": [
+    "HIGH_VALUE_NEFT",
+    "UPI_CROSS_BANK",
+    "UPI_MERCHANT",
+    "UPI_P2P"
+  ],
+  "transaction_status": [
+    "FLAGGED_SUSPICIOUS",
+    "SUCCESS"
+  ],
+  "sender_bank": [
+    "BANK_A",
+    "BANK_B",
+    "BANK_C"
+  ],
+  "receiver_bank": [
+    "BANK_A",
+    "BANK_B",
+    "BANK_C"
+  ],
+  "pattern_type": [
+    "ABNORMAL_OFF_HOURS",
+    "FREQUENT_MICRO_PAYMENT",
+    "HIGH_VALUE_COMMERCIAL",
+    "NORMAL_P2P",
+    "SUSPICIOUS_CIRCULAR_LAYERING",
+    "SUSPICIOUS_CROSS_BANK_CHAIN",
+    "SUSPICIOUS_FAN_IN_COLLECTOR",
+    "SUSPICIOUS_FAN_OUT_SPLITTER",
+    "SUSPICIOUS_RAPID_PASS_THROUGH"
+  ]
+}
