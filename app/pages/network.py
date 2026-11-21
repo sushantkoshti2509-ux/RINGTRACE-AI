@@ -1,6 +1,7 @@
 """
 RINGTRACE AI - Network & Mule Ring Graph Visualization Page.
-Interactive multi-hop transaction graph visualization using Plotly & NetworkX.
+Interactive multi-hop transaction graph visualization with clear visual legends,
+chronological laundering flow trails, and structural topology analysis.
 """
 
 import json
@@ -16,10 +17,19 @@ from src.graph.builder import TransactionGraphBuilder
 
 
 def render():
-    st.markdown('<h1 class="main-title">🕸️ Network & Mule Ring Graph Investigation</h1>', unsafe_allow_html=True)
-    st.markdown('<p class="sub-title">Explore coordinated cross-bank transaction paths, topologies, and multi-hop fund flows</p>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="top-banner">
+        <div class="top-title">
+            <span>🕸️ Network & Mule Ring Graph Investigation</span>
+            <span class="top-badge">NetworkX + Plotly</span>
+        </div>
+        <p class="top-desc">
+            Visualize coordinated transaction topologies, track multi-hop money laundering chains, and inspect cross-bank hops.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
-    # Load candidate rings
+    # Load candidate rings & data
     rings_path = config.REPORTS_DIR / "candidate_rings.json"
     acc_path = config.PROCESSED_DATA_DIR / "accounts.csv"
     tx_path = config.PROCESSED_DATA_DIR / "transactions.csv"
@@ -36,65 +46,100 @@ def render():
     transactions_df = pd.read_csv(tx_path)
     risk_scores_df = pd.read_csv(risk_path)
 
-    # Controls
-    col_ctrl1, col_ctrl2, col_ctrl3 = st.columns([2, 2, 2])
-    
-    with col_ctrl1:
+    # Ring Selector Bar
+    col_sel, col_stat1, col_stat2 = st.columns([3, 1, 1])
+
+    with col_sel:
         ring_options = [
-            f"{r['candidate_ring_id']} | Risk: {r['ring_risk_score']:.2f} | {r['topology_type']} ({len(r['member_accounts'])} accs)"
+            f"{r['candidate_ring_id']} • {r['topology_type']} • Risk: {r['ring_risk_score']:.2f} ({len(r['member_accounts'])} Accounts, ₹{r['total_volume']:,.0f})"
             for r in candidate_rings
         ]
         selected_ring_str = st.selectbox("Select Candidate Ring to Inspect:", ring_options)
-        selected_ring_id = selected_ring_str.split(" | ")[0]
+        selected_ring_id = selected_ring_str.split(" • ")[0]
 
-    # Find the selected ring dict
     ring_data = next((r for r in candidate_rings if r["candidate_ring_id"] == selected_ring_id), None)
     if not ring_data:
         st.error("Ring not found.")
         return
 
-    with col_ctrl2:
-        st.metric("Ring Risk Score", f"{ring_data['ring_risk_score']:.3f}", delta=ring_data["topology_type"])
+    with col_stat1:
+        st.metric("Ring Risk Score", f"{ring_data['ring_risk_score']:.2f}", delta="Critical Alert")
 
-    with col_ctrl3:
-        banks_str = ", ".join(ring_data["banks_involved"])
-        st.metric("Institutions Involved", banks_str, delta=f"Cross-Bank: {ring_data['is_cross_bank']}")
+    with col_stat2:
+        st.metric("Total Laundered", f"₹{ring_data['total_volume']:,.0f}", delta=f"{ring_data['hop_count']} Hops")
 
-    # Build Subgraph of the candidate ring
+    # Visual Legend Bar
+    st.markdown("""
+    <div style="background: white; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 16px; margin: 12px 0 16px 0; display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+        <span style="font-size: 0.82rem; font-weight: 700; color: #475569;">INSTITUTION LEGEND:</span>
+        <span class="bank-pill-a">🏦 Bank A (Primary)</span>
+        <span class="bank-pill-b">🏦 Bank B (Partner)</span>
+        <span class="bank-pill-c">🏦 Bank C (Partner)</span>
+        <span style="font-size: 0.82rem; font-weight: 700; color: #DC2626;">🔴 Red Outline = Flagged Mule Account</span>
+        <span style="font-size: 0.82rem; color: #64748B;">➡️ Gray Lines = Transaction Transfer Path</span>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Build Subgraph for the selected candidate ring
     member_set = set(ring_data["member_accounts"])
     builder = TransactionGraphBuilder()
     full_G = builder.build_graph(accounts_df, transactions_df)
     sub_G = full_G.subgraph(member_set)
 
-    # Graph Layout using spring layout
-    pos = nx.spring_layout(sub_G, seed=42, k=0.8)
+    # Layout using circular or spring for clarity
+    if ring_data["topology_type"] in ["FAN_OUT_SPLITTER", "FAN_IN_COLLECTOR"]:
+        pos = nx.spring_layout(sub_G, seed=42, k=1.2)
+    elif ring_data["topology_type"] == "CIRCULAR_LAYERING":
+        pos = nx.circular_layout(sub_G)
+    else:
+        pos = nx.spring_layout(sub_G, seed=42, k=1.0)
 
-    # Prepare Plotly Edge Traces
+    # Edge Traces
     edge_x = []
     edge_y = []
-    edge_text = []
+    edge_mid_x = []
+    edge_mid_y = []
+    edge_hover_text = []
 
     for u, v, d in sub_G.edges(data=True):
         x0, y0 = pos[u]
         x1, y1 = pos[v]
         edge_x.extend([x0, x1, None])
         edge_y.extend([y0, y1, None])
+        
+        # Midpoint for transfer amount label
+        mx = (x0 + x1) / 2
+        my = (y0 + y1) / 2
+        edge_mid_x.append(mx)
+        edge_mid_y.append(my)
         weight = d.get("weight", 0.0)
-        edge_text.append(f"₹{weight:,.2f}")
+        edge_hover_text.append(f"Transfer: ₹{weight:,.2f}")
 
     edge_trace = go.Scatter(
         x=edge_x,
         y=edge_y,
-        line=dict(width=2, color="#94A3B8"),
+        line=dict(width=2.5, color="#94A3B8"),
         hoverinfo="none",
         mode="lines",
     )
 
-    # Prepare Node Traces
+    edge_label_trace = go.Scatter(
+        x=edge_mid_x,
+        y=edge_mid_y,
+        mode="text",
+        text=edge_hover_text,
+        textposition="top center",
+        hoverinfo="none",
+        textfont=dict(size=10, color="#475569"),
+    )
+
+    # Node Traces
     node_x = []
     node_y = []
-    node_text = []
+    node_labels = []
+    node_hover = []
     node_colors = []
+    node_line_colors = []
     node_sizes = []
 
     bank_color_map = {
@@ -103,7 +148,6 @@ def render():
         "BANK_C": "#F59E0B",  # Orange
     }
 
-    # Get risk score lookup
     risk_map = dict(zip(risk_scores_df["account_id"], risk_scores_df["risk_score"]))
 
     for node in sub_G.nodes():
@@ -113,42 +157,46 @@ def render():
         
         node_bank = sub_G.nodes[node].get("bank_id", "BANK_A")
         score = risk_map.get(node, 0.5)
-        role = sub_G.nodes[node].get("ring_role", "MEMBER")
+        role = sub_G.nodes[node].get("ring_role", "MEMBER").replace("_", " ").title()
 
+        node_labels.append(f"{node}<br>({node_bank})")
         node_colors.append(bank_color_map.get(node_bank, "#64748B"))
-        node_sizes.append(25 + int(score * 20))
-        node_text.append(
+        node_sizes.append(38)
+        node_line_colors.append("#EF4444" if score >= 0.5 else "#FFFFFF")
+
+        node_hover.append(
             f"<b>{node}</b><br>"
             f"Bank: {node_bank}<br>"
             f"Role: {role}<br>"
-            f"Risk Score: {score:.3f}"
+            f"Risk Score: {score:.3f}<br>"
+            f"Status: FLAGGED MULE"
         )
 
     node_trace = go.Scatter(
         x=node_x,
         y=node_y,
         mode="markers+text",
-        text=[n for n in sub_G.nodes()],
-        textposition="top center",
+        text=node_labels,
+        textposition="bottom center",
         hoverinfo="text",
-        hovertext=node_text,
+        hovertext=node_hover,
         marker=dict(
             color=node_colors,
             size=node_sizes,
-            line=dict(width=2, color="#FFFFFF"),
+            line=dict(width=3.5, color=node_line_colors),
         ),
+        textfont=dict(size=11, color="#0F172A", family="Plus Jakarta Sans"),
     )
 
     fig = go.Figure(
-        data=[edge_trace, node_trace],
+        data=[edge_trace, edge_label_trace, node_trace],
         layout=go.Layout(
-            title=f"<b>Interactive Network Graph — {selected_ring_id}</b> ({ring_data['topology_type']})",
             showlegend=False,
             hovermode="closest",
-            margin=dict(b=20, l=20, r=20, t=40),
+            margin=dict(b=20, l=20, r=20, t=20),
             xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
             yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-            height=500,
+            height=460,
             paper_bgcolor="#F8FAFC",
             plot_bgcolor="#F8FAFC",
         ),
@@ -156,28 +204,46 @@ def render():
 
     st.plotly_chart(fig, use_container_width=True)
 
-    # Detailed Member Breakdown Table
-    st.subheader(f"📋 Member Accounts & Roles in {selected_ring_id}")
-    
-    # Filter transactions inside this ring
+    # Detailed Money Trail Timeline (Step-by-Step Flow)
+    st.subheader(f"⏱️ Chronological Laundering Money Trail ({selected_ring_id})")
+    st.caption("Step-by-step transfer sequencing showing how fast money hopped across institutions:")
+
     ring_txs = transactions_df[
         (transactions_df["sender_account"].isin(member_set)) &
         (transactions_df["receiver_account"].isin(member_set))
-    ].sort_values("timestamp")
+    ].sort_values("timestamp").reset_index(drop=True)
 
-    col_t1, col_t2 = st.columns([3, 2])
-    with col_t1:
-        st.markdown("**Internal Transaction Flow Sequence:**")
-        st.dataframe(
-            ring_txs[["timestamp", "sender_account", "sender_bank", "receiver_account", "receiver_bank", "amount", "transaction_type"]],
-            hide_index=True,
-            use_container_width=True,
-        )
+    if not ring_txs.empty:
+        # Render visual timeline steps
+        steps_cols = st.columns(min(len(ring_txs), 4))
+        for idx, row in ring_txs.iterrows():
+            col_target = steps_cols[idx % len(steps_cols)]
+            with col_target:
+                s_bank = row['sender_bank']
+                r_bank = row['receiver_bank']
+                is_cross = s_bank != r_bank
+                cross_tag = '<span class="badge-danger">Cross-Bank</span>' if is_cross else '<span class="badge-info">Internal</span>'
 
-    with col_t2:
-        st.markdown("**Network Structural Summary:**")
-        st.write(f"- **Total Flow Volume:** ₹{ring_data['total_volume']:,.2f}")
-        st.write(f"- **Longest Hop Depth:** {ring_data['hop_count']} hops")
-        st.write(f"- **Cross-Bank Transaction Count:** {ring_data['cross_bank_tx_count']}")
-        st.write(f"- **Cycle / Loop Detected:** {'Yes' if ring_data['has_cycles'] else 'No'}")
-        st.write(f"- **Banks Spanned:** {', '.join(ring_data['banks_involved'])}")
+                st.markdown(f"""
+                <div style="background: white; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; margin-bottom: 10px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                        <span style="font-size: 0.75rem; font-weight: 700; color: #64748B;">HOP #{idx+1}</span>
+                        {cross_tag}
+                    </div>
+                    <div style="font-size: 1.1rem; font-weight: 800; color: #0F172A;">₹{row['amount']:,.2f}</div>
+                    <div style="font-size: 0.8rem; color: #334155; margin-top: 4px;">
+                        <b>From:</b> {row['sender_account']} ({s_bank})<br>
+                        <b>To:</b> {row['receiver_account']} ({r_bank})
+                    </div>
+                    <div style="font-size: 0.72rem; color: #64748B; margin-top: 6px;">
+                        🕒 {row['timestamp']}
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+
+        with st.expander("📄 View Full Transaction Log for This Ring"):
+            st.dataframe(
+                ring_txs[["timestamp", "transaction_id", "sender_account", "sender_bank", "receiver_account", "receiver_bank", "amount", "transaction_type"]],
+                hide_index=True,
+                use_container_width=True,
+            )
