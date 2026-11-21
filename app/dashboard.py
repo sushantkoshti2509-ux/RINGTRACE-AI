@@ -14,7 +14,19 @@ PROJECT_ROOT = APP_DIR.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from app.views import overview, network, account, privacy, investigation, realtime, alerts, monitoring
+from app.views import (
+    overview,
+    network,
+    account,
+    privacy,
+    investigation,
+    realtime,
+    alerts,
+    monitoring,
+    network_explorer,
+    xai_view,
+    case_management,
+)
 
 st.set_page_config(
     page_title="RINGTRACE AI | Cross-Bank Fraud Defense",
@@ -242,13 +254,13 @@ def main():
             "EXPLORATION MODULES",
             [
                 "📊 Multi-Bank Monitoring Dashboard",
+                "🕸️ Fraud Network Explorer",
+                "💡 Explainable AI (XAI)",
+                "🕵️ Fraud Investigation Assistant",
                 "🚨 Fraud Alert & Notification Center",
                 "⚡ Real-Time Stream Scoring",
-                "🏛️ Executive Intelligence & Benchmarks",
-                "🕸️ Network & Mule Ring Graph",
-                "🔍 Account Deep-Dive & SHAP",
                 "🔐 Cross-Bank PSI Privacy",
-                "📋 Investigator Case Queue",
+                "🏛️ System Benchmarks & Architecture",
             ],
             index=0,
         )
@@ -257,29 +269,30 @@ def main():
         st.markdown("""
         <div style="font-size: 0.78rem; color: #64748B; line-height: 1.5;">
             <b>Investigator Context:</b><br>
-            • Synthetic Prototype v1.0<br>
-            • Privacy: Commutative DH-PSI<br>
-            • Engine: NetworkX + XGBoost<br>
+            • Platform: AI Mule Ring Defense<br>
+            • Feature 1: Cross-Bank NetworkX<br>
+            • Feature 2: SHAP Explainability<br>
+            • Feature 3: Case Assistant & PDF<br>
             • Ethics: Human-in-the-loop only
         </div>
         """, unsafe_allow_html=True)
 
     if page == "📊 Multi-Bank Monitoring Dashboard":
         monitoring.render()
+    elif page == "🕸️ Fraud Network Explorer":
+        network_explorer.render()
+    elif page == "💡 Explainable AI (XAI)":
+        xai_view.render()
+    elif page == "🕵️ Fraud Investigation Assistant":
+        case_management.render()
     elif page == "🚨 Fraud Alert & Notification Center":
         alerts.render()
     elif page == "⚡ Real-Time Stream Scoring":
         realtime.render()
-    elif page == "🏛️ Executive Intelligence & Benchmarks":
-        overview.render()
-    elif page == "🕸️ Network & Mule Ring Graph":
-        network.render()
-    elif page == "🔍 Account Deep-Dive & SHAP":
-        account.render()
     elif page == "🔐 Cross-Bank PSI Privacy":
         privacy.render()
-    elif page == "📋 Investigator Case Queue":
-        investigation.render()
+    elif page == "🏛️ System Benchmarks & Architecture":
+        overview.render()
 
 
 if __name__ == "__main__":

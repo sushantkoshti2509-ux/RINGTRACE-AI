@@ -68,7 +68,7 @@ class AccountFeatureEngine:
             avg_total = ((total_in + total_out) / tx_frequency_total) if tx_frequency_total > 0 else 0.0
 
             # Pass-through & Flow ratios
-            pass_through = total_out / (total_in + 1e-5)
+            pass_through = (total_out / total_in) if total_in > 0 else 0.0
             denom_flow = total_out + total_in + 1e-5
             net_flow = (total_out - total_in) / denom_flow
 

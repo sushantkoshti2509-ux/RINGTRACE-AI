@@ -129,6 +129,36 @@ class FraudAlertModel(Base):
     )
 
 
+class InvestigationCaseModel(Base):
+    """Investigation case dossiers generated from detected mule networks."""
+    __tablename__ = "investigation_cases"
+
+    case_id = Column(String(64), primary_key=True, index=True)
+    candidate_ring_id = Column(String(64), index=True, nullable=False)
+    title = Column(String(256), nullable=False)
+    risk_score = Column(Float, default=0.0)
+    risk_tier = Column(String(32), default="HIGH", index=True)
+    status = Column(String(32), default="Pending", index=True)  # Pending, Under Review, Escalated, Resolved, Closed
+    connected_accounts_count = Column(Integer, default=0)
+    banks_involved = Column(String(128), default="BANK_A,BANK_B,BANK_C")
+    total_volume = Column(Float, default=0.0)
+    transactions_count = Column(Integer, default=0)
+    detected_patterns = Column(Text, default="[]")
+    member_accounts = Column(Text, default="[]")
+    ai_summary = Column(Text, default="")
+    checklist_state = Column(Text, default="{}")
+    feedback = Column(Text, default="{}")
+    assigned_to = Column(String(64), nullable=True)
+    case_notes = Column(Text, default="[]")
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
+
+    __table_args__ = (
+        Index("idx_case_status_risk", "status", "risk_tier"),
+        Index("idx_case_ring", "candidate_ring_id"),
+    )
+
+
 class DatabaseManager:
     """Manages database connection, table initialization, and high-performance ingestion."""
 
@@ -505,6 +535,177 @@ class DatabaseManager:
             "assigned_to": r.assigned_to,
             "investigation_notes": json.loads(r.investigation_notes) if r.investigation_notes else [],
             "notified_channels": json.loads(r.notified_channels) if r.notified_channels else [],
+            "created_at": r.created_at.isoformat() if r.created_at else None,
+            "updated_at": r.updated_at.isoformat() if r.updated_at else None,
+        }
+
+    # -------------------------------------------------------------
+    # Feature 3: Fraud Investigation Case Management
+    # -------------------------------------------------------------
+    def save_investigation_case(self, case_dict: Dict[str, Any]) -> Tuple[Dict[str, Any], bool]:
+        """Saves an investigation case dossier with idempotency on case_id."""
+        c_id = str(case_dict.get("case_id", "")).strip()
+        with self.get_session() as session:
+            existing = session.query(InvestigationCaseModel).filter(InvestigationCaseModel.case_id == c_id).first()
+            if existing:
+                return self._case_model_to_dict(existing), False
+
+            patterns = case_dict.get("detected_patterns", [])
+            patterns_str = json.dumps(patterns) if isinstance(patterns, list) else str(patterns)
+            members = case_dict.get("member_accounts", [])
+            members_str = json.dumps(members) if isinstance(members, list) else str(members)
+            checklist = case_dict.get("checklist_state", {})
+            checklist_str = json.dumps(checklist) if isinstance(checklist, dict) else str(checklist)
+            feedback = case_dict.get("feedback", {})
+            feedback_str = json.dumps(feedback) if isinstance(feedback, dict) else str(feedback)
+            notes = case_dict.get("case_notes", [])
+            notes_str = json.dumps(notes) if isinstance(notes, list) else str(notes)
+
+            new_case = InvestigationCaseModel(
+                case_id=c_id,
+                candidate_ring_id=str(case_dict.get("candidate_ring_id", "RING_001")),
+                title=str(case_dict.get("title", f"Investigation Case {c_id}")),
+                risk_score=float(case_dict.get("risk_score", 0.0)),
+                risk_tier=str(case_dict.get("risk_tier", "HIGH")).upper(),
+                status=str(case_dict.get("status", "Pending")),
+                connected_accounts_count=int(case_dict.get("connected_accounts_count", len(members) if isinstance(members, list) else 0)),
+                banks_involved=str(case_dict.get("banks_involved", "BANK_A,BANK_B,BANK_C")),
+                total_volume=float(case_dict.get("total_volume", 0.0)),
+                transactions_count=int(case_dict.get("transactions_count", 0)),
+                detected_patterns=patterns_str,
+                member_accounts=members_str,
+                ai_summary=str(case_dict.get("ai_summary", "")),
+                checklist_state=checklist_str,
+                feedback=feedback_str,
+                assigned_to=case_dict.get("assigned_to"),
+                case_notes=notes_str,
+            )
+            session.add(new_case)
+            session.commit()
+            session.refresh(new_case)
+            return self._case_model_to_dict(new_case), True
+
+    def get_investigation_case(self, case_id: str) -> Optional[Dict[str, Any]]:
+        with self.get_session() as session:
+            obj = session.query(InvestigationCaseModel).filter(InvestigationCaseModel.case_id == case_id).first()
+            return self._case_model_to_dict(obj) if obj else None
+
+    def update_case_status(
+        self,
+        case_id: str,
+        new_status: str,
+        notes: Optional[str] = None,
+        updated_by: Optional[str] = None,
+    ) -> Optional[Dict[str, Any]]:
+        with self.get_session() as session:
+            obj = session.query(InvestigationCaseModel).filter(InvestigationCaseModel.case_id == case_id).first()
+            if not obj:
+                return None
+            obj.status = new_status
+            obj.updated_at = datetime.now(timezone.utc)
+            if updated_by:
+                obj.assigned_to = updated_by
+            if notes:
+                existing_notes = json.loads(obj.case_notes) if obj.case_notes else []
+                existing_notes.append({
+                    "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
+                    "author": updated_by or "Investigator",
+                    "status_change": new_status,
+                    "note": notes,
+                })
+                obj.case_notes = json.dumps(existing_notes)
+            session.commit()
+            session.refresh(obj)
+            return self._case_model_to_dict(obj)
+
+    def update_case_checklist(self, case_id: str, checklist_dict: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        with self.get_session() as session:
+            obj = session.query(InvestigationCaseModel).filter(InvestigationCaseModel.case_id == case_id).first()
+            if not obj:
+                return None
+            obj.checklist_state = json.dumps(checklist_dict)
+            obj.updated_at = datetime.now(timezone.utc)
+            session.commit()
+            session.refresh(obj)
+            return self._case_model_to_dict(obj)
+
+    def record_case_feedback(
+        self,
+        case_id: str,
+        feedback_status: str,
+        reason: str,
+        reviewed_by: Optional[str] = None,
+    ) -> Optional[Dict[str, Any]]:
+        with self.get_session() as session:
+            obj = session.query(InvestigationCaseModel).filter(InvestigationCaseModel.case_id == case_id).first()
+            if not obj:
+                return None
+            feedback_data = {
+                "decision": feedback_status.upper(),  # "CONFIRMED_FRAUD" or "CLEARED_FALSE_POSITIVE"
+                "reason": reason,
+                "reviewed_by": reviewed_by or "Investigator",
+                "recorded_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
+            }
+            obj.feedback = json.dumps(feedback_data)
+            obj.status = "Resolved" if feedback_status.upper() == "CONFIRMED_FRAUD" else "Closed"
+            obj.updated_at = datetime.now(timezone.utc)
+            session.commit()
+            session.refresh(obj)
+            return self._case_model_to_dict(obj)
+
+    def query_investigation_cases(
+        self,
+        status: Optional[str] = None,
+        risk_tier: Optional[str] = None,
+        limit: int = 50,
+        offset: int = 0,
+    ) -> List[Dict[str, Any]]:
+        with self.get_session() as session:
+            query = session.query(InvestigationCaseModel)
+            if status and status.upper() != "ALL":
+                query = query.filter(InvestigationCaseModel.status == status)
+            if risk_tier and risk_tier.upper() != "ALL":
+                query = query.filter(InvestigationCaseModel.risk_tier == risk_tier.upper())
+            rows = query.order_by(InvestigationCaseModel.created_at.desc()).offset(offset).limit(limit).all()
+            return [self._case_model_to_dict(r) for r in rows]
+
+    def get_investigation_case_stats(self) -> Dict[str, Any]:
+        with self.get_session() as session:
+            total = session.query(InvestigationCaseModel).count()
+            pending = session.query(InvestigationCaseModel).filter(InvestigationCaseModel.status == "Pending").count()
+            under_review = session.query(InvestigationCaseModel).filter(InvestigationCaseModel.status == "Under Review").count()
+            escalated = session.query(InvestigationCaseModel).filter(InvestigationCaseModel.status == "Escalated").count()
+            resolved = session.query(InvestigationCaseModel).filter(InvestigationCaseModel.status == "Resolved").count()
+            closed = session.query(InvestigationCaseModel).filter(InvestigationCaseModel.status == "Closed").count()
+            return {
+                "total_cases": total,
+                "pending": pending,
+                "under_review": under_review,
+                "escalated": escalated,
+                "resolved": resolved,
+                "closed": closed,
+            }
+
+    @staticmethod
+    def _case_model_to_dict(r: InvestigationCaseModel) -> Dict[str, Any]:
+        return {
+            "case_id": r.case_id,
+            "candidate_ring_id": r.candidate_ring_id,
+            "title": r.title,
+            "risk_score": r.risk_score,
+            "risk_tier": r.risk_tier,
+            "status": r.status,
+            "connected_accounts_count": r.connected_accounts_count,
+            "banks_involved": r.banks_involved.split(",") if r.banks_involved else [],
+            "total_volume": r.total_volume,
+            "transactions_count": r.transactions_count,
+            "detected_patterns": json.loads(r.detected_patterns) if r.detected_patterns else [],
+            "member_accounts": json.loads(r.member_accounts) if r.member_accounts else [],
+            "ai_summary": r.ai_summary,
+            "checklist_state": json.loads(r.checklist_state) if r.checklist_state else {},
+            "feedback": json.loads(r.feedback) if r.feedback else {},
+            "assigned_to": r.assigned_to,
+            "case_notes": json.loads(r.case_notes) if r.case_notes else [],
             "created_at": r.created_at.isoformat() if r.created_at else None,
             "updated_at": r.updated_at.isoformat() if r.updated_at else None,
         }
