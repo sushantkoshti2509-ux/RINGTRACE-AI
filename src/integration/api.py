@@ -20,11 +20,12 @@ from src.integration.schemas import (
 )
 from src.integration.db import DatabaseManager
 from src.integration.integrator import MultiBankDataIntegrator
+from src.realtime.api import router as realtime_router
 
 # Initialize FastAPI application
 app = FastAPI(
-    title="RINGTRACE AI - Multi-Bank Data Integration API",
-    description="Secure inter-bank transaction exchange and cross-bank ledger reconciliation service.",
+    title="RINGTRACE AI - Multi-Bank Data Integration & Real-Time Fraud Detection API",
+    description="Secure inter-bank transaction exchange, cross-bank reconciliation, and real-time fraud scoring service.",
     version="1.0.0",
 )
 
@@ -36,6 +37,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Mount Real-Time Fraud Detection Router
+app.include_router(realtime_router)
 
 # Shared instances
 db_manager = DatabaseManager()

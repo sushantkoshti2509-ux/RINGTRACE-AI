@@ -6,6 +6,7 @@ PostgreSQL (production) and zero-configuration SQLite (local prototype).
 
 from typing import List, Optional, Dict, Any
 from datetime import datetime, timezone
+import json
 import os
 import pandas as pd
 from sqlalchemy import (
@@ -78,6 +79,25 @@ class ReconciliationLogModel(Base):
     discrepancy_type = Column(String(64), nullable=False)
     details = Column(Text, nullable=False)
     logged_at = Column(String(32), nullable=False)
+
+
+class RealtimeDetectionLogModel(Base):
+    """Audit log table for real-time transaction fraud predictions."""
+    __tablename__ = "realtime_detection_logs"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    transaction_id = Column(String(64), index=True, nullable=False)
+    bank_id = Column(String(32), index=True, nullable=False)
+    sender_account = Column(String(64), index=True, nullable=False)
+    receiver_account = Column(String(64), index=True, nullable=False)
+    amount = Column(Float, nullable=False)
+    timestamp = Column(String(32), index=True, nullable=False)
+    fraud_probability = Column(Float, nullable=False)
+    risk_level = Column(String(32), index=True, nullable=False)  # Low, Medium, High
+    status = Column(String(32), index=True, nullable=False)      # Normal, Review Required, Suspicious
+    trigger_reasons = Column(String(512), default="[]")
+    latency_ms = Column(Float, default=0.0)
+    processed_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
 
 class DatabaseManager:
@@ -229,6 +249,63 @@ class DatabaseManager:
                     "primary_source_bank": r.primary_source_bank,
                     "reconciliation_status": r.reconciliation_status,
                     "is_cross_bank": r.is_cross_bank,
+                }
+                for r in rows
+            ]
+
+    def save_realtime_log(self, log_dict: Dict[str, Any]):
+        """Persists a real-time transaction detection event into the audit table."""
+        with self.get_session() as session:
+            obj = RealtimeDetectionLogModel(
+                transaction_id=str(log_dict.get("transaction_id")),
+                bank_id=str(log_dict.get("bank_id", "BANK_A")),
+                sender_account=str(log_dict.get("sender_account")),
+                receiver_account=str(log_dict.get("receiver_account")),
+                amount=float(log_dict.get("amount", 0.0)),
+                timestamp=str(log_dict.get("timestamp")),
+                fraud_probability=float(log_dict.get("fraud_probability", 0.0)),
+                risk_level=str(log_dict.get("risk_level", "Low")),
+                status=str(log_dict.get("status", "Normal")),
+                trigger_reasons=json.dumps(log_dict.get("trigger_reasons", [])),
+                latency_ms=float(log_dict.get("latency_ms", 0.0)),
+            )
+            session.add(obj)
+            session.commit()
+
+    def query_realtime_logs(
+        self,
+        bank_id: Optional[str] = None,
+        risk_level: Optional[str] = None,
+        status: Optional[str] = None,
+        limit: int = 100,
+        offset: int = 0,
+    ) -> List[Dict[str, Any]]:
+        """Queries real-time detection logs with optional filtering."""
+        with self.get_session() as session:
+            query = session.query(RealtimeDetectionLogModel)
+            if bank_id:
+                query = query.filter(RealtimeDetectionLogModel.bank_id == bank_id.upper())
+            if risk_level:
+                query = query.filter(RealtimeDetectionLogModel.risk_level == risk_level.capitalize())
+            if status:
+                query = query.filter(RealtimeDetectionLogModel.status == status)
+
+            rows = query.order_by(RealtimeDetectionLogModel.id.desc()).offset(offset).limit(limit).all()
+            return [
+                {
+                    "id": r.id,
+                    "transaction_id": r.transaction_id,
+                    "bank_id": r.bank_id,
+                    "sender_account": r.sender_account,
+                    "receiver_account": r.receiver_account,
+                    "amount": r.amount,
+                    "timestamp": r.timestamp,
+                    "fraud_probability": r.fraud_probability,
+                    "risk_level": r.risk_level,
+                    "status": r.status,
+                    "trigger_reasons": json.loads(r.trigger_reasons) if r.trigger_reasons else [],
+                    "latency_ms": r.latency_ms,
+                    "processed_at": r.processed_at.isoformat() if r.processed_at else None,
                 }
                 for r in rows
             ]
