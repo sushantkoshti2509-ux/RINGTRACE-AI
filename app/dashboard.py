@@ -14,7 +14,7 @@ PROJECT_ROOT = APP_DIR.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from app.views import overview, network, account, privacy, investigation, realtime, alerts
+from app.views import overview, network, account, privacy, investigation, realtime, alerts, monitoring
 
 st.set_page_config(
     page_title="RINGTRACE AI | Cross-Bank Fraud Defense",
@@ -241,9 +241,10 @@ def main():
         page = st.radio(
             "EXPLORATION MODULES",
             [
-                "📊 Executive Overview",
+                "📊 Multi-Bank Monitoring Dashboard",
                 "🚨 Fraud Alert & Notification Center",
                 "⚡ Real-Time Stream Scoring",
+                "🏛️ Executive Intelligence & Benchmarks",
                 "🕸️ Network & Mule Ring Graph",
                 "🔍 Account Deep-Dive & SHAP",
                 "🔐 Cross-Bank PSI Privacy",
@@ -263,12 +264,14 @@ def main():
         </div>
         """, unsafe_allow_html=True)
 
-    if page == "📊 Executive Overview":
-        overview.render()
+    if page == "📊 Multi-Bank Monitoring Dashboard":
+        monitoring.render()
     elif page == "🚨 Fraud Alert & Notification Center":
         alerts.render()
     elif page == "⚡ Real-Time Stream Scoring":
         realtime.render()
+    elif page == "🏛️ Executive Intelligence & Benchmarks":
+        overview.render()
     elif page == "🕸️ Network & Mule Ring Graph":
         network.render()
     elif page == "🔍 Account Deep-Dive & SHAP":
