@@ -14,7 +14,7 @@ PROJECT_ROOT = APP_DIR.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from app.pages import overview, network, account, privacy, investigation
+from app.views import overview, network, account, privacy, investigation
 
 st.set_page_config(
     page_title="RINGTRACE AI | Cross-Bank Fraud Defense",
