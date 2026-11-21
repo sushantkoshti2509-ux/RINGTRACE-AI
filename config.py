@@ -16,6 +16,7 @@ PROCESSED_DATA_DIR = DATA_DIR / "processed"
 SYNTHETIC_DATA_DIR = DATA_DIR / "synthetic"
 MODELS_DIR = PROJECT_ROOT / "models"
 REPORTS_DIR = PROJECT_ROOT / "reports"
+FIGURES_DIR = REPORTS_DIR / "figures"
 DOCS_DIR = PROJECT_ROOT / "docs"
 
 # Database Configuration (Defaults to local SQLite; override with DATABASE_URL for PostgreSQL)
@@ -30,6 +31,7 @@ for directory in [
     SYNTHETIC_DATA_DIR,
     MODELS_DIR,
     REPORTS_DIR,
+    FIGURES_DIR,
     DOCS_DIR,
 ]:
     directory.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,339 @@
+{
+  "overall_performance": {
+    "threshold": 0.5,
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "false_positive_rate": 0.0,
+    "false_negative_rate": 0.0,
+    "pr_auc": 1.0,
+    "roc_auc": 1.0,
+    "true_positives": 80,
+    "false_positives": 0,
+    "true_negatives": 520,
+    "false_negatives": 0,
+    "confusion_matrix": {
+      "TN": 520,
+      "FP": 0,
+      "FN": 0,
+      "TP": 80
+    }
+  },
+  "profile_false_positive_analysis": {
+    "GIG_WORKER": {
+      "total_accounts": 104,
+      "legitimate_count": 104,
+      "false_positives": 0,
+      "profile_fpr": 0.0,
+      "avg_risk_score": 0.0027
+    },
+    "MERCHANT": {
+      "total_accounts": 102,
+      "legitimate_count": 102,
+      "false_positives": 0,
+      "profile_fpr": 0.0,
+      "avg_risk_score": 0.0027
+    },
+    "MULE_SUSPECT": {
+      "total_accounts": 80,
+      "legitimate_count": 0,
+      "false_positives": 0,
+      "profile_fpr": 0.0,
+      "avg_risk_score": 0.9935
+    },
+    "REGULAR_P2P": {
+      "total_accounts": 82,
+      "legitimate_count": 82,
+      "false_positives": 0,
+      "profile_fpr": 0.0,
+      "avg_risk_score": 0.0028
+    },
+    "SALARIED": {
+      "total_accounts": 156,
+      "legitimate_count": 156,
+      "false_positives": 0,
+      "profile_fpr": 0.0,
+      "avg_risk_score": 0.0027
+    },
+    "STUDENT_FIRST_TIME": {
+      "total_accounts": 76,
+      "legitimate_count": 76,
+      "false_positives": 0,
+      "profile_fpr": 0.0,
+      "avg_risk_score": 0.0027
+    }
+  },
+  "bank_slices": {
+    "BANK_A": {
+      "threshold": 0.5,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "true_positives": 26,
+      "false_positives": 0,
+      "true_negatives": 174,
+      "false_negatives": 0,
+      "confusion_matrix": {
+        "TN": 174,
+        "FP": 0,
+        "FN": 0,
+        "TP": 26
+      },
+      "total_accounts": 200,
+      "mule_count": 26
+    },
+    "BANK_B": {
+      "threshold": 0.5,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "true_positives": 25,
+      "false_positives": 0,
+      "true_negatives": 173,
+      "false_negatives": 0,
+      "confusion_matrix": {
+        "TN": 173,
+        "FP": 0,
+        "FN": 0,
+        "TP": 25
+      },
+      "total_accounts": 198,
+      "mule_count": 25
+    },
+    "BANK_C": {
+      "threshold": 0.5,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "true_positives": 29,
+      "false_positives": 0,
+      "true_negatives": 173,
+      "false_negatives": 0,
+      "confusion_matrix": {
+        "TN": 173,
+        "FP": 0,
+        "FN": 0,
+        "TP": 29
+      },
+      "total_accounts": 202,
+      "mule_count": 29
+    }
+  },
+  "error_analysis": {
+    "false_positive_count": 0,
+    "false_negative_count": 0,
+    "false_positives": [],
+    "false_negatives": []
+  },
+  "threshold_optimization": {
+    "optimal_cost_threshold": 0.1,
+    "optimal_f1_score": 1.0,
+    "minimum_expected_cost": 0.0,
+    "cost_weights": {
+      "cost_fp": 1.0,
+      "cost_fn": 5.0
+    },
+    "sweep_curve": [
+      {
+        "threshold": 0.1,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.15,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.2,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.25,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.3,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.35,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.4,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.45,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.5,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.55,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.6,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.65,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.7,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.75,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.8,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.85,
+        "f1_score": 1.0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "expected_cost": 0.0
+      },
+      {
+        "threshold": 0.9,
+        "f1_score": 0.9873,
+        "false_positives": 0,
+        "false_negatives": 2,
+        "expected_cost": 10.0
+      }
+    ]
+  },
+  "comparative_experiments": {
+    "Experiment_A_Isolated_Banks": {
+      "threshold": 0.5,
+      "accuracy": 0.2517,
+      "precision": 0.1211,
+      "recall": 0.7375,
+      "f1_score": 0.2081,
+      "false_positive_rate": 0.8231,
+      "false_negative_rate": 0.2625,
+      "pr_auc": 0.1832,
+      "roc_auc": 0.5122,
+      "true_positives": 59,
+      "false_positives": 428,
+      "true_negatives": 92,
+      "false_negatives": 21,
+      "confusion_matrix": {
+        "TN": 92,
+        "FP": 428,
+        "FN": 21,
+        "TP": 59
+      }
+    },
+    "Experiment_B_Combined_Graph": {
+      "threshold": 0.5,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "true_positives": 80,
+      "false_positives": 0,
+      "true_negatives": 520,
+      "false_negatives": 0,
+      "confusion_matrix": {
+        "TN": 520,
+        "FP": 0,
+        "FN": 0,
+        "TP": 80
+      }
+    },
+    "Experiment_C_Combined_Graph_With_PSI": {
+      "threshold": 0.5,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "true_positives": 80,
+      "false_positives": 0,
+      "true_negatives": 520,
+      "false_negatives": 0,
+      "confusion_matrix": {
+        "TN": 520,
+        "FP": 0,
+        "FN": 0,
+        "TP": 80
+      }
+    }
+  }
+}
