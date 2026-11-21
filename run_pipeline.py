@@ -45,13 +45,25 @@ def run_full_pipeline(verbose: bool = True):
     print("=" * 75)
 
     # ---------------------------------------------------------
-    # Step 1: Synthetic Data Generation
+    # Step 1: Multi-Source Data Strategy & 3-Bank UPI Generation
     # ---------------------------------------------------------
-    print("\n[Step 1/10] Simulating 3-Bank UPI Ecosystem (Bank A, Bank B, Bank C)...")
+    print("\n[Step 1/10] Multi-Source Data Strategy: Generating Benchmarks (IBM AMLSim, AML-Data, PaySim) & 3-Bank UPI...")
+    from src.data_sources.manager import MultiSourceDataManager
+    data_mgr = MultiSourceDataManager()
+    benchmarks_info = data_mgr.generate_all_benchmark_sources()
+    print(f"  ✓ IBM AMLSim benchmark generated: {benchmarks_info['IBM_AMLSIM']['accounts']} accounts, {benchmarks_info['IBM_AMLSIM']['transactions']} txs, {benchmarks_info['IBM_AMLSIM']['alerts']} alert patterns.")
+    print(f"  ✓ IBM AML-Data benchmark generated: {benchmarks_info['IBM_AMLDATA']['transactions']} transactions.")
+    print(f"  ✓ PaySim benchmark generated: {benchmarks_info['PAYSIM']['transactions']} transactions.")
+
+    # Save benchmark source comparison summary
+    source_summary = data_mgr.get_source_comparison_summary()
+    source_summary.to_json(config.REPORTS_DIR / "data_sources_benchmark.json", orient="records", indent=2)
+
+    # Primary Indian UPI 3-Bank Dataset Generation
     accounts_df, transactions_df, mule_rings_df, bank_ledgers = run_simulation(save_files=True)
-    print(f"  ✓ Created {len(accounts_df)} accounts ({accounts_df['is_mule'].sum()} synthetic mules).")
-    print(f"  ✓ Created {len(transactions_df)} transactions across 7 days.")
-    print(f"  ✓ Created {len(mule_rings_df)} ground-truth mule rings.")
+    print(f"  ✓ Primary Indian 3-Bank UPI: {len(accounts_df)} accounts ({accounts_df['is_mule'].sum()} synthetic mules).")
+    print(f"  ✓ Primary Transactions: {len(transactions_df)} transactions across 7 days.")
+    print(f"  ✓ Primary Mule Rings: {len(mule_rings_df)} ground-truth mule rings.")
 
     # ---------------------------------------------------------
     # Step 2: Preprocessing and Validation

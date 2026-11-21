@@ -10,6 +10,12 @@
   "three_way_intersection_count": 3,
   "three_way_entities": [
     {
+      "canonical_token": "63ec999698bb748e43e81a3a03dffec74edfb82dc92540184164e859e1cd0868",
+      "BANK_A_account": "BANK_MULE_03_01",
+      "BANK_B_account": "BANK_MULE_03_05",
+      "BANK_C_account": "BANK_MULE_03_03"
+    },
+    {
       "canonical_token": "847c150d49798b88527e884e57a828ebfc11baa6f6f15ba65d633977b1ef0716",
       "BANK_A_account": "BANK_MULE_02_01",
       "BANK_B_account": "BANK_MULE_02_02",
@@ -20,12 +26,6 @@
       "BANK_A_account": "BANK_MULE_01_01",
       "BANK_B_account": "BANK_MULE_01_02",
       "BANK_C_account": "BANK_MULE_01_03"
-    },
-    {
-      "canonical_token": "63ec999698bb748e43e81a3a03dffec74edfb82dc92540184164e859e1cd0868",
-      "BANK_A_account": "BANK_MULE_03_01",
-      "BANK_B_account": "BANK_MULE_03_05",
-      "BANK_C_account": "BANK_MULE_03_03"
     }
   ],
   "pairwise_details": {

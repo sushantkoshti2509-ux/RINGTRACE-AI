@@ -282,3 +282,73 @@ def render():
                     <span class="badge-success">0 False Positives (0.0% FPR)</span>
                 </div>
                 """, unsafe_allow_html=True)
+
+    st.markdown("---")
+
+    # Section 4: Multi-Source Data Strategy & Core 5 Generated Deliverables
+    st.markdown("""
+    <div style="background: white; border: 1px solid #E2E8F0; border-radius: 12px; padding: 20px; margin-top: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <div>
+                <h3 style="margin: 0; font-size: 1.25rem; font-weight: 800; color: #0F172A;">
+                    📁 Multi-Source Data Strategy & Core Generated Artifacts
+                </h3>
+                <p style="margin: 4px 0 0 0; font-size: 0.88rem; color: #64748B;">
+                    Integrating academic AML graph simulators, multi-bank benchmarks, mobile money baselines, and our 3-bank Indian UPI engine.
+                </p>
+            </div>
+            <span class="badge-success">4 Data Sources Synchronized</span>
+        </div>
+    """, unsafe_allow_html=True)
+
+    tab_src1, tab_src2, tab_src3, tab_src4 = st.tabs([
+        "🏦 Our 3-Bank UPI Simulator (Primary)",
+        "🌐 IBM AMLSim (Graph Benchmark)",
+        "💳 IBM AML-Data (Tabular Benchmark)",
+        "📱 PaySim (Mobile Money Baseline)",
+    ])
+
+    with tab_src1:
+        st.markdown("""
+        **Core Engine (Our Simulator):**
+        - **Target:** Indian Digital Payments (UPI / IMPS across Bank A, Bank B, and Bank C).
+        - **Simulates:** Coordinated cross-bank laundering, split-and-forward smurfing, and fast turnaround velocities (< 15 mins).
+        - **Unique Strength:** Eliminates single-bank blindspots while modeling genuine gig workers and merchants to prevent false alarms.
+        """)
+
+    with tab_src2:
+        st.markdown("""
+        **IBM AMLSim Benchmark ([GitHub](https://github.com/IBM/AMLSim)):**
+        - **Target:** Complex graph topologies (Cycles, FanIn, FanOut, Bipartite, Stack patterns).
+        - **Role in RINGTRACE:** Used as our primary academic graph-topology reference to benchmark ring detection and SAR patterns.
+        - **Limitation:** A simulator requiring custom configuration; not specifically tailored to Indian UPI real-time flows.
+        """)
+
+    with tab_src3:
+        st.markdown("""
+        **IBM AML-Data Benchmark ([GitHub](https://github.com/IBM/AML-Data)):**
+        - **Target:** Multi-bank financial transactions across international currencies (Wire/ACH).
+        - **Role in RINGTRACE:** Used for testing cross-currency tabular ML models and transaction feature sensitivity.
+        - **Limitation:** Lower temporal granularity than real-time UPI messaging.
+        """)
+
+    with tab_src4:
+        st.markdown("""
+        **PaySim Mobile Money Dataset ([Kaggle](https://www.kaggle.com/datasets/ealaxi/paysim1)):**
+        - **Target:** Synthetic mobile money transfers and cash-out operations.
+        - **Role in RINGTRACE:** Used as a transaction-level fraud scoring baseline.
+        - **Limitation:** Represents single-entity mobile money (African MFS), lacking cross-bank relationships and multi-hop mule rings.
+        """)
+
+    st.markdown("##### 📄 Standardized Deliverables Produced by RINGTRACE AI")
+    st.caption("All pipelines cleanly generate the 5 mandated core project deliverables:")
+
+    files_summary = [
+        {"File": "accounts.csv", "Contains": "Account ID, bank ID, account age, profile type, canonical entity", "Location": "data/processed/accounts.csv", "Rows": f"{len(accounts):,}"},
+        {"File": "transactions.csv", "Contains": "Sender, receiver, amount, timestamp, bank, transaction type", "Location": "data/processed/transactions.csv", "Rows": f"{len(transactions):,}"},
+        {"File": "mule_rings.csv", "Contains": "Known synthetic suspicious ring members, topology type, total volume", "Location": "data/synthetic/mule_rings.csv", "Rows": f"{len(candidate_rings):,}"},
+        {"File": "features.csv", "Contains": "Fan-in, fan-out, velocity, pass-through ratio, turnaround seconds", "Location": "data/processed/features.csv", "Rows": f"{len(accounts):,}"},
+        {"File": "risk_scores.csv", "Contains": "Model-generated account risk probabilities & operational tiers", "Location": "data/processed/risk_scores.csv", "Rows": f"{len(risk_scores):,}"},
+    ]
+    st.dataframe(pd.DataFrame(files_summary), hide_index=True, use_container_width=True)
+    st.markdown("</div>", unsafe_allow_html=True)

@@ -61,7 +61,29 @@ Evaluating detection rates across legitimate profiles to guarantee that gig work
 | **STUDENT_FIRST_TIME** | 63 | 63 | 0 | 0.0000 |
 
 ---
-## 5. Human-in-the-Loop Safeguards
+## 5. Multi-Source Data Strategy & Benchmark Alignment
+
+RINGTRACE AI incorporates four complementary data sources to validate graph algorithms, machine learning models, and privacy protocols:
+
+| Data Source | Strategic Role | Target Ecosystem | Cross-Bank Topology | Key Purpose in RINGTRACE AI |
+|---|---|---|---|---|
+| **Our Own Simulator (Primary)** | Core Detection Engine | Indian UPI (Bank A, B, C) | Multi-Bank (3 Banks) | Evaluates cross-bank multi-hop chains, rapid pass-throughs, and false-positive resilience across gig workers and merchants. |
+| **IBM AMLSim** | Graph Pattern Benchmark | Synthetic Global Banking | Multi-Entity Graphs | Main graph and mule-ring baseline testing on known patterns (Cycle, FanIn, FanOut, Bipartite, Stack). |
+| **IBM AML-Data** | Tabular Pattern Benchmark | Multi-Bank Wire / ACH | Multi-Bank | Additional AML model training, multi-currency testing, and feature sensitivity analysis. |
+| **PaySim** | Transaction Fraud Baseline | Mobile Money Services | Single Provider | Transaction-level baseline testing for cash-in/out and transfer fraud scoring. |
+
+---
+## 6. Core Standardized Deliverables Verification
+
+All four pipelines produce the mandatory 5 standardized artifacts:
+1. `accounts.csv`: Account ID, bank ID, account age, profile, canonical entity reference.
+2. `transactions.csv`: Sender, receiver, amount, timestamp, bank, transaction type.
+3. `mule_rings.csv`: Known synthetic suspicious ring members, topology type, total amount.
+4. `features.csv`: Fan-in, fan-out, velocity, pass-through ratio, turnaround times.
+5. `risk_scores.csv`: Model-generated account risk probabilities and operational tiers.
+
+---
+## 7. Human-in-the-Loop Safeguards
 1. Alerts generate ranked risk probabilities with explainable SHAP feature contributions and graph path evidence.
 2. No automatic account freezes or payment blocks are executed.
 3. Every high-risk candidate ring requires human investigator review and validation.

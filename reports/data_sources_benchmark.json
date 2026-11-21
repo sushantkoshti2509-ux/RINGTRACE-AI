@@ -1,0 +1,42 @@
+[
+  {
+    "Source Key":"OUR_UPI_SIMULATOR",
+    "Data Source":"Our 3-Bank Indian UPI Simulator",
+    "Strategic Role":"Primary Engine: Cross-bank mule ring detection across Bank A, Bank B, and Bank C.",
+    "Target Ecosystem":"Indian Digital Payments (UPI \/ IMPS)",
+    "Cross-Bank Visibility":"\u2705 Multi-Bank",
+    "Key Suspicious Patterns":"Rapid Pass-Through, Fan-Out Splitter, Fan-In Collector",
+    "Key Strength":"Directly models cross-bank multi-hop blindspots, sub-minute turnaround velocity, and genuine Indian UPI profiles.",
+    "Known Limitation":"Synthetic simulation (does not connect to live NPCI\/UPI APIs)."
+  },
+  {
+    "Source Key":"IBM_AMLSIM",
+    "Data Source":"IBM AMLSim",
+    "Strategic Role":"Graph Benchmark: Evaluating complex graph laundering topologies.",
+    "Target Ecosystem":"Synthetic Global Banking",
+    "Cross-Bank Visibility":"\u2705 Multi-Bank",
+    "Key Suspicious Patterns":"Cycle, FanIn, FanOut",
+    "Key Strength":"Well-studied in academic AML graph research; provides SAR alert labels.",
+    "Known Limitation":"A simulator engine requiring custom compilation; not configured for Indian UPI payment dynamics."
+  },
+  {
+    "Source Key":"IBM_AMLDATA",
+    "Data Source":"IBM AML-Data",
+    "Strategic Role":"Tabular Benchmark: Multi-bank cross-currency transaction patterns.",
+    "Target Ecosystem":"International Wire & Banking",
+    "Cross-Bank Visibility":"\u2705 Multi-Bank",
+    "Key Suspicious Patterns":"Multi-Hop Wire Layering, Currency Smurfing",
+    "Key Strength":"Captures inter-bank payments and multiple currency formats.",
+    "Known Limitation":"Tabular format with lower temporal resolution compared to real-time UPI."
+  },
+  {
+    "Source Key":"PAYSIM",
+    "Data Source":"PaySim (Mobile Money)",
+    "Strategic Role":"Baseline: Mobile money transaction fraud scoring.",
+    "Target Ecosystem":"African Mobile Financial Services (MFS)",
+    "Cross-Bank Visibility":"\u274c Single-Entity",
+    "Key Suspicious Patterns":"Transfer to Cash-Out Pair",
+    "Key Strength":"Very large public Kaggle dataset; standard baseline for transaction-level fraud.",
+    "Known Limitation":"Single-institution mobile wallet; lacks cross-bank relationships and multi-hop mule rings."
+  }
+]
