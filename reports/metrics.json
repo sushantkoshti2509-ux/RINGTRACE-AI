@@ -9,7 +9,7 @@
     "roc_auc": 1.0,
     "true_positives": 80,
     "false_positives": 0,
-    "true_negatives": 516,
+    "true_negatives": 520,
     "false_negatives": 0
   },
   "ring_level_detection": {
@@ -23,25 +23,25 @@
   },
   "profile_false_positive_analysis": {
     "GIG_WORKER": {
-      "total_accounts": 103,
-      "legitimate_count": 103,
+      "total_accounts": 104,
+      "legitimate_count": 104,
       "false_positives": 0,
       "profile_fpr": 0.0,
-      "avg_risk_score": 0.0029
+      "avg_risk_score": 0.0027
     },
     "MERCHANT": {
       "total_accounts": 102,
       "legitimate_count": 102,
       "false_positives": 0,
       "profile_fpr": 0.0,
-      "avg_risk_score": 0.0028
+      "avg_risk_score": 0.0027
     },
     "MULE_SUSPECT": {
       "total_accounts": 80,
       "legitimate_count": 0,
       "false_positives": 0,
       "profile_fpr": 0.0,
-      "avg_risk_score": 0.997
+      "avg_risk_score": 0.9965
     },
     "REGULAR_P2P": {
       "total_accounts": 82,
@@ -51,33 +51,33 @@
       "avg_risk_score": 0.0028
     },
     "SALARIED": {
-      "total_accounts": 154,
-      "legitimate_count": 154,
+      "total_accounts": 156,
+      "legitimate_count": 156,
       "false_positives": 0,
       "profile_fpr": 0.0,
-      "avg_risk_score": 0.0028
+      "avg_risk_score": 0.0027
     },
     "STUDENT_FIRST_TIME": {
-      "total_accounts": 75,
-      "legitimate_count": 75,
+      "total_accounts": 76,
+      "legitimate_count": 76,
       "false_positives": 0,
       "profile_fpr": 0.0,
-      "avg_risk_score": 0.003
+      "avg_risk_score": 0.0031
     }
   },
   "comparative_experiments": {
     "Experiment_A_Isolated_Banks": {
       "threshold": 0.5,
-      "precision": 0.1467,
-      "recall": 0.8875,
-      "f1_score": 0.2518,
-      "false_positive_rate": 0.8004,
-      "pr_auc": 0.2481,
-      "roc_auc": 0.592,
-      "true_positives": 71,
-      "false_positives": 413,
-      "true_negatives": 103,
-      "false_negatives": 9
+      "precision": 0.1211,
+      "recall": 0.7375,
+      "f1_score": 0.2081,
+      "false_positive_rate": 0.8231,
+      "pr_auc": 0.1832,
+      "roc_auc": 0.5122,
+      "true_positives": 59,
+      "false_positives": 428,
+      "true_negatives": 92,
+      "false_negatives": 21
     },
     "Experiment_B_Combined_Graph": {
       "threshold": 0.5,
@@ -89,7 +89,7 @@
       "roc_auc": 1.0,
       "true_positives": 80,
       "false_positives": 0,
-      "true_negatives": 516,
+      "true_negatives": 520,
       "false_negatives": 0
     },
     "Experiment_C_Combined_Graph_With_PSI": {
@@ -102,9 +102,9 @@
       "roc_auc": 1.0,
       "true_positives": 80,
       "false_positives": 0,
-      "true_negatives": 516,
+      "true_negatives": 520,
       "false_negatives": 0
     }
   },
-  "pipeline_execution_time_sec": 6.01
+  "pipeline_execution_time_sec": 7.2
 }
