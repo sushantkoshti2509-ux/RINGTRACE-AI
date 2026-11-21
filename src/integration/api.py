@@ -21,6 +21,7 @@ from src.integration.schemas import (
 from src.integration.db import DatabaseManager
 from src.integration.integrator import MultiBankDataIntegrator
 from src.realtime.api import router as realtime_router
+from src.alerts.api import router as alerts_router
 
 # Initialize FastAPI application
 app = FastAPI(
@@ -38,8 +39,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount Real-Time Fraud Detection Router
+# Mount Real-Time Fraud Detection and Alert Routers
 app.include_router(realtime_router)
+app.include_router(alerts_router)
 
 # Shared instances
 db_manager = DatabaseManager()
