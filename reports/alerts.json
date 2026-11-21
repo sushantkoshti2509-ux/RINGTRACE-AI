@@ -1,126 +1,94 @@
 [
   {
-    "account_id": "BANK_MULE_00054",
+    "account_id": "BANK_MULE_00025",
     "bank_id": "BANK_A",
-    "risk_score": 0.998199999332428,
+    "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00054 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00054 received \u20b9227,028.85 from 1 sources and forwarded \u20b9219,862.20 (pass-through: 96.8%) within 5.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "executive_summary": "Account BANK_MULE_00025 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00025 received \u20b9153,847.39 from 1 sources and forwarded \u20b9147,836.37 (pass-through: 96.1%) within 16.0 minutes across 1 destinations. 50% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (227028.85) contributed +0.191 to risk score."
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (150841.88) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
     ],
     "graph_evidence": {
       "in_degree": 1,
       "out_degree": 1,
-      "total_in": 227028.85,
-      "total_out": 219862.2,
-      "pass_through_ratio": 0.9684,
-      "min_turnaround_seconds": 300.0,
-      "cross_bank_ratio": 1.0
+      "total_in": 153847.39,
+      "total_out": 147836.37,
+      "pass_through_ratio": 0.9609,
+      "min_turnaround_seconds": 960.0,
+      "cross_bank_ratio": 0.5
     },
     "inbound_counterparties": [
       {
-        "sender": "BANK_MULE_00053",
+        "sender": "BANK_MULE_00024",
         "sender_bank": "BANK_C",
-        "amount": 227028.85,
+        "amount": 153847.39,
         "tx_count": 1
       }
     ],
     "outbound_counterparties": [
       {
-        "receiver": "BANK_MULE_00055",
-        "receiver_bank": "BANK_C",
-        "amount": 219862.2,
+        "receiver": "BANK_MULE_00021",
+        "receiver_bank": "BANK_A",
+        "amount": 147836.37,
         "tx_count": 1
       }
     ]
   },
   {
-    "account_id": "BANK_MULE_00019",
-    "bank_id": "BANK_C",
-    "risk_score": 0.998199999332428,
+    "account_id": "BANK_MULE_00004",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00019 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00019 received \u20b9192,629.91 from 1 sources and forwarded \u20b9187,470.38 (pass-through: 97.3%) within 18.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "executive_summary": "Account BANK_MULE_00004 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00004 received \u20b9235,485.73 from 1 sources and forwarded \u20b9226,360.04 (pass-through: 96.1%) within 3.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (192629.91) contributed +0.191 to risk score."
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (230922.89) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
     ],
     "graph_evidence": {
       "in_degree": 1,
       "out_degree": 1,
-      "total_in": 192629.91,
-      "total_out": 187470.38,
-      "pass_through_ratio": 0.9732,
-      "min_turnaround_seconds": 1080.0,
+      "total_in": 235485.73,
+      "total_out": 226360.04,
+      "pass_through_ratio": 0.9612,
+      "min_turnaround_seconds": 180.0,
       "cross_bank_ratio": 1.0
     },
     "inbound_counterparties": [
       {
-        "sender": "BANK_MULE_00018",
-        "sender_bank": "BANK_B",
-        "amount": 192629.91,
+        "sender": "BANK_MULE_00003",
+        "sender_bank": "BANK_C",
+        "amount": 235485.73,
         "tx_count": 1
       }
     ],
     "outbound_counterparties": [
       {
-        "receiver": "BANK_MULE_00020",
+        "receiver": "BANK_MULE_00005",
         "receiver_bank": "BANK_B",
-        "amount": 187470.38,
+        "amount": 226360.04,
         "tx_count": 1
       }
     ]
-  },
-  {
-    "account_id": "BANK_MULE_00070",
-    "bank_id": "BANK_B",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00070 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00070 received \u20b9179,519.90 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (179519.9) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 179519.9,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00069",
-        "sender_bank": "BANK_A",
-        "amount": 179519.9,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
   },
   {
     "account_id": "BANK_MULE_00069",
     "bank_id": "BANK_A",
-    "risk_score": 0.998199999332428,
+    "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
     "executive_summary": "Account BANK_MULE_00069 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00069 received \u20b9187,020.39 from 1 sources and forwarded \u20b9179,519.90 (pass-through: 96.0%) within 6.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (187020.39) contributed +0.191 to risk score."
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (183270.15) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
     ],
     "graph_evidence": {
       "in_degree": 1,
@@ -151,15 +119,15 @@
   {
     "account_id": "BANK_MULE_00017",
     "bank_id": "BANK_C",
-    "risk_score": 0.998199999332428,
+    "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
     "executive_summary": "Account BANK_MULE_00017 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00017 received \u20b9207,599.29 from 1 sources and forwarded \u20b9198,068.81 (pass-through: 95.4%) within 14.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (207599.29) contributed +0.191 to risk score."
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (202834.05) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
     ],
     "graph_evidence": {
       "in_degree": 1,
@@ -188,17 +156,49 @@
     ]
   },
   {
+    "account_id": "BANK_MULE_00016",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00016 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00016 received \u20b90.00 from 0 sources and forwarded \u20b9207,599.29 (pass-through: 2075992900000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (207599.29) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 0 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 0,
+      "out_degree": 1,
+      "total_in": 0.0,
+      "total_out": 207599.29,
+      "pass_through_ratio": 20759929000.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00017",
+        "receiver_bank": "BANK_C",
+        "amount": 207599.29,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
     "account_id": "BANK_MULE_00068",
     "bank_id": "BANK_C",
-    "risk_score": 0.998199999332428,
+    "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
     "executive_summary": "Account BANK_MULE_00068 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00068 received \u20b9195,082.65 from 1 sources and forwarded \u20b9187,020.39 (pass-through: 95.9%) within 13.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (195082.65) contributed +0.191 to risk score."
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (191051.52) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
     ],
     "graph_evidence": {
       "in_degree": 1,
@@ -229,15 +229,15 @@
   {
     "account_id": "BANK_MULE_00067",
     "bank_id": "BANK_B",
-    "risk_score": 0.998199999332428,
+    "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
     "executive_summary": "Account BANK_MULE_00067 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00067 received \u20b9203,225.78 from 1 sources and forwarded \u20b9195,082.65 (pass-through: 96.0%) within 20.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (203225.78) contributed +0.191 to risk score."
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (199154.21) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
     ],
     "graph_evidence": {
       "in_degree": 1,
@@ -266,1676 +266,72 @@
     ]
   },
   {
-    "account_id": "BANK_MULE_00055",
-    "bank_id": "BANK_C",
-    "risk_score": 0.998199999332428,
+    "account_id": "BANK_MULE_00066",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00055 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00055 received \u20b9219,862.20 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "executive_summary": "Account BANK_MULE_00066 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00066 received \u20b90.00 from 0 sources and forwarded \u20b9203,225.78 (pass-through: 2032257800000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (219862.2) contributed +0.191 to risk score."
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (203225.78) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 0 distinct sender accounts."
     ],
     "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 219862.2,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "total_in": 0.0,
+      "total_out": 203225.78,
+      "pass_through_ratio": 20322578000.0,
       "min_turnaround_seconds": 604800.0,
       "cross_bank_ratio": 1.0
     },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00054",
-        "sender_bank": "BANK_A",
-        "amount": 219862.2,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00052",
-    "bank_id": "BANK_A",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00052 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00052 received \u20b9249,021.41 from 1 sources and forwarded \u20b9238,036.84 (pass-through: 95.6%) within 11.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (249021.41) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 249021.41,
-      "total_out": 238036.84,
-      "pass_through_ratio": 0.9559,
-      "min_turnaround_seconds": 660.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00051",
-        "sender_bank": "BANK_C",
-        "amount": 249021.41,
-        "tx_count": 1
-      }
-    ],
+    "inbound_counterparties": [],
     "outbound_counterparties": [
       {
-        "receiver": "BANK_MULE_00053",
-        "receiver_bank": "BANK_C",
-        "amount": 238036.84,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00034",
-    "bank_id": "BANK_A",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00034 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00034 received \u20b953,973.92 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 0% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (53973.92) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 53973.92,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 0.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00031",
-        "sender_bank": "BANK_A",
-        "amount": 53973.92,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00033",
-    "bank_id": "BANK_C",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00033 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00033 received \u20b954,981.41 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (54981.41) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 54981.41,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00031",
-        "sender_bank": "BANK_A",
-        "amount": 54981.41,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00032",
-    "bank_id": "BANK_B",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00032 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00032 received \u20b959,988.34 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (59988.34) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 59988.34,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00031",
-        "sender_bank": "BANK_A",
-        "amount": 59988.34,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00005",
-    "bank_id": "BANK_B",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00005 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00005 received \u20b9226,360.04 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (226360.04) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 226360.04,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00004",
-        "sender_bank": "BANK_A",
-        "amount": 226360.04,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00004",
-    "bank_id": "BANK_A",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00004 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00004 received \u20b9235,485.73 from 1 sources and forwarded \u20b9226,360.04 (pass-through: 96.1%) within 3.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (235485.73) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 235485.73,
-      "total_out": 226360.04,
-      "pass_through_ratio": 0.9612,
-      "min_turnaround_seconds": 180.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00003",
-        "sender_bank": "BANK_C",
-        "amount": 235485.73,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00005",
+        "receiver": "BANK_MULE_00067",
         "receiver_bank": "BANK_B",
-        "amount": 226360.04,
+        "amount": 203225.78,
         "tx_count": 1
       }
     ]
   },
   {
-    "account_id": "BANK_MULE_00002",
-    "bank_id": "BANK_B",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00002 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00002 received \u20b9253,759.62 from 1 sources and forwarded \u20b9244,893.31 (pass-through: 96.5%) within 10.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (253759.62) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 253759.62,
-      "total_out": 244893.31,
-      "pass_through_ratio": 0.9651,
-      "min_turnaround_seconds": 600.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00001",
-        "sender_bank": "BANK_A",
-        "amount": 253759.62,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00003",
-        "receiver_bank": "BANK_C",
-        "amount": 244893.31,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00075",
-    "bank_id": "BANK_C",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00075 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00075 received \u20b9189,118.99 from 1 sources and forwarded \u20b9180,219.29 (pass-through: 95.3%) within 21.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (189118.99) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 189118.99,
-      "total_out": 180219.29,
-      "pass_through_ratio": 0.9529,
-      "min_turnaround_seconds": 1260.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00074",
-        "sender_bank": "BANK_A",
-        "amount": 189118.99,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00071",
-        "receiver_bank": "BANK_A",
-        "amount": 180219.29,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00074",
-    "bank_id": "BANK_A",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00074 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00074 received \u20b9196,079.63 from 1 sources and forwarded \u20b9189,118.99 (pass-through: 96.5%) within 14.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (196079.63) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 196079.63,
-      "total_out": 189118.99,
-      "pass_through_ratio": 0.9645,
-      "min_turnaround_seconds": 840.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00073",
-        "sender_bank": "BANK_B",
-        "amount": 196079.63,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00075",
-        "receiver_bank": "BANK_C",
-        "amount": 189118.99,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00071",
-    "bank_id": "BANK_A",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00071 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00071 received \u20b9180,219.29 from 1 sources and forwarded \u20b9211,764.80 (pass-through: 117.5%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (180219.29) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 180219.29,
-      "total_out": 211764.8,
-      "pass_through_ratio": 1.175,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00075",
-        "sender_bank": "BANK_C",
-        "amount": 180219.29,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00072",
-        "receiver_bank": "BANK_C",
-        "amount": 211764.8,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00059",
-    "bank_id": "BANK_A",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00059 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00059 received \u20b949,488.35 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (49488.35) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 49488.35,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00056",
-        "sender_bank": "BANK_C",
-        "amount": 49488.35,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00030",
-    "bank_id": "BANK_B",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00030 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00030 received \u20b9127,952.96 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (127952.96) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 127952.96,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00029",
-        "sender_bank": "BANK_C",
-        "amount": 127952.96,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00028",
-    "bank_id": "BANK_A",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00028 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00028 received \u20b9138,429.10 from 1 sources and forwarded \u20b9131,933.72 (pass-through: 95.3%) within 13.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (138429.1) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 138429.1,
-      "total_out": 131933.72,
-      "pass_through_ratio": 0.9531,
-      "min_turnaround_seconds": 780.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00027",
-        "sender_bank": "BANK_B",
-        "amount": 138429.1,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00029",
-        "receiver_bank": "BANK_C",
-        "amount": 131933.72,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00079",
-    "bank_id": "BANK_C",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00079 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00079 received \u20b949,170.66 from 1 sources and forwarded \u20b947,195.92 (pass-through: 96.0%) within 13.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (49170.66) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 49170.66,
-      "total_out": 47195.92,
-      "pass_through_ratio": 0.9598,
-      "min_turnaround_seconds": 780.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00078",
-        "sender_bank": "BANK_B",
-        "amount": 49170.66,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00080",
-        "receiver_bank": "BANK_A",
-        "amount": 47195.92,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00078",
-    "bank_id": "BANK_B",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00078 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00078 received \u20b950,786.28 from 1 sources and forwarded \u20b949,170.66 (pass-through: 96.8%) within 7.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (50786.28) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 50786.28,
-      "total_out": 49170.66,
-      "pass_through_ratio": 0.9682,
-      "min_turnaround_seconds": 420.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00077",
-        "sender_bank": "BANK_A",
-        "amount": 50786.28,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00079",
-        "receiver_bank": "BANK_C",
-        "amount": 49170.66,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00018",
-    "bank_id": "BANK_B",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00018 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00018 received \u20b9198,068.81 from 1 sources and forwarded \u20b9192,629.91 (pass-through: 97.2%) within 9.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (198068.81) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 198068.81,
-      "total_out": 192629.91,
-      "pass_through_ratio": 0.9725,
-      "min_turnaround_seconds": 540.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00017",
-        "sender_bank": "BANK_C",
-        "amount": 198068.81,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00019",
-        "receiver_bank": "BANK_C",
-        "amount": 192629.91,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00077",
-    "bank_id": "BANK_A",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00077 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00077 received \u20b952,596.66 from 1 sources and forwarded \u20b950,786.28 (pass-through: 96.6%) within 7.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (52596.66) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 52596.66,
-      "total_out": 50786.28,
-      "pass_through_ratio": 0.9656,
-      "min_turnaround_seconds": 420.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00076",
-        "sender_bank": "BANK_C",
-        "amount": 52596.66,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00078",
-        "receiver_bank": "BANK_B",
-        "amount": 50786.28,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00022",
-    "bank_id": "BANK_C",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00022 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00022 received \u20b9165,730.60 from 1 sources and forwarded \u20b9158,710.94 (pass-through: 95.8%) within 16.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (165730.6) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 165730.6,
-      "total_out": 158710.94,
-      "pass_through_ratio": 0.9576,
-      "min_turnaround_seconds": 960.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00021",
-        "sender_bank": "BANK_A",
-        "amount": 165730.6,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00023",
-        "receiver_bank": "BANK_A",
-        "amount": 158710.94,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00042",
-    "bank_id": "BANK_B",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00042 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00042 received \u20b957,951.90 from 1 sources and forwarded \u20b956,448.31 (pass-through: 97.4%) within 9.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (57951.9) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 57951.9,
-      "total_out": 56448.31,
-      "pass_through_ratio": 0.9741,
-      "min_turnaround_seconds": 540.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00041",
-        "sender_bank": "BANK_C",
-        "amount": 57951.9,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00043",
-        "receiver_bank": "BANK_C",
-        "amount": 56448.31,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00047",
-    "bank_id": "BANK_A",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00047 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00047 received \u20b9152,199.77 from 1 sources and forwarded \u20b9149,602.26 (pass-through: 98.3%) within 7.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (152199.77) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 152199.77,
-      "total_out": 149602.26,
-      "pass_through_ratio": 0.9829,
-      "min_turnaround_seconds": 420.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00046",
-        "sender_bank": "BANK_B",
-        "amount": 152199.77,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00048",
-        "receiver_bank": "BANK_B",
-        "amount": 149602.26,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00046",
-    "bank_id": "BANK_B",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00046 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00046 received \u20b9135,026.90 from 1 sources and forwarded \u20b9152,199.77 (pass-through: 112.7%) within 10080.0 minutes across 1 destinations. 50% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (135026.9) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 135026.9,
-      "total_out": 152199.77,
-      "pass_through_ratio": 1.1272,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 0.5
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00050",
-        "sender_bank": "BANK_B",
-        "amount": 135026.9,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00047",
-        "receiver_bank": "BANK_A",
-        "amount": 152199.77,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00009",
-    "bank_id": "BANK_A",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00009 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00009 received \u20b960,458.50 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 0% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (60458.5) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 60458.5,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 0.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00006",
-        "sender_bank": "BANK_A",
-        "amount": 60458.5,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00007",
-    "bank_id": "BANK_B",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00007 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00007 received \u20b959,507.62 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (59507.62) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 59507.62,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00006",
-        "sender_bank": "BANK_A",
-        "amount": 59507.62,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00050",
-    "bank_id": "BANK_B",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00050 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00050 received \u20b9139,399.40 from 1 sources and forwarded \u20b9135,026.90 (pass-through: 96.9%) within 21.0 minutes across 1 destinations. 50% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (139399.4) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 139399.4,
-      "total_out": 135026.9,
-      "pass_through_ratio": 0.9686,
-      "min_turnaround_seconds": 1260.0,
-      "cross_bank_ratio": 0.5
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00049",
-        "sender_bank": "BANK_A",
-        "amount": 139399.4,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00046",
-        "receiver_bank": "BANK_B",
-        "amount": 135026.9,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00049",
-    "bank_id": "BANK_A",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00049 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00049 received \u20b9142,872.11 from 1 sources and forwarded \u20b9139,399.40 (pass-through: 97.6%) within 19.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (142872.11) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 142872.11,
-      "total_out": 139399.4,
-      "pass_through_ratio": 0.9757,
-      "min_turnaround_seconds": 1140.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00048",
-        "sender_bank": "BANK_B",
-        "amount": 142872.11,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00050",
-        "receiver_bank": "BANK_B",
-        "amount": 139399.4,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00023",
-    "bank_id": "BANK_A",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00023 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00023 received \u20b9158,710.94 from 1 sources and forwarded \u20b9156,248.63 (pass-through: 98.5%) within 6.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (158710.94) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 158710.94,
-      "total_out": 156248.63,
-      "pass_through_ratio": 0.9845,
-      "min_turnaround_seconds": 360.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00022",
-        "sender_bank": "BANK_C",
-        "amount": 158710.94,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00024",
-        "receiver_bank": "BANK_C",
-        "amount": 156248.63,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00045",
-    "bank_id": "BANK_C",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00045 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00045 received \u20b952,054.33 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (52054.33) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 52054.33,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00044",
-        "sender_bank": "BANK_B",
-        "amount": 52054.33,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00024",
-    "bank_id": "BANK_C",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00024 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00024 received \u20b9156,248.63 from 1 sources and forwarded \u20b9153,847.39 (pass-through: 98.5%) within 15.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (156248.63) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 156248.63,
-      "total_out": 153847.39,
-      "pass_through_ratio": 0.9846,
-      "min_turnaround_seconds": 900.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00023",
-        "sender_bank": "BANK_A",
-        "amount": 156248.63,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00025",
-        "receiver_bank": "BANK_A",
-        "amount": 153847.39,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00044",
-    "bank_id": "BANK_B",
-    "risk_score": 0.998199999332428,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00044 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00044 received \u20b954,853.52 from 1 sources and forwarded \u20b952,054.33 (pass-through: 94.9%) within 10.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (54853.52) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 54853.52,
-      "total_out": 52054.33,
-      "pass_through_ratio": 0.949,
-      "min_turnaround_seconds": 600.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00043",
-        "sender_bank": "BANK_C",
-        "amount": 54853.52,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00045",
-        "receiver_bank": "BANK_C",
-        "amount": 52054.33,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00021",
-    "bank_id": "BANK_A",
-    "risk_score": 0.9980999827384949,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00021 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00021 received \u20b9147,836.37 from 1 sources and forwarded \u20b9165,730.60 (pass-through: 112.1%) within 10080.0 minutes across 1 destinations. 50% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (147836.37) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 147836.37,
-      "total_out": 165730.6,
-      "pass_through_ratio": 1.121,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 0.5
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00025",
-        "sender_bank": "BANK_A",
-        "amount": 147836.37,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00022",
-        "receiver_bank": "BANK_C",
-        "amount": 165730.6,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00043",
-    "bank_id": "BANK_C",
-    "risk_score": 0.9980999827384949,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00043 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00043 received \u20b956,448.31 from 1 sources and forwarded \u20b954,853.52 (pass-through: 97.2%) within 20.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (56448.31) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 56448.31,
-      "total_out": 54853.52,
-      "pass_through_ratio": 0.9717,
-      "min_turnaround_seconds": 1200.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00042",
-        "sender_bank": "BANK_B",
-        "amount": 56448.31,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00044",
-        "receiver_bank": "BANK_B",
-        "amount": 54853.52,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00072",
-    "bank_id": "BANK_C",
-    "risk_score": 0.9980000257492065,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00072 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00072 received \u20b9211,764.80 from 1 sources and forwarded \u20b9201,559.79 (pass-through: 95.2%) within 6.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (211764.8) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 211764.8,
-      "total_out": 201559.79,
-      "pass_through_ratio": 0.9518,
-      "min_turnaround_seconds": 360.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00071",
-        "sender_bank": "BANK_A",
-        "amount": 211764.8,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00073",
-        "receiver_bank": "BANK_B",
-        "amount": 201559.79,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00060",
-    "bank_id": "BANK_C",
-    "risk_score": 0.9980000257492065,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00060 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00060 received \u20b950,627.88 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 0% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (50627.88) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 50627.88,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 0.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00056",
-        "sender_bank": "BANK_C",
-        "amount": 50627.88,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00020",
-    "bank_id": "BANK_B",
-    "risk_score": 0.9980000257492065,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00020 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00020 received \u20b9187,470.38 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (187470.38) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 187470.38,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00019",
-        "sender_bank": "BANK_C",
-        "amount": 187470.38,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00057",
+    "account_id": "BANK_MULE_00054",
     "bank_id": "BANK_A",
     "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00057 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00057 received \u20b951,618.37 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "executive_summary": "Account BANK_MULE_00054 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00054 received \u20b9227,028.85 from 1 sources and forwarded \u20b9219,862.20 (pass-through: 96.8%) within 5.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (51618.37) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 51618.37,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00056",
-        "sender_bank": "BANK_C",
-        "amount": 51618.37,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00008",
-    "bank_id": "BANK_C",
-    "risk_score": 0.9980000257492065,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00008 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00008 received \u20b967,924.29 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (67924.29) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 67924.29,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00006",
-        "sender_bank": "BANK_A",
-        "amount": 67924.29,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00058",
-    "bank_id": "BANK_C",
-    "risk_score": 0.9980000257492065,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00058 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00058 received \u20b950,439.38 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 0% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (50439.38) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 50439.38,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 0.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00056",
-        "sender_bank": "BANK_C",
-        "amount": 50439.38,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00029",
-    "bank_id": "BANK_C",
-    "risk_score": 0.9980000257492065,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00029 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00029 received \u20b9131,933.72 from 1 sources and forwarded \u20b9127,952.96 (pass-through: 97.0%) within 12.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (131933.72) contributed +0.191 to risk score."
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (223445.53) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
     ],
     "graph_evidence": {
       "in_degree": 1,
       "out_degree": 1,
-      "total_in": 131933.72,
-      "total_out": 127952.96,
-      "pass_through_ratio": 0.9698,
-      "min_turnaround_seconds": 720.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00028",
-        "sender_bank": "BANK_A",
-        "amount": 131933.72,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00030",
-        "receiver_bank": "BANK_B",
-        "amount": 127952.96,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00027",
-    "bank_id": "BANK_B",
-    "risk_score": 0.9980000257492065,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00027 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00027 received \u20b9143,247.33 from 1 sources and forwarded \u20b9138,429.10 (pass-through: 96.6%) within 13.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (143247.33) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 143247.33,
-      "total_out": 138429.1,
-      "pass_through_ratio": 0.9664,
-      "min_turnaround_seconds": 780.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00026",
-        "sender_bank": "BANK_C",
-        "amount": 143247.33,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00028",
-        "receiver_bank": "BANK_A",
-        "amount": 138429.1,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00073",
-    "bank_id": "BANK_B",
-    "risk_score": 0.9980000257492065,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00073 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00073 received \u20b9201,559.79 from 1 sources and forwarded \u20b9196,079.63 (pass-through: 97.3%) within 11.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (201559.79) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 201559.79,
-      "total_out": 196079.63,
-      "pass_through_ratio": 0.9728,
-      "min_turnaround_seconds": 660.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00072",
-        "sender_bank": "BANK_C",
-        "amount": 201559.79,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00074",
-        "receiver_bank": "BANK_A",
-        "amount": 196079.63,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00025",
-    "bank_id": "BANK_A",
-    "risk_score": 0.9980000257492065,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00025 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00025 received \u20b9153,847.39 from 1 sources and forwarded \u20b9147,836.37 (pass-through: 96.1%) within 16.0 minutes across 1 destinations. 50% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (153847.39) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 153847.39,
-      "total_out": 147836.37,
-      "pass_through_ratio": 0.9609,
-      "min_turnaround_seconds": 960.0,
-      "cross_bank_ratio": 0.5
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00024",
-        "sender_bank": "BANK_C",
-        "amount": 153847.39,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00021",
-        "receiver_bank": "BANK_A",
-        "amount": 147836.37,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00010",
-    "bank_id": "BANK_B",
-    "risk_score": 0.9980000257492065,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00010 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00010 received \u20b961,762.87 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (61762.87) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 61762.87,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00006",
-        "sender_bank": "BANK_A",
-        "amount": 61762.87,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00048",
-    "bank_id": "BANK_B",
-    "risk_score": 0.9980000257492065,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00048 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00048 received \u20b9149,602.26 from 1 sources and forwarded \u20b9142,872.11 (pass-through: 95.5%) within 15.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (149602.26) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 149602.26,
-      "total_out": 142872.11,
-      "pass_through_ratio": 0.955,
-      "min_turnaround_seconds": 900.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00047",
-        "sender_bank": "BANK_A",
-        "amount": 149602.26,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00049",
-        "receiver_bank": "BANK_A",
-        "amount": 142872.11,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00035",
-    "bank_id": "BANK_B",
-    "risk_score": 0.9980000257492065,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00035 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00035 received \u20b955,851.14 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (55851.14) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 55851.14,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [
-      {
-        "sender": "BANK_MULE_00031",
-        "sender_bank": "BANK_A",
-        "amount": 55851.14,
-        "tx_count": 1
-      }
-    ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00003",
-    "bank_id": "BANK_C",
-    "risk_score": 0.9980000257492065,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00003 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00003 received \u20b9244,893.31 from 1 sources and forwarded \u20b9235,485.73 (pass-through: 96.2%) within 5.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (244893.31) contributed +0.191 to risk score."
-    ],
-    "graph_evidence": {
-      "in_degree": 1,
-      "out_degree": 1,
-      "total_in": 244893.31,
-      "total_out": 235485.73,
-      "pass_through_ratio": 0.9616,
+      "total_in": 227028.85,
+      "total_out": 219862.2,
+      "pass_through_ratio": 0.9684,
       "min_turnaround_seconds": 300.0,
       "cross_bank_ratio": 1.0
     },
     "inbound_counterparties": [
       {
-        "sender": "BANK_MULE_00002",
-        "sender_bank": "BANK_B",
-        "amount": 244893.31,
+        "sender": "BANK_MULE_00053",
+        "sender_bank": "BANK_C",
+        "amount": 227028.85,
         "tx_count": 1
       }
     ],
     "outbound_counterparties": [
       {
-        "receiver": "BANK_MULE_00004",
-        "receiver_bank": "BANK_A",
-        "amount": 235485.73,
+        "receiver": "BANK_MULE_00055",
+        "receiver_bank": "BANK_C",
+        "amount": 219862.2,
         "tx_count": 1
       }
     ]
@@ -1948,10 +344,10 @@
     "profile_type": "MULE_SUSPECT",
     "executive_summary": "Account BANK_MULE_00053 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00053 received \u20b9238,036.84 from 1 sources and forwarded \u20b9227,028.85 (pass-through: 95.4%) within 12.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (2.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (238036.84) contributed +0.191 to risk score."
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (232532.85) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
     ],
     "graph_evidence": {
       "in_degree": 1,
@@ -1980,371 +376,40 @@
     ]
   },
   {
-    "account_id": "BANK_MULE_00080",
+    "account_id": "BANK_MULE_00052",
     "bank_id": "BANK_A",
-    "risk_score": 0.9976999759674072,
+    "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00080 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00080 received \u20b947,195.92 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "executive_summary": "Account BANK_MULE_00052 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00052 received \u20b9249,021.41 from 1 sources and forwarded \u20b9238,036.84 (pass-through: 95.6%) within 11.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (1.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (243529.12) contributed +0.526 to risk score.",
       "High fan-in: pooled money from 1 distinct sender accounts."
     ],
     "graph_evidence": {
       "in_degree": 1,
-      "out_degree": 0,
-      "total_in": 47195.92,
-      "total_out": 0.0,
-      "pass_through_ratio": 0.0,
-      "min_turnaround_seconds": 604800.0,
+      "out_degree": 1,
+      "total_in": 249021.41,
+      "total_out": 238036.84,
+      "pass_through_ratio": 0.9559,
+      "min_turnaround_seconds": 660.0,
       "cross_bank_ratio": 1.0
     },
     "inbound_counterparties": [
       {
-        "sender": "BANK_MULE_00079",
+        "sender": "BANK_MULE_00051",
         "sender_bank": "BANK_C",
-        "amount": 47195.92,
+        "amount": 249021.41,
         "tx_count": 1
       }
     ],
-    "outbound_counterparties": []
-  },
-  {
-    "account_id": "BANK_MULE_00062",
-    "bank_id": "BANK_B",
-    "risk_score": 0.9973000288009644,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00062 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00062 received \u20b90.00 from 0 sources and forwarded \u20b932,292.38 (pass-through: 322923800000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "High fan-in: pooled money from 0 distinct sender accounts."
-    ],
-    "graph_evidence": {
-      "in_degree": 0,
-      "out_degree": 1,
-      "total_in": 0.0,
-      "total_out": 32292.38,
-      "pass_through_ratio": 3229238000.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [],
     "outbound_counterparties": [
       {
-        "receiver": "BANK_MULE_00065",
+        "receiver": "BANK_MULE_00053",
         "receiver_bank": "BANK_C",
-        "amount": 32292.38,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00016",
-    "bank_id": "BANK_B",
-    "risk_score": 0.9973000288009644,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00016 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00016 received \u20b90.00 from 0 sources and forwarded \u20b9207,599.29 (pass-through: 2075992900000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "High fan-in: pooled money from 0 distinct sender accounts."
-    ],
-    "graph_evidence": {
-      "in_degree": 0,
-      "out_degree": 1,
-      "total_in": 0.0,
-      "total_out": 207599.29,
-      "pass_through_ratio": 20759929000.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00017",
-        "receiver_bank": "BANK_C",
-        "amount": 207599.29,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00061",
-    "bank_id": "BANK_C",
-    "risk_score": 0.9973000288009644,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00061 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00061 received \u20b90.00 from 0 sources and forwarded \u20b932,353.12 (pass-through: 323531200000.0%) within 10080.0 minutes across 1 destinations. 0% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "High fan-in: pooled money from 0 distinct sender accounts."
-    ],
-    "graph_evidence": {
-      "in_degree": 0,
-      "out_degree": 1,
-      "total_in": 0.0,
-      "total_out": 32353.12,
-      "pass_through_ratio": 3235312000.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 0.0
-    },
-    "inbound_counterparties": [],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00065",
-        "receiver_bank": "BANK_C",
-        "amount": 32353.12,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00026",
-    "bank_id": "BANK_C",
-    "risk_score": 0.9973000288009644,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00026 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00026 received \u20b90.00 from 0 sources and forwarded \u20b9143,247.33 (pass-through: 1432473300000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "High fan-in: pooled money from 0 distinct sender accounts."
-    ],
-    "graph_evidence": {
-      "in_degree": 0,
-      "out_degree": 1,
-      "total_in": 0.0,
-      "total_out": 143247.33,
-      "pass_through_ratio": 14324733000.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00027",
-        "receiver_bank": "BANK_B",
-        "amount": 143247.33,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00066",
-    "bank_id": "BANK_A",
-    "risk_score": 0.9973000288009644,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00066 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00066 received \u20b90.00 from 0 sources and forwarded \u20b9203,225.78 (pass-through: 2032257800000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "High fan-in: pooled money from 0 distinct sender accounts."
-    ],
-    "graph_evidence": {
-      "in_degree": 0,
-      "out_degree": 1,
-      "total_in": 0.0,
-      "total_out": 203225.78,
-      "pass_through_ratio": 20322578000.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00067",
-        "receiver_bank": "BANK_B",
-        "amount": 203225.78,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00037",
-    "bank_id": "BANK_A",
-    "risk_score": 0.9973000288009644,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00037 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00037 received \u20b90.00 from 0 sources and forwarded \u20b967,670.20 (pass-through: 676702000000.0%) within 10080.0 minutes across 1 destinations. 0% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "High fan-in: pooled money from 0 distinct sender accounts."
-    ],
-    "graph_evidence": {
-      "in_degree": 0,
-      "out_degree": 1,
-      "total_in": 0.0,
-      "total_out": 67670.2,
-      "pass_through_ratio": 6767020000.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 0.0
-    },
-    "inbound_counterparties": [],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00040",
-        "receiver_bank": "BANK_A",
-        "amount": 67670.2,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00076",
-    "bank_id": "BANK_C",
-    "risk_score": 0.9973000288009644,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00076 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00076 received \u20b90.00 from 0 sources and forwarded \u20b952,596.66 (pass-through: 525966600000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "High fan-in: pooled money from 0 distinct sender accounts."
-    ],
-    "graph_evidence": {
-      "in_degree": 0,
-      "out_degree": 1,
-      "total_in": 0.0,
-      "total_out": 52596.66,
-      "pass_through_ratio": 5259666000.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00077",
-        "receiver_bank": "BANK_A",
-        "amount": 52596.66,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00038",
-    "bank_id": "BANK_B",
-    "risk_score": 0.9973000288009644,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00038 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00038 received \u20b90.00 from 0 sources and forwarded \u20b972,158.76 (pass-through: 721587600000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "High fan-in: pooled money from 0 distinct sender accounts."
-    ],
-    "graph_evidence": {
-      "in_degree": 0,
-      "out_degree": 1,
-      "total_in": 0.0,
-      "total_out": 72158.76,
-      "pass_through_ratio": 7215876000.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
-    },
-    "inbound_counterparties": [],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00040",
-        "receiver_bank": "BANK_A",
-        "amount": 72158.76,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00056",
-    "bank_id": "BANK_C",
-    "risk_score": 0.9973000288009644,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00056 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00056 received \u20b90.00 from 0 sources and forwarded \u20b9202,173.98 (pass-through: 2021739800000.0%) within 10080.0 minutes across 4 destinations. 50% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (4.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "High fan-in: pooled money from 0 distinct sender accounts."
-    ],
-    "graph_evidence": {
-      "in_degree": 0,
-      "out_degree": 4,
-      "total_in": 0.0,
-      "total_out": 202173.98,
-      "pass_through_ratio": 20217398000.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 0.5
-    },
-    "inbound_counterparties": [],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00057",
-        "receiver_bank": "BANK_A",
-        "amount": 51618.37,
-        "tx_count": 1
-      },
-      {
-        "receiver": "BANK_MULE_00058",
-        "receiver_bank": "BANK_C",
-        "amount": 50439.38,
-        "tx_count": 1
-      },
-      {
-        "receiver": "BANK_MULE_00059",
-        "receiver_bank": "BANK_A",
-        "amount": 49488.35,
-        "tx_count": 1
-      },
-      {
-        "receiver": "BANK_MULE_00060",
-        "receiver_bank": "BANK_C",
-        "amount": 50627.88,
-        "tx_count": 1
-      }
-    ]
-  },
-  {
-    "account_id": "BANK_MULE_00063",
-    "bank_id": "BANK_C",
-    "risk_score": 0.9973000288009644,
-    "risk_tier": "HIGH",
-    "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00063 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00063 received \u20b90.00 from 0 sources and forwarded \u20b931,261.44 (pass-through: 312614400000.0%) within 10080.0 minutes across 1 destinations. 0% of activity involves cross-bank transfers.",
-    "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "High fan-in: pooled money from 0 distinct sender accounts."
-    ],
-    "graph_evidence": {
-      "in_degree": 0,
-      "out_degree": 1,
-      "total_in": 0.0,
-      "total_out": 31261.44,
-      "pass_through_ratio": 3126144000.0,
-      "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 0.0
-    },
-    "inbound_counterparties": [],
-    "outbound_counterparties": [
-      {
-        "receiver": "BANK_MULE_00065",
-        "receiver_bank": "BANK_C",
-        "amount": 31261.44,
+        "amount": 238036.84,
         "tx_count": 1
       }
     ]
@@ -2352,14 +417,14 @@
   {
     "account_id": "BANK_MULE_00051",
     "bank_id": "BANK_C",
-    "risk_score": 0.9973000288009644,
+    "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
     "executive_summary": "Account BANK_MULE_00051 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00051 received \u20b90.00 from 0 sources and forwarded \u20b9249,021.41 (pass-through: 2490214100000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (249021.41) contributed +0.526 to risk score.",
       "High fan-in: pooled money from 0 distinct sender accounts."
     ],
     "graph_evidence": {
@@ -2382,33 +447,150 @@
     ]
   },
   {
-    "account_id": "BANK_MULE_00064",
+    "account_id": "BANK_MULE_00005",
     "bank_id": "BANK_B",
-    "risk_score": 0.9973000288009644,
+    "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00064 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00064 received \u20b90.00 from 0 sources and forwarded \u20b930,305.86 (pass-through: 303058600000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "executive_summary": "Account BANK_MULE_00005 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00005 received \u20b9226,360.04 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "High fan-in: pooled money from 0 distinct sender accounts."
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (226360.04) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
     ],
     "graph_evidence": {
-      "in_degree": 0,
-      "out_degree": 1,
-      "total_in": 0.0,
-      "total_out": 30305.86,
-      "pass_through_ratio": 3030586000.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 226360.04,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
       "min_turnaround_seconds": 604800.0,
       "cross_bank_ratio": 1.0
     },
-    "inbound_counterparties": [],
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00004",
+        "sender_bank": "BANK_A",
+        "amount": 226360.04,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00003",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00003 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00003 received \u20b9244,893.31 from 1 sources and forwarded \u20b9235,485.73 (pass-through: 96.2%) within 5.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (240189.52) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 244893.31,
+      "total_out": 235485.73,
+      "pass_through_ratio": 0.9616,
+      "min_turnaround_seconds": 300.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00002",
+        "sender_bank": "BANK_B",
+        "amount": 244893.31,
+        "tx_count": 1
+      }
+    ],
     "outbound_counterparties": [
       {
-        "receiver": "BANK_MULE_00065",
+        "receiver": "BANK_MULE_00004",
+        "receiver_bank": "BANK_A",
+        "amount": 235485.73,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00018",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00018 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00018 received \u20b9198,068.81 from 1 sources and forwarded \u20b9192,629.91 (pass-through: 97.2%) within 9.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (195349.36) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 198068.81,
+      "total_out": 192629.91,
+      "pass_through_ratio": 0.9725,
+      "min_turnaround_seconds": 540.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00017",
+        "sender_bank": "BANK_C",
+        "amount": 198068.81,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00019",
         "receiver_bank": "BANK_C",
-        "amount": 30305.86,
+        "amount": 192629.91,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00002",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00002 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00002 received \u20b9253,759.62 from 1 sources and forwarded \u20b9244,893.31 (pass-through: 96.5%) within 10.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (249326.46) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 253759.62,
+      "total_out": 244893.31,
+      "pass_through_ratio": 0.9651,
+      "min_turnaround_seconds": 600.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00001",
+        "sender_bank": "BANK_A",
+        "amount": 253759.62,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00003",
+        "receiver_bank": "BANK_C",
+        "amount": 244893.31,
         "tx_count": 1
       }
     ]
@@ -2416,14 +598,14 @@
   {
     "account_id": "BANK_MULE_00001",
     "bank_id": "BANK_A",
-    "risk_score": 0.9973000288009644,
+    "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
     "executive_summary": "Account BANK_MULE_00001 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00001 received \u20b90.00 from 0 sources and forwarded \u20b9253,759.62 (pass-through: 2537596200000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (253759.62) contributed +0.526 to risk score.",
       "High fan-in: pooled money from 0 distinct sender accounts."
     ],
     "graph_evidence": {
@@ -2446,65 +628,530 @@
     ]
   },
   {
-    "account_id": "BANK_MULE_00011",
-    "bank_id": "BANK_A",
-    "risk_score": 0.9973000288009644,
+    "account_id": "BANK_MULE_00039",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00011 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00011 received \u20b90.00 from 0 sources and forwarded \u20b945,403.74 (pass-through: 454037400000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "executive_summary": "Account BANK_MULE_00039 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00039 received \u20b90.00 from 0 sources and forwarded \u20b965,100.86 (pass-through: 651008600000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (65100.86) contributed +0.526 to risk score.",
       "High fan-in: pooled money from 0 distinct sender accounts."
     ],
     "graph_evidence": {
       "in_degree": 0,
       "out_degree": 1,
       "total_in": 0.0,
-      "total_out": 45403.74,
-      "pass_through_ratio": 4540374000.0,
+      "total_out": 65100.86,
+      "pass_through_ratio": 6510086000.0,
       "min_turnaround_seconds": 604800.0,
       "cross_bank_ratio": 1.0
     },
     "inbound_counterparties": [],
     "outbound_counterparties": [
       {
-        "receiver": "BANK_MULE_00015",
-        "receiver_bank": "BANK_B",
-        "amount": 45403.74,
+        "receiver": "BANK_MULE_00040",
+        "receiver_bank": "BANK_A",
+        "amount": 65100.86,
         "tx_count": 1
       }
     ]
   },
   {
-    "account_id": "BANK_MULE_00013",
-    "bank_id": "BANK_C",
-    "risk_score": 0.9973000288009644,
+    "account_id": "BANK_MULE_00038",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00013 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00013 received \u20b90.00 from 0 sources and forwarded \u20b944,229.34 (pass-through: 442293400000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "executive_summary": "Account BANK_MULE_00038 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00038 received \u20b90.00 from 0 sources and forwarded \u20b972,158.76 (pass-through: 721587600000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (72158.76) contributed +0.526 to risk score.",
       "High fan-in: pooled money from 0 distinct sender accounts."
     ],
     "graph_evidence": {
       "in_degree": 0,
       "out_degree": 1,
       "total_in": 0.0,
-      "total_out": 44229.34,
-      "pass_through_ratio": 4422934000.0,
+      "total_out": 72158.76,
+      "pass_through_ratio": 7215876000.0,
       "min_turnaround_seconds": 604800.0,
       "cross_bank_ratio": 1.0
     },
     "inbound_counterparties": [],
     "outbound_counterparties": [
       {
-        "receiver": "BANK_MULE_00015",
+        "receiver": "BANK_MULE_00040",
+        "receiver_bank": "BANK_A",
+        "amount": 72158.76,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00037",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00037 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00037 received \u20b90.00 from 0 sources and forwarded \u20b967,670.20 (pass-through: 676702000000.0%) within 10080.0 minutes across 1 destinations. 0% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (67670.2) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 0 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 0,
+      "out_degree": 1,
+      "total_in": 0.0,
+      "total_out": 67670.2,
+      "pass_through_ratio": 6767020000.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 0.0
+    },
+    "inbound_counterparties": [],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00040",
+        "receiver_bank": "BANK_A",
+        "amount": 67670.2,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00036",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00036 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00036 received \u20b90.00 from 0 sources and forwarded \u20b962,546.72 (pass-through: 625467200000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (62546.72) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 0 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 0,
+      "out_degree": 1,
+      "total_in": 0.0,
+      "total_out": 62546.72,
+      "pass_through_ratio": 6254672000.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00040",
+        "receiver_bank": "BANK_A",
+        "amount": 62546.72,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00030",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00030 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00030 received \u20b9127,952.96 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (127952.96) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 127952.96,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00029",
+        "sender_bank": "BANK_C",
+        "amount": 127952.96,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00029",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00029 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00029 received \u20b9131,933.72 from 1 sources and forwarded \u20b9127,952.96 (pass-through: 97.0%) within 12.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (129943.34) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 131933.72,
+      "total_out": 127952.96,
+      "pass_through_ratio": 0.9698,
+      "min_turnaround_seconds": 720.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00028",
+        "sender_bank": "BANK_A",
+        "amount": 131933.72,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00030",
         "receiver_bank": "BANK_B",
-        "amount": 44229.34,
+        "amount": 127952.96,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00028",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00028 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00028 received \u20b9138,429.10 from 1 sources and forwarded \u20b9131,933.72 (pass-through: 95.3%) within 13.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (135181.41) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 138429.1,
+      "total_out": 131933.72,
+      "pass_through_ratio": 0.9531,
+      "min_turnaround_seconds": 780.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00027",
+        "sender_bank": "BANK_B",
+        "amount": 138429.1,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00029",
+        "receiver_bank": "BANK_C",
+        "amount": 131933.72,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00027",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00027 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00027 received \u20b9143,247.33 from 1 sources and forwarded \u20b9138,429.10 (pass-through: 96.6%) within 13.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (140838.21) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 143247.33,
+      "total_out": 138429.1,
+      "pass_through_ratio": 0.9664,
+      "min_turnaround_seconds": 780.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00026",
+        "sender_bank": "BANK_C",
+        "amount": 143247.33,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00028",
+        "receiver_bank": "BANK_A",
+        "amount": 138429.1,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00026",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00026 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00026 received \u20b90.00 from 0 sources and forwarded \u20b9143,247.33 (pass-through: 1432473300000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (143247.33) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 0 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 0,
+      "out_degree": 1,
+      "total_in": 0.0,
+      "total_out": 143247.33,
+      "pass_through_ratio": 14324733000.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00027",
+        "receiver_bank": "BANK_B",
+        "amount": 143247.33,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00070",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00070 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00070 received \u20b9179,519.90 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (179519.9) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 179519.9,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00069",
+        "sender_bank": "BANK_A",
+        "amount": 179519.9,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00055",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00055 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00055 received \u20b9219,862.20 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (219862.2) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 219862.2,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00054",
+        "sender_bank": "BANK_A",
+        "amount": 219862.2,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00019",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00019 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00019 received \u20b9192,629.91 from 1 sources and forwarded \u20b9187,470.38 (pass-through: 97.3%) within 18.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (190050.15) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 192629.91,
+      "total_out": 187470.38,
+      "pass_through_ratio": 0.9732,
+      "min_turnaround_seconds": 1080.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00018",
+        "sender_bank": "BANK_B",
+        "amount": 192629.91,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00020",
+        "receiver_bank": "BANK_B",
+        "amount": 187470.38,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00047",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00047 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00047 received \u20b9152,199.77 from 1 sources and forwarded \u20b9149,602.26 (pass-through: 98.3%) within 7.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (150901.02) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 152199.77,
+      "total_out": 149602.26,
+      "pass_through_ratio": 0.9829,
+      "min_turnaround_seconds": 420.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00046",
+        "sender_bank": "BANK_B",
+        "amount": 152199.77,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00048",
+        "receiver_bank": "BANK_B",
+        "amount": 149602.26,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00024",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00024 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00024 received \u20b9156,248.63 from 1 sources and forwarded \u20b9153,847.39 (pass-through: 98.5%) within 15.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (155048.01) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 156248.63,
+      "total_out": 153847.39,
+      "pass_through_ratio": 0.9846,
+      "min_turnaround_seconds": 900.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00023",
+        "sender_bank": "BANK_A",
+        "amount": 156248.63,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00025",
+        "receiver_bank": "BANK_A",
+        "amount": 153847.39,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00023",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00023 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00023 received \u20b9158,710.94 from 1 sources and forwarded \u20b9156,248.63 (pass-through: 98.5%) within 6.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (157479.79) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 158710.94,
+      "total_out": 156248.63,
+      "pass_through_ratio": 0.9845,
+      "min_turnaround_seconds": 360.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00022",
+        "sender_bank": "BANK_C",
+        "amount": 158710.94,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00024",
+        "receiver_bank": "BANK_C",
+        "amount": 156248.63,
         "tx_count": 1
       }
     ]
@@ -2512,14 +1159,14 @@
   {
     "account_id": "BANK_MULE_00006",
     "bank_id": "BANK_A",
-    "risk_score": 0.9973000288009644,
+    "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
     "executive_summary": "Account BANK_MULE_00006 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00006 received \u20b90.00 from 0 sources and forwarded \u20b9249,653.28 (pass-through: 2496532800000.0%) within 10080.0 minutes across 4 destinations. 75% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (4.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
+      "Feature 'tx_frequency_total' value (4.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (62413.32) contributed +0.526 to risk score.",
       "High fan-in: pooled money from 0 distinct sender accounts."
     ],
     "graph_evidence": {
@@ -2560,48 +1207,378 @@
     ]
   },
   {
-    "account_id": "BANK_MULE_00036",
+    "account_id": "BANK_MULE_00022",
     "bank_id": "BANK_C",
-    "risk_score": 0.9972000122070312,
+    "risk_score": 0.9980000257492065,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00036 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00036 received \u20b90.00 from 0 sources and forwarded \u20b962,546.72 (pass-through: 625467200000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "executive_summary": "Account BANK_MULE_00022 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00022 received \u20b9165,730.60 from 1 sources and forwarded \u20b9158,710.94 (pass-through: 95.8%) within 16.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "High fan-in: pooled money from 0 distinct sender accounts."
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (162220.77) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
     ],
     "graph_evidence": {
-      "in_degree": 0,
+      "in_degree": 1,
       "out_degree": 1,
-      "total_in": 0.0,
-      "total_out": 62546.72,
-      "pass_through_ratio": 6254672000.0,
-      "min_turnaround_seconds": 604800.0,
+      "total_in": 165730.6,
+      "total_out": 158710.94,
+      "pass_through_ratio": 0.9576,
+      "min_turnaround_seconds": 960.0,
       "cross_bank_ratio": 1.0
     },
-    "inbound_counterparties": [],
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00021",
+        "sender_bank": "BANK_A",
+        "amount": 165730.6,
+        "tx_count": 1
+      }
+    ],
     "outbound_counterparties": [
       {
-        "receiver": "BANK_MULE_00040",
+        "receiver": "BANK_MULE_00023",
         "receiver_bank": "BANK_A",
-        "amount": 62546.72,
+        "amount": 158710.94,
         "tx_count": 1
       }
     ]
   },
   {
+    "account_id": "BANK_MULE_00008",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00008 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00008 received \u20b967,924.29 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (67924.29) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 67924.29,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00006",
+        "sender_bank": "BANK_A",
+        "amount": 67924.29,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00010",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00010 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00010 received \u20b961,762.87 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (61762.87) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 61762.87,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00006",
+        "sender_bank": "BANK_A",
+        "amount": 61762.87,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00021",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00021 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00021 received \u20b9147,836.37 from 1 sources and forwarded \u20b9165,730.60 (pass-through: 112.1%) within 10080.0 minutes across 1 destinations. 50% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (156783.48) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 147836.37,
+      "total_out": 165730.6,
+      "pass_through_ratio": 1.121,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 0.5
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00025",
+        "sender_bank": "BANK_A",
+        "amount": 147836.37,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00022",
+        "receiver_bank": "BANK_C",
+        "amount": 165730.6,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00020",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00020 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00020 received \u20b9187,470.38 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (187470.38) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 187470.38,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00019",
+        "sender_bank": "BANK_C",
+        "amount": 187470.38,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00049",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00049 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00049 received \u20b9142,872.11 from 1 sources and forwarded \u20b9139,399.40 (pass-through: 97.6%) within 19.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (141135.76) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 142872.11,
+      "total_out": 139399.4,
+      "pass_through_ratio": 0.9757,
+      "min_turnaround_seconds": 1140.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00048",
+        "sender_bank": "BANK_B",
+        "amount": 142872.11,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00050",
+        "receiver_bank": "BANK_B",
+        "amount": 139399.4,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00048",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00048 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00048 received \u20b9149,602.26 from 1 sources and forwarded \u20b9142,872.11 (pass-through: 95.5%) within 15.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (146237.18) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 149602.26,
+      "total_out": 142872.11,
+      "pass_through_ratio": 0.955,
+      "min_turnaround_seconds": 900.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00047",
+        "sender_bank": "BANK_A",
+        "amount": 149602.26,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00049",
+        "receiver_bank": "BANK_A",
+        "amount": 142872.11,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00050",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00050 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00050 received \u20b9139,399.40 from 1 sources and forwarded \u20b9135,026.90 (pass-through: 96.9%) within 21.0 minutes across 1 destinations. 50% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (137213.15) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 139399.4,
+      "total_out": 135026.9,
+      "pass_through_ratio": 0.9686,
+      "min_turnaround_seconds": 1260.0,
+      "cross_bank_ratio": 0.5
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00049",
+        "sender_bank": "BANK_A",
+        "amount": 139399.4,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00046",
+        "receiver_bank": "BANK_B",
+        "amount": 135026.9,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00046",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9980000257492065,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00046 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00046 received \u20b9135,026.90 from 1 sources and forwarded \u20b9152,199.77 (pass-through: 112.7%) within 10080.0 minutes across 1 destinations. 50% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (143613.33) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 135026.9,
+      "total_out": 152199.77,
+      "pass_through_ratio": 1.1272,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 0.5
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00050",
+        "sender_bank": "BANK_B",
+        "amount": 135026.9,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00047",
+        "receiver_bank": "BANK_A",
+        "amount": 152199.77,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00032",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9979000091552734,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00032 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00032 received \u20b959,988.34 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (59988.34) contributed +0.453 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 59988.34,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00031",
+        "sender_bank": "BANK_A",
+        "amount": 59988.34,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
     "account_id": "BANK_MULE_00031",
     "bank_id": "BANK_A",
-    "risk_score": 0.9972000122070312,
+    "risk_score": 0.9979000091552734,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
     "executive_summary": "Account BANK_MULE_00031 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00031 received \u20b90.00 from 0 sources and forwarded \u20b9224,794.81 (pass-through: 2247948100000.0%) within 10080.0 minutes across 4 destinations. 75% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (4.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
+      "Feature 'tx_frequency_total' value (4.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (56198.7) contributed +0.453 to risk score.",
       "High fan-in: pooled money from 0 distinct sender accounts."
     ],
     "graph_evidence": {
@@ -2642,16 +1619,48 @@
     ]
   },
   {
+    "account_id": "BANK_MULE_00035",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9979000091552734,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00035 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00035 received \u20b955,851.14 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (55851.14) contributed +0.453 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 55851.14,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00031",
+        "sender_bank": "BANK_A",
+        "amount": 55851.14,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
     "account_id": "BANK_MULE_00041",
     "bank_id": "BANK_C",
-    "risk_score": 0.996999979019165,
+    "risk_score": 0.9979000091552734,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
     "executive_summary": "Account BANK_MULE_00041 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00041 received \u20b90.00 from 0 sources and forwarded \u20b957,951.90 (pass-through: 579519000000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (57951.9) contributed +0.453 to risk score.",
       "High fan-in: pooled money from 0 distinct sender accounts."
     ],
     "graph_evidence": {
@@ -2674,16 +1683,909 @@
     ]
   },
   {
-    "account_id": "BANK_MULE_00012",
+    "account_id": "BANK_MULE_00042",
     "bank_id": "BANK_B",
-    "risk_score": 0.996999979019165,
+    "risk_score": 0.9979000091552734,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00012 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00012 received \u20b90.00 from 0 sources and forwarded \u20b945,000.15 (pass-through: 450001500000.0%) within 10080.0 minutes across 1 destinations. 0% of activity involves cross-bank transfers.",
+    "executive_summary": "Account BANK_MULE_00042 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00042 received \u20b957,951.90 from 1 sources and forwarded \u20b956,448.31 (pass-through: 97.4%) within 9.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (57200.1) contributed +0.453 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 57951.9,
+      "total_out": 56448.31,
+      "pass_through_ratio": 0.9741,
+      "min_turnaround_seconds": 540.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00041",
+        "sender_bank": "BANK_C",
+        "amount": 57951.9,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00043",
+        "receiver_bank": "BANK_C",
+        "amount": 56448.31,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00009",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9979000091552734,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00009 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00009 received \u20b960,458.50 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 0% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (60458.5) contributed +0.453 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 60458.5,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 0.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00006",
+        "sender_bank": "BANK_A",
+        "amount": 60458.5,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00007",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9979000091552734,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00007 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00007 received \u20b959,507.62 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (59507.62) contributed +0.453 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 59507.62,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00006",
+        "sender_bank": "BANK_A",
+        "amount": 59507.62,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00034",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9976999759674072,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00034 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00034 received \u20b953,973.92 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 0% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (53973.92) contributed +0.371 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 53973.92,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 0.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00031",
+        "sender_bank": "BANK_A",
+        "amount": 53973.92,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00043",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9976999759674072,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00043 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00043 received \u20b956,448.31 from 1 sources and forwarded \u20b954,853.52 (pass-through: 97.2%) within 20.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (55650.91) contributed +0.371 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 56448.31,
+      "total_out": 54853.52,
+      "pass_through_ratio": 0.9717,
+      "min_turnaround_seconds": 1200.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00042",
+        "sender_bank": "BANK_B",
+        "amount": 56448.31,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00044",
+        "receiver_bank": "BANK_B",
+        "amount": 54853.52,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00033",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9976999759674072,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00033 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00033 received \u20b954,981.41 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (54981.41) contributed +0.371 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 54981.41,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00031",
+        "sender_bank": "BANK_A",
+        "amount": 54981.41,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00072",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9975000023841858,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00072 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00072 received \u20b9211,764.80 from 1 sources and forwarded \u20b9201,559.79 (pass-through: 95.2%) within 6.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (206662.29) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 211764.8,
+      "total_out": 201559.79,
+      "pass_through_ratio": 0.9518,
+      "min_turnaround_seconds": 360.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00071",
+        "sender_bank": "BANK_A",
+        "amount": 211764.8,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00073",
+        "receiver_bank": "BANK_B",
+        "amount": 201559.79,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00071",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9975000023841858,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00071 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00071 received \u20b9180,219.29 from 1 sources and forwarded \u20b9211,764.80 (pass-through: 117.5%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (195992.04) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 180219.29,
+      "total_out": 211764.8,
+      "pass_through_ratio": 1.175,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00075",
+        "sender_bank": "BANK_C",
+        "amount": 180219.29,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00072",
+        "receiver_bank": "BANK_C",
+        "amount": 211764.8,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00075",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9975000023841858,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00075 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00075 received \u20b9189,118.99 from 1 sources and forwarded \u20b9180,219.29 (pass-through: 95.3%) within 21.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (184669.14) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 189118.99,
+      "total_out": 180219.29,
+      "pass_through_ratio": 0.9529,
+      "min_turnaround_seconds": 1260.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00074",
+        "sender_bank": "BANK_A",
+        "amount": 189118.99,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00071",
+        "receiver_bank": "BANK_A",
+        "amount": 180219.29,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00073",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9975000023841858,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00073 (BANK_B) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00073 received \u20b9201,559.79 from 1 sources and forwarded \u20b9196,079.63 (pass-through: 97.3%) within 11.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (198819.71) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 201559.79,
+      "total_out": 196079.63,
+      "pass_through_ratio": 0.9728,
+      "min_turnaround_seconds": 660.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00072",
+        "sender_bank": "BANK_C",
+        "amount": 201559.79,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00074",
+        "receiver_bank": "BANK_A",
+        "amount": 196079.63,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00074",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9975000023841858,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00074 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00074 received \u20b9196,079.63 from 1 sources and forwarded \u20b9189,118.99 (pass-through: 96.5%) within 14.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "Feature 'avg_amount_total' value (192599.31) contributed +0.526 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 196079.63,
+      "total_out": 189118.99,
+      "pass_through_ratio": 0.9645,
+      "min_turnaround_seconds": 840.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00073",
+        "sender_bank": "BANK_B",
+        "amount": 196079.63,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00075",
+        "receiver_bank": "BANK_C",
+        "amount": 189118.99,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00044",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9941999912261963,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00044 (BANK_B) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00044 received \u20b954,853.52 from 1 sources and forwarded \u20b952,054.33 (pass-through: 94.9%) within 10.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 54853.52,
+      "total_out": 52054.33,
+      "pass_through_ratio": 0.949,
+      "min_turnaround_seconds": 600.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00043",
+        "sender_bank": "BANK_C",
+        "amount": 54853.52,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00045",
+        "receiver_bank": "BANK_C",
+        "amount": 52054.33,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00045",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9941999912261963,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00045 (BANK_C) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00045 received \u20b952,054.33 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 52054.33,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00044",
+        "sender_bank": "BANK_B",
+        "amount": 52054.33,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00077",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9941999912261963,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00077 (BANK_A) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00077 received \u20b952,596.66 from 1 sources and forwarded \u20b950,786.28 (pass-through: 96.6%) within 7.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 52596.66,
+      "total_out": 50786.28,
+      "pass_through_ratio": 0.9656,
+      "min_turnaround_seconds": 420.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00076",
+        "sender_bank": "BANK_C",
+        "amount": 52596.66,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00078",
+        "receiver_bank": "BANK_B",
+        "amount": 50786.28,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00076",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9941999912261963,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00076 (BANK_C) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00076 received \u20b90.00 from 0 sources and forwarded \u20b952,596.66 (pass-through: 525966600000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 0 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 0,
+      "out_degree": 1,
+      "total_in": 0.0,
+      "total_out": 52596.66,
+      "pass_through_ratio": 5259666000.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00077",
+        "receiver_bank": "BANK_A",
+        "amount": 52596.66,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00061",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9926999807357788,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00061 (BANK_C) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00061 received \u20b90.00 from 0 sources and forwarded \u20b932,353.12 (pass-through: 323531200000.0%) within 10080.0 minutes across 1 destinations. 0% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 0 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 0,
+      "out_degree": 1,
+      "total_in": 0.0,
+      "total_out": 32353.12,
+      "pass_through_ratio": 3235312000.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 0.0
+    },
+    "inbound_counterparties": [],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00065",
+        "receiver_bank": "BANK_C",
+        "amount": 32353.12,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00057",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9926999807357788,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00057 (BANK_A) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00057 received \u20b951,618.37 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 51618.37,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00056",
+        "sender_bank": "BANK_C",
+        "amount": 51618.37,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00060",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9926999807357788,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00060 (BANK_C) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00060 received \u20b950,627.88 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 0% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 50627.88,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 0.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00056",
+        "sender_bank": "BANK_C",
+        "amount": 50627.88,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00062",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9926999807357788,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00062 (BANK_B) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00062 received \u20b90.00 from 0 sources and forwarded \u20b932,292.38 (pass-through: 322923800000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 0 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 0,
+      "out_degree": 1,
+      "total_in": 0.0,
+      "total_out": 32292.38,
+      "pass_through_ratio": 3229238000.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00065",
+        "receiver_bank": "BANK_C",
+        "amount": 32292.38,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00063",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9926999807357788,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00063 (BANK_C) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00063 received \u20b90.00 from 0 sources and forwarded \u20b931,261.44 (pass-through: 312614400000.0%) within 10080.0 minutes across 1 destinations. 0% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 0 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 0,
+      "out_degree": 1,
+      "total_in": 0.0,
+      "total_out": 31261.44,
+      "pass_through_ratio": 3126144000.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 0.0
+    },
+    "inbound_counterparties": [],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00065",
+        "receiver_bank": "BANK_C",
+        "amount": 31261.44,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00064",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9926999807357788,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00064 (BANK_B) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00064 received \u20b90.00 from 0 sources and forwarded \u20b930,305.86 (pass-through: 303058600000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 0 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 0,
+      "out_degree": 1,
+      "total_in": 0.0,
+      "total_out": 30305.86,
+      "pass_through_ratio": 3030586000.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00065",
+        "receiver_bank": "BANK_C",
+        "amount": 30305.86,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00080",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9926999807357788,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00080 (BANK_A) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00080 received \u20b947,195.92 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 47195.92,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00079",
+        "sender_bank": "BANK_C",
+        "amount": 47195.92,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00079",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9926999807357788,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00079 (BANK_C) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00079 received \u20b949,170.66 from 1 sources and forwarded \u20b947,195.92 (pass-through: 96.0%) within 13.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 49170.66,
+      "total_out": 47195.92,
+      "pass_through_ratio": 0.9598,
+      "min_turnaround_seconds": 780.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00078",
+        "sender_bank": "BANK_B",
+        "amount": 49170.66,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00080",
+        "receiver_bank": "BANK_A",
+        "amount": 47195.92,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00078",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9926999807357788,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00078 (BANK_B) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00078 received \u20b950,786.28 from 1 sources and forwarded \u20b949,170.66 (pass-through: 96.8%) within 7.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (2.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "total_in": 50786.28,
+      "total_out": 49170.66,
+      "pass_through_ratio": 0.9682,
+      "min_turnaround_seconds": 420.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00077",
+        "sender_bank": "BANK_A",
+        "amount": 50786.28,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00079",
+        "receiver_bank": "BANK_C",
+        "amount": 49170.66,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00058",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9926999807357788,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00058 (BANK_C) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00058 received \u20b950,439.38 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 0% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 50439.38,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 0.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00056",
+        "sender_bank": "BANK_C",
+        "amount": 50439.38,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
+    "account_id": "BANK_MULE_00011",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9926999807357788,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00011 (BANK_A) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00011 received \u20b90.00 from 0 sources and forwarded \u20b945,403.74 (pass-through: 454037400000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 0 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 0,
+      "out_degree": 1,
+      "total_in": 0.0,
+      "total_out": 45403.74,
+      "pass_through_ratio": 4540374000.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00015",
+        "receiver_bank": "BANK_B",
+        "amount": 45403.74,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00012",
+    "bank_id": "BANK_B",
+    "risk_score": 0.9926999807357788,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00012 (BANK_B) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00012 received \u20b90.00 from 0 sources and forwarded \u20b945,000.15 (pass-through: 450001500000.0%) within 10080.0 minutes across 1 destinations. 0% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
       "High fan-in: pooled money from 0 distinct sender accounts."
     ],
     "graph_evidence": {
@@ -2706,16 +2608,46 @@
     ]
   },
   {
-    "account_id": "BANK_MULE_00014",
-    "bank_id": "BANK_A",
-    "risk_score": 0.996999979019165,
+    "account_id": "BANK_MULE_00013",
+    "bank_id": "BANK_C",
+    "risk_score": 0.9926999807357788,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00014 (BANK_A) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00014 received \u20b90.00 from 0 sources and forwarded \u20b944,093.41 (pass-through: 440934100000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "executive_summary": "Account BANK_MULE_00013 (BANK_C) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00013 received \u20b90.00 from 0 sources and forwarded \u20b944,229.34 (pass-through: 442293400000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 0 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 0,
+      "out_degree": 1,
+      "total_in": 0.0,
+      "total_out": 44229.34,
+      "pass_through_ratio": 4422934000.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [],
+    "outbound_counterparties": [
+      {
+        "receiver": "BANK_MULE_00015",
+        "receiver_bank": "BANK_B",
+        "amount": 44229.34,
+        "tx_count": 1
+      }
+    ]
+  },
+  {
+    "account_id": "BANK_MULE_00014",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9926999807357788,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00014 (BANK_A) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00014 received \u20b90.00 from 0 sources and forwarded \u20b944,093.41 (pass-through: 440934100000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
       "High fan-in: pooled money from 0 distinct sender accounts."
     ],
     "graph_evidence": {
@@ -2738,48 +2670,95 @@
     ]
   },
   {
-    "account_id": "BANK_MULE_00039",
+    "account_id": "BANK_MULE_00056",
     "bank_id": "BANK_C",
-    "risk_score": 0.996999979019165,
+    "risk_score": 0.9908999800682068,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00039 (BANK_C) is flagged for HIGH-RISK review (Score: 1.00). Graph analysis reveals BANK_MULE_00039 received \u20b90.00 from 0 sources and forwarded \u20b965,100.86 (pass-through: 651008600000.0%) within 10080.0 minutes across 1 destinations. 100% of activity involves cross-bank transfers.",
+    "executive_summary": "Account BANK_MULE_00056 (BANK_C) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00056 received \u20b90.00 from 0 sources and forwarded \u20b9202,173.98 (pass-through: 2021739800000.0%) within 10080.0 minutes across 4 destinations. 50% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (1.0) contributed +2.749 to risk score.",
-      "Feature 'in_degree' value (0.0) contributed +1.756 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
+      "Feature 'tx_frequency_total' value (4.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (0.0) contributed +1.781 to risk score.",
       "High fan-in: pooled money from 0 distinct sender accounts."
     ],
     "graph_evidence": {
       "in_degree": 0,
-      "out_degree": 1,
+      "out_degree": 4,
       "total_in": 0.0,
-      "total_out": 65100.86,
-      "pass_through_ratio": 6510086000.0,
+      "total_out": 202173.98,
+      "pass_through_ratio": 20217398000.0,
       "min_turnaround_seconds": 604800.0,
-      "cross_bank_ratio": 1.0
+      "cross_bank_ratio": 0.5
     },
     "inbound_counterparties": [],
     "outbound_counterparties": [
       {
-        "receiver": "BANK_MULE_00040",
+        "receiver": "BANK_MULE_00057",
         "receiver_bank": "BANK_A",
-        "amount": 65100.86,
+        "amount": 51618.37,
+        "tx_count": 1
+      },
+      {
+        "receiver": "BANK_MULE_00058",
+        "receiver_bank": "BANK_C",
+        "amount": 50439.38,
+        "tx_count": 1
+      },
+      {
+        "receiver": "BANK_MULE_00059",
+        "receiver_bank": "BANK_A",
+        "amount": 49488.35,
+        "tx_count": 1
+      },
+      {
+        "receiver": "BANK_MULE_00060",
+        "receiver_bank": "BANK_C",
+        "amount": 50627.88,
         "tx_count": 1
       }
     ]
   },
   {
+    "account_id": "BANK_MULE_00059",
+    "bank_id": "BANK_A",
+    "risk_score": 0.9908999800682068,
+    "risk_tier": "HIGH",
+    "profile_type": "MULE_SUSPECT",
+    "executive_summary": "Account BANK_MULE_00059 (BANK_A) is flagged for HIGH-RISK review (Score: 0.99). Graph analysis reveals BANK_MULE_00059 received \u20b949,488.35 from 1 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 100% of activity involves cross-bank transfers.",
+    "shap_reasons": [
+      "Feature 'tx_frequency_total' value (1.0) contributed +3.268 to risk score.",
+      "Feature 'in_degree' value (1.0) contributed +1.781 to risk score.",
+      "High fan-in: pooled money from 1 distinct sender accounts."
+    ],
+    "graph_evidence": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "total_in": 49488.35,
+      "total_out": 0.0,
+      "pass_through_ratio": 0.0,
+      "min_turnaround_seconds": 604800.0,
+      "cross_bank_ratio": 1.0
+    },
+    "inbound_counterparties": [
+      {
+        "sender": "BANK_MULE_00056",
+        "sender_bank": "BANK_C",
+        "amount": 49488.35,
+        "tx_count": 1
+      }
+    ],
+    "outbound_counterparties": []
+  },
+  {
     "account_id": "BANK_MULE_00040",
     "bank_id": "BANK_A",
-    "risk_score": 0.9660000205039978,
+    "risk_score": 0.9670000076293945,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
     "executive_summary": "Account BANK_MULE_00040 (BANK_A) is flagged for HIGH-RISK review (Score: 0.97). Graph analysis reveals BANK_MULE_00040 received \u20b9267,476.54 from 4 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 75% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (4.0) contributed +2.749 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score.",
-      "Feature 'avg_amount_in' value (66869.13) contributed +0.191 to risk score."
+      "Feature 'tx_frequency_total' value (4.0) contributed +3.268 to risk score.",
+      "Feature 'avg_amount_total' value (66869.13) contributed +0.526 to risk score."
     ],
     "graph_evidence": {
       "in_degree": 4,
@@ -2821,13 +2800,12 @@
   {
     "account_id": "BANK_MULE_00065",
     "bank_id": "BANK_C",
-    "risk_score": 0.9585000276565552,
+    "risk_score": 0.888700008392334,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00065 (BANK_C) is flagged for HIGH-RISK review (Score: 0.96). Graph analysis reveals BANK_MULE_00065 received \u20b9126,212.80 from 4 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 50% of activity involves cross-bank transfers.",
+    "executive_summary": "Account BANK_MULE_00065 (BANK_C) is flagged for HIGH-RISK review (Score: 0.89). Graph analysis reveals BANK_MULE_00065 received \u20b9126,212.80 from 4 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 50% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (4.0) contributed +2.749 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score."
+      "Feature 'tx_frequency_total' value (4.0) contributed +3.268 to risk score."
     ],
     "graph_evidence": {
       "in_degree": 4,
@@ -2869,13 +2847,12 @@
   {
     "account_id": "BANK_MULE_00015",
     "bank_id": "BANK_B",
-    "risk_score": 0.9585000276565552,
+    "risk_score": 0.888700008392334,
     "risk_tier": "HIGH",
     "profile_type": "MULE_SUSPECT",
-    "executive_summary": "Account BANK_MULE_00015 (BANK_B) is flagged for HIGH-RISK review (Score: 0.96). Graph analysis reveals BANK_MULE_00015 received \u20b9178,726.64 from 4 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 75% of activity involves cross-bank transfers.",
+    "executive_summary": "Account BANK_MULE_00015 (BANK_B) is flagged for HIGH-RISK review (Score: 0.89). Graph analysis reveals BANK_MULE_00015 received \u20b9178,726.64 from 4 sources and forwarded \u20b90.00 (pass-through: 0.0%) within 10080.0 minutes across 0 destinations. 75% of activity involves cross-bank transfers.",
     "shap_reasons": [
-      "Feature 'velocity_24h_max' value (4.0) contributed +2.749 to risk score.",
-      "Feature 'clustering_coeff' value (0.0) contributed +0.983 to risk score."
+      "Feature 'tx_frequency_total' value (4.0) contributed +3.268 to risk score."
     ],
     "graph_evidence": {
       "in_degree": 4,

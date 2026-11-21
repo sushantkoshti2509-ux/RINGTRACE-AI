@@ -41,7 +41,7 @@
       "legitimate_count": 0,
       "false_positives": 0,
       "profile_fpr": 0.0,
-      "avg_risk_score": 0.9965
+      "avg_risk_score": 0.9935
     },
     "REGULAR_P2P": {
       "total_accounts": 82,
@@ -62,7 +62,7 @@
       "legitimate_count": 76,
       "false_positives": 0,
       "profile_fpr": 0.0,
-      "avg_risk_score": 0.0031
+      "avg_risk_score": 0.0027
     }
   },
   "comparative_experiments": {
@@ -106,5 +106,5 @@
       "false_negatives": 0
     }
   },
-  "pipeline_execution_time_sec": 9.03
+  "pipeline_execution_time_sec": 9.11
 }

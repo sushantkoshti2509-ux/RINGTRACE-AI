@@ -1,13 +1,39 @@
 [
   {
-    "candidate_ring_id": "CANDIDATE_RING_12",
+    "candidate_ring_id": "CANDIDATE_RING_05",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00068",
-      "BANK_MULE_00069",
+      "BANK_MULE_00002",
+      "BANK_MULE_00005",
+      "BANK_MULE_00001",
+      "BANK_MULE_00004",
+      "BANK_MULE_00003"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B",
+      "BANK_C"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.998,
+    "max_account_risk": 0.998,
+    "ring_risk_score": 0.9659,
+    "total_volume": 960498.7,
+    "hop_count": 4,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_07",
+    "topology_type": "CROSS_BANK_CHAIN",
+    "size": 5,
+    "member_accounts": [
       "BANK_MULE_00066",
+      "BANK_MULE_00069",
       "BANK_MULE_00067",
+      "BANK_MULE_00068",
       "BANK_MULE_00070"
     ],
     "banks_involved": [
@@ -18,35 +44,9 @@
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.998,
-    "max_account_risk": 0.9982,
+    "max_account_risk": 0.998,
     "ring_risk_score": 0.9659,
     "total_volume": 764848.72,
-    "hop_count": 4,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_14",
-    "topology_type": "CROSS_BANK_CHAIN",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00003",
-      "BANK_MULE_00001",
-      "BANK_MULE_00005",
-      "BANK_MULE_00004",
-      "BANK_MULE_00002"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.998,
-    "max_account_risk": 0.9982,
-    "ring_risk_score": 0.9659,
-    "total_volume": 960498.7,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
@@ -56,11 +56,11 @@
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00026",
-      "BANK_MULE_00030",
-      "BANK_MULE_00028",
       "BANK_MULE_00029",
-      "BANK_MULE_00027"
+      "BANK_MULE_00027",
+      "BANK_MULE_00030",
+      "BANK_MULE_00026",
+      "BANK_MULE_00028"
     ],
     "banks_involved": [
       "BANK_A",
@@ -69,23 +69,23 @@
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9979,
-    "max_account_risk": 0.9982,
-    "ring_risk_score": 0.9658,
+    "avg_account_risk": 0.998,
+    "max_account_risk": 0.998,
+    "ring_risk_score": 0.9659,
     "total_volume": 541563.11,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_13",
+    "candidate_ring_id": "CANDIDATE_RING_14",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00076",
-      "BANK_MULE_00077",
-      "BANK_MULE_00080",
       "BANK_MULE_00079",
+      "BANK_MULE_00076",
+      "BANK_MULE_00080",
+      "BANK_MULE_00077",
       "BANK_MULE_00078"
     ],
     "banks_involved": [
@@ -95,63 +95,11 @@
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9979,
-    "max_account_risk": 0.9982,
-    "ring_risk_score": 0.9658,
+    "avg_account_risk": 0.9933,
+    "max_account_risk": 0.9942,
+    "ring_risk_score": 0.964,
     "total_volume": 199749.52,
     "hop_count": 4,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_07",
-    "topology_type": "CIRCULAR_LAYERING",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00073",
-      "BANK_MULE_00072",
-      "BANK_MULE_00075",
-      "BANK_MULE_00074",
-      "BANK_MULE_00071"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 5,
-    "avg_account_risk": 0.9981,
-    "max_account_risk": 0.9982,
-    "ring_risk_score": 0.8659,
-    "total_volume": 978742.5,
-    "hop_count": 2,
-    "has_cycles": true,
-    "internal_tx_count": 5
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_09",
-    "topology_type": "FAN_OUT_SPLITTER",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00033",
-      "BANK_MULE_00031",
-      "BANK_MULE_00032",
-      "BANK_MULE_00034",
-      "BANK_MULE_00035"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.998,
-    "max_account_risk": 0.9982,
-    "ring_risk_score": 0.8659,
-    "total_volume": 224794.81,
-    "hop_count": 2,
     "has_cycles": false,
     "internal_tx_count": 4
   },
@@ -160,22 +108,22 @@
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00054",
-      "BANK_MULE_00051",
-      "BANK_MULE_00053",
-      "BANK_MULE_00052",
-      "BANK_MULE_00055"
+      "BANK_MULE_00016",
+      "BANK_MULE_00020",
+      "BANK_MULE_00018",
+      "BANK_MULE_00017",
+      "BANK_MULE_00019"
     ],
     "banks_involved": [
-      "BANK_A",
+      "BANK_B",
       "BANK_C"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.998,
-    "max_account_risk": 0.9982,
+    "max_account_risk": 0.998,
     "ring_risk_score": 0.8659,
-    "total_volume": 933949.3,
+    "total_volume": 785768.39,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
@@ -185,36 +133,36 @@
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00017",
-      "BANK_MULE_00018",
-      "BANK_MULE_00019",
-      "BANK_MULE_00016",
-      "BANK_MULE_00020"
+      "BANK_MULE_00051",
+      "BANK_MULE_00054",
+      "BANK_MULE_00053",
+      "BANK_MULE_00055",
+      "BANK_MULE_00052"
     ],
     "banks_involved": [
-      "BANK_B",
+      "BANK_A",
       "BANK_C"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.998,
-    "max_account_risk": 0.9982,
+    "max_account_risk": 0.998,
     "ring_risk_score": 0.8659,
-    "total_volume": 785768.39,
+    "total_volume": 933949.3,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_04",
+    "candidate_ring_id": "CANDIDATE_RING_16",
     "topology_type": "FAN_OUT_SPLITTER",
     "size": 5,
     "member_accounts": [
       "BANK_MULE_00007",
-      "BANK_MULE_00008",
-      "BANK_MULE_00010",
       "BANK_MULE_00009",
-      "BANK_MULE_00006"
+      "BANK_MULE_00008",
+      "BANK_MULE_00006",
+      "BANK_MULE_00010"
     ],
     "banks_involved": [
       "BANK_A",
@@ -223,24 +171,76 @@
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9979,
-    "max_account_risk": 0.9982,
-    "ring_risk_score": 0.8658,
+    "avg_account_risk": 0.998,
+    "max_account_risk": 0.998,
+    "ring_risk_score": 0.8659,
     "total_volume": 249653.28,
     "hop_count": 2,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_05",
+    "candidate_ring_id": "CANDIDATE_RING_06",
+    "topology_type": "FAN_OUT_SPLITTER",
+    "size": 5,
+    "member_accounts": [
+      "BANK_MULE_00031",
+      "BANK_MULE_00033",
+      "BANK_MULE_00034",
+      "BANK_MULE_00032",
+      "BANK_MULE_00035"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B",
+      "BANK_C"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 3,
+    "avg_account_risk": 0.9978,
+    "max_account_risk": 0.9979,
+    "ring_risk_score": 0.8658,
+    "total_volume": 224794.81,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_13",
+    "topology_type": "CIRCULAR_LAYERING",
+    "size": 5,
+    "member_accounts": [
+      "BANK_MULE_00072",
+      "BANK_MULE_00073",
+      "BANK_MULE_00075",
+      "BANK_MULE_00071",
+      "BANK_MULE_00074"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B",
+      "BANK_C"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 5,
+    "avg_account_risk": 0.9975,
+    "max_account_risk": 0.9975,
+    "ring_risk_score": 0.8657,
+    "total_volume": 978742.5,
+    "hop_count": 2,
+    "has_cycles": true,
+    "internal_tx_count": 5
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_03",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00043",
+      "BANK_MULE_00045",
       "BANK_MULE_00041",
-      "BANK_MULE_00042",
       "BANK_MULE_00044",
-      "BANK_MULE_00045"
+      "BANK_MULE_00042",
+      "BANK_MULE_00043"
     ],
     "banks_involved": [
       "BANK_B",
@@ -248,9 +248,9 @@
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9979,
-    "max_account_risk": 0.9982,
-    "ring_risk_score": 0.8658,
+    "avg_account_risk": 0.9964,
+    "max_account_risk": 0.9979,
+    "ring_risk_score": 0.8652,
     "total_volume": 221308.06,
     "hop_count": 4,
     "has_cycles": false,
@@ -261,11 +261,11 @@
     "topology_type": "FAN_IN_COLLECTOR",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00036",
       "BANK_MULE_00037",
-      "BANK_MULE_00038",
+      "BANK_MULE_00039",
       "BANK_MULE_00040",
-      "BANK_MULE_00039"
+      "BANK_MULE_00036",
+      "BANK_MULE_00038"
     ],
     "banks_involved": [
       "BANK_A",
@@ -274,24 +274,24 @@
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.991,
-    "max_account_risk": 0.9973,
-    "ring_risk_score": 0.8631,
+    "avg_account_risk": 0.9918,
+    "max_account_risk": 0.998,
+    "ring_risk_score": 0.8634,
     "total_volume": 267476.54,
     "hop_count": 2,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_03",
+    "candidate_ring_id": "CANDIDATE_RING_09",
     "topology_type": "FAN_IN_COLLECTOR",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00013",
       "BANK_MULE_00012",
+      "BANK_MULE_00014",
       "BANK_MULE_00011",
       "BANK_MULE_00015",
-      "BANK_MULE_00014"
+      "BANK_MULE_00013"
     ],
     "banks_involved": [
       "BANK_A",
@@ -300,24 +300,49 @@
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9894,
-    "max_account_risk": 0.9973,
-    "ring_risk_score": 0.8624,
+    "avg_account_risk": 0.9719,
+    "max_account_risk": 0.9927,
+    "ring_risk_score": 0.8554,
     "total_volume": 178726.64,
     "hop_count": 2,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_06",
+    "candidate_ring_id": "CANDIDATE_RING_02",
     "topology_type": "CIRCULAR_LAYERING",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00025",
-      "BANK_MULE_00024",
-      "BANK_MULE_00023",
+      "BANK_MULE_00047",
+      "BANK_MULE_00046",
+      "BANK_MULE_00050",
+      "BANK_MULE_00049",
+      "BANK_MULE_00048"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.998,
+    "max_account_risk": 0.998,
+    "ring_risk_score": 0.7659,
+    "total_volume": 719100.44,
+    "hop_count": 2,
+    "has_cycles": true,
+    "internal_tx_count": 5
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_04",
+    "topology_type": "CIRCULAR_LAYERING",
+    "size": 5,
+    "member_accounts": [
       "BANK_MULE_00021",
-      "BANK_MULE_00022"
+      "BANK_MULE_00024",
+      "BANK_MULE_00022",
+      "BANK_MULE_00025",
+      "BANK_MULE_00023"
     ],
     "banks_involved": [
       "BANK_A",
@@ -325,8 +350,8 @@
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9981,
-    "max_account_risk": 0.9982,
+    "avg_account_risk": 0.998,
+    "max_account_risk": 0.998,
     "ring_risk_score": 0.7659,
     "total_volume": 782373.93,
     "hop_count": 2,
@@ -335,39 +360,14 @@
   },
   {
     "candidate_ring_id": "CANDIDATE_RING_10",
-    "topology_type": "CIRCULAR_LAYERING",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00048",
-      "BANK_MULE_00046",
-      "BANK_MULE_00050",
-      "BANK_MULE_00047",
-      "BANK_MULE_00049"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9982,
-    "max_account_risk": 0.9982,
-    "ring_risk_score": 0.7659,
-    "total_volume": 719100.44,
-    "hop_count": 2,
-    "has_cycles": true,
-    "internal_tx_count": 5
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_16",
     "topology_type": "FAN_OUT_SPLITTER",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00059",
-      "BANK_MULE_00060",
-      "BANK_MULE_00057",
       "BANK_MULE_00056",
-      "BANK_MULE_00058"
+      "BANK_MULE_00057",
+      "BANK_MULE_00058",
+      "BANK_MULE_00060",
+      "BANK_MULE_00059"
     ],
     "banks_involved": [
       "BANK_A",
@@ -375,23 +375,23 @@
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 2,
-    "avg_account_risk": 0.9979,
-    "max_account_risk": 0.9982,
-    "ring_risk_score": 0.7658,
+    "avg_account_risk": 0.992,
+    "max_account_risk": 0.9927,
+    "ring_risk_score": 0.7635,
     "total_volume": 202173.98,
     "hop_count": 2,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_02",
+    "candidate_ring_id": "CANDIDATE_RING_12",
     "topology_type": "FAN_IN_COLLECTOR",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00064",
-      "BANK_MULE_00062",
-      "BANK_MULE_00065",
       "BANK_MULE_00063",
+      "BANK_MULE_00064",
+      "BANK_MULE_00065",
+      "BANK_MULE_00062",
       "BANK_MULE_00061"
     ],
     "banks_involved": [
@@ -400,9 +400,9 @@
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 2,
-    "avg_account_risk": 0.9895,
-    "max_account_risk": 0.9973,
-    "ring_risk_score": 0.7625,
+    "avg_account_risk": 0.9719,
+    "max_account_risk": 0.9927,
+    "ring_risk_score": 0.7554,
     "total_volume": 126212.8,
     "hop_count": 2,
     "has_cycles": false,
