@@ -1,44 +1,44 @@
 {
   "BANK_A": {
     "cleaning_stats": {
-      "initial_rows": 7671,
-      "final_rows": 7671,
+      "initial_rows": 7749,
+      "final_rows": 7749,
       "duplicates_removed": 0,
       "invalid_amounts_dropped": 0,
       "self_transfers_dropped": 0,
-      "suspicious_transactions": 51
+      "suspicious_transactions": 44
     },
     "validation_valid": true,
     "validation_issues": []
   },
   "BANK_B": {
     "cleaning_stats": {
-      "initial_rows": 7635,
-      "final_rows": 7635,
+      "initial_rows": 7680,
+      "final_rows": 7680,
       "duplicates_removed": 0,
       "invalid_amounts_dropped": 0,
       "self_transfers_dropped": 0,
-      "suspicious_transactions": 45
+      "suspicious_transactions": 37
     },
     "validation_valid": true,
     "validation_issues": []
   },
   "BANK_C": {
     "cleaning_stats": {
-      "initial_rows": 7703,
-      "final_rows": 7703,
+      "initial_rows": 7724,
+      "final_rows": 7724,
       "duplicates_removed": 0,
       "invalid_amounts_dropped": 0,
       "self_transfers_dropped": 0,
-      "suspicious_transactions": 28
+      "suspicious_transactions": 43
     },
     "validation_valid": true,
     "validation_issues": []
   },
   "ACCOUNTS": {
     "cleaning_stats": {
-      "initial_accounts": 596,
-      "final_accounts": 596,
+      "initial_accounts": 600,
+      "final_accounts": 600,
       "duplicates_removed": 0,
       "mule_accounts": 80
     },

@@ -16,16 +16,16 @@
       "BANK_C_account": "BANK_MULE_00013"
     },
     {
-      "canonical_token": "ca8a28e9c45258ba343d3dbe0e2e8fdf9fe9cce6944b632e3b355c31893966ca",
-      "BANK_A_account": "BANK_MULE_00004",
-      "BANK_B_account": "BANK_MULE_00002",
-      "BANK_C_account": "BANK_MULE_00003"
-    },
-    {
       "canonical_token": "847c150d49798b88527e884e57a828ebfc11baa6f6f15ba65d633977b1ef0716",
       "BANK_A_account": "BANK_MULE_00009",
       "BANK_B_account": "BANK_MULE_00007",
       "BANK_C_account": "BANK_MULE_00008"
+    },
+    {
+      "canonical_token": "ca8a28e9c45258ba343d3dbe0e2e8fdf9fe9cce6944b632e3b355c31893966ca",
+      "BANK_A_account": "BANK_MULE_00004",
+      "BANK_B_account": "BANK_MULE_00002",
+      "BANK_C_account": "BANK_MULE_00003"
     }
   ],
   "pairwise_details": {
