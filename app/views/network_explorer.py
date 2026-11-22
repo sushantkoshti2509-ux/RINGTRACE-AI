@@ -24,7 +24,10 @@ def load_network_data():
     graph = builder.build_network_graph(transactions, accounts, use_qualified_ids=True)
     analyzer = CrossBankNetworkAnalyzer(graph)
     visualizer = CrossBankNetworkVisualizer()
-    return accounts, transactions, rings, graph, analyzer, visualizer
+    cycles = analyzer.detect_cycles(max_length=5)
+    rapid_hops = analyzer.analyze_temporal_turnaround()
+    communities = analyzer.detect_communities()
+    return accounts, transactions, rings, graph, analyzer, visualizer, cycles, rapid_hops, communities
 
 
 def render():
@@ -47,7 +50,7 @@ def render():
     </div>
     """, unsafe_allow_html=True)
 
-    accounts, transactions, rings, graph, analyzer, visualizer = load_network_data()
+    accounts, transactions, rings, graph, analyzer, visualizer, cycles, rapid_hops, communities = load_network_data()
 
     if graph.number_of_nodes() == 0:
         st.warning("No network graph data available. Please generate transactions first.")
@@ -60,13 +63,10 @@ def render():
     with m2:
         st.metric("Directed Edges", f"{graph.number_of_edges():,}")
     with m3:
-        communities = analyzer.detect_communities()
         st.metric("Detected Clusters", len(communities))
     with m4:
-        cycles = analyzer.detect_cycles()
         st.metric("Circular Loops", len(cycles))
     with m5:
-        rapid_hops = analyzer.analyze_temporal_turnaround()
         st.metric("Rapid Forwards (<10m)", len(rapid_hops))
 
     st.markdown("<br>", unsafe_allow_html=True)

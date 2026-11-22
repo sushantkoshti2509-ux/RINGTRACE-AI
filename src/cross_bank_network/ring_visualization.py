@@ -118,8 +118,7 @@ class CrossBankNetworkVisualizer:
         fig = go.Figure(
             data=[edge_trace, node_trace],
             layout=go.Layout(
-                title=f"<b>{title}</b>",
-                titlefont_size=16,
+                title=dict(text=f"<b>{title}</b>", font=dict(size=16)),
                 showlegend=False,
                 hovermode="closest",
                 margin=dict(b=20, l=20, r=20, t=50),

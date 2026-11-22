@@ -259,6 +259,8 @@ def main():
                 "🕵️ Fraud Investigation Assistant",
                 "🚨 Fraud Alert & Notification Center",
                 "⚡ Real-Time Stream Scoring",
+                "🔍 Account Deep-Dive & Scoring",
+                "🕸️ Multi-Hop Laundering Chains",
                 "🔐 Cross-Bank PSI Privacy",
                 "🏛️ System Benchmarks & Architecture",
             ],
@@ -289,6 +291,10 @@ def main():
         alerts.render()
     elif page == "⚡ Real-Time Stream Scoring":
         realtime.render()
+    elif page == "🔍 Account Deep-Dive & Scoring":
+        account.render()
+    elif page == "🕸️ Multi-Hop Laundering Chains":
+        network.render()
     elif page == "🔐 Cross-Bank PSI Privacy":
         privacy.render()
     elif page == "🏛️ System Benchmarks & Architecture":

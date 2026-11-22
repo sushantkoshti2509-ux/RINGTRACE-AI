@@ -27,14 +27,21 @@ class CrossBankNetworkAnalyzer:
             }
         return metrics
 
-    def detect_cycles(self, max_length: int = 6) -> List[List[str]]:
+    def detect_cycles(self, max_length: int = 5) -> List[List[str]]:
         """
         Detects circular transaction patterns (layering loops) across accounts.
         Returns distinct directed cycles.
         """
         cycles = []
         try:
-            # nx.simple_cycles generates all elementary directed circuits
+            # nx.simple_cycles with length_bound prevents exponential search blowup
+            for cycle in nx.simple_cycles(self.G, length_bound=max_length):
+                if 2 <= len(cycle) <= max_length:
+                    cycles.append(cycle)
+                if len(cycles) >= 50:
+                    break
+        except TypeError:
+            # Fallback for NetworkX versions where length_bound is not supported
             for cycle in nx.simple_cycles(self.G):
                 if 2 <= len(cycle) <= max_length:
                     cycles.append(cycle)
@@ -105,29 +112,42 @@ class CrossBankNetworkAnalyzer:
             if not in_edges or not out_edges:
                 continue
 
-            for u, _, in_data in in_edges:
-                in_ts_str = in_data.get("timestamp")
-                in_amt = in_data.get("amount", 0.0)
+            # Parse timestamps once per incoming edge
+            in_parsed = []
+            for u, _, in_data in in_edges[:15]:
+                try:
+                    ts_str = in_data.get("timestamp")
+                    t_in = pd.to_datetime(ts_str).timestamp()
+                    in_parsed.append((u, t_in, in_data.get("amount", 0.0)))
+                except Exception:
+                    continue
 
-                for _, v, out_data in out_edges:
-                    out_ts_str = out_data.get("timestamp")
-                    out_amt = out_data.get("amount", 0.0)
+            # Parse timestamps once per outgoing edge
+            out_parsed = []
+            for _, v, out_data in out_edges[:15]:
+                try:
+                    ts_str = out_data.get("timestamp")
+                    t_out = pd.to_datetime(ts_str).timestamp()
+                    out_parsed.append((v, t_out, out_data.get("amount", 0.0)))
+                except Exception:
+                    continue
 
-                    try:
-                        t_in = pd.to_datetime(in_ts_str).timestamp()
-                        t_out = pd.to_datetime(out_ts_str).timestamp()
-                        diff = t_out - t_in
+            for u, t_in, in_amt in in_parsed:
+                for v, t_out, out_amt in out_parsed:
+                    diff = t_out - t_in
+                    if 0.0 <= diff <= turnaround_threshold_sec:
+                        rapid_transfers.append({
+                            "intermediary_account": node,
+                            "source_account": u,
+                            "destination_account": v,
+                            "amount_in": in_amt,
+                            "amount_out": out_amt,
+                            "time_gap_seconds": round(diff, 1),
+                            "pass_through_ratio": round(out_amt / in_amt, 3) if in_amt > 0 else 0.0,
+                        })
+                        if len(rapid_transfers) >= 50:
+                            return rapid_transfers
+                if len(rapid_transfers) >= 50:
+                    return rapid_transfers
 
-                        if 0.0 <= diff <= turnaround_threshold_sec:
-                            rapid_transfers.append({
-                                "intermediary_account": node,
-                                "source_account": u,
-                                "destination_account": v,
-                                "amount_in": in_amt,
-                                "amount_out": out_amt,
-                                "time_gap_seconds": round(diff, 1),
-                                "pass_through_ratio": round(out_amt / in_amt, 3) if in_amt > 0 else 0.0,
-                            })
-                    except Exception:
-                        continue
         return rapid_transfers

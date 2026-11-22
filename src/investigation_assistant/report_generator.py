@@ -187,3 +187,6 @@ class InvestigationReportGenerator:
         doc.build(elements)
         buffer.seek(0)
         return buffer.getvalue()
+
+    # Alias for backwards compatibility
+    generate_pdf_dossier = generate_case_pdf
