@@ -257,15 +257,22 @@ class MuleInterceptionEngine:
         downstream_edges = []
         if target_node in G:
             # All nodes reachable from target
-            downstream_nodes = nx.descendants(G, target_node)
+            downstream_nodes = set(nx.descendants(G, target_node))
             for u, v, d in G.edges(data=True):
                 if u == target_node or u in downstream_nodes:
                     downstream_edges.append((u, v, d))
 
+            # If target node is terminal (no outgoing edges) or inward hold applied,
+            # intercept the inward feed feeding into this terminal cash-out mule
+            if not downstream_edges:
+                for u, v, d in G.in_edges(target_node, data=True):
+                    downstream_edges.append((u, v, d))
+                downstream_nodes.add(target_node)
+
         # Downstream volume at stake
         downstream_volume = sum(d.get("amount", 0.0) for _, _, d in downstream_edges)
         if downstream_volume == 0.0:
-            # If target is at end or direct, estimate based on out-degree
+            # If target is at end or direct, estimate based on ring volume
             downstream_volume = total_ring_volume * 0.75
 
         # Effectiveness factor adjusted by delay window (30m to 120m)
@@ -311,6 +318,7 @@ class MuleInterceptionEngine:
             "total_ring_accounts": total_ring_accounts,
             "downstream_nodes_list": sorted(list(downstream_nodes)),
             "severed_edges_count": len(downstream_edges),
+            "severed_edges": [(u, v) for u, v, _ in downstream_edges],
             "ncrp_time_advantage_minutes": time_advantage_min,
             "collateral_retail_friction": "0.0% (Targeted node is verified non-retail mule)",
             "audit_trail": {
