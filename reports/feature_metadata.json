@@ -61,8 +61,8 @@
       "level": "account",
       "category": "Mule Indicator",
       "description": "Ratio of total money forwarded to total money received",
-      "mean": 402740008.0101629,
-      "mule_mean": 3020550050.440713
+      "mean": 1.3434961666666667,
+      "mule_mean": 0.44071249999999995
     },
     "min_turnaround_time_sec": {
       "level": "account",
