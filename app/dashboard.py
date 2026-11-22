@@ -26,6 +26,7 @@ from app.views import (
     network_explorer,
     xai_view,
     case_management,
+    interception_view,
 )
 
 st.set_page_config(
@@ -254,6 +255,7 @@ def main():
             "EXPLORATION MODULES",
             [
                 "📊 Multi-Bank Monitoring Dashboard",
+                "🎯 Mule Interception & ROI Simulator (RBI)",
                 "🕸️ Fraud Network Explorer",
                 "💡 Explainable AI (XAI)",
                 "🕵️ Fraud Investigation Assistant",
@@ -272,15 +274,19 @@ def main():
         <div style="font-size: 0.78rem; color: #64748B; line-height: 1.5;">
             <b>Investigator Context:</b><br>
             • Platform: AI Mule Ring Defense<br>
+            • RBI Defense: Interception & ROI<br>
             • Feature 1: Cross-Bank NetworkX<br>
             • Feature 2: SHAP Explainability<br>
             • Feature 3: Case Assistant & PDF<br>
+            • Security: DPDP Act 2023 Masking<br>
             • Ethics: Human-in-the-loop only
         </div>
         """, unsafe_allow_html=True)
 
     if page == "📊 Multi-Bank Monitoring Dashboard":
         monitoring.render()
+    elif page == "🎯 Mule Interception & ROI Simulator (RBI)":
+        interception_view.render()
     elif page == "🕸️ Fraud Network Explorer":
         network_explorer.render()
     elif page == "💡 Explainable AI (XAI)":
