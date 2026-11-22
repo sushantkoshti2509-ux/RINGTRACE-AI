@@ -1,6 +1,5 @@
 """
 🎯 Mule Ring Interception & ROI Simulator - Streamlit View.
-Developed for RBI (Reserve Bank of India) Hackathon / Evaluation Jury.
 Demonstrates proactive network disruption, quantifiable financial loss prevention,
 zero unilateral freezing, and DPDP Act 2023 cryptographic privacy safeguards.
 """
@@ -25,10 +24,10 @@ def render():
             <div>
                 <div class="top-title">
                     <span>🎯 Mule Ring Interception & ROI Simulator</span>
-                    <span class="top-badge">RBI Fraud Risk Defense</span>
+                    <span class="top-badge">Proactive Fraud Risk Defense</span>
                 </div>
                 <p class="top-desc">
-                    Simulate proactive disruption on cross-bank mule networks. Quantify intercepted funds (ROI), sever downstream cash-out routes, and enforce RBI 2024 compliance.
+                    Simulate proactive disruption on cross-bank mule networks. Quantify intercepted funds (ROI), sever downstream cash-out routes, and enforce regulatory fraud compliance.
                 </p>
             </div>
             <div style="text-align: right;">
@@ -38,14 +37,14 @@ def render():
     </div>
     """, unsafe_allow_html=True)
 
-    # Mandatory RBI Security & DPDP Act Safeguard Notice
+    # Mandatory Regulatory Security & DPDP Act Safeguard Notice
     st.markdown("""
     <div style="background: #EFF6FF; border-left: 5px solid #2563EB; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px;">
         <div style="font-weight: 700; color: #1E40AF; font-size: 0.92rem;">
-            🛡️ RBI Regulatory & Security Safeguard (Zero Unilateral Freezing):
+            🛡️ Regulatory & Security Safeguard (Zero Unilateral Freezing):
         </div>
         <div style="font-size: 0.84rem; color: #1E3A8A; line-height: 1.5; margin-top: 4px;">
-            In compliance with the <b>RBI Master Directions on Fraud Risk Management</b> and <b>DPDP Act 2023</b>, this simulator evaluates <b>non-punitive, graduated countermeasures</b> (such as dynamic cooling-off windows, adaptive step-up authentication, and dual-custody holds). All account numbers are cryptographically masked, and each action produces an immutable <b>SHA-256 audit log</b>.
+            In compliance with <b>Central Banking Master Directions on Fraud Risk Management</b> and the <b>DPDP Act 2023</b>, this simulator evaluates <b>non-punitive, graduated countermeasures</b> (such as dynamic cooling-off windows, adaptive step-up authentication, and dual-custody holds). All account numbers are cryptographically masked, and each action produces an immutable <b>SHA-256 audit log</b>.
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -92,7 +91,7 @@ def render():
             "Mandatory Step-Up Biometric Re-Auth": "STEP_UP_BIOMETRIC",
             "Dual-Bank Inward Remittance Hold": "DUAL_BANK_HOLD",
         }
-        sel_strat_label = st.selectbox("3. RBI Countermeasure Strategy:", list(strat_options.keys()))
+        sel_strat_label = st.selectbox("3. Select Countermeasure Strategy:", list(strat_options.keys()))
         selected_strat_key = strat_options[sel_strat_label]
 
     col_s1, col_s2 = st.columns([2, 1])
@@ -100,7 +99,7 @@ def render():
         delay_min = st.slider("Intervention Delay Window (Minutes):", min_value=15, max_value=120, value=60, step=15,
                               help="Simulates the time gap introduced before outgoing funds can leave this node.")
     with col_s2:
-        officer_input = st.text_input("Nodal Officer ID (Audit Sign-Off):", value="RBI-NODAL-OFFICER-742")
+        officer_input = st.text_input("Nodal Officer ID (Audit Sign-Off):", value="NODAL-OFFICER-742")
 
     # Run simulation
     sim_result = engine.simulate_interception(
@@ -263,7 +262,7 @@ def render():
         st.plotly_chart(fig, use_container_width=True)
 
     with col_dossier:
-        st.markdown("##### 📜 Official RBI Section 102 Regulatory Record")
+        st.markdown("##### 📜 Official Section 102 Regulatory Record")
         st.caption("Verifiable record for law enforcement (NCRP/1930) and participating bank nodal officers:")
 
         trail = sim_result["audit_trail"]
@@ -272,7 +271,7 @@ def render():
             <b>Simulation Record ID:</b> <code>{sim_result['simulation_id']}</code><br>
             <b>Target Account (Masked):</b> <code>{sim_result['masked_target_node']}</code><br>
             <b>Intervention:</b> {sim_result['strategy_used']['name']}<br>
-            <b>Regulatory Standard:</b> <i>{trail['rbi_directive_citation']}</i><br>
+            <b>Regulatory Standard:</b> <i>{trail['regulatory_directive_citation']}</i><br>
             <b>Funds Protected:</b> <b style="color: #059669;">₹{sim_result['funds_intercepted_inr']:,.2f}</b><br>
             <b>Estimated Residual Risk:</b> ₹{sim_result['funds_leaked_inr']:,.2f}<br>
             <b>Authorized Officer:</b> {trail['officer_id']}<br>
@@ -285,11 +284,11 @@ def render():
 
         st.markdown("<br>", unsafe_allow_html=True)
         # One-Click Copyable Advisory Notice for Law Enforcement
-        advisory_text = f"""[CONFIDENTIAL - RBI FRAUD RISK MANAGEMENT / NCRP 1930 ADVISORY]
+        advisory_text = f"""[CONFIDENTIAL - FRAUD RISK MANAGEMENT / NCRP 1930 ADVISORY]
 CASE ID: {sim_result['ring_id']}
 SIMULATION ID: {sim_result['simulation_id']}
 INTERCEPTED CHOKE POINT: {sim_result['target_node']}
-REGULATORY DIRECTIVE: {trail['rbi_directive_citation']}
+REGULATORY DIRECTIVE: {trail['regulatory_directive_citation']}
 INTERVENTION APPLIED: {sim_result['strategy_used']['name']} ({sim_result['delay_minutes']} Minutes)
 PROTECTED FINANCIAL VOLUME: INR {sim_result['funds_intercepted_inr']:,.2f}
 DOWNSTREAM MULES SEVERED: {sim_result['downstream_accounts_neutralized']}

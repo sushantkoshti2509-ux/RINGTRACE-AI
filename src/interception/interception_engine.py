@@ -31,25 +31,25 @@ class MuleInterceptionEngine:
     STRATEGIES = {
         "COOLING_OFF_DELAY": {
             "name": "Dynamic Outbound Cooling-Off Delay",
-            "code": "STRAT_RBI_01",
+            "code": "STRAT_REG_01",
             "description": "Applies a 30 to 120-minute temporary delay on outbound UPI/IMPS transfers from the target account.",
-            "regulatory_basis": "RBI Master Direction on Fraud Risk Management (2024) Clause 4.2: Graduated Transaction Throttling",
+            "regulatory_basis": "Master Direction on Fraud Risk Management (2024) Clause 4.2: Graduated Transaction Throttling",
             "effectiveness_rate": 0.88,
             "friction_index": "LOW",
         },
         "STEP_UP_BIOMETRIC": {
             "name": "Mandatory Step-Up Biometric / Aadhaar Re-Auth",
-            "code": "STRAT_RBI_02",
+            "code": "STRAT_REG_02",
             "description": "Requires immediate multi-factor re-authentication before outbound API transfers can proceed.",
-            "regulatory_basis": "RBI Digital Payment Security Controls Direction 2021: Adaptive Step-Up Authentication",
+            "regulatory_basis": "Digital Payment Security Controls Direction 2021: Adaptive Step-Up Authentication",
             "effectiveness_rate": 0.94,
             "friction_index": "MEDIUM",
         },
         "DUAL_BANK_HOLD": {
             "name": "Targeted Dual-Institution Inward Hold",
-            "code": "STRAT_RBI_03",
+            "code": "STRAT_REG_03",
             "description": "Receiving institution temporarily holds inbound cross-bank remittance for compliance clearance.",
-            "regulatory_basis": "Prevention of Money Laundering Act (PMLA) Section 12AA & RBI Inter-Bank Clearing Guidelines",
+            "regulatory_basis": "Prevention of Money Laundering Act (PMLA) Section 12AA & Inter-Bank Clearing Guidelines",
             "effectiveness_rate": 0.98,
             "friction_index": "MEDIUM_HIGH",
         },
@@ -231,7 +231,7 @@ class MuleInterceptionEngine:
         target_node: str,
         strategy_key: str = "COOLING_OFF_DELAY",
         delay_minutes: int = 60,
-        officer_id: str = "RBI-NODAL-OFFICER-742",
+        officer_id: str = "NODAL-OFFICER-742",
     ) -> Dict[str, Any]:
         """
         Executes countermeasure simulation on a target node.
@@ -284,7 +284,7 @@ class MuleInterceptionEngine:
         # NCRP 1930 Time Advantage
         time_advantage_min = int(delay_minutes * 0.85)
 
-        # Cryptographic Audit Hash for RBI Verification
+        # Cryptographic Audit Hash for Verification
         audit_payload = {
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "officer_id": officer_id,
@@ -297,7 +297,7 @@ class MuleInterceptionEngine:
         audit_hash = hashlib.sha256(json.dumps(audit_payload, sort_keys=True).encode()).hexdigest()
 
         return {
-            "simulation_id": f"SIM-RBI-{hashlib.md5(audit_hash.encode()).hexdigest()[:8].upper()}",
+            "simulation_id": f"SIM-REG-{hashlib.md5(audit_hash.encode()).hexdigest()[:8].upper()}",
             "ring_id": ring.get("candidate_ring_id"),
             "target_node": target_node,
             "masked_target_node": self.mask_account_id(target_node),
@@ -317,6 +317,7 @@ class MuleInterceptionEngine:
                 "officer_id": officer_id,
                 "decision_timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
                 "sha256_integrity_hash": audit_hash,
+                "regulatory_directive_citation": strategy["regulatory_basis"],
                 "rbi_directive_citation": strategy["regulatory_basis"],
                 "audit_status": "COMMITTED_TO_IMMUTABLE_LOG",
             },

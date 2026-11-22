@@ -81,18 +81,18 @@ def test_security_dpdp_privacy_masking_and_sha256_hash(interception_engine):
         target_node=target,
         strategy_key="STEP_UP_BIOMETRIC",
         delay_minutes=90,
-        officer_id="RBI-NODAL-OFFICER-999",
+        officer_id="NODAL-OFFICER-999",
     )
 
     audit = sim_res["audit_trail"]
     assert "sha256_integrity_hash" in audit
     assert len(audit["sha256_integrity_hash"]) == 64
-    assert audit["officer_id"] == "RBI-NODAL-OFFICER-999"
-    assert "RBI" in audit["rbi_directive_citation"]
+    assert audit["officer_id"] == "NODAL-OFFICER-999"
+    assert "Direction" in audit["regulatory_directive_citation"]
 
 
-def test_all_rbi_countermeasure_strategies(interception_engine):
-    """Verifies execution across all three RBI regulatory strategies."""
+def test_all_regulatory_countermeasure_strategies(interception_engine):
+    """Verifies execution across all three regulatory strategies."""
     rings = interception_engine.get_candidate_rings()
     ring = rings[0]
     G, _ = interception_engine.build_ring_subgraph(ring)
@@ -105,5 +105,5 @@ def test_all_rbi_countermeasure_strategies(interception_engine):
             strategy_key=strat_key,
             delay_minutes=45,
         )
-        assert res["strategy_used"]["code"].startswith("STRAT_RBI_")
+        assert res["strategy_used"]["code"].startswith("STRAT_REG_")
         assert res["interception_rate_pct"] > 0
