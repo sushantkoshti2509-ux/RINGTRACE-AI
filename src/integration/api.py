@@ -27,6 +27,7 @@ from src.realtime.api import router as realtime_router
 from src.alerts.api import router as alerts_router
 from src.dashboard.api import router as dashboard_router
 from src.interception.api import router as interception_router
+from src.platform_features.api import router as platform_router
 
 # Initialize FastAPI application
 app = FastAPI(
@@ -44,11 +45,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount Step 7, Step 8, Step 9, and Interception Routers
+# Mount Step 7, Step 8, Step 9, Interception, and Platform Routers
 app.include_router(realtime_router)
 app.include_router(alerts_router)
 app.include_router(dashboard_router)
 app.include_router(interception_router)
+app.include_router(platform_router)
 
 # Shared instances
 db_manager = DatabaseManager()
