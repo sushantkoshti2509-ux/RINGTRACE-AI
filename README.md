@@ -3,7 +3,8 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Streamlit](https://img.shields.io/badge/dashboard-Streamlit-red.svg)](https://streamlit.io/)
+[![Frontend](https://img.shields.io/badge/frontend-React_19_+_Vite-cyan.svg)](https://vitejs.dev/)
+[![FastAPI](https://img.shields.io/badge/backend-FastAPI-emerald.svg)](https://fastapi.tiangolo.com/)
 
 RINGTRACE AI is an explainable, privacy-preserving fraud intelligence platform designed to uncover coordinated mule account networks operating across multiple financial institutions in digital payment ecosystems (such as Indian UPI).
 
@@ -121,9 +122,13 @@ Executes simulation, graph extraction, model training, ring discovery, SHAP attr
 python run_pipeline.py
 ```
 
-### 3. Launch Interactive Streamlit Investigation Dashboard
+### 3. Launch Interactive Command Center & API Server
 ```bash
-streamlit run app/dashboard.py
+# Start FastAPI Backend & Unified Production HUD (Port 8000)
+uvicorn src.integration.api:app --host 0.0.0.0 --port 8000 --reload
+
+# Or start Vite React Frontend in development mode (Port 5173)
+cd frontend && npm run dev
 ```
 
 ### 4. Run Pytest Suite
