@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import confetti from 'canvas-confetti';
 import {
   ShieldAlert,
   Clock,
@@ -27,14 +26,6 @@ export default function InterceptionSimulator({
   const [copiedHash, setCopiedHash] = useState(false);
 
   const handleSimulate = async () => {
-    // Fire celebratory confetti on high-impact interception
-    confetti({
-      particleCount: 80,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ['#06b6d4', '#10b981', '#3b82f6'],
-    });
-
     onRunSimulation({
       strategyKey,
       delayMinutes,

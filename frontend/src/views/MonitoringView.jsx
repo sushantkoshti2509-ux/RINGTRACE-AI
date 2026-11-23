@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { apiFetch } from '../api';
 import { Search, Filter, ArrowUpDown, Shield, AlertTriangle, CheckCircle, ChevronLeft, ChevronRight, Eye, RefreshCw } from 'lucide-react';
 
 export default function MonitoringView() {
@@ -20,7 +21,7 @@ export default function MonitoringView() {
       if (riskFilter !== 'ALL') url += `&risk_level=${encodeURIComponent(riskFilter)}`;
       if (searchQuery.trim()) url += `&search_query=${encodeURIComponent(searchQuery.trim())}`;
 
-      const res = await fetch(url);
+      const res = await apiFetch(url);
       if (res.ok) {
         const data = await res.json();
         setTransactions(data.transactions || []);

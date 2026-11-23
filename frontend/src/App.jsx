@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { apiFetch } from './api';
 import Sidebar from './components/Sidebar';
 import KPIMetricsBar from './components/KPIMetricsBar';
 import MonitoringView from './views/MonitoringView';
@@ -32,7 +33,7 @@ export default function App() {
   useEffect(() => {
     const fetchInit = async () => {
       try {
-        const topRes = await fetch('/api/v1/interception/topology');
+        const topRes = await apiFetch('/api/v1/interception/topology');
         if (topRes.ok) {
           const data = await topRes.json();
           setNodes(data.nodes || []);
@@ -43,7 +44,7 @@ export default function App() {
           }
         }
 
-        const sumRes = await fetch('/api/v1/dashboard/summary?mode=federated');
+        const sumRes = await apiFetch('/api/v1/dashboard/summary?mode=federated');
         if (sumRes.ok) {
           const sumData = await sumRes.json();
           setSummary(sumData);
@@ -60,7 +61,7 @@ export default function App() {
     setIsSimulating(true);
     try {
       const target = selectedTargetNode || (bottlenecks[0]?.node_id) || 'BANK_A:BANK_MULE_00001';
-      const res = await fetch('/api/v1/interception/simulate', {
+      const res = await apiFetch('/api/v1/interception/simulate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

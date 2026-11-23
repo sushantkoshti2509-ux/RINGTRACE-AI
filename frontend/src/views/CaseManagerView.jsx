@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { apiFetch, API_BASE } from '../api';
 import { Briefcase, FileText, Download, CheckSquare, Square, Shield, UserCheck, RefreshCw } from 'lucide-react';
 
 export default function CaseManagerView() {
@@ -9,7 +10,7 @@ export default function CaseManagerView() {
   const fetchCases = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch('/api/v1/platform/cases');
+      const res = await apiFetch('/api/v1/platform/cases');
       if (res.ok) {
         const data = await res.json();
         setCases(data.cases || []);
@@ -29,7 +30,7 @@ export default function CaseManagerView() {
   }, []);
 
   const handleDownloadPdf = (caseId) => {
-    window.open(`/api/v1/platform/cases/${caseId}/pdf`, '_blank');
+    window.open(`${API_BASE}/api/v1/platform/cases/${caseId}/pdf`, '_blank');
   };
 
   return (

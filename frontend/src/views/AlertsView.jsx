@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { apiFetch } from '../api';
 import { Bell, AlertTriangle, ShieldCheck, CheckCircle2, Clock, Filter, Eye, RefreshCw } from 'lucide-react';
 
 export default function AlertsView() {
@@ -13,7 +14,7 @@ export default function AlertsView() {
     try {
       let url = '/api/v1/alerts/?limit=50';
       if (statusFilter !== 'ALL') url += `&status=${statusFilter}`;
-      const res = await fetch(url);
+      const res = await apiFetch(url);
       if (res.ok) {
         const data = await res.json();
         setAlerts(data.alerts || data || []);
@@ -31,7 +32,7 @@ export default function AlertsView() {
 
   const updateAlertStatus = async (alertId, newStatus) => {
     try {
-      const res = await fetch(`/api/v1/alerts/${alertId}/status`, {
+      const res = await apiFetch(`/api/v1/alerts/${alertId}/status`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

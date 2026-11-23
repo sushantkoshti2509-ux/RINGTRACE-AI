@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { apiFetch } from '../api';
 import { Network, RefreshCw, Layers, Clock, AlertCircle, Share2, ArrowRight } from 'lucide-react';
 
 export default function NetworkExplorerView() {
@@ -9,7 +10,7 @@ export default function NetworkExplorerView() {
   const fetchAnalytics = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch('/api/v1/platform/network/analytics');
+      const res = await apiFetch('/api/v1/platform/network/analytics');
       if (res.ok) {
         const data = await res.json();
         setAnalytics(data);

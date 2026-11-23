@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { apiFetch } from '../api';
 import { Sparkles, Brain, CheckCircle2, TrendingUp, HelpCircle, Shield } from 'lucide-react';
 
 export default function XAIView() {
@@ -9,7 +10,7 @@ export default function XAIView() {
     const fetchXAI = async () => {
       setIsLoading(true);
       try {
-        const res = await fetch('/api/v1/platform/xai/features');
+        const res = await apiFetch('/api/v1/platform/xai/features');
         if (res.ok) {
           const data = await res.json();
           setXaiData(data);

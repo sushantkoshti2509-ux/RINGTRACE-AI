@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { apiFetch } from '../api';
 import { Zap, Play, CheckCircle, AlertTriangle, ShieldAlert, Cpu, Activity, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function RealtimeScorerView() {
@@ -14,7 +15,7 @@ export default function RealtimeScorerView() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const res = await fetch('/api/v1/realtime/transaction', {
+      const res = await apiFetch('/api/v1/realtime/transaction', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
