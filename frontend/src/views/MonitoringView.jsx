@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { apiFetch } from '../api';
+import GNNGraphDashboard from '../components/GNNGraphDashboard';
 import { Search, Filter, ArrowUpDown, Shield, AlertTriangle, CheckCircle, ChevronLeft, ChevronRight, Eye, RefreshCw, LayoutGrid } from 'lucide-react';
 
 export default function MonitoringView() {
@@ -45,7 +46,13 @@ export default function MonitoringView() {
 
   useEffect(() => {
     fetchTransactions();
-  }, [bankFilter, riskFilter, page]);
+  }, [bankFilter, riskFilter, page, searchQuery]);
+
+  const handleFilterAccount = (accId) => {
+    const rawAcc = accId.includes(':') ? accId.split(':')[1] : accId;
+    setSearchQuery(rawAcc);
+    setPage(0);
+  };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -137,6 +144,9 @@ export default function MonitoringView() {
           </button>
         </form>
       </div>
+
+      {/* GNN Relational Network Graph */}
+      <GNNGraphDashboard onFilterAccount={handleFilterAccount} />
 
       {/* Main Data Table */}
       <div className="glass-panel rounded-2xl border border-slate-800 shadow-2xl overflow-hidden flex flex-col">
