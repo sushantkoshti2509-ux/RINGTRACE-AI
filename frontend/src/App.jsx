@@ -13,6 +13,7 @@ import AdvancedAnalyticsView from './views/AdvancedAnalyticsView';
 import CyberGlobe3D from './components/CyberGlobe3D';
 import MuleRingCanvas from './components/MuleRingCanvas';
 import InterceptionSimulator from './components/InterceptionSimulator';
+import DigitalTwinSimulator from './components/DigitalTwinSimulator';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -172,6 +173,7 @@ export default function App() {
                 <CyberGlobe3D />
               </div>
             )}
+            {activeTab === 'digital_twin' && <DigitalTwinSimulator />}
             {activeTab === 'interception' && (
               <div className="flex flex-col gap-6">
                 <MuleRingCanvas

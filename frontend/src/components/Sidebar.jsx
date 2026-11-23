@@ -11,6 +11,7 @@ import {
   Globe,
   Lock,
   Shield,
+  Cpu,
 } from 'lucide-react';
 
 export default function Sidebar({ activeTab, setActiveTab }) {
@@ -62,6 +63,7 @@ export default function Sidebar({ activeTab, setActiveTab }) {
 
   const secondaryNavItems = [
     { id: 'interception', label: 'Interception & ROI Simulator', icon: ShieldAlert, badge: 'PROACTIVE' },
+    { id: 'digital_twin', label: 'Digital Twin Simulator', icon: Cpu, badge: 'SIMULATOR' },
     { id: 'globe3d', label: '3D Cyber Clearing Fabric', icon: Globe, badge: '3D' },
   ];
 

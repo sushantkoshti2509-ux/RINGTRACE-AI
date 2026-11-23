@@ -219,3 +219,56 @@ def test_platform_assistant_and_advanced_analytics_endpoints():
     assert "velocity_histogram" in ana_data
     assert "cross_bank_flows" in ana_data
     assert ana_data["graph_kpis"]["rings_detected"] >= 28
+
+
+def test_five_pattern_detection_and_digital_twin_endpoints():
+    """Verifies all 5 fraud detection algorithms and digital twin replay/simulation endpoints."""
+    from starlette.testclient import TestClient
+    from src.integration.api import app
+
+    client = TestClient(app)
+
+    # 1. Test 5-Pattern Detection Endpoint
+    resp_pat = client.get("/api/v1/platform/network/patterns")
+    assert resp_pat.status_code == 200
+    pat_data = resp_pat.json()
+    assert "summary" in pat_data
+    assert "evidence_records" in pat_data
+    assert pat_data["summary"]["total_cycles_detected"] >= 1
+    assert len(pat_data["evidence_records"]) > 0
+
+    first_evidence = pat_data["evidence_records"][0]
+    assert "network_id" in first_evidence
+    assert "participating_accounts" in first_evidence
+    assert "pattern_detected" in first_evidence
+    assert "confidence_score" in first_evidence
+    assert "ground_truth_label" in first_evidence
+
+    # 2. Test Digital Twin Chronological Replay Endpoint
+    resp_rep = client.post(
+        "/api/v1/platform/digital-twin/replay",
+        json={"ring_id": "RING_001"},
+    )
+    assert resp_rep.status_code == 200
+    rep_data = resp_rep.json()
+    assert "frames" in rep_data
+    assert len(rep_data["frames"]) > 0
+    first_frame = rep_data["frames"][0]
+    assert "step_index" in first_frame
+    assert "amount" in first_frame
+    assert "sender_bank" in first_frame
+    assert "receiver_bank" in first_frame
+
+    # 3. Test Digital Twin What-If Scenario Simulator
+    for scenario in ["ADD_INTERMEDIARY", "SPLIT_SMURFING", "CREATE_CIRCULAR_LOOP", "BURST_VELOCITY"]:
+        resp_scen = client.post(
+            "/api/v1/platform/digital-twin/simulate-scenario",
+            json={"scenario_type": scenario, "baseline_ring_id": "RING_001"},
+        )
+        assert resp_scen.status_code == 200
+        scen_data = resp_scen.json()
+        assert scen_data["is_simulated"] is True
+        assert "SIMULATED" in scen_data["watermark"]
+        assert "baseline_comparison" in scen_data
+        assert "synthetic_nodes" in scen_data
+        assert len(scen_data["synthetic_nodes"]) > 0
