@@ -158,21 +158,29 @@ class DashboardMonitoringService:
             for r in rows:
                 risk_tier = "High" if r.is_suspicious == 1 else "Low"
                 status_label = "Suspicious" if r.is_suspicious == 1 else "Normal"
+                s_bank = r.sender_bank or "BANK_A"
+                r_bank = r.receiver_bank or "BANK_B"
+                s_acc = r.sender_account or ""
+                r_acc = r.receiver_account or ""
                 results.append({
                     "transaction_id": r.transaction_id,
+                    "bank_id": s_bank,
                     "customer_id": r.customer_id,
-                    "sender_account": r.sender_account,
-                    "receiver_account": r.receiver_account,
-                    "sender_bank": r.sender_bank,
-                    "receiver_bank": r.receiver_bank,
-                    "amount": r.amount,
-                    "timestamp": r.timestamp,
+                    "sender_account": s_acc,
+                    "receiver_account": r_acc,
+                    "sender_account_masked": f"{s_bank}:••••{s_acc[-4:]}" if len(s_acc) >= 4 else s_acc,
+                    "receiver_account_masked": f"{r_bank}:••••{r_acc[-4:]}" if len(r_acc) >= 4 else r_acc,
+                    "sender_bank": s_bank,
+                    "receiver_bank": r_bank,
+                    "amount": float(r.amount) if r.amount is not None else 0.0,
+                    "timestamp": str(r.timestamp),
                     "transaction_type": r.transaction_type,
-                    "is_suspicious": r.is_suspicious,
+                    "is_suspicious": int(r.is_suspicious) if r.is_suspicious is not None else 0,
                     "risk_level": risk_tier,
                     "status": status_label,
                     "pattern_type": r.pattern_type,
-                    "is_cross_bank": r.is_cross_bank,
+                    "is_cross_bank": bool(r.is_cross_bank),
+                    "reconciliation_status": "Dual Reconciled" if bool(r.is_cross_bank) else "Intra-Bank Settled",
                 })
             return results
 

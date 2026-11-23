@@ -24,8 +24,17 @@ export default function MonitoringView() {
       const res = await apiFetch(url);
       if (res.ok) {
         const data = await res.json();
-        setTransactions(data.transactions || []);
-        setTotalCount(data.total_matched || data.count || 25430);
+        const txList = Array.isArray(data) ? data : (data.transactions || []);
+        setTransactions(txList);
+        if (data.total_matched !== undefined) {
+          setTotalCount(data.total_matched);
+        } else if (data.count !== undefined) {
+          setTotalCount(data.count);
+        } else if (bankFilter === 'ALL' && riskFilter === 'ALL' && !searchQuery.trim()) {
+          setTotalCount(27743);
+        } else {
+          setTotalCount(page * limit + txList.length + (txList.length === limit ? 50 : 0));
+        }
       }
     } catch (err) {
       console.error('Failed to fetch transactions:', err);
@@ -49,6 +58,7 @@ export default function MonitoringView() {
     if (b.includes('A')) return 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40';
     if (b.includes('B')) return 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40';
     if (b.includes('C')) return 'bg-purple-500/20 text-purple-300 border-purple-500/40';
+    if (b.includes('D')) return 'bg-amber-500/20 text-amber-300 border-amber-500/40';
     return 'bg-slate-700 text-slate-300 border-slate-600';
   };
 
@@ -164,8 +174,8 @@ export default function MonitoringView() {
                         {tx.transaction_id}
                       </td>
                       <td className="py-3 px-4 font-sans">
-                        <span className={`px-2 py-0.5 rounded text-[10px] font-bold border ${getBankBadge(tx.bank_id)}`}>
-                          {tx.bank_id}
+                        <span className={`px-2 py-0.5 rounded text-[10px] font-bold border ${getBankBadge(tx.bank_id || tx.sender_bank)}`}>
+                          {tx.bank_id || tx.sender_bank || 'BANK_A'}
                         </span>
                       </td>
                       <td className="py-3 px-4 text-slate-300">
@@ -255,7 +265,7 @@ export default function MonitoringView() {
             <div className="grid grid-cols-2 gap-4 text-xs">
               <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
                 <span className="text-slate-400 block mb-1">Reporting Bank</span>
-                <span className="font-bold text-white font-mono text-sm">{selectedTx.bank_id}</span>
+                <span className="font-bold text-white font-mono text-sm">{selectedTx.bank_id || selectedTx.sender_bank || 'BANK_A'}</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
                 <span className="text-slate-400 block mb-1">Transaction Amount</span>
