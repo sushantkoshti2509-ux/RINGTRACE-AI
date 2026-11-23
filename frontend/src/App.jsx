@@ -14,6 +14,7 @@ import CyberGlobe3D from './components/CyberGlobe3D';
 import MuleRingCanvas from './components/MuleRingCanvas';
 import InterceptionSimulator from './components/InterceptionSimulator';
 import DigitalTwinSimulator from './components/DigitalTwinSimulator';
+import GNNIntelligenceView from './views/GNNIntelligenceView';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -163,6 +164,7 @@ export default function App() {
             {activeTab === 'assistant' && <InvestigationAssistantView />}
             {activeTab === 'cases' && <CaseManagerView />}
             {activeTab === 'analytics' && <AdvancedAnalyticsView />}
+            {activeTab === 'gnn' && <GNNIntelligenceView />}
             {activeTab === 'realtime' && <RealtimeScorerView />}
             {activeTab === 'alerts' && <AlertsView />}
             {activeTab === 'globe3d' && (

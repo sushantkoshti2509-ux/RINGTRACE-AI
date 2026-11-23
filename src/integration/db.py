@@ -159,6 +159,39 @@ class InvestigationCaseModel(Base):
     )
 
 
+class GNNModelRunModel(Base):
+    """Tracks Graph Neural Network model training runs, versions, and evaluation metrics."""
+    __tablename__ = "gnn_model_runs"
+
+    run_id = Column(String(64), primary_key=True, index=True)
+    model_type = Column(String(64), nullable=False)  # EdgeAwareGNN, GATv2Net
+    version = Column(String(32), default="1.0.0")
+    precision = Column(Float, default=0.0)
+    recall = Column(Float, default=0.0)
+    f1_score = Column(Float, default=0.0)
+    roc_auc = Column(Float, default=0.0)
+    pr_auc = Column(Float, default=0.0)
+    false_positive_rate = Column(Float, default=0.0)
+    inference_latency_ms = Column(Float, default=0.0)
+    checkpoint_path = Column(String(256), nullable=False)
+    metrics_json = Column(Text, default="{}")
+    trained_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+
+
+class GNNPredictionModel(Base):
+    """Persisted GNN predictions and explainability subgraphs."""
+    __tablename__ = "gnn_predictions"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    entity_id = Column(String(64), index=True, nullable=False)
+    entity_type = Column(String(32), default="ACCOUNT")  # ACCOUNT, TRANSACTION, NETWORK
+    gnn_score = Column(Float, nullable=False)
+    risk_tier = Column(String(32), default="NORMAL")
+    bank_id = Column(String(32), default="BANK_A")
+    explanation_json = Column(Text, default="{}")
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+
+
 class DatabaseManager:
     """Manages database connection, table initialization, and high-performance ingestion."""
 
