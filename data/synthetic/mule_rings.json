@@ -3,144 +3,297 @@
     "ring_id":"RING_001",
     "scenario_type":"RAPID_PASS_THROUGH",
     "accounts":"BANK_MULE_00001;BANK_MULE_00002;BANK_MULE_00003;BANK_MULE_00004;BANK_MULE_00005",
-    "total_amount":960498.7,
+    "total_amount":341072.14,
     "hop_count":4,
-    "duration_minutes":96,
-    "cross_bank_count":3
+    "duration_minutes":154,
+    "cross_bank_count":6
   },
   {
     "ring_id":"RING_002",
     "scenario_type":"FAN_OUT_SPLITTER",
     "accounts":"BANK_MULE_00006;BANK_MULE_00007;BANK_MULE_00008;BANK_MULE_00009;BANK_MULE_00010",
-    "total_amount":249653.28,
+    "total_amount":118715.44,
     "hop_count":4,
-    "duration_minutes":27,
-    "cross_bank_count":3
+    "duration_minutes":26,
+    "cross_bank_count":6
   },
   {
     "ring_id":"RING_003",
     "scenario_type":"FAN_IN_COLLECTOR",
     "accounts":"BANK_MULE_00011;BANK_MULE_00012;BANK_MULE_00013;BANK_MULE_00014;BANK_MULE_00015",
-    "total_amount":178726.64,
+    "total_amount":246713.15,
     "hop_count":4,
-    "duration_minutes":154,
-    "cross_bank_count":3
+    "duration_minutes":49,
+    "cross_bank_count":6
   },
   {
     "ring_id":"RING_004",
     "scenario_type":"CROSS_BANK_CHAIN",
     "accounts":"BANK_MULE_00016;BANK_MULE_00017;BANK_MULE_00018;BANK_MULE_00019;BANK_MULE_00020",
-    "total_amount":785768.39,
+    "total_amount":242791.55,
     "hop_count":4,
-    "duration_minutes":137,
-    "cross_bank_count":2
+    "duration_minutes":106,
+    "cross_bank_count":3
   },
   {
     "ring_id":"RING_005",
     "scenario_type":"CIRCULAR_LAYERING",
     "accounts":"BANK_MULE_00021;BANK_MULE_00022;BANK_MULE_00023;BANK_MULE_00024;BANK_MULE_00025",
-    "total_amount":782373.9300000001,
+    "total_amount":1112610.9099999999,
     "hop_count":4,
-    "duration_minutes":126,
-    "cross_bank_count":2
+    "duration_minutes":34,
+    "cross_bank_count":6
   },
   {
     "ring_id":"RING_006",
     "scenario_type":"RAPID_PASS_THROUGH",
     "accounts":"BANK_MULE_00026;BANK_MULE_00027;BANK_MULE_00028;BANK_MULE_00029;BANK_MULE_00030",
-    "total_amount":541563.11,
+    "total_amount":747001.55,
     "hop_count":4,
-    "duration_minutes":129,
+    "duration_minutes":180,
     "cross_bank_count":3
   },
   {
     "ring_id":"RING_007",
     "scenario_type":"FAN_OUT_SPLITTER",
     "accounts":"BANK_MULE_00031;BANK_MULE_00032;BANK_MULE_00033;BANK_MULE_00034;BANK_MULE_00035",
-    "total_amount":224794.81,
+    "total_amount":158410.72,
     "hop_count":4,
-    "duration_minutes":107,
-    "cross_bank_count":3
+    "duration_minutes":22,
+    "cross_bank_count":5
   },
   {
     "ring_id":"RING_008",
     "scenario_type":"FAN_IN_COLLECTOR",
     "accounts":"BANK_MULE_00036;BANK_MULE_00037;BANK_MULE_00038;BANK_MULE_00039;BANK_MULE_00040",
-    "total_amount":267476.54,
+    "total_amount":90383.19,
     "hop_count":4,
-    "duration_minutes":129,
-    "cross_bank_count":3
+    "duration_minutes":51,
+    "cross_bank_count":5
   },
   {
     "ring_id":"RING_009",
     "scenario_type":"CROSS_BANK_CHAIN",
     "accounts":"BANK_MULE_00041;BANK_MULE_00042;BANK_MULE_00043;BANK_MULE_00044;BANK_MULE_00045",
-    "total_amount":221308.06,
+    "total_amount":442090.38,
     "hop_count":4,
-    "duration_minutes":50,
-    "cross_bank_count":2
+    "duration_minutes":108,
+    "cross_bank_count":4
   },
   {
     "ring_id":"RING_010",
     "scenario_type":"CIRCULAR_LAYERING",
     "accounts":"BANK_MULE_00046;BANK_MULE_00047;BANK_MULE_00048;BANK_MULE_00049;BANK_MULE_00050",
-    "total_amount":719100.4399999999,
+    "total_amount":960843.08,
     "hop_count":4,
-    "duration_minutes":103,
-    "cross_bank_count":2
+    "duration_minutes":15,
+    "cross_bank_count":3
   },
   {
     "ring_id":"RING_011",
     "scenario_type":"RAPID_PASS_THROUGH",
     "accounts":"BANK_MULE_00051;BANK_MULE_00052;BANK_MULE_00053;BANK_MULE_00054;BANK_MULE_00055",
-    "total_amount":933949.3,
+    "total_amount":711836.64,
     "hop_count":4,
-    "duration_minutes":143,
-    "cross_bank_count":2
+    "duration_minutes":15,
+    "cross_bank_count":6
   },
   {
     "ring_id":"RING_012",
     "scenario_type":"FAN_OUT_SPLITTER",
     "accounts":"BANK_MULE_00056;BANK_MULE_00057;BANK_MULE_00058;BANK_MULE_00059;BANK_MULE_00060",
-    "total_amount":202173.98,
+    "total_amount":94411.08,
     "hop_count":4,
-    "duration_minutes":138,
-    "cross_bank_count":2
+    "duration_minutes":111,
+    "cross_bank_count":3
   },
   {
     "ring_id":"RING_013",
     "scenario_type":"FAN_IN_COLLECTOR",
     "accounts":"BANK_MULE_00061;BANK_MULE_00062;BANK_MULE_00063;BANK_MULE_00064;BANK_MULE_00065",
-    "total_amount":126212.8,
+    "total_amount":123957.98,
     "hop_count":4,
-    "duration_minutes":76,
-    "cross_bank_count":2
+    "duration_minutes":27,
+    "cross_bank_count":4
   },
   {
     "ring_id":"RING_014",
     "scenario_type":"CROSS_BANK_CHAIN",
     "accounts":"BANK_MULE_00066;BANK_MULE_00067;BANK_MULE_00068;BANK_MULE_00069;BANK_MULE_00070",
-    "total_amount":764848.72,
+    "total_amount":981483.08,
     "hop_count":4,
-    "duration_minutes":115,
-    "cross_bank_count":3
+    "duration_minutes":114,
+    "cross_bank_count":6
   },
   {
     "ring_id":"RING_015",
     "scenario_type":"CIRCULAR_LAYERING",
     "accounts":"BANK_MULE_00071;BANK_MULE_00072;BANK_MULE_00073;BANK_MULE_00074;BANK_MULE_00075",
-    "total_amount":978742.5,
+    "total_amount":1068580.1000000001,
     "hop_count":4,
-    "duration_minutes":130,
-    "cross_bank_count":3
+    "duration_minutes":161,
+    "cross_bank_count":4
   },
   {
     "ring_id":"RING_016",
     "scenario_type":"RAPID_PASS_THROUGH",
     "accounts":"BANK_MULE_00076;BANK_MULE_00077;BANK_MULE_00078;BANK_MULE_00079;BANK_MULE_00080",
-    "total_amount":199749.52,
+    "total_amount":328918.47,
+    "hop_count":4,
+    "duration_minutes":96,
+    "cross_bank_count":4
+  },
+  {
+    "ring_id":"RING_017",
+    "scenario_type":"FAN_OUT_SPLITTER",
+    "accounts":"BANK_MULE_00081;BANK_MULE_00082;BANK_MULE_00083;BANK_MULE_00084;BANK_MULE_00085",
+    "total_amount":83583.6,
+    "hop_count":4,
+    "duration_minutes":113,
+    "cross_bank_count":3
+  },
+  {
+    "ring_id":"RING_018",
+    "scenario_type":"FAN_IN_COLLECTOR",
+    "accounts":"BANK_MULE_00086;BANK_MULE_00087;BANK_MULE_00088;BANK_MULE_00089;BANK_MULE_00090",
+    "total_amount":248513.37,
+    "hop_count":4,
+    "duration_minutes":49,
+    "cross_bank_count":6
+  },
+  {
+    "ring_id":"RING_019",
+    "scenario_type":"CROSS_BANK_CHAIN",
+    "accounts":"BANK_MULE_00091;BANK_MULE_00092;BANK_MULE_00093;BANK_MULE_00094;BANK_MULE_00095",
+    "total_amount":218851.01,
+    "hop_count":4,
+    "duration_minutes":29,
+    "cross_bank_count":5
+  },
+  {
+    "ring_id":"RING_020",
+    "scenario_type":"CIRCULAR_LAYERING",
+    "accounts":"BANK_MULE_00096;BANK_MULE_00097;BANK_MULE_00098;BANK_MULE_00099;BANK_MULE_00100",
+    "total_amount":1240055.1699999999,
+    "hop_count":4,
+    "duration_minutes":113,
+    "cross_bank_count":4
+  },
+  {
+    "ring_id":"RING_021",
+    "scenario_type":"RAPID_PASS_THROUGH",
+    "accounts":"BANK_MULE_00101;BANK_MULE_00102;BANK_MULE_00103;BANK_MULE_00104;BANK_MULE_00105",
+    "total_amount":852016.48,
+    "hop_count":4,
+    "duration_minutes":79,
+    "cross_bank_count":3
+  },
+  {
+    "ring_id":"RING_022",
+    "scenario_type":"FAN_OUT_SPLITTER",
+    "accounts":"BANK_MULE_00106;BANK_MULE_00107;BANK_MULE_00108;BANK_MULE_00109;BANK_MULE_00110",
+    "total_amount":200276.98,
+    "hop_count":4,
+    "duration_minutes":96,
+    "cross_bank_count":4
+  },
+  {
+    "ring_id":"RING_023",
+    "scenario_type":"FAN_IN_COLLECTOR",
+    "accounts":"BANK_MULE_00111;BANK_MULE_00112;BANK_MULE_00113;BANK_MULE_00114;BANK_MULE_00115",
+    "total_amount":212463.04,
+    "hop_count":4,
+    "duration_minutes":157,
+    "cross_bank_count":4
+  },
+  {
+    "ring_id":"RING_024",
+    "scenario_type":"CROSS_BANK_CHAIN",
+    "accounts":"BANK_MULE_00116;BANK_MULE_00117;BANK_MULE_00118;BANK_MULE_00119;BANK_MULE_00120",
+    "total_amount":892680.49,
+    "hop_count":4,
+    "duration_minutes":163,
+    "cross_bank_count":4
+  },
+  {
+    "ring_id":"RING_025",
+    "scenario_type":"CIRCULAR_LAYERING",
+    "accounts":"BANK_MULE_00121;BANK_MULE_00122;BANK_MULE_00123;BANK_MULE_00124;BANK_MULE_00125",
+    "total_amount":363997.0,
+    "hop_count":4,
+    "duration_minutes":68,
+    "cross_bank_count":3
+  },
+  {
+    "ring_id":"RING_026",
+    "scenario_type":"RAPID_PASS_THROUGH",
+    "accounts":"BANK_MULE_00126;BANK_MULE_00127;BANK_MULE_00128;BANK_MULE_00129;BANK_MULE_00130",
+    "total_amount":983275.64,
+    "hop_count":4,
+    "duration_minutes":94,
+    "cross_bank_count":4
+  },
+  {
+    "ring_id":"RING_027",
+    "scenario_type":"FAN_OUT_SPLITTER",
+    "accounts":"BANK_MULE_00131;BANK_MULE_00132;BANK_MULE_00133;BANK_MULE_00134;BANK_MULE_00135",
+    "total_amount":128649.19,
+    "hop_count":4,
+    "duration_minutes":48,
+    "cross_bank_count":4
+  },
+  {
+    "ring_id":"RING_028",
+    "scenario_type":"FAN_IN_COLLECTOR",
+    "accounts":"BANK_MULE_00136;BANK_MULE_00137;BANK_MULE_00138;BANK_MULE_00139;BANK_MULE_00140",
+    "total_amount":71863.98,
+    "hop_count":4,
+    "duration_minutes":54,
+    "cross_bank_count":4
+  },
+  {
+    "ring_id":"RING_029",
+    "scenario_type":"CROSS_BANK_CHAIN",
+    "accounts":"BANK_MULE_00141;BANK_MULE_00142;BANK_MULE_00143;BANK_MULE_00144;BANK_MULE_00145",
+    "total_amount":846118.61,
     "hop_count":4,
     "duration_minutes":56,
+    "cross_bank_count":4
+  },
+  {
+    "ring_id":"RING_030",
+    "scenario_type":"CIRCULAR_LAYERING",
+    "accounts":"BANK_MULE_00146;BANK_MULE_00147;BANK_MULE_00148;BANK_MULE_00149;BANK_MULE_00150",
+    "total_amount":761581.34,
+    "hop_count":4,
+    "duration_minutes":25,
     "cross_bank_count":3
+  },
+  {
+    "ring_id":"RING_031",
+    "scenario_type":"RAPID_PASS_THROUGH",
+    "accounts":"BANK_MULE_00151;BANK_MULE_00152;BANK_MULE_00153;BANK_MULE_00154;BANK_MULE_00155",
+    "total_amount":899682.42,
+    "hop_count":4,
+    "duration_minutes":137,
+    "cross_bank_count":5
+  },
+  {
+    "ring_id":"RING_032",
+    "scenario_type":"FAN_OUT_SPLITTER",
+    "accounts":"BANK_MULE_00156;BANK_MULE_00157;BANK_MULE_00158;BANK_MULE_00159;BANK_MULE_00160",
+    "total_amount":249411.25,
+    "hop_count":4,
+    "duration_minutes":81,
+    "cross_bank_count":6
+  },
+  {
+    "ring_id":"RING_033",
+    "scenario_type":"FAN_IN_COLLECTOR",
+    "accounts":"BANK_MULE_00161;BANK_MULE_00162;BANK_MULE_00163;BANK_MULE_00164;BANK_MULE_00165",
+    "total_amount":57998.14,
+    "hop_count":4,
+    "duration_minutes":97,
+    "cross_bank_count":5
   }
 ]

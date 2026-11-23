@@ -48,7 +48,7 @@ export default function Sidebar({ activeTab, setActiveTab }) {
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <div>
               <span className="font-bold text-emerald-300 block text-[11px]">UPI Network Online</span>
-              <span className="text-[10px] text-emerald-500/90">Bank A, B, C Connected</span>
+              <span className="text-[10px] text-emerald-500/90">Bank A through F Online</span>
             </div>
           </div>
         </div>

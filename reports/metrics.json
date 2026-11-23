@@ -1,21 +1,29 @@
 {
   "overall_performance": {
     "threshold": 0.75,
+    "accuracy": 1.0,
     "precision": 1.0,
     "recall": 1.0,
     "f1_score": 1.0,
     "false_positive_rate": 0.0,
+    "false_negative_rate": 0.0,
     "pr_auc": 1.0,
     "roc_auc": 1.0,
-    "true_positives": 80,
+    "true_positives": 165,
     "false_positives": 0,
-    "true_negatives": 520,
-    "false_negatives": 0
+    "true_negatives": 1035,
+    "false_negatives": 0,
+    "confusion_matrix": {
+      "TN": 1035,
+      "FP": 0,
+      "FN": 0,
+      "TP": 165
+    }
   },
   "ring_level_detection": {
-    "total_ground_truth_rings": 16,
-    "total_candidate_rings_detected": 16,
-    "matched_ground_truth_rings": 16,
+    "total_ground_truth_rings": 33,
+    "total_candidate_rings_detected": 33,
+    "matched_ground_truth_rings": 33,
     "ring_precision": 1.0,
     "ring_recall": 1.0,
     "ring_f1": 1.0,
@@ -23,88 +31,112 @@
   },
   "profile_false_positive_analysis": {
     "GIG_WORKER": {
-      "total_accounts": 104,
-      "legitimate_count": 104,
+      "total_accounts": 208,
+      "legitimate_count": 208,
       "false_positives": 0,
       "profile_fpr": 0.0,
-      "avg_risk_score": 0.0027
+      "avg_risk_score": 0.0014
     },
     "MERCHANT": {
-      "total_accounts": 102,
-      "legitimate_count": 102,
+      "total_accounts": 205,
+      "legitimate_count": 205,
       "false_positives": 0,
       "profile_fpr": 0.0,
-      "avg_risk_score": 0.0027
+      "avg_risk_score": 0.0014
     },
     "MULE_SUSPECT": {
-      "total_accounts": 80,
+      "total_accounts": 165,
       "legitimate_count": 0,
       "false_positives": 0,
       "profile_fpr": 0.0,
-      "avg_risk_score": 0.9935
+      "avg_risk_score": 0.9986
     },
     "REGULAR_P2P": {
-      "total_accounts": 82,
-      "legitimate_count": 82,
+      "total_accounts": 157,
+      "legitimate_count": 157,
       "false_positives": 0,
       "profile_fpr": 0.0,
-      "avg_risk_score": 0.0028
+      "avg_risk_score": 0.0014
     },
     "SALARIED": {
-      "total_accounts": 156,
-      "legitimate_count": 156,
+      "total_accounts": 291,
+      "legitimate_count": 291,
       "false_positives": 0,
       "profile_fpr": 0.0,
-      "avg_risk_score": 0.0027
+      "avg_risk_score": 0.0014
     },
     "STUDENT_FIRST_TIME": {
-      "total_accounts": 76,
-      "legitimate_count": 76,
+      "total_accounts": 174,
+      "legitimate_count": 174,
       "false_positives": 0,
       "profile_fpr": 0.0,
-      "avg_risk_score": 0.0027
+      "avg_risk_score": 0.0014
     }
   },
   "comparative_experiments": {
     "Experiment_A_Isolated_Banks": {
       "threshold": 0.5,
-      "precision": 0.1211,
-      "recall": 0.7375,
-      "f1_score": 0.2081,
-      "false_positive_rate": 0.8231,
-      "pr_auc": 0.1832,
-      "roc_auc": 0.5122,
-      "true_positives": 59,
-      "false_positives": 428,
-      "true_negatives": 92,
-      "false_negatives": 21
+      "accuracy": 0.2858,
+      "precision": 0.1426,
+      "recall": 0.8364,
+      "f1_score": 0.2436,
+      "false_positive_rate": 0.8019,
+      "false_negative_rate": 0.1636,
+      "pr_auc": 0.1839,
+      "roc_auc": 0.5771,
+      "true_positives": 138,
+      "false_positives": 830,
+      "true_negatives": 205,
+      "false_negatives": 27,
+      "confusion_matrix": {
+        "TN": 205,
+        "FP": 830,
+        "FN": 27,
+        "TP": 138
+      }
     },
     "Experiment_B_Combined_Graph": {
       "threshold": 0.5,
+      "accuracy": 1.0,
       "precision": 1.0,
       "recall": 1.0,
       "f1_score": 1.0,
       "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
       "pr_auc": 1.0,
       "roc_auc": 1.0,
-      "true_positives": 80,
+      "true_positives": 165,
       "false_positives": 0,
-      "true_negatives": 520,
-      "false_negatives": 0
+      "true_negatives": 1035,
+      "false_negatives": 0,
+      "confusion_matrix": {
+        "TN": 1035,
+        "FP": 0,
+        "FN": 0,
+        "TP": 165
+      }
     },
     "Experiment_C_Combined_Graph_With_PSI": {
       "threshold": 0.5,
+      "accuracy": 1.0,
       "precision": 1.0,
       "recall": 1.0,
       "f1_score": 1.0,
       "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
       "pr_auc": 1.0,
       "roc_auc": 1.0,
-      "true_positives": 80,
+      "true_positives": 165,
       "false_positives": 0,
-      "true_negatives": 520,
-      "false_negatives": 0
+      "true_negatives": 1035,
+      "false_negatives": 0,
+      "confusion_matrix": {
+        "TN": 1035,
+        "FP": 0,
+        "FN": 0,
+        "TP": 165
+      }
     }
   },
-  "pipeline_execution_time_sec": 9.11
+  "pipeline_execution_time_sec": 15.53
 }

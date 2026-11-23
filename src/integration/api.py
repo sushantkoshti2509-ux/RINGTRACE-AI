@@ -61,6 +61,9 @@ BANK_API_KEYS = {
     "BANK_A": "key_bank_a_secure_token_2026",
     "BANK_B": "key_bank_b_secure_token_2026",
     "BANK_C": "key_bank_c_secure_token_2026",
+    "BANK_D": "key_bank_d_secure_token_2026",
+    "BANK_E": "key_bank_e_secure_token_2026",
+    "BANK_F": "key_bank_f_secure_token_2026",
     "REGULATOR": "key_regulator_master_token_2026",
 }
 

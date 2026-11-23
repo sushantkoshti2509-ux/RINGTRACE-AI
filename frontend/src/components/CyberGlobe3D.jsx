@@ -90,12 +90,15 @@ export default function CyberGlobe3D() {
     const pointsMesh = new THREE.Points(particleGeo, particleMat);
     globeGroup.add(pointsMesh);
 
-    // 4. Inter-Bank Gateway Hubs (Bank A, Bank B, Bank C)
+    // 4. Inter-Bank Gateway Hubs (Bank A through Bank F + Central Switch)
     const bankNodes = [
       { name: 'Bank A (Gateway Alpha)', pos: new THREE.Vector3(18, 12, 14), color: 0x06b6d4 },
       { name: 'Bank B (Gateway Beta)', pos: new THREE.Vector3(-19, 8, 12), color: 0x10b981 },
       { name: 'Bank C (Gateway Gamma)', pos: new THREE.Vector3(2, -18, 15), color: 0xa855f7 },
-      { name: 'Central Switch', pos: new THREE.Vector3(0, 0, 26), color: 0xf59e0b },
+      { name: 'Bank D (Gateway Delta)', pos: new THREE.Vector3(-14, -14, 14), color: 0xf59e0b },
+      { name: 'Bank E (Gateway Epsilon)', pos: new THREE.Vector3(14, -10, 16), color: 0x3b82f6 },
+      { name: 'Bank F (Gateway Zeta)', pos: new THREE.Vector3(-6, 20, 12), color: 0xec4899 },
+      { name: 'Central Switch', pos: new THREE.Vector3(0, 0, 26), color: 0xfacc15 },
     ];
 
     const bankMeshList = [];
@@ -143,10 +146,16 @@ export default function CyberGlobe3D() {
     const arcs = [
       createArc(bankNodes[0].pos, bankNodes[1].pos, 0x06b6d4),
       createArc(bankNodes[1].pos, bankNodes[2].pos, 0x10b981),
-      createArc(bankNodes[2].pos, bankNodes[0].pos, 0xa855f7),
-      createArc(bankNodes[0].pos, bankNodes[3].pos, 0xf59e0b),
-      createArc(bankNodes[1].pos, bankNodes[3].pos, 0xf59e0b),
-      createArc(bankNodes[2].pos, bankNodes[3].pos, 0xf59e0b),
+      createArc(bankNodes[2].pos, bankNodes[3].pos, 0xa855f7),
+      createArc(bankNodes[3].pos, bankNodes[4].pos, 0xf59e0b),
+      createArc(bankNodes[4].pos, bankNodes[5].pos, 0x3b82f6),
+      createArc(bankNodes[5].pos, bankNodes[0].pos, 0xec4899),
+      createArc(bankNodes[0].pos, bankNodes[6].pos, 0xfacc15),
+      createArc(bankNodes[1].pos, bankNodes[6].pos, 0xfacc15),
+      createArc(bankNodes[2].pos, bankNodes[6].pos, 0xfacc15),
+      createArc(bankNodes[3].pos, bankNodes[6].pos, 0xfacc15),
+      createArc(bankNodes[4].pos, bankNodes[6].pos, 0xfacc15),
+      createArc(bankNodes[5].pos, bankNodes[6].pos, 0xfacc15),
     ];
 
     // Pulsing packet traveling along arcs
@@ -297,8 +306,8 @@ export default function CyberGlobe3D() {
           <div className="text-[10px] text-slate-400 uppercase tracking-wider flex items-center gap-1">
             <Zap className="w-3.5 h-3.5 text-amber-400" /> Monitored Gateways
           </div>
-          <div className="text-sm font-bold text-white mt-0.5">3 Banks + Central</div>
-          <div className="text-[10px] text-cyan-400 font-mono">Bank A, B, C Connected</div>
+          <div className="text-sm font-bold text-white mt-0.5">6 Banks + Central</div>
+          <div className="text-[10px] text-cyan-400 font-mono">Bank A through F Online</div>
         </div>
 
         <div className="p-2.5 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-800/80">

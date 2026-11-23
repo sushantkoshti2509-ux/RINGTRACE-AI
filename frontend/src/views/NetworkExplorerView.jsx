@@ -59,7 +59,7 @@ export default function NetworkExplorerView() {
           <div className="text-xl font-bold font-mono text-white mt-1">
             {analytics?.total_nodes || 600}
           </div>
-          <span className="text-[10px] text-cyan-400">Across Bank A, B, C</span>
+          <span className="text-[10px] text-cyan-400">Across 6 Synthetic Banks</span>
         </div>
 
         <div className="glass-panel rounded-xl p-4 border border-emerald-500/20">

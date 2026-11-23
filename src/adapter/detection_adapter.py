@@ -74,14 +74,12 @@ class DetectionAdapter:
             for m in members:
                 if ":" in str(m):
                     banks.add(str(m).split(":")[0])
-                elif str(m).startswith("BNKA") or str(m).startswith("BANK_A"):
-                    banks.add("BANK_A")
-                elif str(m).startswith("BNKB") or str(m).startswith("BANK_B"):
-                    banks.add("BANK_B")
-                elif str(m).startswith("BNKC") or str(m).startswith("BANK_C"):
-                    banks.add("BANK_C")
+                else:
+                    for b in config.SIMULATED_BANKS:
+                        if str(m).startswith(b) or str(m).startswith(b.replace("_", "")):
+                            banks.add(b)
             if not banks:
-                banks = {"BANK_A", "BANK_B", "BANK_C"}
+                banks = set(config.SIMULATED_BANKS)
 
             # Count transactions associated with these accounts
             matching_tx_count = 0

@@ -11,12 +11,18 @@
   "sender_bank": [
     "BANK_A",
     "BANK_B",
-    "BANK_C"
+    "BANK_C",
+    "BANK_D",
+    "BANK_E",
+    "BANK_F"
   ],
   "receiver_bank": [
     "BANK_A",
     "BANK_B",
-    "BANK_C"
+    "BANK_C",
+    "BANK_D",
+    "BANK_E",
+    "BANK_F"
   ],
   "pattern_type": [
     "ABNORMAL_OFF_HOURS",

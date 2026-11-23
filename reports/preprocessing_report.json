@@ -1,20 +1,32 @@
 {
   "BANK_A": {
     "cleaning_stats": {
-      "initial_rows": 7749,
-      "final_rows": 7749,
+      "initial_rows": 8666,
+      "final_rows": 8666,
       "duplicates_removed": 0,
       "invalid_amounts_dropped": 0,
       "self_transfers_dropped": 0,
-      "suspicious_transactions": 44
+      "suspicious_transactions": 54
     },
     "validation_valid": true,
     "validation_issues": []
   },
   "BANK_B": {
     "cleaning_stats": {
-      "initial_rows": 7680,
-      "final_rows": 7680,
+      "initial_rows": 8501,
+      "final_rows": 8501,
+      "duplicates_removed": 0,
+      "invalid_amounts_dropped": 0,
+      "self_transfers_dropped": 0,
+      "suspicious_transactions": 38
+    },
+    "validation_valid": true,
+    "validation_issues": []
+  },
+  "BANK_C": {
+    "cleaning_stats": {
+      "initial_rows": 8365,
+      "final_rows": 8365,
       "duplicates_removed": 0,
       "invalid_amounts_dropped": 0,
       "self_transfers_dropped": 0,
@@ -23,10 +35,34 @@
     "validation_valid": true,
     "validation_issues": []
   },
-  "BANK_C": {
+  "BANK_D": {
     "cleaning_stats": {
-      "initial_rows": 7724,
-      "final_rows": 7724,
+      "initial_rows": 8156,
+      "final_rows": 8156,
+      "duplicates_removed": 0,
+      "invalid_amounts_dropped": 0,
+      "self_transfers_dropped": 0,
+      "suspicious_transactions": 60
+    },
+    "validation_valid": true,
+    "validation_issues": []
+  },
+  "BANK_E": {
+    "cleaning_stats": {
+      "initial_rows": 8702,
+      "final_rows": 8702,
+      "duplicates_removed": 0,
+      "invalid_amounts_dropped": 0,
+      "self_transfers_dropped": 0,
+      "suspicious_transactions": 35
+    },
+    "validation_valid": true,
+    "validation_issues": []
+  },
+  "BANK_F": {
+    "cleaning_stats": {
+      "initial_rows": 8507,
+      "final_rows": 8507,
       "duplicates_removed": 0,
       "invalid_amounts_dropped": 0,
       "self_transfers_dropped": 0,
@@ -37,10 +73,10 @@
   },
   "ACCOUNTS": {
     "cleaning_stats": {
-      "initial_accounts": 600,
-      "final_accounts": 600,
+      "initial_accounts": 1200,
+      "final_accounts": 1200,
       "duplicates_removed": 0,
-      "mule_accounts": 80
+      "mule_accounts": 165
     },
     "validation_valid": true,
     "validation_issues": []

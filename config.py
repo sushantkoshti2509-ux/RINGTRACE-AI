@@ -38,11 +38,18 @@ for directory in [
 
 # Simulation Constants
 RANDOM_SEED = 42
-SIMULATED_BANKS = ["BANK_A", "BANK_B", "BANK_C"]
+SIMULATED_BANKS = [
+    "BANK_A",
+    "BANK_B",
+    "BANK_C",
+    "BANK_D",
+    "BANK_E",
+    "BANK_F",
+]
 
 # Synthetic Data Sizing
-TOTAL_ACCOUNTS = 600
-NUM_MULE_RINGS = 18
+TOTAL_ACCOUNTS = 1200
+NUM_MULE_RINGS = 28
 SIMULATION_DAYS = 7
 
 # Legitimate customer profile distribution

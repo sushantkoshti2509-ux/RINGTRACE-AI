@@ -126,7 +126,7 @@ export default function CaseManagerView() {
                   AI Evidence Summary
                 </span>
                 <p className="text-xs text-slate-300 leading-relaxed font-sans">
-                  {selectedCase.ai_summary || 'Coordinated multi-bank fund routing detected across Bank A, Bank B, and Bank C with near-zero resting balance and rapid pass-through velocity.'}
+                  {selectedCase.ai_summary || 'Coordinated multi-bank fund routing detected across synthetic banking institutions with near-zero resting balance and rapid pass-through velocity.'}
                 </p>
               </div>
 
@@ -142,7 +142,7 @@ export default function CaseManagerView() {
                   </div>
                   <div className="flex items-center gap-2.5 p-2 rounded-lg bg-slate-900 border border-slate-800">
                     <CheckSquare className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Cross-reference counterparty accounts across Bank A, Bank B, and Bank C</span>
+                    <span>Cross-reference counterparty accounts across all participating banks</span>
                   </div>
                   <div className="flex items-center gap-2.5 p-2 rounded-lg bg-slate-900 border border-slate-800">
                     <CheckSquare className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -158,7 +158,7 @@ export default function CaseManagerView() {
               {/* Participating Banks */}
               <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between text-xs">
                 <span className="text-slate-400">Participating Banks:</span>
-                <span className="font-mono text-cyan-300 font-bold">Bank A, Bank B, Bank C</span>
+                <span className="font-mono text-cyan-300 font-bold">{selectedCase.banks_involved || 'BANK_A, BANK_B, BANK_C, BANK_D, BANK_E, BANK_F'}</span>
               </div>
             </div>
           ) : (

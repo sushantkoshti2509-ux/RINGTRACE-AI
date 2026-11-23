@@ -142,5 +142,7 @@ def simulate_countermeasure(payload: InterceptionRequest):
     # Clean any internal sensitive keys if present
     if "audit_trail" in result and "rbi_directive_citation" in result["audit_trail"]:
         del result["audit_trail"]["rbi_directive_citation"]
+    if "audit_trail" in result and "central_directive_citation" in result["audit_trail"]:
+        del result["audit_trail"]["central_directive_citation"]
 
     return result

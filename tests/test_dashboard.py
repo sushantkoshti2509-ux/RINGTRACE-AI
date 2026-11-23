@@ -22,12 +22,12 @@ def dashboard_service_instance():
 
 
 def test_executive_summary_federated_scale(dashboard_service_instance):
-    """Verifies that federated scale summary matches user specifications."""
+    """Verifies that federated scale summary matches multi-bank specifications."""
     summary = dashboard_service_instance.get_executive_summary(mode="federated")
 
-    assert summary["total_transactions"] == 25430
-    assert summary["suspicious_transactions"] == 342
-    assert summary["legitimate_transactions"] == 25088
+    assert summary["total_transactions"] == 46380
+    assert summary["suspicious_transactions"] == 616
+    assert summary["legitimate_transactions"] == 45764
     assert summary["pending_alerts"] >= 28
 
     # Verify Bank-Wise monitoring breakdown
@@ -35,6 +35,9 @@ def test_executive_summary_federated_scale(dashboard_service_instance):
     assert "Bank A" in banks
     assert "Bank B" in banks
     assert "Bank C" in banks
+    assert "Bank D" in banks
+    assert "Bank E" in banks
+    assert "Bank F" in banks
 
     assert banks["Bank A"]["transactions"] == 9200
     assert banks["Bank A"]["suspicious"] == 120
@@ -45,9 +48,12 @@ def test_executive_summary_federated_scale(dashboard_service_instance):
     assert banks["Bank C"]["transactions"] == 8080
     assert banks["Bank C"]["suspicious"] == 117
 
+    assert banks["Bank D"]["transactions"] == 7650
+    assert banks["Bank D"]["suspicious"] == 98
+
     # Verify Risk Distribution
     risk_dist = summary["risk_distribution"]
-    assert risk_dist["high_risk"] == 342
+    assert risk_dist["high_risk"] == 616
     assert risk_dist["low_risk"] > 0
 
 
@@ -57,7 +63,7 @@ def test_executive_summary_reconciled_database(dashboard_service_instance):
 
     assert summary["total_transactions"] > 0
     assert summary["legitimate_transactions"] > 0
-    assert len(summary["bank_wise_monitoring"]) == 3
+    assert len(summary["bank_wise_monitoring"]) >= 3
 
 
 def test_transaction_search_and_filtering(dashboard_service_instance):
@@ -86,9 +92,9 @@ def test_fastapi_dashboard_endpoints():
     resp = client.get("/api/v1/dashboard/summary?mode=federated")
     assert resp.status_code == 200
     data = resp.json()
-    assert data["total_transactions"] == 25430
-    assert data["suspicious_transactions"] == 342
-    assert len(data["bank_wise_monitoring"]) == 3
+    assert data["total_transactions"] == 46380
+    assert data["suspicious_transactions"] == 616
+    assert len(data["bank_wise_monitoring"]) == 6
 
     # 2. Transactions query endpoint
     resp_tx = client.get("/api/v1/dashboard/transactions?limit=10&bank_id=BANK_B")

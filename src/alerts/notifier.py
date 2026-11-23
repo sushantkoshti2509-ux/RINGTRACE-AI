@@ -19,6 +19,9 @@ class AlertNotifier:
         "BANK_A": "aml-desk@bank-a.in",
         "BANK_B": "fraud-monitoring@bank-b.in",
         "BANK_C": "compliance-ops@bank-c.in",
+        "BANK_D": "risk-intelligence@bank-d.in",
+        "BANK_E": "fraud-triage@bank-e.in",
+        "BANK_F": "audit-desk@bank-f.in",
     }
 
     def __init__(self):

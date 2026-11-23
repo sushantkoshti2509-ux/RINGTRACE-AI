@@ -35,7 +35,10 @@
     "profile_type_STUDENT_FIRST_TIME",
     "bank_id_BANK_A",
     "bank_id_BANK_B",
-    "bank_id_BANK_C"
+    "bank_id_BANK_C",
+    "bank_id_BANK_D",
+    "bank_id_BANK_E",
+    "bank_id_BANK_F"
   ],
   "optimal_threshold": 0.75,
   "champion_model": "Random Forest",
@@ -94,7 +97,7 @@
     },
     "Isolation Forest": {
       "model_name": "Isolation Forest",
-      "threshold": 0.6754,
+      "threshold": 0.6005,
       "accuracy": 1.0,
       "precision": 1.0,
       "recall": 1.0,

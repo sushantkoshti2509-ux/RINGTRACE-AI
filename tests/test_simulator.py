@@ -4,6 +4,7 @@ Unit tests for RINGTRACE AI Simulator and Data Preprocessing.
 
 import pytest
 import pandas as pd
+import config
 from src.simulator.generator import UPISimulator
 from src.preprocessing.clean import DataPreprocessor
 from src.utils.validation import validate_accounts_dataframe, validate_transactions_dataframe
@@ -18,7 +19,7 @@ def test_upi_simulator_generation():
     assert len(accounts_df) >= 100
     assert len(transactions_df) > 0
     assert len(mule_rings_df) == 4
-    assert set(bank_ledgers.keys()) == {"BANK_A", "BANK_B", "BANK_C"}
+    assert set(bank_ledgers.keys()) == set(config.SIMULATED_BANKS)
 
     # Ensure mule accounts exist
     assert accounts_df["is_mule"].sum() > 0

@@ -22,11 +22,14 @@ from src.integration.db import (
 class DashboardMonitoringService:
     """Provides high-performance aggregation and analytical data for the centralized monitoring dashboard."""
 
-    # Benchmark federated ledger volumes (matching the PRD multi-bank specification)
+    # Benchmark federated ledger volumes (matching the multi-bank specification)
     FEDERATED_BENCHMARKS = {
         "BANK_A": {"transactions": 9200, "suspicious": 120, "volume_inr": 324500000.0},
         "BANK_B": {"transactions": 8150, "suspicious": 105, "volume_inr": 281200000.0},
         "BANK_C": {"transactions": 8080, "suspicious": 117, "volume_inr": 279300000.0},
+        "BANK_D": {"transactions": 7650, "suspicious": 98, "volume_inr": 245000000.0},
+        "BANK_E": {"transactions": 6900, "suspicious": 92, "volume_inr": 218000000.0},
+        "BANK_F": {"transactions": 6400, "suspicious": 84, "volume_inr": 195000000.0},
     }
 
     def __init__(self, db_manager: Optional[DatabaseManager] = None):
@@ -51,29 +54,14 @@ class DashboardMonitoringService:
 
                 bank_breakdown = [
                     {
-                        "bank_name": "Bank A",
-                        "bank_id": "BANK_A",
-                        "transactions": self.FEDERATED_BENCHMARKS["BANK_A"]["transactions"],
-                        "suspicious": self.FEDERATED_BENCHMARKS["BANK_A"]["suspicious"],
-                        "fraud_rate": round((self.FEDERATED_BENCHMARKS["BANK_A"]["suspicious"] / self.FEDERATED_BENCHMARKS["BANK_A"]["transactions"]) * 100, 2),
-                        "volume_inr": self.FEDERATED_BENCHMARKS["BANK_A"]["volume_inr"],
-                    },
-                    {
-                        "bank_name": "Bank B",
-                        "bank_id": "BANK_B",
-                        "transactions": self.FEDERATED_BENCHMARKS["BANK_B"]["transactions"],
-                        "suspicious": self.FEDERATED_BENCHMARKS["BANK_B"]["suspicious"],
-                        "fraud_rate": round((self.FEDERATED_BENCHMARKS["BANK_B"]["suspicious"] / self.FEDERATED_BENCHMARKS["BANK_B"]["transactions"]) * 100, 2),
-                        "volume_inr": self.FEDERATED_BENCHMARKS["BANK_B"]["volume_inr"],
-                    },
-                    {
-                        "bank_name": "Bank C",
-                        "bank_id": "BANK_C",
-                        "transactions": self.FEDERATED_BENCHMARKS["BANK_C"]["transactions"],
-                        "suspicious": self.FEDERATED_BENCHMARKS["BANK_C"]["suspicious"],
-                        "fraud_rate": round((self.FEDERATED_BENCHMARKS["BANK_C"]["suspicious"] / self.FEDERATED_BENCHMARKS["BANK_C"]["transactions"]) * 100, 2),
-                        "volume_inr": self.FEDERATED_BENCHMARKS["BANK_C"]["volume_inr"],
-                    },
+                        "bank_name": f"Bank {b.replace('BANK_', '')}",
+                        "bank_id": b,
+                        "transactions": data["transactions"],
+                        "suspicious": data["suspicious"],
+                        "fraud_rate": round((data["suspicious"] / data["transactions"]) * 100, 2),
+                        "volume_inr": data["volume_inr"],
+                    }
+                    for b, data in self.FEDERATED_BENCHMARKS.items()
                 ]
             else:
                 total_txs = session.query(IntegratedTransactionModel).count()

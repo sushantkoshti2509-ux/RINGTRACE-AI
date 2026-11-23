@@ -196,6 +196,18 @@ export default function MuleRingCanvas({
           <span>Bank C</span>
         </div>
         <div className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+          <span>Bank D</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-blue-400" />
+          <span>Bank E</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-rose-400" />
+          <span>Bank F</span>
+        </div>
+        <div className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping" />
           <span className="text-rose-300 font-bold">Choke Point Bottleneck</span>
         </div>

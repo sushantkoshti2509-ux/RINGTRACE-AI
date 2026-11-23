@@ -1,6 +1,6 @@
 """
 RINGTRACE AI - Mule Ring Interception & ROI Simulation Engine.
-Built for RBI (Reserve Bank of India) Fraud Risk Management & Cross-Bank Defense.
+Built for Central Regulatory Fraud Risk Management & Cross-Bank Defense.
 
 Simulates graduated, proactive countermeasures (Cooling-off windows, Step-up biometric
 re-auth, dual-bank inward holds) on key bottleneck accounts to calculate:
@@ -62,7 +62,7 @@ class MuleInterceptionEngine:
     @staticmethod
     def mask_account_id(account_id: str, preserve_chars: int = 4) -> str:
         """
-        Masks bank account number complying with DPDP Act 2023 and RBI PII safeguards.
+        Masks bank account number complying with DPDP Act 2023 and central regulatory PII safeguards.
         Example: BANK_A:BANK_MULE_00002 -> BANK_A:••••0002
         """
         if ":" in account_id:
@@ -269,20 +269,21 @@ class MuleInterceptionEngine:
                     downstream_edges.append((u, v, d))
                 downstream_nodes.add(target_node)
 
-        # Downstream volume at stake
-        downstream_volume = sum(d.get("amount", 0.0) for _, _, d in downstream_edges)
-        if downstream_volume == 0.0:
-            # If target is at end or direct, estimate based on ring volume
+        # Downstream volume at stake (capped at total ring volume)
+        raw_downstream = sum(d.get("amount", 0.0) for _, _, d in downstream_edges)
+        if raw_downstream == 0.0:
             downstream_volume = total_ring_volume * 0.75
+        else:
+            downstream_volume = min(total_ring_volume, raw_downstream)
 
         # Effectiveness factor adjusted by delay window (30m to 120m)
         delay_factor = min(1.0, delay_minutes / 60.0)
         eff_rate = strategy["effectiveness_rate"] * (0.8 + 0.2 * delay_factor)
         eff_rate = min(0.99, max(0.50, eff_rate))
 
-        intercepted_amount = round(downstream_volume * eff_rate, 2)
-        leakage_amount = round(total_ring_volume - intercepted_amount, 2)
-        interception_rate_pct = round((intercepted_amount / total_ring_volume) * 100, 1)
+        intercepted_amount = round(min(total_ring_volume, downstream_volume * eff_rate), 2)
+        leakage_amount = max(0.0, round(total_ring_volume - intercepted_amount, 2))
+        interception_rate_pct = min(100.0, round((intercepted_amount / max(1.0, total_ring_volume)) * 100, 1))
 
         # Neutralized accounts count
         neutralized_count = len(downstream_nodes)
@@ -326,7 +327,7 @@ class MuleInterceptionEngine:
                 "decision_timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
                 "sha256_integrity_hash": audit_hash,
                 "regulatory_directive_citation": strategy["regulatory_basis"],
-                "rbi_directive_citation": strategy["regulatory_basis"],
+                "central_directive_citation": strategy["regulatory_basis"],
                 "audit_status": "COMMITTED_TO_IMMUTABLE_LOG",
             },
         }

@@ -499,9 +499,8 @@ class DatabaseManager:
             low_risk = session.query(FraudAlertModel).filter(FraudAlertModel.risk_level == "Low").count()
 
             by_bank = {
-                "BANK_A": session.query(FraudAlertModel).filter(FraudAlertModel.bank_id == "BANK_A").count(),
-                "BANK_B": session.query(FraudAlertModel).filter(FraudAlertModel.bank_id == "BANK_B").count(),
-                "BANK_C": session.query(FraudAlertModel).filter(FraudAlertModel.bank_id == "BANK_C").count(),
+                b_id: session.query(FraudAlertModel).filter(FraudAlertModel.bank_id == b_id).count()
+                for b_id in config.SIMULATED_BANKS
             }
 
             return {

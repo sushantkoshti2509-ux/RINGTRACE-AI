@@ -120,6 +120,9 @@ export default function RealtimeScorerView() {
                 <option value="BANK_A">Bank A (Alpha Clearing)</option>
                 <option value="BANK_B">Bank B (Beta Remittance)</option>
                 <option value="BANK_C">Bank C (Gamma Settlement)</option>
+                <option value="BANK_D">Bank D (Delta Exchange)</option>
+                <option value="BANK_E">Bank E (Epsilon Treasury)</option>
+                <option value="BANK_F">Bank F (Zeta Gateway)</option>
               </select>
             </div>
 

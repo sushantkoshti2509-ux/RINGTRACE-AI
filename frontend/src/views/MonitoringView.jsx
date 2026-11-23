@@ -97,10 +97,13 @@ export default function MonitoringView() {
               onChange={(e) => { setBankFilter(e.target.value); setPage(0); }}
               className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyan-400"
             >
-              <option value="ALL">All Banks (Bank A, B, C)</option>
+              <option value="ALL">All Banks (Bank A through F)</option>
               <option value="Bank A">Bank A (Alpha Clearing)</option>
               <option value="Bank B">Bank B (Beta Remittance)</option>
               <option value="Bank C">Bank C (Gamma Settlement)</option>
+              <option value="Bank D">Bank D (Delta Exchange)</option>
+              <option value="Bank E">Bank E (Epsilon Treasury)</option>
+              <option value="Bank F">Bank F (Zeta Gateway)</option>
             </select>
           </div>
 

@@ -1,75 +1,222 @@
 {
-  "total_raw_ledger_records": 23153,
-  "total_integrated_transactions": 13975,
-  "dual_ledger_reconciled": 9178,
-  "single_ledger_unilateral": 4797,
-  "inter_bank_transactions": 9178,
-  "intra_bank_transactions": 4797,
+  "total_raw_ledger_records": 50897,
+  "total_integrated_transactions": 27788,
+  "dual_ledger_reconciled": 23109,
+  "single_ledger_unilateral": 4679,
+  "inter_bank_transactions": 23109,
+  "intra_bank_transactions": 4679,
   "discrepancy_count": 0,
   "raw_ledger_counts": {
-    "BANK_A": 7749,
-    "BANK_B": 7680,
-    "BANK_C": 7724
+    "BANK_A": 8666,
+    "BANK_B": 8501,
+    "BANK_C": 8365,
+    "BANK_D": 8156,
+    "BANK_E": 8702,
+    "BANK_F": 8507
   },
   "raw_ledger_volumes": {
-    "BANK_A": 45272344.910000004,
-    "BANK_B": 40074098.76,
-    "BANK_C": 40577587.21
+    "BANK_A": 45369648.88,
+    "BANK_B": 42215970.66,
+    "BANK_C": 43048974.11,
+    "BANK_D": 43367312.7,
+    "BANK_E": 43508120.379999995,
+    "BANK_F": 44476477.099999994
   },
-  "total_integrated_volume_inr": 73216757.87,
+  "total_integrated_volume_inr": 143055132.67,
   "pairwise_flow_matrix": {
     "BANK_A": {
       "BANK_A": {
-        "count": 1609,
-        "volume_inr": 8874552.66,
-        "suspicious_count": 4
+        "count": 831,
+        "volume_inr": 5137969.2,
+        "suspicious_count": 3
       },
       "BANK_B": {
-        "count": 1495,
-        "volume_inr": 10266329.69,
-        "suspicious_count": 13
+        "count": 772,
+        "volume_inr": 4017550.63,
+        "suspicious_count": 6
       },
       "BANK_C": {
-        "count": 1571,
-        "volume_inr": 10269920.79,
+        "count": 662,
+        "volume_inr": 5029066.11,
+        "suspicious_count": 8
+      },
+      "BANK_D": {
+        "count": 685,
+        "volume_inr": 3672462.36,
         "suspicious_count": 9
+      },
+      "BANK_E": {
+        "count": 789,
+        "volume_inr": 2994498.65,
+        "suspicious_count": 4
+      },
+      "BANK_F": {
+        "count": 747,
+        "volume_inr": 3089247.56,
+        "suspicious_count": 6
       }
     },
     "BANK_B": {
       "BANK_A": {
-        "count": 1562,
-        "volume_inr": 7948016.77,
-        "suspicious_count": 5
+        "count": 860,
+        "volume_inr": 3844891.35,
+        "suspicious_count": 4
       },
       "BANK_B": {
-        "count": 1585,
-        "volume_inr": 5550271.54,
-        "suspicious_count": 2
+        "count": 782,
+        "volume_inr": 2885337.32,
+        "suspicious_count": 0
       },
       "BANK_C": {
-        "count": 1572,
-        "volume_inr": 7561950.6,
-        "suspicious_count": 9
+        "count": 734,
+        "volume_inr": 3531153.89,
+        "suspicious_count": 2
+      },
+      "BANK_D": {
+        "count": 703,
+        "volume_inr": 4068944.57,
+        "suspicious_count": 5
+      },
+      "BANK_E": {
+        "count": 913,
+        "volume_inr": 3948919.03,
+        "suspicious_count": 5
+      },
+      "BANK_F": {
+        "count": 758,
+        "volume_inr": 4724166.95,
+        "suspicious_count": 5
       }
     },
     "BANK_C": {
       "BANK_A": {
-        "count": 1512,
-        "volume_inr": 7913525.0,
-        "suspicious_count": 13
+        "count": 886,
+        "volume_inr": 4131022.36,
+        "suspicious_count": 3
       },
       "BANK_B": {
-        "count": 1466,
-        "volume_inr": 8747530.16,
-        "suspicious_count": 8
+        "count": 778,
+        "volume_inr": 3543955.6,
+        "suspicious_count": 3
       },
       "BANK_C": {
-        "count": 1603,
-        "volume_inr": 6084660.66,
+        "count": 821,
+        "volume_inr": 4234841.91,
+        "suspicious_count": 1
+      },
+      "BANK_D": {
+        "count": 699,
+        "volume_inr": 4785385.34,
+        "suspicious_count": 6
+      },
+      "BANK_E": {
+        "count": 850,
+        "volume_inr": 3012927.74,
+        "suspicious_count": 1
+      },
+      "BANK_F": {
+        "count": 753,
+        "volume_inr": 3262437.11,
+        "suspicious_count": 2
+      }
+    },
+    "BANK_D": {
+      "BANK_A": {
+        "count": 840,
+        "volume_inr": 3894092.5,
+        "suspicious_count": 5
+      },
+      "BANK_B": {
+        "count": 744,
+        "volume_inr": 2819822.37,
+        "suspicious_count": 3
+      },
+      "BANK_C": {
+        "count": 737,
+        "volume_inr": 4070170.07,
+        "suspicious_count": 6
+      },
+      "BANK_D": {
+        "count": 682,
+        "volume_inr": 3399498.37,
+        "suspicious_count": 2
+      },
+      "BANK_E": {
+        "count": 843,
+        "volume_inr": 4146931.59,
+        "suspicious_count": 9
+      },
+      "BANK_F": {
+        "count": 759,
+        "volume_inr": 3871226.55,
+        "suspicious_count": 8
+      }
+    },
+    "BANK_E": {
+      "BANK_A": {
+        "count": 799,
+        "volume_inr": 5526147.05,
+        "suspicious_count": 3
+      },
+      "BANK_B": {
+        "count": 701,
+        "volume_inr": 3941761.18,
+        "suspicious_count": 1
+      },
+      "BANK_C": {
+        "count": 692,
+        "volume_inr": 4121312.96,
+        "suspicious_count": 3
+      },
+      "BANK_D": {
+        "count": 709,
+        "volume_inr": 4010719.51,
+        "suspicious_count": 3
+      },
+      "BANK_E": {
+        "count": 769,
+        "volume_inr": 3809273.91,
+        "suspicious_count": 0
+      },
+      "BANK_F": {
+        "count": 739,
+        "volume_inr": 3789910.56,
+        "suspicious_count": 5
+      }
+    },
+    "BANK_F": {
+      "BANK_A": {
+        "count": 795,
+        "volume_inr": 4032701.11,
+        "suspicious_count": 3
+      },
+      "BANK_B": {
+        "count": 756,
+        "volume_inr": 4889467.77,
         "suspicious_count": 4
+      },
+      "BANK_C": {
+        "count": 753,
+        "volume_inr": 3326701.02,
+        "suspicious_count": 2
+      },
+      "BANK_D": {
+        "count": 755,
+        "volume_inr": 4628059.47,
+        "suspicious_count": 4
+      },
+      "BANK_E": {
+        "count": 898,
+        "volume_inr": 4205718.2,
+        "suspicious_count": 1
+      },
+      "BANK_F": {
+        "count": 794,
+        "volume_inr": 4656840.8,
+        "suspicious_count": 3
       }
     }
   },
   "discrepancies": [],
-  "integration_timestamp": "2026-11-23T18:48:26.034608+00:00"
+  "integration_timestamp": "2026-11-23T19:17:09.063242+00:00"
 }

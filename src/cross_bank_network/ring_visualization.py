@@ -15,8 +15,11 @@ class CrossBankNetworkVisualizer:
 
     BANK_COLORS = {
         "BANK_A": "#3B82F6",  # Blue
-        "BANK_B": "#10B981",  # Green
+        "BANK_B": "#10B981",  # Emerald Green
         "BANK_C": "#8B5CF6",  # Purple
+        "BANK_D": "#F59E0B",  # Amber
+        "BANK_E": "#06B6D4",  # Cyan
+        "BANK_F": "#EC4899",  # Rose Pink
         "SUSPICIOUS_MULE": "#EF4444",  # Red
     }
 

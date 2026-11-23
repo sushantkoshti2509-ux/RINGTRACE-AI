@@ -148,10 +148,11 @@ class SyntheticBankingGenerator:
             ring_id = f"RING_{r_idx+1:03d}"
             archetype = config.RING_ARCHETYPES[r_idx % len(config.RING_ARCHETYPES)]
 
-            # Cross-bank bank assignment: ring spans at least 2 or all 3 banks
-            ring_bank_selection = random.sample(self.banks, k=min(len(self.banks), random.randint(2, 3)))
+            # Cross-bank bank assignment: ring spans across multiple synthetic banks (3 up to all banks)
+            k_banks = min(len(self.banks), random.randint(3, max(3, len(self.banks))))
+            ring_bank_selection = random.sample(self.banks, k=k_banks)
             if r_idx < 3:
-                ring_bank_selection = ["BANK_A", "BANK_B", "BANK_C"]
+                ring_bank_selection = list(self.banks)
 
             # Shared canonical identity pool (syndicate operators maintaining multi-bank accounts)
             num_canonical_entities = max(2, mules_per_ring - 2)
