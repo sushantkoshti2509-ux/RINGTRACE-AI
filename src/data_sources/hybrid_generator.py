@@ -6,7 +6,7 @@ Combines empirical behavioral patterns from public benchmarks with our multi-ban
 2. IBM AMLSim: Known laundering topologies (Cycles, Fan-Out, Fan-In, Bipartite, Multi-Hop Stack),
    sub-minute turnaround velocity, and coordinated mule network structures.
 3. Multi-Bank Architecture: Standardized cross-bank ledgers across synthetic institutions
-   (Apex National, Crest Commercial, Zenith Cooperative, Horizon Federal, Vanguard Mercantile, Nexus Payments)
+   (Bank A, Bank B, Bank C, Bank D)
    with zero real-world bank names and full DPDP Act 2023 privacy safeguards.
 """
 

@@ -105,7 +105,7 @@ export default function App() {
 
           <div className="flex items-center gap-3 text-xs font-mono">
             <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
-              Mode: Federated (25,430 Ledger Txns)
+              Mode: Federated ({summary.total_transactions?.toLocaleString() || '27,743'} Ledger Txns)
             </span>
             <span className="px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold">
               Latency: 11.4 ms

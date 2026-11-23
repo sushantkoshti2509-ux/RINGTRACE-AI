@@ -5,8 +5,13 @@ import { ShieldCheck, Activity, Globe, RefreshCw, Zap } from 'lucide-react';
 export default function CyberGlobe3D() {
   const mountRef = useRef(null);
   const [activeBank, setActiveBank] = useState('ALL_BANKS');
+  const activeBankRef = useRef(activeBank);
   const [pulseCount, setPulseCount] = useState(1420);
   const [isRotating, setIsRotating] = useState(true);
+
+  useEffect(() => {
+    activeBankRef.current = activeBank;
+  }, [activeBank]);
 
   useEffect(() => {
     const currentMount = mountRef.current;
@@ -90,19 +95,17 @@ export default function CyberGlobe3D() {
     const pointsMesh = new THREE.Points(particleGeo, particleMat);
     globeGroup.add(pointsMesh);
 
-    // 4. Inter-Bank Gateway Hubs (6 Synthetic Institutions + Central Switch)
+    // 4. Inter-Bank Gateway Hubs (4 Synthetic Institutions + Central Switch)
     const bankNodes = [
-      { name: 'Apex National Bank', pos: new THREE.Vector3(18, 12, 14), color: 0x06b6d4 },
-      { name: 'Crest Commercial Bank', pos: new THREE.Vector3(-19, 8, 12), color: 0x10b981 },
-      { name: 'Zenith Cooperative Bank', pos: new THREE.Vector3(2, -18, 15), color: 0xa855f7 },
-      { name: 'Horizon Federal Bank', pos: new THREE.Vector3(-14, -14, 14), color: 0xf59e0b },
-      { name: 'Vanguard Mercantile Bank', pos: new THREE.Vector3(14, -10, 16), color: 0x3b82f6 },
-      { name: 'Nexus Payments Bank', pos: new THREE.Vector3(-6, 20, 12), color: 0xec4899 },
-      { name: 'Central Switch', pos: new THREE.Vector3(0, 0, 26), color: 0xfacc15 },
+      { name: 'Bank A', code: 'BANK_A', pos: new THREE.Vector3(18, 12, 14), color: 0x06b6d4, role: 'Primary Settlement Gateway' },
+      { name: 'Bank B', code: 'BANK_B', pos: new THREE.Vector3(-19, 8, 12), color: 0x10b981, role: 'Commercial Clearing Node' },
+      { name: 'Bank C', code: 'BANK_C', pos: new THREE.Vector3(2, -18, 15), color: 0xa855f7, role: 'Cooperative Settlement Hub' },
+      { name: 'Bank D', code: 'BANK_D', pos: new THREE.Vector3(-14, -14, 14), color: 0xf59e0b, role: 'Federal Retail Gateway' },
+      { name: 'Central Switch', code: 'SWITCH', pos: new THREE.Vector3(0, 0, 26), color: 0xfacc15, role: 'Central Clearing & Oversight Switch' },
     ];
 
     const bankMeshList = [];
-    bankNodes.forEach(b => {
+    bankNodes.forEach((b, idx) => {
       const nodeGeo = new THREE.SphereGeometry(1.6, 16, 16);
       const nodeMat = new THREE.MeshBasicMaterial({ color: b.color });
       const nodeMesh = new THREE.Mesh(nodeGeo, nodeMat);
@@ -121,11 +124,11 @@ export default function CyberGlobe3D() {
       ringMesh.position.copy(b.pos);
       ringMesh.lookAt(0, 0, 0);
       globeGroup.add(ringMesh);
-      bankMeshList.push({ mesh: nodeMesh, ring: ringMesh });
+      bankMeshList.push({ mesh: nodeMesh, ring: ringMesh, code: b.code, idx });
     });
 
     // 5. 3D Inter-Bank Transaction Arcs
-    const createArc = (startVec, endVec, colorHex) => {
+    const createArc = (startVec, endVec, colorHex, sourceBank, targetBank) => {
       const mid = new THREE.Vector3().addVectors(startVec, endVec).multiplyScalar(0.5);
       const distance = startVec.distanceTo(endVec);
       mid.normalize().multiplyScalar(sphereRadius + distance * 0.35);
@@ -136,26 +139,27 @@ export default function CyberGlobe3D() {
       const lineMat = new THREE.LineBasicMaterial({
         color: colorHex,
         transparent: true,
-        opacity: 0.45,
+        opacity: 0.55,
       });
       const lineMesh = new THREE.Line(lineGeo, lineMat);
       globeGroup.add(lineMesh);
-      return { curve, lineMesh };
+      return { curve, lineMesh, sourceBank, targetBank };
     };
 
     const arcs = [
-      createArc(bankNodes[0].pos, bankNodes[1].pos, 0x06b6d4),
-      createArc(bankNodes[1].pos, bankNodes[2].pos, 0x10b981),
-      createArc(bankNodes[2].pos, bankNodes[3].pos, 0xa855f7),
-      createArc(bankNodes[3].pos, bankNodes[4].pos, 0xf59e0b),
-      createArc(bankNodes[4].pos, bankNodes[5].pos, 0x3b82f6),
-      createArc(bankNodes[5].pos, bankNodes[0].pos, 0xec4899),
-      createArc(bankNodes[0].pos, bankNodes[6].pos, 0xfacc15),
-      createArc(bankNodes[1].pos, bankNodes[6].pos, 0xfacc15),
-      createArc(bankNodes[2].pos, bankNodes[6].pos, 0xfacc15),
-      createArc(bankNodes[3].pos, bankNodes[6].pos, 0xfacc15),
-      createArc(bankNodes[4].pos, bankNodes[6].pos, 0xfacc15),
-      createArc(bankNodes[5].pos, bankNodes[6].pos, 0xfacc15),
+      // 4-Bank Primary Cycle (Ground-Truth Mule Loop Topology)
+      createArc(bankNodes[0].pos, bankNodes[1].pos, 0x06b6d4, 'BANK_A', 'BANK_B'), // A -> B
+      createArc(bankNodes[1].pos, bankNodes[2].pos, 0x10b981, 'BANK_B', 'BANK_C'), // B -> C
+      createArc(bankNodes[2].pos, bankNodes[3].pos, 0xa855f7, 'BANK_C', 'BANK_D'), // C -> D
+      createArc(bankNodes[3].pos, bankNodes[0].pos, 0xf59e0b, 'BANK_D', 'BANK_A'), // D -> A (Complete Cycle)
+      // Cross-Bank Rapid Fan-Out & Splitter Arcs
+      createArc(bankNodes[0].pos, bankNodes[2].pos, 0x06b6d4, 'BANK_A', 'BANK_C'), // A -> C
+      createArc(bankNodes[1].pos, bankNodes[3].pos, 0x10b981, 'BANK_B', 'BANK_D'), // B -> D
+      // Radial Clearing Links to Central Oversight Switch
+      createArc(bankNodes[0].pos, bankNodes[4].pos, 0xfacc15, 'BANK_A', 'SWITCH'), // A -> Central
+      createArc(bankNodes[1].pos, bankNodes[4].pos, 0xfacc15, 'BANK_B', 'SWITCH'), // B -> Central
+      createArc(bankNodes[2].pos, bankNodes[4].pos, 0xfacc15, 'BANK_C', 'SWITCH'), // C -> Central
+      createArc(bankNodes[3].pos, bankNodes[4].pos, 0xfacc15, 'BANK_D', 'SWITCH'), // D -> Central
     ];
 
     // Pulsing packet traveling along arcs
@@ -220,10 +224,21 @@ export default function CyberGlobe3D() {
         globeGroup.rotation.y += 0.004;
       }
 
-      // Pulse halos
-      bankMeshList.forEach((item, idx) => {
-        const scale = 1 + 0.15 * Math.sin(time * 3 + idx);
+      // Pulse halos and highlight active bank
+      const currentActive = activeBankRef.current;
+      bankMeshList.forEach((item) => {
+        const isMatch = currentActive === 'ALL_BANKS' || item.code === currentActive;
+        const scaleBase = isMatch ? 1.0 : 0.65;
+        const opacityBase = isMatch ? 0.75 : 0.2;
+        const scale = scaleBase + (isMatch ? 0.2 : 0.05) * Math.sin(time * 3 + item.idx);
         item.ring.scale.set(scale, scale, scale);
+        item.ring.material.opacity = opacityBase;
+      });
+
+      // Highlight active arcs
+      arcs.forEach((arc) => {
+        const isMatch = currentActive === 'ALL_BANKS' || arc.sourceBank === currentActive || arc.targetBank === currentActive;
+        arc.lineMesh.material.opacity = isMatch ? 0.55 : 0.12;
       });
 
       // Move packets along curves
@@ -260,32 +275,102 @@ export default function CyberGlobe3D() {
   }, [isRotating]);
 
   return (
-    <div className="relative w-full h-[460px] rounded-2xl overflow-hidden glass-panel border border-cyan-500/20 shadow-2xl flex flex-col">
-      {/* Top Telemetry Overlay */}
-      <div className="absolute top-4 left-5 right-5 z-10 flex items-center justify-between pointer-events-none">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
-            <Globe className="w-5 h-5 animate-pulse-slow" />
+    <div className="relative w-full h-[500px] rounded-2xl overflow-hidden glass-panel border border-cyan-500/20 shadow-2xl flex flex-col">
+      {/* Top Telemetry & Controls Overlay */}
+      <div className="absolute top-4 left-5 right-5 z-10 flex flex-col gap-2.5 pointer-events-none">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+              <Globe className="w-5 h-5 animate-pulse-slow" />
+            </div>
+            <div>
+              <div className="text-xs uppercase tracking-wider text-cyan-400/90 font-bold flex items-center gap-2">
+                <span>3D Multi-Bank Cyber Clearing Fabric</span>
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+              </div>
+              <div className="text-[11px] text-slate-400">
+                Cross-Bank Synthetic Settlement & Mule Ring Detection Sphere (Drag to rotate)
+              </div>
+            </div>
           </div>
-          <div>
-            <div className="text-xs uppercase tracking-wider text-cyan-400/90 font-bold flex items-center gap-2">
-              <span>3D Cross-Bank Clearing Sphere</span>
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            </div>
-            <div className="text-[11px] text-slate-400">
-              Interactive Multi-Institution Transaction Fabric (Drag to rotate)
-            </div>
+
+          <div className="flex items-center gap-2 pointer-events-auto">
+            {/* Institution Filter Dropdown */}
+            <select
+              value={activeBank}
+              onChange={(e) => setActiveBank(e.target.value)}
+              className="px-2.5 py-1 text-xs rounded-lg bg-slate-900/90 hover:bg-slate-800 text-cyan-300 border border-slate-700/80 font-mono focus:outline-none shadow-md"
+            >
+              <option value="ALL_BANKS">All Institutions (4 Banks + Central)</option>
+              <option value="BANK_A">Bank A (Primary Hub)</option>
+              <option value="BANK_B">Bank B (Commercial Node)</option>
+              <option value="BANK_C">Bank C (Cooperative Node)</option>
+              <option value="BANK_D">Bank D (Federal Node)</option>
+              <option value="SWITCH">Central Clearing Switch</option>
+            </select>
+
+            <button
+              onClick={() => setIsRotating(!isRotating)}
+              className="px-2.5 py-1 text-xs rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 border border-slate-700/60 flex items-center gap-1.5 transition-colors shadow-md"
+            >
+              <RefreshCw className={`w-3 h-3 ${isRotating ? 'animate-spin text-cyan-400' : ''}`} />
+              {isRotating ? 'Pause Orbit' : 'Resume Orbit'}
+            </button>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 pointer-events-auto">
-          <button
-            onClick={() => setIsRotating(!isRotating)}
-            className="px-2.5 py-1 text-xs rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 border border-slate-700/60 flex items-center gap-1.5 transition-colors"
+        {/* Institution Color Legend */}
+        <div className="flex flex-wrap items-center gap-2 pointer-events-auto">
+          <span
+            onClick={() => setActiveBank(activeBank === 'BANK_A' ? 'ALL_BANKS' : 'BANK_A')}
+            className={`flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[10px] font-mono cursor-pointer transition-all border ${
+              activeBank === 'BANK_A'
+                ? 'bg-cyan-500/30 border-cyan-400 text-cyan-200 shadow-md shadow-cyan-500/20'
+                : 'bg-slate-900/80 border-cyan-500/30 text-cyan-400 hover:border-cyan-400'
+            }`}
           >
-            <RefreshCw className={`w-3 h-3 ${isRotating ? 'animate-spin text-cyan-400' : ''}`} />
-            {isRotating ? 'Pause Orbit' : 'Resume Orbit'}
-          </button>
+            <span className="w-2 h-2 rounded-full bg-[#06b6d4]" /> Bank A
+          </span>
+          <span
+            onClick={() => setActiveBank(activeBank === 'BANK_B' ? 'ALL_BANKS' : 'BANK_B')}
+            className={`flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[10px] font-mono cursor-pointer transition-all border ${
+              activeBank === 'BANK_B'
+                ? 'bg-emerald-500/30 border-emerald-400 text-emerald-200 shadow-md shadow-emerald-500/20'
+                : 'bg-slate-900/80 border-emerald-500/30 text-emerald-400 hover:border-emerald-400'
+            }`}
+          >
+            <span className="w-2 h-2 rounded-full bg-[#10b981]" /> Bank B
+          </span>
+          <span
+            onClick={() => setActiveBank(activeBank === 'BANK_C' ? 'ALL_BANKS' : 'BANK_C')}
+            className={`flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[10px] font-mono cursor-pointer transition-all border ${
+              activeBank === 'BANK_C'
+                ? 'bg-purple-500/30 border-purple-400 text-purple-200 shadow-md shadow-purple-500/20'
+                : 'bg-slate-900/80 border-purple-500/30 text-purple-400 hover:border-purple-400'
+            }`}
+          >
+            <span className="w-2 h-2 rounded-full bg-[#a855f7]" /> Bank C
+          </span>
+          <span
+            onClick={() => setActiveBank(activeBank === 'BANK_D' ? 'ALL_BANKS' : 'BANK_D')}
+            className={`flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[10px] font-mono cursor-pointer transition-all border ${
+              activeBank === 'BANK_D'
+                ? 'bg-amber-500/30 border-amber-400 text-amber-200 shadow-md shadow-amber-500/20'
+                : 'bg-slate-900/80 border-amber-500/30 text-amber-400 hover:border-amber-400'
+            }`}
+          >
+            <span className="w-2 h-2 rounded-full bg-[#f59e0b]" /> Bank D
+          </span>
+          <span
+            onClick={() => setActiveBank(activeBank === 'SWITCH' ? 'ALL_BANKS' : 'SWITCH')}
+            className={`flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[10px] font-mono cursor-pointer transition-all border ${
+              activeBank === 'SWITCH'
+                ? 'bg-yellow-500/30 border-yellow-400 text-yellow-200 shadow-md shadow-yellow-500/20'
+                : 'bg-slate-900/80 border-yellow-500/30 text-yellow-400 hover:border-yellow-400'
+            }`}
+          >
+            <span className="w-2 h-2 rounded-full bg-[#facc15]" /> Central Switch
+          </span>
         </div>
       </div>
 
@@ -294,7 +379,7 @@ export default function CyberGlobe3D() {
 
       {/* Bottom Telemetry HUD */}
       <div className="absolute bottom-4 left-5 right-5 z-10 grid grid-cols-2 md:grid-cols-4 gap-2.5 pointer-events-none">
-        <div className="p-2.5 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-800/80">
+        <div className="p-2.5 rounded-xl bg-slate-900/85 backdrop-blur-md border border-slate-800/80">
           <div className="text-[10px] text-slate-400 uppercase tracking-wider flex items-center gap-1">
             <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" /> Security Grid
           </div>
@@ -302,26 +387,26 @@ export default function CyberGlobe3D() {
           <div className="text-[10px] text-emerald-400 font-mono">100% Zero Unilateral Freeze</div>
         </div>
 
-        <div className="p-2.5 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-800/80">
+        <div className="p-2.5 rounded-xl bg-slate-900/85 backdrop-blur-md border border-slate-800/80">
           <div className="text-[10px] text-slate-400 uppercase tracking-wider flex items-center gap-1">
             <Zap className="w-3.5 h-3.5 text-amber-400" /> Monitored Gateways
           </div>
-          <div className="text-sm font-bold text-white mt-0.5">6 Institutions + Central</div>
-          <div className="text-[10px] text-cyan-400 font-mono">Apex, Crest, Zenith, Horizon, Vanguard, Nexus</div>
+          <div className="text-sm font-bold text-white mt-0.5">4 Institutions + Central</div>
+          <div className="text-[10px] text-cyan-400 font-mono">Bank A, Bank B, Bank C, Bank D</div>
         </div>
 
-        <div className="p-2.5 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-800/80">
+        <div className="p-2.5 rounded-xl bg-slate-900/85 backdrop-blur-md border border-slate-800/80">
           <div className="text-[10px] text-slate-400 uppercase tracking-wider flex items-center gap-1">
-            <Activity className="w-3.5 h-3.5 text-emerald-400" /> Clearing Latency
+            <Activity className="w-3.5 h-3.5 text-emerald-400" /> Ring Interception
           </div>
-          <div className="text-sm font-bold text-emerald-400 font-mono mt-0.5">11.4 ms</div>
-          <div className="text-[10px] text-slate-400">Sub-15ms Target Met</div>
+          <div className="text-sm font-bold text-emerald-400 font-mono mt-0.5">33 Mule Rings</div>
+          <div className="text-[10px] text-slate-400">100% Ground-Truth Recall</div>
         </div>
 
-        <div className="p-2.5 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-800/80">
-          <div className="text-[10px] text-slate-400 uppercase tracking-wider">Live Fund Pulses</div>
-          <div className="text-sm font-bold text-cyan-300 font-mono mt-0.5">{pulseCount.toLocaleString()}</div>
-          <div className="text-[10px] text-slate-400">Real-time Ingestion</div>
+        <div className="p-2.5 rounded-xl bg-slate-900/85 backdrop-blur-md border border-slate-800/80">
+          <div className="text-[10px] text-slate-400 uppercase tracking-wider">Volume & Pulses</div>
+          <div className="text-sm font-bold text-cyan-300 font-mono mt-0.5">₹8.04 Cr ({pulseCount.toLocaleString()} pkts)</div>
+          <div className="text-[10px] text-slate-400">27,743 Reconciled Txns</div>
         </div>
       </div>
     </div>

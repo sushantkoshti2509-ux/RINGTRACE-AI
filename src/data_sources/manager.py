@@ -28,7 +28,7 @@ class MultiSourceDataManager:
         "OUR_UPI_SIMULATOR": {
             "name": "Hybrid Multi-Bank UPI Engine",
             "role": "Primary Engine: Hybrid synthesis of PaySim behavior, IBM AMLSim graph topologies, and 6-bank architecture.",
-            "target_ecosystem": "Multi-Bank Digital Payments (Apex, Crest, Zenith, Horizon, Vanguard, Nexus)",
+            "target_ecosystem": "Multi-Bank Digital Payments (Bank A, Bank B, Bank C, Bank D)",
             "cross_bank": True,
             "patterns": ["Circular Layering (AMLSim Cycle)", "Fan-Out Splitter", "Fan-In Collector", "Cross-Bank Chain (AMLSim Stack)", "Rapid Pass-Through"],
             "strengths": "Directly models cross-bank multi-hop blindspots, PaySim amount distributions, AMLSim graphs, and sub-minute turnaround velocity.",

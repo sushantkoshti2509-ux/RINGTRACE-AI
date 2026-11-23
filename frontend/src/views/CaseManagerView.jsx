@@ -241,7 +241,7 @@ export default function CaseManagerView() {
               {/* Participating Banks */}
               <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between text-xs">
                 <span className="text-slate-400">Participating Banks:</span>
-                <span className="font-mono text-cyan-300 font-bold">{selectedCase.banks_involved || 'Apex, Crest, Zenith, Horizon, Vanguard, Nexus'}</span>
+                <span className="font-mono text-cyan-300 font-bold">{selectedCase.banks_involved || 'Bank A, Bank B, Bank C, Bank D'}</span>
               </div>
             </div>
           ) : (
