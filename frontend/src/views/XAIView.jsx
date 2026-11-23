@@ -32,10 +32,10 @@ export default function XAIView() {
         <div>
           <h2 className="text-lg font-bold text-white flex items-center gap-2">
             <Brain className="w-5 h-5 text-purple-400" />
-            <span>Explainable AI (XAI) & SHAP TreeExplainer Attributions</span>
+            <span>Explainable AI</span>
           </h2>
           <p className="text-xs text-slate-400 mt-0.5">
-            Transparent, human-understandable reason codes complying with central regulatory directives
+            SHAP prediction explanations
           </p>
         </div>
         <span className="text-xs font-mono font-bold text-purple-300 bg-purple-500/10 px-3 py-1 rounded-xl border border-purple-500/30">

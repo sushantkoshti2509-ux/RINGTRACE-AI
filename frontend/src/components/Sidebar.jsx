@@ -1,32 +1,72 @@
 import React from 'react';
 import {
-  LayoutDashboard,
-  ShieldAlert,
+  LayoutGrid,
   Network,
-  Zap,
   Brain,
-  Bell,
-  Briefcase,
+  Bot,
+  FolderSearch,
+  TrendingUp,
+  ShieldAlert,
+  Zap,
   Globe,
   Lock,
-  ChevronRight,
   Shield,
 } from 'lucide-react';
 
 export default function Sidebar({ activeTab, setActiveTab }) {
-  const navItems = [
-    { id: 'dashboard', label: 'Multi-Bank Monitoring', icon: LayoutDashboard, badge: '25.4k' },
+  // Exact 6 core platform fields requested by specification
+  const primaryNavItems = [
+    {
+      id: 'dashboard',
+      label: 'Dashboard',
+      subtitle: 'Existing detection and statistics',
+      icon: LayoutGrid,
+      badge: '27.7k',
+    },
+    {
+      id: 'network',
+      label: 'Network Explorer',
+      subtitle: 'Cross-bank fraud connections',
+      icon: Network,
+      badge: '33 RINGS',
+    },
+    {
+      id: 'xai',
+      label: 'Explainable AI',
+      subtitle: 'SHAP prediction explanations',
+      icon: Brain,
+      badge: 'SHAP',
+    },
+    {
+      id: 'assistant',
+      label: 'Investigation Assistant',
+      subtitle: 'AI-supported case investigation',
+      icon: Bot,
+      badge: 'AI COPILOT',
+    },
+    {
+      id: 'cases',
+      label: 'Case Management',
+      subtitle: 'Evidence, notes and reports',
+      icon: FolderSearch,
+      badge: 'DOSSIER',
+    },
+    {
+      id: 'analytics',
+      label: 'Advanced Analytics',
+      subtitle: 'Bank-wise and network analytics',
+      icon: TrendingUp,
+      badge: '6 BANKS',
+    },
+  ];
+
+  const secondaryNavItems = [
     { id: 'interception', label: 'Interception & ROI Simulator', icon: ShieldAlert, badge: 'PROACTIVE' },
-    { id: 'network', label: 'Network & Cycle Explorer', icon: Network, badge: '18 LOOPS' },
-    { id: 'realtime', label: 'Real-Time Stream Scorer', icon: Zap, badge: '<15ms' },
-    { id: 'xai', label: 'Explainable AI (SHAP)', icon: Brain },
-    { id: 'alerts', label: 'Alert & Incident Center', icon: Bell, badge: 'LIVE' },
-    { id: 'cases', label: 'Investigation & PDF Dossier', icon: Briefcase },
     { id: 'globe3d', label: '3D Cyber Clearing Fabric', icon: Globe, badge: '3D' },
   ];
 
   return (
-    <aside className="w-64 glass-panel border-r border-slate-800 flex flex-col justify-between shrink-0 h-screen sticky top-0">
+    <aside className="w-64 glass-panel border-r border-slate-800 flex flex-col justify-between shrink-0 h-screen sticky top-0 overflow-y-auto">
       {/* Brand Header */}
       <div>
         <div className="p-5 border-b border-slate-800 flex items-center gap-3">
@@ -38,7 +78,7 @@ export default function Sidebar({ activeTab, setActiveTab }) {
               <span>RINGTRACE</span>
               <span className="text-cyan-400">AI</span>
             </div>
-            <div className="text-[10px] text-slate-400">Anti-Mule Defense HUD</div>
+            <div className="text-[10px] text-slate-400">Multi-Bank Fraud Defense</div>
           </div>
         </div>
 
@@ -47,15 +87,20 @@ export default function Sidebar({ activeTab, setActiveTab }) {
           <div className="p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/30 flex items-center gap-2 text-xs">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <div>
-              <span className="font-bold text-emerald-300 block text-[11px]">UPI Network Online</span>
-              <span className="text-[10px] text-emerald-500/90">6 Institutions Online</span>
+              <span className="font-bold text-emerald-300 block text-[11px]">Inter-Bank Fabric Online</span>
+              <span className="text-[10px] text-emerald-500/90">6 Synthetic Banks Active</span>
             </div>
           </div>
         </div>
 
-        {/* Navigation Items */}
-        <nav className="px-3 space-y-1 mt-2">
-          {navItems.map((item) => {
+        {/* Core Navigation Items (Exact 6 Fields) */}
+        <div className="px-4 pt-1 pb-1">
+          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+            Core Modules
+          </span>
+        </div>
+        <nav className="px-3 space-y-1">
+          {primaryNavItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
             return (
@@ -68,14 +113,48 @@ export default function Sidebar({ activeTab, setActiveTab }) {
                     : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
                 }`}
               >
-                <div className="flex items-center gap-2.5">
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-cyan-400' : 'text-slate-500'}`} />
-                  <span>{item.label}</span>
+                <div className="flex items-center gap-2.5 truncate">
+                  <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-cyan-400' : 'text-slate-500'}`} />
+                  <span className="truncate">{item.label}</span>
                 </div>
                 {item.badge && (
-                  <span className={`text-[9px] px-1.5 py-0.5 rounded font-mono font-bold ${
+                  <span className={`text-[9px] px-1.5 py-0.5 rounded font-mono font-bold shrink-0 ${
                     isActive ? 'bg-cyan-400/20 text-cyan-200' : 'bg-slate-800 text-slate-400'
                   }`}>
+                    {item.badge}
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </nav>
+
+        {/* Tactical Utilities */}
+        <div className="px-4 pt-4 pb-1">
+          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
+            Tactical Extensions
+          </span>
+        </div>
+        <nav className="px-3 space-y-1">
+          {secondaryNavItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeTab === item.id;
+            return (
+              <button
+                key={item.id}
+                onClick={() => setActiveTab(item.id)}
+                className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                  isActive
+                    ? 'bg-slate-800 text-slate-200 border border-slate-700'
+                    : 'text-slate-500 hover:text-slate-300 hover:bg-slate-900/40'
+                }`}
+              >
+                <div className="flex items-center gap-2.5 truncate">
+                  <Icon className="w-3.5 h-3.5 shrink-0 text-slate-500" />
+                  <span className="truncate">{item.label}</span>
+                </div>
+                {item.badge && (
+                  <span className="text-[8px] px-1 py-0.5 rounded bg-slate-900 text-slate-500 font-mono">
                     {item.badge}
                   </span>
                 )}
@@ -86,7 +165,7 @@ export default function Sidebar({ activeTab, setActiveTab }) {
       </div>
 
       {/* Footer Safeguards */}
-      <div className="p-4 border-t border-slate-800/80 text-[11px] text-slate-400">
+      <div className="p-4 border-t border-slate-800/80 text-[11px] text-slate-400 mt-auto">
         <div className="flex items-center gap-1.5 text-slate-300 font-semibold mb-1">
           <Lock className="w-3.5 h-3.5 text-cyan-400" />
           <span>DPDP Act 2023 Masking</span>

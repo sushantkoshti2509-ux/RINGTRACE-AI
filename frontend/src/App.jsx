@@ -2,21 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { apiFetch } from './api';
 import Sidebar from './components/Sidebar';
 import KPIMetricsBar from './components/KPIMetricsBar';
+import ModuleNavGrid from './components/ModuleNavGrid';
 import MonitoringView from './views/MonitoringView';
 import RealtimeScorerView from './views/RealtimeScorerView';
 import NetworkExplorerView from './views/NetworkExplorerView';
 import XAIView from './views/XAIView';
 import AlertsView from './views/AlertsView';
 import CaseManagerView from './views/CaseManagerView';
+import InvestigationAssistantView from './views/InvestigationAssistantView';
+import AdvancedAnalyticsView from './views/AdvancedAnalyticsView';
 import CyberGlobe3D from './components/CyberGlobe3D';
 import MuleRingCanvas from './components/MuleRingCanvas';
 import InterceptionSimulator from './components/InterceptionSimulator';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('interception');
+  const [activeTab, setActiveTab] = useState('dashboard');
   const [summary, setSummary] = useState({
-    total_transactions: 25430,
-    high_risk_count: 128,
+    total_transactions: 27722,
+    high_risk_count: 165,
   });
 
   // Topology State for Interception Tab
@@ -116,52 +119,91 @@ export default function App() {
           {/* Always Visible Top Metrics */}
           <KPIMetricsBar summary={summary} />
 
-          {/* Module Routing */}
-          {activeTab === 'dashboard' && <MonitoringView />}
-          {activeTab === 'network' && <NetworkExplorerView />}
-          {activeTab === 'realtime' && <RealtimeScorerView />}
-          {activeTab === 'xai' && <XAIView />}
-          {activeTab === 'alerts' && <AlertsView />}
-          {activeTab === 'cases' && <CaseManagerView />}
-          {activeTab === 'globe3d' && (
-            <div className="glass-panel rounded-2xl p-6 border border-slate-800 shadow-xl">
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
-                3D Multi-Bank Cyber Clearing Sphere
-              </h3>
-              <CyberGlobe3D />
-            </div>
-          )}
+          {/* 6-Field Core Module Grid (Matches Specification) */}
+          <ModuleNavGrid activeTab={activeTab} onSelectTab={setActiveTab} />
 
-          {activeTab === 'interception' && (
-            <div className="flex flex-col gap-6">
-              {/* React Flow Left-to-Right Canvas */}
-              <MuleRingCanvas
-                nodesData={nodes}
-                edgesData={edges}
-                selectedNodeId={selectedNodeId}
-                onSelectNode={(id) => {
-                  setSelectedNodeId(id);
-                  setSelectedTargetNode(id);
-                }}
-                targetNodeId={selectedTargetNode}
-                neutralizedNodes={simulationResult?.downstream_nodes_list || []}
-                severedEdges={simulationResult?.severed_edges || []}
-                isPostDisruption={isPostDisruption}
-                onToggleDisruption={setIsPostDisruption}
-              />
-
-              {/* Interception ROI Simulator Controls & Impact HUD */}
-              <InterceptionSimulator
-                nodes={nodes}
-                bottlenecks={bottlenecks}
-                selectedTargetNode={selectedTargetNode}
-                onSelectTargetNode={setSelectedTargetNode}
-                onRunSimulation={handleRunSimulation}
-                simulationResult={simulationResult}
-                isLoading={isSimulating}
-              />
-            </div>
-          )}
+          {/* Active Module Workstation */}
+          <div className="mt-2">
+            {activeTab === 'dashboard' && <MonitoringView />}
+            {activeTab === 'network' && (
+              <div className="flex flex-col gap-6">
+                <NetworkExplorerView />
+                {/* Embedded Topology & Interception Simulator */}
+                <div className="glass-panel rounded-2xl p-5 border border-slate-800 shadow-xl flex flex-col gap-4">
+                  <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <span className="text-xs font-bold text-white uppercase tracking-wider">
+                      Interactive Visual Ring Topology & Interception Canvas
+                    </span>
+                    <span className="text-[10px] text-cyan-400 font-mono">React Flow DAG</span>
+                  </div>
+                  <MuleRingCanvas
+                    nodesData={nodes}
+                    edgesData={edges}
+                    selectedNodeId={selectedNodeId}
+                    onSelectNode={(id) => {
+                      setSelectedNodeId(id);
+                      setSelectedTargetNode(id);
+                    }}
+                    targetNodeId={selectedTargetNode}
+                    neutralizedNodes={simulationResult?.downstream_nodes_list || []}
+                    severedEdges={simulationResult?.severed_edges || []}
+                    isPostDisruption={isPostDisruption}
+                    onToggleDisruption={setIsPostDisruption}
+                  />
+                  <InterceptionSimulator
+                    nodes={nodes}
+                    bottlenecks={bottlenecks}
+                    selectedTargetNode={selectedTargetNode}
+                    onSelectTargetNode={setSelectedTargetNode}
+                    onRunSimulation={handleRunSimulation}
+                    simulationResult={simulationResult}
+                    isLoading={isSimulating}
+                  />
+                </div>
+              </div>
+            )}
+            {activeTab === 'xai' && <XAIView />}
+            {activeTab === 'assistant' && <InvestigationAssistantView />}
+            {activeTab === 'cases' && <CaseManagerView />}
+            {activeTab === 'analytics' && <AdvancedAnalyticsView />}
+            {activeTab === 'realtime' && <RealtimeScorerView />}
+            {activeTab === 'alerts' && <AlertsView />}
+            {activeTab === 'globe3d' && (
+              <div className="glass-panel rounded-2xl p-6 border border-slate-800 shadow-xl">
+                <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
+                  3D Multi-Bank Cyber Clearing Fabric
+                </h3>
+                <CyberGlobe3D />
+              </div>
+            )}
+            {activeTab === 'interception' && (
+              <div className="flex flex-col gap-6">
+                <MuleRingCanvas
+                  nodesData={nodes}
+                  edgesData={edges}
+                  selectedNodeId={selectedNodeId}
+                  onSelectNode={(id) => {
+                    setSelectedNodeId(id);
+                    setSelectedTargetNode(id);
+                  }}
+                  targetNodeId={selectedTargetNode}
+                  neutralizedNodes={simulationResult?.downstream_nodes_list || []}
+                  severedEdges={simulationResult?.severed_edges || []}
+                  isPostDisruption={isPostDisruption}
+                  onToggleDisruption={setIsPostDisruption}
+                />
+                <InterceptionSimulator
+                  nodes={nodes}
+                  bottlenecks={bottlenecks}
+                  selectedTargetNode={selectedTargetNode}
+                  onSelectTargetNode={setSelectedTargetNode}
+                  onRunSimulation={handleRunSimulation}
+                  simulationResult={simulationResult}
+                  isLoading={isSimulating}
+                />
+              </div>
+            )}
+          </div>
         </main>
 
         {/* Bottom Status Bar */}

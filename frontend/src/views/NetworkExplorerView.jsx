@@ -36,10 +36,10 @@ export default function NetworkExplorerView() {
         <div>
           <h2 className="text-lg font-bold text-white flex items-center gap-2">
             <Network className="w-5 h-5 text-cyan-400" />
-            <span>Cross-Bank Fraud Network & Topological Cycle Explorer</span>
+            <span>Network Explorer</span>
           </h2>
           <p className="text-xs text-slate-400 mt-0.5">
-            Bounded simple cycle discovery (length ≤ 5) and rapid turnaround velocity analytics across multi-bank ledgers
+            Cross-bank fraud connections
           </p>
         </div>
         <button

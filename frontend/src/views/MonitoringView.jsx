@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { apiFetch } from '../api';
-import { Search, Filter, ArrowUpDown, Shield, AlertTriangle, CheckCircle, ChevronLeft, ChevronRight, Eye, RefreshCw } from 'lucide-react';
+import { Search, Filter, ArrowUpDown, Shield, AlertTriangle, CheckCircle, ChevronLeft, ChevronRight, Eye, RefreshCw, LayoutGrid } from 'lucide-react';
 
 export default function MonitoringView() {
   const [transactions, setTransactions] = useState([]);
@@ -59,11 +59,11 @@ export default function MonitoringView() {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <h2 className="text-lg font-bold text-white flex items-center gap-2">
-              <Shield className="w-5 h-5 text-cyan-400" />
-              <span>Multi-Bank Transaction Monitoring & Ledger Search</span>
+              <LayoutGrid className="w-5 h-5 text-cyan-400" />
+              <span>Dashboard</span>
             </h2>
             <p className="text-xs text-slate-400 mt-0.5">
-              Unified cross-bank records with DPDP Act 2023 account masking and real-time risk scoring
+              Existing detection and statistics
             </p>
           </div>
           <button

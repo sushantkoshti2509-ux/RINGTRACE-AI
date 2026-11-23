@@ -190,3 +190,32 @@ def test_investigation_case_manager_and_pdf(tmp_path):
     assert isinstance(pdf_bytes, bytes)
     assert len(pdf_bytes) > 1000
     assert pdf_bytes.startswith(b"%PDF")  # Valid PDF header magic bytes!
+
+
+def test_platform_assistant_and_advanced_analytics_endpoints():
+    """Verifies FastAPI endpoints for AI Investigation Assistant and Advanced Analytics."""
+    from starlette.testclient import TestClient
+    from src.integration.api import app
+
+    client = TestClient(app)
+
+    # 1. Test AI Assistant Query
+    resp_ai = client.post(
+        "/api/v1/platform/investigation/assistant/query",
+        json={"case_id": "CASE_001", "query": "Generate official SAR report narrative draft"},
+    )
+    assert resp_ai.status_code == 200
+    ai_data = resp_ai.json()
+    assert "reply" in ai_data
+    assert "(SAR) Narrative" in ai_data["reply"]
+    assert len(ai_data["suggested_actions"]) > 0
+
+    # 2. Test Advanced Analytics Endpoint
+    resp_ana = client.get("/api/v1/platform/analytics/advanced")
+    assert resp_ana.status_code == 200
+    ana_data = resp_ana.json()
+    assert "bank_metrics" in ana_data
+    assert "topology_distribution" in ana_data
+    assert "velocity_histogram" in ana_data
+    assert "cross_bank_flows" in ana_data
+    assert ana_data["graph_kpis"]["rings_detected"] >= 28
