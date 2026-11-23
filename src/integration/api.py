@@ -5,8 +5,11 @@ query cross-bank transactions, and inspect reconciliation metrics.
 """
 
 from typing import List, Optional, Dict, Any
-from fastapi import FastAPI, Header, HTTPException, Query, status
+from fastapi import FastAPI, Header, HTTPException, Query, status, Request
+from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
 from datetime import datetime, timezone
 import json
 import pandas as pd
@@ -23,6 +26,7 @@ from src.integration.integrator import MultiBankDataIntegrator
 from src.realtime.api import router as realtime_router
 from src.alerts.api import router as alerts_router
 from src.dashboard.api import router as dashboard_router
+from src.interception.api import router as interception_router
 
 # Initialize FastAPI application
 app = FastAPI(
@@ -40,10 +44,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount Step 7, Step 8, and Step 9 Routers
+# Mount Step 7, Step 8, Step 9, and Interception Routers
 app.include_router(realtime_router)
 app.include_router(alerts_router)
 app.include_router(dashboard_router)
+app.include_router(interception_router)
 
 # Shared instances
 db_manager = DatabaseManager()
@@ -73,15 +78,29 @@ def verify_bank_auth(bank_id: str, x_bank_api_key: Optional[str] = Header(None))
 
 
 @app.get("/", tags=["System"])
-def root_info():
-    """Returns service metadata and active simulated bank nodes."""
+def root_info(request: Request):
+    """Returns HUD app for browsers, or service metadata for JSON API clients."""
+    accept = request.headers.get("accept", "")
+    frontend_index = config.PROJECT_ROOT / "frontend" / "dist" / "index.html"
+    if "text/html" in accept and frontend_index.exists():
+        return FileResponse(frontend_index)
     return {
         "service": "RINGTRACE AI Multi-Bank Data Integration API",
         "status": "OPERATIONAL",
         "participating_banks": config.SIMULATED_BANKS,
         "database_backend": "SQLite / PostgreSQL",
         "docs_url": "/docs",
+        "hud_url": "/hud",
     }
+
+
+@app.get("/hud", tags=["System"])
+def hud_view():
+    """Serves the interactive React HUD Command Center."""
+    frontend_index = config.PROJECT_ROOT / "frontend" / "dist" / "index.html"
+    if frontend_index.exists():
+        return FileResponse(frontend_index)
+    return {"message": "Frontend not yet compiled. Run 'npm run build' inside frontend/"}
 
 
 @app.get("/health", tags=["System"])
@@ -243,3 +262,10 @@ def get_cross_bank_flows():
 
     _, summary = integrator.load_preprocessed_banks_and_integrate(export_artifacts=True)
     return {"flows": summary.get("pairwise_flow_matrix", {})}
+
+
+# Mount compiled React HUD Frontend assets if built
+frontend_dist = config.PROJECT_ROOT / "frontend" / "dist"
+if (frontend_dist / "assets").exists():
+    app.mount("/assets", StaticFiles(directory=str(frontend_dist / "assets")), name="static_assets")
+
