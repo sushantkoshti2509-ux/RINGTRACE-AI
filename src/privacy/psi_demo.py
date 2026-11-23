@@ -155,42 +155,48 @@ class PSICoordinator:
                 candidates.append((tok, str(row["account_id"])))
             bank_candidates[b_id] = candidates
 
-        # Run Pairwise PSI
-        psi_ab = self.run_two_party_psi(bank_candidates["BANK_A"], bank_candidates["BANK_B"], "BANK_A", "BANK_B")
-        psi_bc = self.run_two_party_psi(bank_candidates["BANK_B"], bank_candidates["BANK_C"], "BANK_B", "BANK_C")
-        psi_ac = self.run_two_party_psi(bank_candidates["BANK_A"], bank_candidates["BANK_C"], "BANK_A", "BANK_C")
+        b_list = list(config.SIMULATED_BANKS)
+        b1 = b_list[0] if len(b_list) > 0 else "BANK_A"
+        b2 = b_list[1] if len(b_list) > 1 else "BANK_B"
+        b3 = b_list[2] if len(b_list) > 2 else "BANK_C"
 
-        # 3-Way intersection (entities common to all 3 banks)
-        tok_ab = {p["canonical_token"] for p in psi_ab["matched_entities"]}
-        tok_bc = {p["canonical_token"] for p in psi_bc["matched_entities"]}
-        three_way_tokens = tok_ab.intersection(tok_bc)
+        # Run Pairwise PSI across leading institutions
+        psi_12 = self.run_two_party_psi(bank_candidates.get(b1, []), bank_candidates.get(b2, []), b1, b2)
+        psi_23 = self.run_two_party_psi(bank_candidates.get(b2, []), bank_candidates.get(b3, []), b2, b3)
+        psi_13 = self.run_two_party_psi(bank_candidates.get(b1, []), bank_candidates.get(b3, []), b1, b3)
+
+        # 3-Way intersection (entities common to all 3 institutions)
+        tok_12 = {p["canonical_token"] for p in psi_12["matched_entities"]}
+        tok_23 = {p["canonical_token"] for p in psi_23["matched_entities"]}
+        three_way_tokens = tok_12.intersection(tok_23)
 
         three_way_entities = []
         for tok in three_way_tokens:
-            acc_a = next((p["BANK_A_account"] for p in psi_ab["matched_entities"] if p["canonical_token"] == tok), "UNKNOWN")
-            acc_b = next((p["BANK_B_account"] for p in psi_ab["matched_entities"] if p["canonical_token"] == tok), "UNKNOWN")
-            acc_c = next((p["BANK_C_account"] for p in psi_bc["matched_entities"] if p["canonical_token"] == tok), "UNKNOWN")
+            acc_1 = next((p[f"{b1}_account"] for p in psi_12["matched_entities"] if p["canonical_token"] == tok), "UNKNOWN")
+            acc_2 = next((p[f"{b2}_account"] for p in psi_12["matched_entities"] if p["canonical_token"] == tok), "UNKNOWN")
+            acc_3 = next((p[f"{b3}_account"] for p in psi_23["matched_entities"] if p["canonical_token"] == tok), "UNKNOWN")
             three_way_entities.append({
                 "canonical_token": tok,
-                "BANK_A_account": acc_a,
-                "BANK_B_account": acc_b,
-                "BANK_C_account": acc_c,
+                f"{b1}_account": acc_1,
+                f"{b2}_account": acc_2,
+                f"{b3}_account": acc_3,
             })
 
         return {
-            "bank_a_candidates": len(bank_candidates["BANK_A"]),
-            "bank_b_candidates": len(bank_candidates["BANK_B"]),
-            "bank_c_candidates": len(bank_candidates["BANK_C"]),
+            "institutions_participating": b_list,
+            "bank_a_candidates": len(bank_candidates.get(b1, [])),
+            "bank_b_candidates": len(bank_candidates.get(b2, [])),
+            "bank_c_candidates": len(bank_candidates.get(b3, [])),
             "pairwise_matches": {
-                "BANK_A_x_BANK_B": len(psi_ab["matched_entities"]),
-                "BANK_B_x_BANK_C": len(psi_bc["matched_entities"]),
-                "BANK_A_x_BANK_C": len(psi_ac["matched_entities"]),
+                f"{b1}_x_{b2}": len(psi_12["matched_entities"]),
+                f"{b2}_x_{b3}": len(psi_23["matched_entities"]),
+                f"{b1}_x_{b3}": len(psi_13["matched_entities"]),
             },
             "three_way_intersection_count": len(three_way_entities),
             "three_way_entities": three_way_entities,
             "pairwise_details": {
-                "A_B": psi_ab["matched_entities"],
-                "B_C": psi_bc["matched_entities"],
-                "A_C": psi_ac["matched_entities"],
+                "P1_P2": psi_12["matched_entities"],
+                "P2_P3": psi_23["matched_entities"],
+                "P1_P3": psi_13["matched_entities"],
             },
         }

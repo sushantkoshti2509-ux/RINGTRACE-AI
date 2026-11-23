@@ -26,13 +26,13 @@ class MultiSourceDataManager:
 
     DATA_SOURCES = {
         "OUR_UPI_SIMULATOR": {
-            "name": "Our 3-Bank Indian UPI Simulator",
-            "role": "Primary Engine: Cross-bank mule ring detection across Bank A, Bank B, and Bank C.",
-            "target_ecosystem": "Indian Digital Payments (UPI / IMPS)",
+            "name": "Hybrid Multi-Bank UPI Engine",
+            "role": "Primary Engine: Hybrid synthesis of PaySim behavior, IBM AMLSim graph topologies, and 6-bank architecture.",
+            "target_ecosystem": "Multi-Bank Digital Payments (Apex, Crest, Zenith, Horizon, Vanguard, Nexus)",
             "cross_bank": True,
-            "patterns": ["Rapid Pass-Through", "Fan-Out Splitter", "Fan-In Collector", "Cross-Bank Chain", "Circular Layering"],
-            "strengths": "Directly models cross-bank multi-hop blindspots, sub-minute turnaround velocity, and genuine Indian UPI profiles.",
-            "limitations": "Synthetic simulation (does not connect to live NPCI/UPI APIs).",
+            "patterns": ["Circular Layering (AMLSim Cycle)", "Fan-Out Splitter", "Fan-In Collector", "Cross-Bank Chain (AMLSim Stack)", "Rapid Pass-Through"],
+            "strengths": "Directly models cross-bank multi-hop blindspots, PaySim amount distributions, AMLSim graphs, and sub-minute turnaround velocity.",
+            "limitations": "Synthetic hybrid simulation (privacy-preserving, zero real customer PII used).",
         },
         "IBM_AMLSIM": {
             "name": "IBM AMLSim",

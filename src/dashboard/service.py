@@ -24,12 +24,12 @@ class DashboardMonitoringService:
 
     # Benchmark federated ledger volumes (matching the multi-bank specification)
     FEDERATED_BENCHMARKS = {
-        "BANK_A": {"transactions": 9200, "suspicious": 120, "volume_inr": 324500000.0},
-        "BANK_B": {"transactions": 8150, "suspicious": 105, "volume_inr": 281200000.0},
-        "BANK_C": {"transactions": 8080, "suspicious": 117, "volume_inr": 279300000.0},
-        "BANK_D": {"transactions": 7650, "suspicious": 98, "volume_inr": 245000000.0},
-        "BANK_E": {"transactions": 6900, "suspicious": 92, "volume_inr": 218000000.0},
-        "BANK_F": {"transactions": 6400, "suspicious": 84, "volume_inr": 195000000.0},
+        "APEX_NATIONAL": {"name": "Apex National Bank", "transactions": 9200, "suspicious": 120, "volume_inr": 324500000.0},
+        "CREST_COMMERCIAL": {"name": "Crest Commercial Bank", "transactions": 8150, "suspicious": 105, "volume_inr": 281200000.0},
+        "ZENITH_COOPERATIVE": {"name": "Zenith Cooperative Bank", "transactions": 8080, "suspicious": 117, "volume_inr": 279300000.0},
+        "HORIZON_FEDERAL": {"name": "Horizon Federal Bank", "transactions": 7650, "suspicious": 98, "volume_inr": 245000000.0},
+        "VANGUARD_MERCANTILE": {"name": "Vanguard Mercantile Bank", "transactions": 6900, "suspicious": 92, "volume_inr": 218000000.0},
+        "NEXUS_PAYMENTS": {"name": "Nexus Payments Bank", "transactions": 6400, "suspicious": 84, "volume_inr": 195000000.0},
     }
 
     def __init__(self, db_manager: Optional[DatabaseManager] = None):
@@ -54,7 +54,7 @@ class DashboardMonitoringService:
 
                 bank_breakdown = [
                     {
-                        "bank_name": f"Bank {b.replace('BANK_', '')}",
+                        "bank_name": data.get("name", b.replace("_", " ").title()),
                         "bank_id": b,
                         "transactions": data["transactions"],
                         "suspicious": data["suspicious"],
@@ -82,8 +82,9 @@ class DashboardMonitoringService:
                 bank_breakdown = []
                 for b_id, count, susp, vol in bank_counts:
                     susp_cnt = int(susp or 0)
+                    display_name = getattr(config, "BANK_METADATA", {}).get(b_id, {}).get("name", b_id.replace("_", " ").title())
                     bank_breakdown.append({
-                        "bank_name": f"Bank {b_id.replace('BANK_', '')}",
+                        "bank_name": display_name,
                         "bank_id": b_id,
                         "transactions": count,
                         "suspicious": susp_cnt,

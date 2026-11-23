@@ -9,28 +9,28 @@
     "SUCCESS"
   ],
   "sender_bank": [
-    "BANK_A",
-    "BANK_B",
-    "BANK_C",
-    "BANK_D",
-    "BANK_E",
-    "BANK_F"
+    "APEX_NATIONAL",
+    "CREST_COMMERCIAL",
+    "HORIZON_FEDERAL",
+    "NEXUS_PAYMENTS",
+    "VANGUARD_MERCANTILE",
+    "ZENITH_COOPERATIVE"
   ],
   "receiver_bank": [
-    "BANK_A",
-    "BANK_B",
-    "BANK_C",
-    "BANK_D",
-    "BANK_E",
-    "BANK_F"
+    "APEX_NATIONAL",
+    "CREST_COMMERCIAL",
+    "HORIZON_FEDERAL",
+    "NEXUS_PAYMENTS",
+    "VANGUARD_MERCANTILE",
+    "ZENITH_COOPERATIVE"
   ],
   "pattern_type": [
     "ABNORMAL_OFF_HOURS",
     "FREQUENT_MICRO_PAYMENT",
     "HIGH_VALUE_COMMERCIAL",
     "NORMAL_P2P",
+    "SUSPICIOUS_CIRCULAR_LAYERING",
     "SUSPICIOUS_FAN_IN_COLLECTOR",
-    "SUSPICIOUS_FAN_OUT_SPLITTER",
-    "SUSPICIOUS_RAPID_PASS_THROUGH"
+    "SUSPICIOUS_FAN_OUT_SPLITTER"
   ]
 }

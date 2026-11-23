@@ -1,13 +1,13 @@
 [
   {
     "Source Key":"OUR_UPI_SIMULATOR",
-    "Data Source":"Our 3-Bank Indian UPI Simulator",
-    "Strategic Role":"Primary Engine: Cross-bank mule ring detection across Bank A, Bank B, and Bank C.",
-    "Target Ecosystem":"Indian Digital Payments (UPI \/ IMPS)",
+    "Data Source":"Hybrid Multi-Bank UPI Engine",
+    "Strategic Role":"Primary Engine: Hybrid synthesis of PaySim behavior, IBM AMLSim graph topologies, and 6-bank architecture.",
+    "Target Ecosystem":"Multi-Bank Digital Payments (Apex, Crest, Zenith, Horizon, Vanguard, Nexus)",
     "Cross-Bank Visibility":"\u2705 Multi-Bank",
-    "Key Suspicious Patterns":"Rapid Pass-Through, Fan-Out Splitter, Fan-In Collector",
-    "Key Strength":"Directly models cross-bank multi-hop blindspots, sub-minute turnaround velocity, and genuine Indian UPI profiles.",
-    "Known Limitation":"Synthetic simulation (does not connect to live NPCI\/UPI APIs)."
+    "Key Suspicious Patterns":"Circular Layering (AMLSim Cycle), Fan-Out Splitter, Fan-In Collector",
+    "Key Strength":"Directly models cross-bank multi-hop blindspots, PaySim amount distributions, AMLSim graphs, and sub-minute turnaround velocity.",
+    "Known Limitation":"Synthetic hybrid simulation (privacy-preserving, zero real customer PII used)."
   },
   {
     "Source Key":"IBM_AMLSIM",

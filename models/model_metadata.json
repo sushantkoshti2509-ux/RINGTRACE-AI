@@ -33,12 +33,12 @@
     "profile_type_REGULAR_P2P",
     "profile_type_SALARIED",
     "profile_type_STUDENT_FIRST_TIME",
-    "bank_id_BANK_A",
-    "bank_id_BANK_B",
-    "bank_id_BANK_C",
-    "bank_id_BANK_D",
-    "bank_id_BANK_E",
-    "bank_id_BANK_F"
+    "bank_id_APEX_NATIONAL",
+    "bank_id_CREST_COMMERCIAL",
+    "bank_id_HORIZON_FEDERAL",
+    "bank_id_NEXUS_PAYMENTS",
+    "bank_id_VANGUARD_MERCANTILE",
+    "bank_id_ZENITH_COOPERATIVE"
   ],
   "optimal_threshold": 0.75,
   "champion_model": "Random Forest",
@@ -97,7 +97,7 @@
     },
     "Isolation Forest": {
       "model_name": "Isolation Forest",
-      "threshold": 0.6005,
+      "threshold": 0.75,
       "accuracy": 1.0,
       "precision": 1.0,
       "recall": 1.0,

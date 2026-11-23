@@ -227,7 +227,7 @@ def test_fastapi_endpoints():
     # 2. Root info endpoint
     resp_root = client.get("/")
     assert resp_root.status_code == 200
-    assert "BANK_A" in resp_root.json()["participating_banks"]
+    assert config.SIMULATED_BANKS[0] in resp_root.json()["participating_banks"]
 
     # 3. Query transactions
     resp_tx = client.get("/api/v1/transactions?limit=10")

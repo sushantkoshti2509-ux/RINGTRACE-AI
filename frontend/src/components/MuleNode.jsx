@@ -3,6 +3,78 @@ import { Handle, Position } from '@xyflow/react';
 import { Shield, AlertTriangle, CheckCircle, Lock, ArrowRight, Ban } from 'lucide-react';
 
 const bankColors = {
+  APEX_NATIONAL: {
+    bg: 'bg-cyan-950/70',
+    border: 'border-cyan-500/40',
+    badge: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40',
+    dot: 'bg-cyan-400',
+  },
+  APEX: {
+    bg: 'bg-cyan-950/70',
+    border: 'border-cyan-500/40',
+    badge: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40',
+    dot: 'bg-cyan-400',
+  },
+  CREST_COMMERCIAL: {
+    bg: 'bg-emerald-950/70',
+    border: 'border-emerald-500/40',
+    badge: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+    dot: 'bg-emerald-400',
+  },
+  CRST: {
+    bg: 'bg-emerald-950/70',
+    border: 'border-emerald-500/40',
+    badge: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+    dot: 'bg-emerald-400',
+  },
+  ZENITH_COOPERATIVE: {
+    bg: 'bg-purple-950/70',
+    border: 'border-purple-500/40',
+    badge: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
+    dot: 'bg-purple-400',
+  },
+  ZNTH: {
+    bg: 'bg-purple-950/70',
+    border: 'border-purple-500/40',
+    badge: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
+    dot: 'bg-purple-400',
+  },
+  HORIZON_FEDERAL: {
+    bg: 'bg-amber-950/70',
+    border: 'border-amber-500/40',
+    badge: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+    dot: 'bg-amber-400',
+  },
+  HZON: {
+    bg: 'bg-amber-950/70',
+    border: 'border-amber-500/40',
+    badge: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+    dot: 'bg-amber-400',
+  },
+  VANGUARD_MERCANTILE: {
+    bg: 'bg-blue-950/70',
+    border: 'border-blue-500/40',
+    badge: 'bg-blue-500/20 text-blue-300 border-blue-500/40',
+    dot: 'bg-blue-400',
+  },
+  VNGR: {
+    bg: 'bg-blue-950/70',
+    border: 'border-blue-500/40',
+    badge: 'bg-blue-500/20 text-blue-300 border-blue-500/40',
+    dot: 'bg-blue-400',
+  },
+  NEXUS_PAYMENTS: {
+    bg: 'bg-rose-950/70',
+    border: 'border-rose-500/40',
+    badge: 'bg-rose-500/20 text-rose-300 border-rose-500/40',
+    dot: 'bg-rose-400',
+  },
+  NXUS: {
+    bg: 'bg-rose-950/70',
+    border: 'border-rose-500/40',
+    badge: 'bg-rose-500/20 text-rose-300 border-rose-500/40',
+    dot: 'bg-rose-400',
+  },
   BANK_A: {
     bg: 'bg-cyan-950/70',
     border: 'border-cyan-500/40',
@@ -20,24 +92,6 @@ const bankColors = {
     border: 'border-purple-500/40',
     badge: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
     dot: 'bg-purple-400',
-  },
-  BANK_D: {
-    bg: 'bg-amber-950/70',
-    border: 'border-amber-500/40',
-    badge: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
-    dot: 'bg-amber-400',
-  },
-  BANK_E: {
-    bg: 'bg-blue-950/70',
-    border: 'border-blue-500/40',
-    badge: 'bg-blue-500/20 text-blue-300 border-blue-500/40',
-    dot: 'bg-blue-400',
-  },
-  BANK_F: {
-    bg: 'bg-rose-950/70',
-    border: 'border-rose-500/40',
-    badge: 'bg-rose-500/20 text-rose-300 border-rose-500/40',
-    dot: 'bg-rose-400',
   },
 };
 

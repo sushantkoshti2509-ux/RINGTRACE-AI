@@ -1,136 +1,109 @@
 [
   {
-    "candidate_ring_id": "CANDIDATE_RING_02",
+    "candidate_ring_id": "CANDIDATE_RING_01",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00004",
-      "BANK_MULE_00005",
-      "BANK_MULE_00001",
-      "BANK_MULE_00003",
-      "BANK_MULE_00002"
+      "APEX_MULE_00146",
+      "ZENITH_MULE_00147",
+      "APEX_MULE_00150",
+      "HORIZON_MULE_00149",
+      "VANGUARD_MULE_00148"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C",
-      "BANK_D",
-      "BANK_E"
+      "APEX_NATIONAL",
+      "HORIZON_FEDERAL",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.9661,
-    "total_volume": 341072.14,
+    "total_volume": 1110759.85,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_03",
+    "candidate_ring_id": "CANDIDATE_RING_05",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00043",
-      "BANK_MULE_00044",
-      "BANK_MULE_00042",
-      "BANK_MULE_00045",
-      "BANK_MULE_00041"
+      "NEXUS_MULE_00024",
+      "NEXUS_MULE_00021",
+      "ZENITH_MULE_00025",
+      "VANGUARD_MULE_00023",
+      "ZENITH_MULE_00022"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_C",
-      "BANK_D",
-      "BANK_E"
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.9661,
-    "total_volume": 442090.38,
+    "total_volume": 311853.35,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_10",
+    "candidate_ring_id": "CANDIDATE_RING_15",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00051",
-      "BANK_MULE_00055",
-      "BANK_MULE_00054",
-      "BANK_MULE_00053",
-      "BANK_MULE_00052"
+      "APEX_MULE_00067",
+      "ZENITH_MULE_00070",
+      "CREST_MULE_00066",
+      "VANGUARD_MULE_00068",
+      "HORIZON_MULE_00069"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C",
-      "BANK_D",
-      "BANK_E"
+      "APEX_NATIONAL",
+      "CREST_COMMERCIAL",
+      "HORIZON_FEDERAL",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.9661,
-    "total_volume": 711836.64,
+    "total_volume": 1029740.22,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_11",
+    "candidate_ring_id": "CANDIDATE_RING_18",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00117",
-      "BANK_MULE_00118",
-      "BANK_MULE_00116",
-      "BANK_MULE_00120",
-      "BANK_MULE_00119"
+      "APEX_MULE_00143",
+      "ZENITH_MULE_00141",
+      "VANGUARD_MULE_00145",
+      "NEXUS_MULE_00144",
+      "CREST_MULE_00142"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_C",
-      "BANK_D",
-      "BANK_E"
+      "APEX_NATIONAL",
+      "CREST_COMMERCIAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.9661,
-    "total_volume": 892680.49,
-    "hop_count": 4,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_17",
-    "topology_type": "CROSS_BANK_CHAIN",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00020",
-      "BANK_MULE_00019",
-      "BANK_MULE_00018",
-      "BANK_MULE_00017",
-      "BANK_MULE_00016"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_F"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.9661,
-    "total_volume": 242791.55,
+    "total_volume": 701950.96,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
@@ -140,24 +113,23 @@
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00078",
-      "BANK_MULE_00079",
-      "BANK_MULE_00077",
-      "BANK_MULE_00076",
-      "BANK_MULE_00080"
+      "ZENITH_MULE_00049",
+      "HORIZON_MULE_00050",
+      "ZENITH_MULE_00046",
+      "HORIZON_MULE_00047",
+      "APEX_MULE_00048"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C",
-      "BANK_D"
+      "APEX_NATIONAL",
+      "HORIZON_FEDERAL",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.9661,
-    "total_volume": 328918.47,
+    "total_volume": 876511.4,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
@@ -167,25 +139,23 @@
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00092",
-      "BANK_MULE_00095",
-      "BANK_MULE_00093",
-      "BANK_MULE_00094",
-      "BANK_MULE_00091"
+      "HORIZON_MULE_00125",
+      "HORIZON_MULE_00122",
+      "APEX_MULE_00121",
+      "ZENITH_MULE_00123",
+      "APEX_MULE_00124"
     ],
     "banks_involved": [
-      "BANK_B",
-      "BANK_C",
-      "BANK_D",
-      "BANK_E",
-      "BANK_F"
+      "APEX_NATIONAL",
+      "HORIZON_FEDERAL",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.9661,
-    "total_volume": 218851.01,
+    "total_volume": 614659.87,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
@@ -195,23 +165,78 @@
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00102",
-      "BANK_MULE_00104",
-      "BANK_MULE_00105",
-      "BANK_MULE_00103",
-      "BANK_MULE_00101"
+      "ZENITH_MULE_00098",
+      "VANGUARD_MULE_00096",
+      "NEXUS_MULE_00097",
+      "CREST_MULE_00099",
+      "APEX_MULE_00100"
     ],
     "banks_involved": [
-      "BANK_B",
-      "BANK_E",
-      "BANK_F"
+      "APEX_NATIONAL",
+      "CREST_COMMERCIAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.9661,
-    "total_volume": 852016.48,
+    "total_volume": 465415.45,
+    "hop_count": 4,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_23",
+    "topology_type": "CROSS_BANK_CHAIN",
+    "size": 5,
+    "member_accounts": [
+      "NEXUS_MULE_00094",
+      "APEX_MULE_00091",
+      "ZENITH_MULE_00092",
+      "APEX_MULE_00095",
+      "HORIZON_MULE_00093"
+    ],
+    "banks_involved": [
+      "APEX_NATIONAL",
+      "HORIZON_FEDERAL",
+      "NEXUS_PAYMENTS",
+      "ZENITH_COOPERATIVE"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.9661,
+    "total_volume": 388480.02,
+    "hop_count": 4,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_26",
+    "topology_type": "CROSS_BANK_CHAIN",
+    "size": 5,
+    "member_accounts": [
+      "APEX_MULE_00118",
+      "VANGUARD_MULE_00117",
+      "VANGUARD_MULE_00120",
+      "NEXUS_MULE_00116",
+      "NEXUS_MULE_00119"
+    ],
+    "banks_involved": [
+      "APEX_NATIONAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.9661,
+    "total_volume": 534098.04,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
@@ -221,78 +246,24 @@
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00141",
-      "BANK_MULE_00145",
-      "BANK_MULE_00144",
-      "BANK_MULE_00143",
-      "BANK_MULE_00142"
+      "HORIZON_MULE_00041",
+      "HORIZON_MULE_00045",
+      "APEX_MULE_00044",
+      "VANGUARD_MULE_00042",
+      "ZENITH_MULE_00043"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C",
-      "BANK_F"
+      "APEX_NATIONAL",
+      "HORIZON_FEDERAL",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.9661,
-    "total_volume": 846118.61,
-    "hop_count": 4,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_28",
-    "topology_type": "CROSS_BANK_CHAIN",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00028",
-      "BANK_MULE_00027",
-      "BANK_MULE_00026",
-      "BANK_MULE_00030",
-      "BANK_MULE_00029"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.9661,
-    "total_volume": 747001.55,
-    "hop_count": 4,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_29",
-    "topology_type": "CROSS_BANK_CHAIN",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00069",
-      "BANK_MULE_00067",
-      "BANK_MULE_00070",
-      "BANK_MULE_00068",
-      "BANK_MULE_00066"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_C",
-      "BANK_D",
-      "BANK_E",
-      "BANK_F"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.9661,
-    "total_volume": 981483.08,
+    "total_volume": 513567.92,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
@@ -302,597 +273,632 @@
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00155",
-      "BANK_MULE_00152",
-      "BANK_MULE_00151",
-      "BANK_MULE_00154",
-      "BANK_MULE_00153"
+      "VANGUARD_MULE_00073",
+      "APEX_MULE_00072",
+      "NEXUS_MULE_00075",
+      "ZENITH_MULE_00074",
+      "NEXUS_MULE_00071"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_C",
-      "BANK_D",
-      "BANK_E",
-      "BANK_F"
+      "APEX_NATIONAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.9661,
-    "total_volume": 899682.42,
+    "total_volume": 878096.12,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_33",
+    "candidate_ring_id": "CANDIDATE_RING_32",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00130",
-      "BANK_MULE_00129",
-      "BANK_MULE_00128",
-      "BANK_MULE_00126",
-      "BANK_MULE_00127"
+      "CREST_MULE_00017",
+      "VANGUARD_MULE_00019",
+      "HORIZON_MULE_00018",
+      "APEX_MULE_00016",
+      "APEX_MULE_00020"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_D",
-      "BANK_E"
+      "APEX_NATIONAL",
+      "CREST_COMMERCIAL",
+      "HORIZON_FEDERAL",
+      "VANGUARD_MERCANTILE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.9661,
-    "total_volume": 983275.64,
+    "total_volume": 858132.39,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_01",
-    "topology_type": "CIRCULAR_LAYERING",
+    "candidate_ring_id": "CANDIDATE_RING_02",
+    "topology_type": "FAN_IN_COLLECTOR",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00049",
-      "BANK_MULE_00048",
-      "BANK_MULE_00047",
-      "BANK_MULE_00046",
-      "BANK_MULE_00050"
+      "CREST_MULE_00012",
+      "APEX_MULE_00011",
+      "VANGUARD_MULE_00015",
+      "HORIZON_MULE_00014",
+      "ZENITH_MULE_00013"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_C",
-      "BANK_D"
+      "APEX_NATIONAL",
+      "CREST_COMMERCIAL",
+      "HORIZON_FEDERAL",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
-    "cross_bank_tx_count": 5,
+    "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.8661,
-    "total_volume": 960843.08,
+    "total_volume": 156075.09,
     "hop_count": 2,
-    "has_cycles": true,
-    "internal_tx_count": 5
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_03",
+    "topology_type": "FAN_IN_COLLECTOR",
+    "size": 5,
+    "member_accounts": [
+      "HORIZON_MULE_00162",
+      "APEX_MULE_00161",
+      "NEXUS_MULE_00164",
+      "APEX_MULE_00165",
+      "ZENITH_MULE_00163"
+    ],
+    "banks_involved": [
+      "APEX_NATIONAL",
+      "HORIZON_FEDERAL",
+      "NEXUS_PAYMENTS",
+      "ZENITH_COOPERATIVE"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 3,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 202994.59,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
   },
   {
     "candidate_ring_id": "CANDIDATE_RING_04",
     "topology_type": "CIRCULAR_LAYERING",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00023",
-      "BANK_MULE_00022",
-      "BANK_MULE_00024",
-      "BANK_MULE_00025",
-      "BANK_MULE_00021"
+      "ZENITH_MULE_00154",
+      "HORIZON_MULE_00152",
+      "VANGUARD_MULE_00153",
+      "APEX_MULE_00155",
+      "NEXUS_MULE_00151"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C",
-      "BANK_E",
-      "BANK_F"
+      "APEX_NATIONAL",
+      "HORIZON_FEDERAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 5,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.8661,
-    "total_volume": 1112610.91,
+    "total_volume": 1003507.98,
     "hop_count": 2,
     "has_cycles": true,
     "internal_tx_count": 5
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_05",
-    "topology_type": "FAN_IN_COLLECTOR",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00086",
-      "BANK_MULE_00088",
-      "BANK_MULE_00090",
-      "BANK_MULE_00089",
-      "BANK_MULE_00087"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_C",
-      "BANK_D",
-      "BANK_E",
-      "BANK_F"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 248513.37,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
   },
   {
     "candidate_ring_id": "CANDIDATE_RING_06",
     "topology_type": "FAN_OUT_SPLITTER",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00135",
-      "BANK_MULE_00133",
-      "BANK_MULE_00132",
-      "BANK_MULE_00131",
-      "BANK_MULE_00134"
+      "APEX_MULE_00081",
+      "VANGUARD_MULE_00085",
+      "NEXUS_MULE_00083",
+      "APEX_MULE_00084",
+      "VANGUARD_MULE_00082"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_C",
-      "BANK_D",
-      "BANK_F"
+      "APEX_NATIONAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 3,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.8661,
-    "total_volume": 128649.19,
+    "total_volume": 162391.84,
     "hop_count": 2,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
     "candidate_ring_id": "CANDIDATE_RING_07",
-    "topology_type": "FAN_OUT_SPLITTER",
+    "topology_type": "FAN_IN_COLLECTOR",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00008",
-      "BANK_MULE_00007",
-      "BANK_MULE_00006",
-      "BANK_MULE_00010",
-      "BANK_MULE_00009"
+      "VANGUARD_MULE_00039",
+      "ZENITH_MULE_00038",
+      "NEXUS_MULE_00040",
+      "HORIZON_MULE_00037",
+      "APEX_MULE_00036"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C",
-      "BANK_D",
-      "BANK_E"
+      "APEX_NATIONAL",
+      "HORIZON_FEDERAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.8661,
-    "total_volume": 118715.44,
+    "total_volume": 106373.81,
     "hop_count": 2,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
     "candidate_ring_id": "CANDIDATE_RING_08",
-    "topology_type": "CIRCULAR_LAYERING",
+    "topology_type": "FAN_IN_COLLECTOR",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00122",
-      "BANK_MULE_00123",
-      "BANK_MULE_00121",
-      "BANK_MULE_00124",
-      "BANK_MULE_00125"
+      "HORIZON_MULE_00114",
+      "APEX_MULE_00115",
+      "CREST_MULE_00111",
+      "VANGUARD_MULE_00112",
+      "NEXUS_MULE_00113"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 5,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 363997.0,
-    "hop_count": 2,
-    "has_cycles": true,
-    "internal_tx_count": 5
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_09",
-    "topology_type": "FAN_OUT_SPLITTER",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00034",
-      "BANK_MULE_00033",
-      "BANK_MULE_00032",
-      "BANK_MULE_00031",
-      "BANK_MULE_00035"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_C",
-      "BANK_D",
-      "BANK_E",
-      "BANK_F"
+      "APEX_NATIONAL",
+      "CREST_COMMERCIAL",
+      "HORIZON_FEDERAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.8661,
-    "total_volume": 158410.72,
+    "total_volume": 148138.35,
     "hop_count": 2,
     "has_cycles": false,
     "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_09",
+    "topology_type": "CIRCULAR_LAYERING",
+    "size": 5,
+    "member_accounts": [
+      "HORIZON_MULE_00105",
+      "ZENITH_MULE_00102",
+      "NEXUS_MULE_00103",
+      "VANGUARD_MULE_00101",
+      "CREST_MULE_00104"
+    ],
+    "banks_involved": [
+      "CREST_COMMERCIAL",
+      "HORIZON_FEDERAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 5,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 1429633.1,
+    "hop_count": 2,
+    "has_cycles": true,
+    "internal_tx_count": 5
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_10",
+    "topology_type": "FAN_OUT_SPLITTER",
+    "size": 5,
+    "member_accounts": [
+      "ZENITH_MULE_00106",
+      "VANGUARD_MULE_00108",
+      "APEX_MULE_00109",
+      "HORIZON_MULE_00110",
+      "NEXUS_MULE_00107"
+    ],
+    "banks_involved": [
+      "APEX_NATIONAL",
+      "HORIZON_FEDERAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 124662.62,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_11",
+    "topology_type": "CIRCULAR_LAYERING",
+    "size": 5,
+    "member_accounts": [
+      "VANGUARD_MULE_00128",
+      "NEXUS_MULE_00126",
+      "CREST_MULE_00130",
+      "CREST_MULE_00127",
+      "NEXUS_MULE_00129"
+    ],
+    "banks_involved": [
+      "CREST_COMMERCIAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 5,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 1155466.08,
+    "hop_count": 2,
+    "has_cycles": true,
+    "internal_tx_count": 5
   },
   {
     "candidate_ring_id": "CANDIDATE_RING_12",
     "topology_type": "FAN_OUT_SPLITTER",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00057",
-      "BANK_MULE_00059",
-      "BANK_MULE_00058",
-      "BANK_MULE_00060",
-      "BANK_MULE_00056"
+      "CREST_MULE_00132",
+      "VANGUARD_MULE_00133",
+      "ZENITH_MULE_00134",
+      "NEXUS_MULE_00135",
+      "APEX_MULE_00131"
     ],
     "banks_involved": [
-      "BANK_D",
-      "BANK_E",
-      "BANK_F"
+      "APEX_NATIONAL",
+      "CREST_COMMERCIAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9986,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.9985,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.8661,
-    "total_volume": 94411.08,
+    "total_volume": 68183.03,
     "hop_count": 2,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
     "candidate_ring_id": "CANDIDATE_RING_13",
-    "topology_type": "FAN_OUT_SPLITTER",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00109",
-      "BANK_MULE_00110",
-      "BANK_MULE_00106",
-      "BANK_MULE_00108",
-      "BANK_MULE_00107"
-    ],
-    "banks_involved": [
-      "BANK_C",
-      "BANK_D",
-      "BANK_E",
-      "BANK_F"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 200276.98,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_14",
-    "topology_type": "FAN_IN_COLLECTOR",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00138",
-      "BANK_MULE_00139",
-      "BANK_MULE_00136",
-      "BANK_MULE_00137",
-      "BANK_MULE_00140"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_E",
-      "BANK_F"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 71863.98,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_15",
     "topology_type": "CIRCULAR_LAYERING",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00099",
-      "BANK_MULE_00098",
-      "BANK_MULE_00097",
-      "BANK_MULE_00096",
-      "BANK_MULE_00100"
+      "APEX_MULE_00079",
+      "VANGUARD_MULE_00078",
+      "ZENITH_MULE_00080",
+      "NEXUS_MULE_00077",
+      "CREST_MULE_00076"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_D",
-      "BANK_F"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 1240055.17,
-    "hop_count": 2,
-    "has_cycles": true,
-    "internal_tx_count": 5
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_16",
-    "topology_type": "FAN_IN_COLLECTOR",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00064",
-      "BANK_MULE_00065",
-      "BANK_MULE_00062",
-      "BANK_MULE_00063",
-      "BANK_MULE_00061"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_E",
-      "BANK_F"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 123957.98,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_18",
-    "topology_type": "FAN_IN_COLLECTOR",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00114",
-      "BANK_MULE_00113",
-      "BANK_MULE_00112",
-      "BANK_MULE_00111",
-      "BANK_MULE_00115"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_D",
-      "BANK_F"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 212463.04,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_20",
-    "topology_type": "CIRCULAR_LAYERING",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00150",
-      "BANK_MULE_00146",
-      "BANK_MULE_00149",
-      "BANK_MULE_00148",
-      "BANK_MULE_00147"
-    ],
-    "banks_involved": [
-      "BANK_B",
-      "BANK_D",
-      "BANK_E"
+      "APEX_NATIONAL",
+      "CREST_COMMERCIAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 5,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.8661,
-    "total_volume": 761581.34,
+    "total_volume": 731193.05,
     "hop_count": 2,
     "has_cycles": true,
     "internal_tx_count": 5
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_23",
-    "topology_type": "FAN_OUT_SPLITTER",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00159",
-      "BANK_MULE_00156",
-      "BANK_MULE_00158",
-      "BANK_MULE_00160",
-      "BANK_MULE_00157"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C",
-      "BANK_D",
-      "BANK_F"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 249411.25,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_24",
+    "candidate_ring_id": "CANDIDATE_RING_14",
     "topology_type": "FAN_IN_COLLECTOR",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00011",
-      "BANK_MULE_00015",
-      "BANK_MULE_00013",
-      "BANK_MULE_00014",
-      "BANK_MULE_00012"
+      "VANGUARD_MULE_00088",
+      "ZENITH_MULE_00089",
+      "NEXUS_MULE_00090",
+      "ZENITH_MULE_00086",
+      "NEXUS_MULE_00087"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C",
-      "BANK_D",
-      "BANK_E"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 246713.15,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_25",
-    "topology_type": "FAN_IN_COLLECTOR",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00040",
-      "BANK_MULE_00039",
-      "BANK_MULE_00038",
-      "BANK_MULE_00037",
-      "BANK_MULE_00036"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_C",
-      "BANK_D",
-      "BANK_E",
-      "BANK_F"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 90383.19,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_26",
-    "topology_type": "FAN_IN_COLLECTOR",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00165",
-      "BANK_MULE_00162",
-      "BANK_MULE_00164",
-      "BANK_MULE_00161",
-      "BANK_MULE_00163"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C",
-      "BANK_D",
-      "BANK_E"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 57998.14,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_30",
-    "topology_type": "FAN_OUT_SPLITTER",
-    "size": 5,
-    "member_accounts": [
-      "BANK_MULE_00084",
-      "BANK_MULE_00083",
-      "BANK_MULE_00081",
-      "BANK_MULE_00082",
-      "BANK_MULE_00085"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_D",
-      "BANK_E"
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 3,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.8661,
-    "total_volume": 83583.6,
+    "total_volume": 214534.08,
     "hop_count": 2,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_32",
-    "topology_type": "CIRCULAR_LAYERING",
+    "candidate_ring_id": "CANDIDATE_RING_16",
+    "topology_type": "FAN_OUT_SPLITTER",
     "size": 5,
     "member_accounts": [
-      "BANK_MULE_00072",
-      "BANK_MULE_00071",
-      "BANK_MULE_00075",
-      "BANK_MULE_00073",
-      "BANK_MULE_00074"
+      "VANGUARD_MULE_00158",
+      "ZENITH_MULE_00160",
+      "HORIZON_MULE_00156",
+      "CREST_MULE_00159",
+      "APEX_MULE_00157"
     ],
     "banks_involved": [
-      "BANK_A",
-      "BANK_C",
-      "BANK_D",
-      "BANK_F"
+      "APEX_NATIONAL",
+      "CREST_COMMERCIAL",
+      "HORIZON_FEDERAL",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.8661,
-    "total_volume": 1068580.1,
+    "total_volume": 239123.82,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_17",
+    "topology_type": "FAN_IN_COLLECTOR",
+    "size": 5,
+    "member_accounts": [
+      "HORIZON_MULE_00063",
+      "ZENITH_MULE_00064",
+      "APEX_MULE_00062",
+      "NEXUS_MULE_00061",
+      "VANGUARD_MULE_00065"
+    ],
+    "banks_involved": [
+      "APEX_NATIONAL",
+      "HORIZON_FEDERAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 127522.53,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_20",
+    "topology_type": "FAN_OUT_SPLITTER",
+    "size": 5,
+    "member_accounts": [
+      "CREST_MULE_00058",
+      "HORIZON_MULE_00057",
+      "ZENITH_MULE_00060",
+      "VANGUARD_MULE_00059",
+      "NEXUS_MULE_00056"
+    ],
+    "banks_involved": [
+      "CREST_COMMERCIAL",
+      "HORIZON_FEDERAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 133219.13,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_24",
+    "topology_type": "FAN_OUT_SPLITTER",
+    "size": 5,
+    "member_accounts": [
+      "APEX_MULE_00006",
+      "CREST_MULE_00007",
+      "VANGUARD_MULE_00010",
+      "HORIZON_MULE_00009",
+      "ZENITH_MULE_00008"
+    ],
+    "banks_involved": [
+      "APEX_NATIONAL",
+      "CREST_COMMERCIAL",
+      "HORIZON_FEDERAL",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 317392.67,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_25",
+    "topology_type": "CIRCULAR_LAYERING",
+    "size": 5,
+    "member_accounts": [
+      "VANGUARD_MULE_00051",
+      "CREST_MULE_00053",
+      "HORIZON_MULE_00055",
+      "ZENITH_MULE_00054",
+      "APEX_MULE_00052"
+    ],
+    "banks_involved": [
+      "APEX_NATIONAL",
+      "CREST_COMMERCIAL",
+      "HORIZON_FEDERAL",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 5,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 1017823.41,
     "hop_count": 2,
     "has_cycles": true,
     "internal_tx_count": 5
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_28",
+    "topology_type": "CIRCULAR_LAYERING",
+    "size": 5,
+    "member_accounts": [
+      "APEX_MULE_00029",
+      "CREST_MULE_00030",
+      "CREST_MULE_00027",
+      "APEX_MULE_00026",
+      "HORIZON_MULE_00028"
+    ],
+    "banks_involved": [
+      "APEX_NATIONAL",
+      "CREST_COMMERCIAL",
+      "HORIZON_FEDERAL"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 5,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 1065136.34,
+    "hop_count": 2,
+    "has_cycles": true,
+    "internal_tx_count": 5
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_29",
+    "topology_type": "CIRCULAR_LAYERING",
+    "size": 5,
+    "member_accounts": [
+      "ZENITH_MULE_00003",
+      "HORIZON_MULE_00004",
+      "CREST_MULE_00002",
+      "VANGUARD_MULE_00005",
+      "APEX_MULE_00001"
+    ],
+    "banks_involved": [
+      "APEX_NATIONAL",
+      "CREST_COMMERCIAL",
+      "HORIZON_FEDERAL",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 5,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 503464.78,
+    "hop_count": 2,
+    "has_cycles": true,
+    "internal_tx_count": 5
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_30",
+    "topology_type": "FAN_OUT_SPLITTER",
+    "size": 5,
+    "member_accounts": [
+      "HORIZON_MULE_00031",
+      "ZENITH_MULE_00035",
+      "NEXUS_MULE_00033",
+      "APEX_MULE_00034",
+      "VANGUARD_MULE_00032"
+    ],
+    "banks_involved": [
+      "APEX_NATIONAL",
+      "HORIZON_FEDERAL",
+      "NEXUS_PAYMENTS",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 182907.17,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_33",
+    "topology_type": "FAN_IN_COLLECTOR",
+    "size": 5,
+    "member_accounts": [
+      "ZENITH_MULE_00139",
+      "CREST_MULE_00137",
+      "APEX_MULE_00140",
+      "HORIZON_MULE_00136",
+      "VANGUARD_MULE_00138"
+    ],
+    "banks_involved": [
+      "APEX_NATIONAL",
+      "CREST_COMMERCIAL",
+      "HORIZON_FEDERAL",
+      "VANGUARD_MERCANTILE",
+      "ZENITH_COOPERATIVE"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 84968.73,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
   }
 ]

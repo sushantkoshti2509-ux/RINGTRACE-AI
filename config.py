@@ -39,13 +39,22 @@ for directory in [
 # Simulation Constants
 RANDOM_SEED = 42
 SIMULATED_BANKS = [
-    "BANK_A",
-    "BANK_B",
-    "BANK_C",
-    "BANK_D",
-    "BANK_E",
-    "BANK_F",
+    "APEX_NATIONAL",
+    "CREST_COMMERCIAL",
+    "ZENITH_COOPERATIVE",
+    "HORIZON_FEDERAL",
+    "VANGUARD_MERCANTILE",
+    "NEXUS_PAYMENTS",
 ]
+
+BANK_METADATA = {
+    "APEX_NATIONAL": {"name": "Apex National Bank", "code": "APEX", "color": "#06B6D4"},
+    "CREST_COMMERCIAL": {"name": "Crest Commercial Bank", "code": "CRST", "color": "#10B981"},
+    "ZENITH_COOPERATIVE": {"name": "Zenith Cooperative Bank", "code": "ZNTH", "color": "#A855F7"},
+    "HORIZON_FEDERAL": {"name": "Horizon Federal Bank", "code": "HZON", "color": "#F59E0B"},
+    "VANGUARD_MERCANTILE": {"name": "Vanguard Mercantile Bank", "code": "VNGR", "color": "#3B82F6"},
+    "NEXUS_PAYMENTS": {"name": "Nexus Payments Bank", "code": "NXUS", "color": "#EC4899"},
+}
 
 # Synthetic Data Sizing
 TOTAL_ACCOUNTS = 1200

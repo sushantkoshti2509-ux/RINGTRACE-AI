@@ -16,12 +16,19 @@ class AlertNotifier:
     """Dispatches multi-channel fraud alerts to concerned banking institutions."""
 
     BANK_COMPLIANCE_EMAILS = {
+        "APEX_NATIONAL": "aml-desk@apexnational.in",
+        "CREST_COMMERCIAL": "fraud-monitoring@crestcommercial.in",
+        "ZENITH_COOPERATIVE": "compliance-ops@zenithcoop.in",
+        "HORIZON_FEDERAL": "risk-intelligence@horizonfed.in",
+        "VANGUARD_MERCANTILE": "fraud-triage@vanguardmercantile.in",
+        "NEXUS_PAYMENTS": "audit-desk@nexuspayments.in",
+        # Backward compatibility for legacy test fixtures
         "BANK_A": "aml-desk@bank-a.in",
         "BANK_B": "fraud-monitoring@bank-b.in",
         "BANK_C": "compliance-ops@bank-c.in",
-        "BANK_D": "risk-intelligence@bank-d.in",
-        "BANK_E": "fraud-triage@bank-e.in",
-        "BANK_F": "audit-desk@bank-f.in",
+        "Bank A": "aml-desk@bank-a.in",
+        "Bank B": "fraud-monitoring@bank-b.in",
+        "Bank C": "compliance-ops@bank-c.in",
     }
 
     def __init__(self):

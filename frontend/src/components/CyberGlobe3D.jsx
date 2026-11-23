@@ -90,14 +90,14 @@ export default function CyberGlobe3D() {
     const pointsMesh = new THREE.Points(particleGeo, particleMat);
     globeGroup.add(pointsMesh);
 
-    // 4. Inter-Bank Gateway Hubs (Bank A through Bank F + Central Switch)
+    // 4. Inter-Bank Gateway Hubs (6 Synthetic Institutions + Central Switch)
     const bankNodes = [
-      { name: 'Bank A (Gateway Alpha)', pos: new THREE.Vector3(18, 12, 14), color: 0x06b6d4 },
-      { name: 'Bank B (Gateway Beta)', pos: new THREE.Vector3(-19, 8, 12), color: 0x10b981 },
-      { name: 'Bank C (Gateway Gamma)', pos: new THREE.Vector3(2, -18, 15), color: 0xa855f7 },
-      { name: 'Bank D (Gateway Delta)', pos: new THREE.Vector3(-14, -14, 14), color: 0xf59e0b },
-      { name: 'Bank E (Gateway Epsilon)', pos: new THREE.Vector3(14, -10, 16), color: 0x3b82f6 },
-      { name: 'Bank F (Gateway Zeta)', pos: new THREE.Vector3(-6, 20, 12), color: 0xec4899 },
+      { name: 'Apex National Bank', pos: new THREE.Vector3(18, 12, 14), color: 0x06b6d4 },
+      { name: 'Crest Commercial Bank', pos: new THREE.Vector3(-19, 8, 12), color: 0x10b981 },
+      { name: 'Zenith Cooperative Bank', pos: new THREE.Vector3(2, -18, 15), color: 0xa855f7 },
+      { name: 'Horizon Federal Bank', pos: new THREE.Vector3(-14, -14, 14), color: 0xf59e0b },
+      { name: 'Vanguard Mercantile Bank', pos: new THREE.Vector3(14, -10, 16), color: 0x3b82f6 },
+      { name: 'Nexus Payments Bank', pos: new THREE.Vector3(-6, 20, 12), color: 0xec4899 },
       { name: 'Central Switch', pos: new THREE.Vector3(0, 0, 26), color: 0xfacc15 },
     ];
 
@@ -306,8 +306,8 @@ export default function CyberGlobe3D() {
           <div className="text-[10px] text-slate-400 uppercase tracking-wider flex items-center gap-1">
             <Zap className="w-3.5 h-3.5 text-amber-400" /> Monitored Gateways
           </div>
-          <div className="text-sm font-bold text-white mt-0.5">6 Banks + Central</div>
-          <div className="text-[10px] text-cyan-400 font-mono">Bank A through F Online</div>
+          <div className="text-sm font-bold text-white mt-0.5">6 Institutions + Central</div>
+          <div className="text-[10px] text-cyan-400 font-mono">Apex, Crest, Zenith, Horizon, Vanguard, Nexus</div>
         </div>
 
         <div className="p-2.5 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-800/80">

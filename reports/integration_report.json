@@ -1,222 +1,222 @@
 {
-  "total_raw_ledger_records": 50897,
-  "total_integrated_transactions": 27788,
-  "dual_ledger_reconciled": 23109,
-  "single_ledger_unilateral": 4679,
-  "inter_bank_transactions": 23109,
-  "intra_bank_transactions": 4679,
+  "total_raw_ledger_records": 50873,
+  "total_integrated_transactions": 27722,
+  "dual_ledger_reconciled": 23151,
+  "single_ledger_unilateral": 4571,
+  "inter_bank_transactions": 23151,
+  "intra_bank_transactions": 4571,
   "discrepancy_count": 0,
   "raw_ledger_counts": {
-    "BANK_A": 8666,
-    "BANK_B": 8501,
-    "BANK_C": 8365,
-    "BANK_D": 8156,
-    "BANK_E": 8702,
-    "BANK_F": 8507
+    "APEX_NATIONAL": 8728,
+    "CREST_COMMERCIAL": 8443,
+    "ZENITH_COOPERATIVE": 8356,
+    "HORIZON_FEDERAL": 8225,
+    "VANGUARD_MERCANTILE": 8686,
+    "NEXUS_PAYMENTS": 8435
   },
   "raw_ledger_volumes": {
-    "BANK_A": 45369648.88,
-    "BANK_B": 42215970.66,
-    "BANK_C": 43048974.11,
-    "BANK_D": 43367312.7,
-    "BANK_E": 43508120.379999995,
-    "BANK_F": 44476477.099999994
+    "APEX_NATIONAL": 25794462.240000002,
+    "CREST_COMMERCIAL": 24217173.810000002,
+    "ZENITH_COOPERATIVE": 25550111.270000003,
+    "HORIZON_FEDERAL": 26088522.92,
+    "VANGUARD_MERCANTILE": 23004286.369999997,
+    "NEXUS_PAYMENTS": 24518283.740000002
   },
-  "total_integrated_volume_inr": 143055132.67,
+  "total_integrated_volume_inr": 78787302.38,
   "pairwise_flow_matrix": {
-    "BANK_A": {
-      "BANK_A": {
-        "count": 831,
-        "volume_inr": 5137969.2,
-        "suspicious_count": 3
-      },
-      "BANK_B": {
-        "count": 772,
-        "volume_inr": 4017550.63,
-        "suspicious_count": 6
-      },
-      "BANK_C": {
-        "count": 662,
-        "volume_inr": 5029066.11,
-        "suspicious_count": 8
-      },
-      "BANK_D": {
-        "count": 685,
-        "volume_inr": 3672462.36,
-        "suspicious_count": 9
-      },
-      "BANK_E": {
-        "count": 789,
-        "volume_inr": 2994498.65,
-        "suspicious_count": 4
-      },
-      "BANK_F": {
-        "count": 747,
-        "volume_inr": 3089247.56,
-        "suspicious_count": 6
-      }
-    },
-    "BANK_B": {
-      "BANK_A": {
-        "count": 860,
-        "volume_inr": 3844891.35,
-        "suspicious_count": 4
-      },
-      "BANK_B": {
-        "count": 782,
-        "volume_inr": 2885337.32,
-        "suspicious_count": 0
-      },
-      "BANK_C": {
-        "count": 734,
-        "volume_inr": 3531153.89,
+    "APEX_NATIONAL": {
+      "APEX_NATIONAL": {
+        "count": 780,
+        "volume_inr": 1155646.57,
         "suspicious_count": 2
       },
-      "BANK_D": {
-        "count": 703,
-        "volume_inr": 4068944.57,
-        "suspicious_count": 5
+      "CREST_COMMERCIAL": {
+        "count": 752,
+        "volume_inr": 2214476.47,
+        "suspicious_count": 7
       },
-      "BANK_E": {
-        "count": 913,
-        "volume_inr": 3948919.03,
-        "suspicious_count": 5
+      "ZENITH_COOPERATIVE": {
+        "count": 730,
+        "volume_inr": 2547879.29,
+        "suspicious_count": 6
       },
-      "BANK_F": {
-        "count": 758,
-        "volume_inr": 4724166.95,
-        "suspicious_count": 5
-      }
-    },
-    "BANK_C": {
-      "BANK_A": {
-        "count": 886,
-        "volume_inr": 4131022.36,
-        "suspicious_count": 3
+      "HORIZON_FEDERAL": {
+        "count": 704,
+        "volume_inr": 2589824.56,
+        "suspicious_count": 4
       },
-      "BANK_B": {
-        "count": 778,
-        "volume_inr": 3543955.6,
-        "suspicious_count": 3
-      },
-      "BANK_C": {
+      "VANGUARD_MERCANTILE": {
         "count": 821,
-        "volume_inr": 4234841.91,
-        "suspicious_count": 1
-      },
-      "BANK_D": {
-        "count": 699,
-        "volume_inr": 4785385.34,
-        "suspicious_count": 6
-      },
-      "BANK_E": {
-        "count": 850,
-        "volume_inr": 3012927.74,
-        "suspicious_count": 1
-      },
-      "BANK_F": {
-        "count": 753,
-        "volume_inr": 3262437.11,
-        "suspicious_count": 2
-      }
-    },
-    "BANK_D": {
-      "BANK_A": {
-        "count": 840,
-        "volume_inr": 3894092.5,
-        "suspicious_count": 5
-      },
-      "BANK_B": {
-        "count": 744,
-        "volume_inr": 2819822.37,
-        "suspicious_count": 3
-      },
-      "BANK_C": {
-        "count": 737,
-        "volume_inr": 4070170.07,
-        "suspicious_count": 6
-      },
-      "BANK_D": {
-        "count": 682,
-        "volume_inr": 3399498.37,
-        "suspicious_count": 2
-      },
-      "BANK_E": {
-        "count": 843,
-        "volume_inr": 4146931.59,
-        "suspicious_count": 9
-      },
-      "BANK_F": {
-        "count": 759,
-        "volume_inr": 3871226.55,
+        "volume_inr": 1858138.2,
         "suspicious_count": 8
+      },
+      "NEXUS_PAYMENTS": {
+        "count": 721,
+        "volume_inr": 1573166.56,
+        "suspicious_count": 6
       }
     },
-    "BANK_E": {
-      "BANK_A": {
-        "count": 799,
-        "volume_inr": 5526147.05,
-        "suspicious_count": 3
+    "CREST_COMMERCIAL": {
+      "APEX_NATIONAL": {
+        "count": 869,
+        "volume_inr": 2946319.55,
+        "suspicious_count": 6
       },
-      "BANK_B": {
-        "count": 701,
-        "volume_inr": 3941761.18,
-        "suspicious_count": 1
-      },
-      "BANK_C": {
-        "count": 692,
-        "volume_inr": 4121312.96,
-        "suspicious_count": 3
-      },
-      "BANK_D": {
-        "count": 709,
-        "volume_inr": 4010719.51,
-        "suspicious_count": 3
-      },
-      "BANK_E": {
-        "count": 769,
-        "volume_inr": 3809273.91,
+      "CREST_COMMERCIAL": {
+        "count": 729,
+        "volume_inr": 2138228.74,
         "suspicious_count": 0
       },
-      "BANK_F": {
-        "count": 739,
-        "volume_inr": 3789910.56,
+      "ZENITH_COOPERATIVE": {
+        "count": 745,
+        "volume_inr": 1903250.59,
+        "suspicious_count": 2
+      },
+      "HORIZON_FEDERAL": {
+        "count": 726,
+        "volume_inr": 1994422.02,
+        "suspicious_count": 3
+      },
+      "VANGUARD_MERCANTILE": {
+        "count": 897,
+        "volume_inr": 1901841.43,
+        "suspicious_count": 2
+      },
+      "NEXUS_PAYMENTS": {
+        "count": 763,
+        "volume_inr": 2920225.16,
+        "suspicious_count": 2
+      }
+    },
+    "ZENITH_COOPERATIVE": {
+      "APEX_NATIONAL": {
+        "count": 855,
+        "volume_inr": 2480707.8,
+        "suspicious_count": 6
+      },
+      "CREST_COMMERCIAL": {
+        "count": 797,
+        "volume_inr": 1805080.04,
+        "suspicious_count": 3
+      },
+      "ZENITH_COOPERATIVE": {
+        "count": 753,
+        "volume_inr": 1698970.31,
+        "suspicious_count": 0
+      },
+      "HORIZON_FEDERAL": {
+        "count": 733,
+        "volume_inr": 2637361.23,
+        "suspicious_count": 6
+      },
+      "VANGUARD_MERCANTILE": {
+        "count": 814,
+        "volume_inr": 1739339.12,
+        "suspicious_count": 5
+      },
+      "NEXUS_PAYMENTS": {
+        "count": 755,
+        "volume_inr": 2202314.99,
+        "suspicious_count": 6
+      }
+    },
+    "HORIZON_FEDERAL": {
+      "APEX_NATIONAL": {
+        "count": 858,
+        "volume_inr": 2392637.06,
+        "suspicious_count": 8
+      },
+      "CREST_COMMERCIAL": {
+        "count": 716,
+        "volume_inr": 1745606.36,
+        "suspicious_count": 1
+      },
+      "ZENITH_COOPERATIVE": {
+        "count": 737,
+        "volume_inr": 3618484.92,
+        "suspicious_count": 4
+      },
+      "HORIZON_FEDERAL": {
+        "count": 759,
+        "volume_inr": 1270679.98,
+        "suspicious_count": 0
+      },
+      "VANGUARD_MERCANTILE": {
+        "count": 841,
+        "volume_inr": 3664730.8,
+        "suspicious_count": 10
+      },
+      "NEXUS_PAYMENTS": {
+        "count": 759,
+        "volume_inr": 1761048.21,
+        "suspicious_count": 3
+      }
+    },
+    "VANGUARD_MERCANTILE": {
+      "APEX_NATIONAL": {
+        "count": 794,
+        "volume_inr": 2627329.6,
+        "suspicious_count": 7
+      },
+      "CREST_COMMERCIAL": {
+        "count": 691,
+        "volume_inr": 1960575.8,
+        "suspicious_count": 0
+      },
+      "ZENITH_COOPERATIVE": {
+        "count": 701,
+        "volume_inr": 1823475.96,
+        "suspicious_count": 4
+      },
+      "HORIZON_FEDERAL": {
+        "count": 700,
+        "volume_inr": 2617428.15,
+        "suspicious_count": 2
+      },
+      "VANGUARD_MERCANTILE": {
+        "count": 785,
+        "volume_inr": 936584.09,
+        "suspicious_count": 0
+      },
+      "NEXUS_PAYMENTS": {
+        "count": 723,
+        "volume_inr": 1892131.62,
         "suspicious_count": 5
       }
     },
-    "BANK_F": {
-      "BANK_A": {
-        "count": 795,
-        "volume_inr": 4032701.11,
-        "suspicious_count": 3
-      },
-      "BANK_B": {
-        "count": 756,
-        "volume_inr": 4889467.77,
+    "NEXUS_PAYMENTS": {
+      "APEX_NATIONAL": {
+        "count": 844,
+        "volume_inr": 3408336.58,
         "suspicious_count": 4
       },
-      "BANK_C": {
-        "count": 753,
-        "volume_inr": 3326701.02,
+      "CREST_COMMERCIAL": {
+        "count": 758,
+        "volume_inr": 2687147.65,
+        "suspicious_count": 4
+      },
+      "ZENITH_COOPERATIVE": {
+        "count": 736,
+        "volume_inr": 3093247.02,
+        "suspicious_count": 4
+      },
+      "HORIZON_FEDERAL": {
+        "count": 692,
+        "volume_inr": 1796299.63,
         "suspicious_count": 2
       },
-      "BANK_D": {
-        "count": 755,
-        "volume_inr": 4628059.47,
-        "suspicious_count": 4
+      "VANGUARD_MERCANTILE": {
+        "count": 919,
+        "volume_inr": 1982711.6,
+        "suspicious_count": 6
       },
-      "BANK_E": {
-        "count": 898,
-        "volume_inr": 4205718.2,
+      "NEXUS_PAYMENTS": {
+        "count": 765,
+        "volume_inr": 1201654.72,
         "suspicious_count": 1
-      },
-      "BANK_F": {
-        "count": 794,
-        "volume_inr": 4656840.8,
-        "suspicious_count": 3
       }
     }
   },
   "discrepancies": [],
-  "integration_timestamp": "2026-11-23T19:17:09.063242+00:00"
+  "integration_timestamp": "2026-11-23T19:31:32.937738+00:00"
 }

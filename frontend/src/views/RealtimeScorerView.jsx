@@ -3,9 +3,9 @@ import { apiFetch } from '../api';
 import { Zap, Play, CheckCircle, AlertTriangle, ShieldAlert, Cpu, Activity, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function RealtimeScorerView() {
-  const [bankId, setBankId] = useState('BANK_A');
-  const [senderAccount, setSenderAccount] = useState('BANK_A:ACC_MULE_00002');
-  const [receiverAccount, setReceiverAccount] = useState('BANK_B:ACC_MULE_00015');
+  const [bankId, setBankId] = useState('APEX_NATIONAL');
+  const [senderAccount, setSenderAccount] = useState('APEX_NATIONAL:APEX_MULE_00002');
+  const [receiverAccount, setReceiverAccount] = useState('CREST_COMMERCIAL:CRST_MULE_00015');
   const [amount, setAmount] = useState('185000');
   const [txType, setTxType] = useState('UPI_P2P');
   const [isLoading, setIsLoading] = useState(false);
@@ -59,15 +59,15 @@ export default function RealtimeScorerView() {
 
   const loadPreset = (type) => {
     if (type === 'mule') {
-      setBankId('BANK_A');
-      setSenderAccount('BANK_A:ACC_MULE_00002');
-      setReceiverAccount('BANK_B:ACC_MULE_00015');
+      setBankId('APEX_NATIONAL');
+      setSenderAccount('APEX_NATIONAL:APEX_MULE_00002');
+      setReceiverAccount('CREST_COMMERCIAL:CRST_MULE_00015');
       setAmount('240000');
       setTxType('UPI_P2P');
     } else {
-      setBankId('BANK_B');
-      setSenderAccount('BANK_B:ACC_SALARIED_00192');
-      setReceiverAccount('BANK_C:ACC_MERCHANT_00481');
+      setBankId('CREST_COMMERCIAL');
+      setSenderAccount('CREST_COMMERCIAL:CRST_ACC_00192');
+      setReceiverAccount('ZENITH_COOPERATIVE:ZNTH_ACC_00481');
       setAmount('1450');
       setTxType('UPI_P2P');
     }
@@ -117,12 +117,12 @@ export default function RealtimeScorerView() {
                 onChange={(e) => setBankId(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-cyan-400"
               >
-                <option value="BANK_A">Bank A (Alpha Clearing)</option>
-                <option value="BANK_B">Bank B (Beta Remittance)</option>
-                <option value="BANK_C">Bank C (Gamma Settlement)</option>
-                <option value="BANK_D">Bank D (Delta Exchange)</option>
-                <option value="BANK_E">Bank E (Epsilon Treasury)</option>
-                <option value="BANK_F">Bank F (Zeta Gateway)</option>
+                <option value="APEX_NATIONAL">Apex National Bank</option>
+                <option value="CREST_COMMERCIAL">Crest Commercial Bank</option>
+                <option value="ZENITH_COOPERATIVE">Zenith Cooperative Bank</option>
+                <option value="HORIZON_FEDERAL">Horizon Federal Bank</option>
+                <option value="VANGUARD_MERCANTILE">Vanguard Mercantile Bank</option>
+                <option value="NEXUS_PAYMENTS">Nexus Payments Bank</option>
               </select>
             </div>
 
