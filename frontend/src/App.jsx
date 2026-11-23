@@ -128,7 +128,7 @@ export default function App() {
                 <div className="glass-panel rounded-2xl p-5 border border-slate-800 shadow-xl flex flex-col gap-4">
                   <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                     <span className="text-xs font-bold text-white uppercase tracking-wider">
-                      Interactive Visual Ring Topology & Interception Canvas
+                      Multi-Bank Synthetic Network Design & Interception Canvas
                     </span>
                     <span className="text-[10px] text-cyan-400 font-mono">React Flow DAG</span>
                   </div>

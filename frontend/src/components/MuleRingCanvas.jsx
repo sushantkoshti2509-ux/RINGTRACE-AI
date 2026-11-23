@@ -126,7 +126,7 @@ export default function MuleRingCanvas({
         <div className="flex items-center gap-2 pointer-events-auto">
           <div className="px-3 py-1.5 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-800 text-xs font-semibold text-slate-200 flex items-center gap-2 shadow-lg">
             <span className="w-2 h-2 rounded-full bg-cyan-400" />
-            <span>Interactive Topology Flow (Left → Right Timeline)</span>
+            <span>Multi-Bank Synthetic Network Design</span>
           </div>
 
           <div className="px-2.5 py-1 rounded-lg bg-slate-800/80 text-[11px] text-slate-400 border border-slate-700/60 hidden sm:block">
