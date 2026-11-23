@@ -113,12 +113,19 @@ export default function Sidebar({ activeTab, setActiveTab }) {
                     : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
                 }`}
               >
-                <div className="flex items-center gap-2.5 truncate">
-                  <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-cyan-400' : 'text-slate-500'}`} />
-                  <span className="truncate">{item.label}</span>
+                <div className="flex items-start gap-2.5 truncate">
+                  <Icon className={`w-4 h-4 shrink-0 mt-0.5 ${isActive ? 'text-cyan-400' : 'text-slate-500'}`} />
+                  <div className="text-left truncate">
+                    <span className={`block truncate font-bold ${isActive ? 'text-cyan-300' : 'text-slate-200'}`}>
+                      {item.label}
+                    </span>
+                    <span className="block text-[10px] text-slate-500 font-normal truncate">
+                      {item.subtitle}
+                    </span>
+                  </div>
                 </div>
                 {item.badge && (
-                  <span className={`text-[9px] px-1.5 py-0.5 rounded font-mono font-bold shrink-0 ${
+                  <span className={`text-[9px] px-1.5 py-0.5 rounded font-mono font-bold shrink-0 self-start mt-0.5 ${
                     isActive ? 'bg-cyan-400/20 text-cyan-200' : 'bg-slate-800 text-slate-400'
                   }`}>
                     {item.badge}

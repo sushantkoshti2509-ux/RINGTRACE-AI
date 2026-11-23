@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { apiFetch } from './api';
 import Sidebar from './components/Sidebar';
 import KPIMetricsBar from './components/KPIMetricsBar';
-import ModuleNavGrid from './components/ModuleNavGrid';
 import MonitoringView from './views/MonitoringView';
 import RealtimeScorerView from './views/RealtimeScorerView';
 import NetworkExplorerView from './views/NetworkExplorerView';
@@ -119,11 +118,8 @@ export default function App() {
           {/* Always Visible Top Metrics */}
           <KPIMetricsBar summary={summary} />
 
-          {/* 6-Field Core Module Grid (Matches Specification) */}
-          <ModuleNavGrid activeTab={activeTab} onSelectTab={setActiveTab} />
-
           {/* Active Module Workstation */}
-          <div className="mt-2">
+          <div>
             {activeTab === 'dashboard' && <MonitoringView />}
             {activeTab === 'network' && (
               <div className="flex flex-col gap-6">
