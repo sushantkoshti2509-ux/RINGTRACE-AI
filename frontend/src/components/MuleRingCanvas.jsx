@@ -185,27 +185,19 @@ export default function MuleRingCanvas({
         <span className="text-slate-400 font-semibold uppercase tracking-wider text-[10px]">Legend:</span>
         <div className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-cyan-400" />
-          <span>Apex National</span>
+          <span>Bank A</span>
         </div>
         <div className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-          <span>Crest Commercial</span>
+          <span>Bank B</span>
         </div>
         <div className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-purple-400" />
-          <span>Zenith Coop</span>
+          <span>Bank C</span>
         </div>
         <div className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-          <span>Horizon Federal</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-blue-400" />
-          <span>Vanguard Merc</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-rose-400" />
-          <span>Nexus Payments</span>
+          <span>Bank D</span>
         </div>
         <div className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping" />

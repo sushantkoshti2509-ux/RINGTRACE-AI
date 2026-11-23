@@ -1,72 +1,48 @@
 {
-  "APEX_NATIONAL": {
+  "BANK_A": {
     "cleaning_stats": {
-      "initial_rows": 8728,
-      "final_rows": 8728,
+      "initial_rows": 12256,
+      "final_rows": 12256,
       "duplicates_removed": 0,
       "invalid_amounts_dropped": 0,
       "self_transfers_dropped": 0,
-      "suspicious_transactions": 64
+      "suspicious_transactions": 75
     },
     "validation_valid": true,
     "validation_issues": []
   },
-  "CREST_COMMERCIAL": {
+  "BANK_B": {
     "cleaning_stats": {
-      "initial_rows": 8443,
-      "final_rows": 8443,
+      "initial_rows": 12128,
+      "final_rows": 12128,
       "duplicates_removed": 0,
       "invalid_amounts_dropped": 0,
       "self_transfers_dropped": 0,
-      "suspicious_transactions": 30
+      "suspicious_transactions": 69
     },
     "validation_valid": true,
     "validation_issues": []
   },
-  "ZENITH_COOPERATIVE": {
+  "BANK_C": {
     "cleaning_stats": {
-      "initial_rows": 8356,
-      "final_rows": 8356,
+      "initial_rows": 12250,
+      "final_rows": 12250,
       "duplicates_removed": 0,
       "invalid_amounts_dropped": 0,
       "self_transfers_dropped": 0,
-      "suspicious_transactions": 46
+      "suspicious_transactions": 58
     },
     "validation_valid": true,
     "validation_issues": []
   },
-  "HORIZON_FEDERAL": {
+  "BANK_D": {
     "cleaning_stats": {
-      "initial_rows": 8225,
-      "final_rows": 8225,
+      "initial_rows": 11921,
+      "final_rows": 11921,
       "duplicates_removed": 0,
       "invalid_amounts_dropped": 0,
       "self_transfers_dropped": 0,
-      "suspicious_transactions": 43
-    },
-    "validation_valid": true,
-    "validation_issues": []
-  },
-  "VANGUARD_MERCANTILE": {
-    "cleaning_stats": {
-      "initial_rows": 8686,
-      "final_rows": 8686,
-      "duplicates_removed": 0,
-      "invalid_amounts_dropped": 0,
-      "self_transfers_dropped": 0,
-      "suspicious_transactions": 49
-    },
-    "validation_valid": true,
-    "validation_issues": []
-  },
-  "NEXUS_PAYMENTS": {
-    "cleaning_stats": {
-      "initial_rows": 8435,
-      "final_rows": 8435,
-      "duplicates_removed": 0,
-      "invalid_amounts_dropped": 0,
-      "self_transfers_dropped": 0,
-      "suspicious_transactions": 43
+      "suspicious_transactions": 58
     },
     "validation_valid": true,
     "validation_issues": []

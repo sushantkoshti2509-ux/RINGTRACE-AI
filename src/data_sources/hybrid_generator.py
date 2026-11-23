@@ -100,7 +100,7 @@ class HybridDatasetGenerator:
         profile_override: Optional[str] = None,
     ) -> Dict[str, Any]:
         """Generates a privacy-preserving synthetic customer profile."""
-        prefix = bank_id.split("_")[0]
+        prefix = bank_id.replace("BANK_", "BNK_") if "BANK_" in bank_id else bank_id.split("_")[0]
         acc_id = f"{prefix}_MULE_{index:05d}" if is_mule else f"{prefix}_ACC_{index:05d}"
         cust_id = f"CUST_{prefix}_{index:05d}"
 

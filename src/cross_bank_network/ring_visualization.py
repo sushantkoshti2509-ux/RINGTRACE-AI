@@ -14,12 +14,10 @@ class CrossBankNetworkVisualizer:
     """Generates publication-quality interactive network graphs for Streamlit and web UI."""
 
     BANK_COLORS = {
-        "APEX_NATIONAL": "#06B6D4",      # Cyan
-        "CREST_COMMERCIAL": "#10B981",   # Emerald Green
-        "ZENITH_COOPERATIVE": "#A855F7", # Purple
-        "HORIZON_FEDERAL": "#F59E0B",    # Amber
-        "VANGUARD_MERCANTILE": "#3B82F6",# Blue
-        "NEXUS_PAYMENTS": "#EC4899",     # Rose Pink
+        "BANK_A": "#06B6D4",      # Cyan
+        "BANK_B": "#10B981",      # Emerald Green
+        "BANK_C": "#A855F7",      # Purple
+        "BANK_D": "#F59E0B",      # Amber
         "SUSPICIOUS_MULE": "#EF4444",    # Red
     }
 

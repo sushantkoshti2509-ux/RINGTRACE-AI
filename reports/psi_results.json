@@ -1,136 +1,129 @@
 {
   "institutions_participating": [
-    "APEX_NATIONAL",
-    "CREST_COMMERCIAL",
-    "ZENITH_COOPERATIVE",
-    "HORIZON_FEDERAL",
-    "VANGUARD_MERCANTILE",
-    "NEXUS_PAYMENTS"
+    "BANK_A",
+    "BANK_B",
+    "BANK_C",
+    "BANK_D"
   ],
-  "bank_a_candidates": 35,
-  "bank_b_candidates": 19,
-  "bank_c_candidates": 30,
+  "bank_a_candidates": 45,
+  "bank_b_candidates": 44,
+  "bank_c_candidates": 37,
   "pairwise_matches": {
-    "APEX_NATIONAL_x_CREST_COMMERCIAL": 6,
-    "CREST_COMMERCIAL_x_ZENITH_COOPERATIVE": 3,
-    "APEX_NATIONAL_x_ZENITH_COOPERATIVE": 9
+    "BANK_A_x_BANK_B": 6,
+    "BANK_B_x_BANK_C": 7,
+    "BANK_A_x_BANK_C": 4
   },
   "three_way_intersection_count": 3,
   "three_way_entities": [
     {
-      "canonical_token": "847c150d49798b88527e884e57a828ebfc11baa6f6f15ba65d633977b1ef0716",
-      "APEX_NATIONAL_account": "APEX_MULE_00006",
-      "CREST_COMMERCIAL_account": "CREST_MULE_00007",
-      "ZENITH_COOPERATIVE_account": "ZENITH_MULE_00008"
+      "canonical_token": "ca8a28e9c45258ba343d3dbe0e2e8fdf9fe9cce6944b632e3b355c31893966ca",
+      "BANK_A_account": "BNK_A_MULE_00001",
+      "BANK_B_account": "BNK_B_MULE_00002",
+      "BANK_C_account": "BNK_C_MULE_00003"
     },
     {
-      "canonical_token": "ca8a28e9c45258ba343d3dbe0e2e8fdf9fe9cce6944b632e3b355c31893966ca",
-      "APEX_NATIONAL_account": "APEX_MULE_00001",
-      "CREST_COMMERCIAL_account": "CREST_MULE_00002",
-      "ZENITH_COOPERATIVE_account": "ZENITH_MULE_00003"
+      "canonical_token": "847c150d49798b88527e884e57a828ebfc11baa6f6f15ba65d633977b1ef0716",
+      "BANK_A_account": "BNK_A_MULE_00006",
+      "BANK_B_account": "BNK_B_MULE_00007",
+      "BANK_C_account": "BNK_C_MULE_00008"
     },
     {
       "canonical_token": "63ec999698bb748e43e81a3a03dffec74edfb82dc92540184164e859e1cd0868",
-      "APEX_NATIONAL_account": "APEX_MULE_00011",
-      "CREST_COMMERCIAL_account": "CREST_MULE_00012",
-      "ZENITH_COOPERATIVE_account": "ZENITH_MULE_00013"
+      "BANK_A_account": "BNK_A_MULE_00011",
+      "BANK_B_account": "BNK_B_MULE_00012",
+      "BANK_C_account": "BNK_C_MULE_00013"
     }
   ],
   "pairwise_details": {
     "P1_P2": [
       {
         "canonical_token": "ca8a28e9c45258ba343d3dbe0e2e8fdf9fe9cce6944b632e3b355c31893966ca",
-        "APEX_NATIONAL_account": "APEX_MULE_00001",
-        "CREST_COMMERCIAL_account": "CREST_MULE_00002"
+        "BANK_A_account": "BNK_A_MULE_00001",
+        "BANK_B_account": "BNK_B_MULE_00002"
       },
       {
         "canonical_token": "847c150d49798b88527e884e57a828ebfc11baa6f6f15ba65d633977b1ef0716",
-        "APEX_NATIONAL_account": "APEX_MULE_00006",
-        "CREST_COMMERCIAL_account": "CREST_MULE_00007"
+        "BANK_A_account": "BNK_A_MULE_00006",
+        "BANK_B_account": "BNK_B_MULE_00007"
       },
       {
         "canonical_token": "63ec999698bb748e43e81a3a03dffec74edfb82dc92540184164e859e1cd0868",
-        "APEX_NATIONAL_account": "APEX_MULE_00011",
-        "CREST_COMMERCIAL_account": "CREST_MULE_00012"
+        "BANK_A_account": "BNK_A_MULE_00011",
+        "BANK_B_account": "BNK_B_MULE_00012"
       },
       {
-        "canonical_token": "27cbe04af8a804058b2164c2237a9cf2b2d418dbfa46a331c1c12ea5dff92256",
-        "APEX_NATIONAL_account": "APEX_MULE_00020",
-        "CREST_COMMERCIAL_account": "CREST_MULE_00017"
+        "canonical_token": "7a313a34c173e3547ed213bbffd78ed097d0a219d9bacb016311b11bb24eead5",
+        "BANK_A_account": "BNK_A_MULE_00037",
+        "BANK_B_account": "BNK_B_MULE_00040"
       },
       {
-        "canonical_token": "da58a899773837208ce50138cd53a385b2dae43292f4825156a3c17d271492a4",
-        "APEX_NATIONAL_account": "APEX_MULE_00079",
-        "CREST_COMMERCIAL_account": "CREST_MULE_00076"
+        "canonical_token": "9a03536b1f378e24ed0a446af03e42d360f1b091840d2ad4f9339dc0061a7807",
+        "BANK_A_account": "BNK_A_MULE_00067",
+        "BANK_B_account": "BNK_B_MULE_00070"
       },
       {
-        "canonical_token": "2415627068d8de68ee356fce3de94e17a9a6685950c653bff50dbc802b636354",
-        "APEX_NATIONAL_account": "APEX_MULE_00140",
-        "CREST_COMMERCIAL_account": "CREST_MULE_00137"
+        "canonical_token": "9b8b9aa9c37223fa05606d5f6532c885407fb053c93abf16ac29edaa68bdfdb2",
+        "BANK_A_account": "BNK_A_MULE_00160",
+        "BANK_B_account": "BNK_B_MULE_00157"
       }
     ],
     "P2_P3": [
       {
         "canonical_token": "ca8a28e9c45258ba343d3dbe0e2e8fdf9fe9cce6944b632e3b355c31893966ca",
-        "CREST_COMMERCIAL_account": "CREST_MULE_00002",
-        "ZENITH_COOPERATIVE_account": "ZENITH_MULE_00003"
+        "BANK_B_account": "BNK_B_MULE_00002",
+        "BANK_C_account": "BNK_C_MULE_00003"
       },
       {
         "canonical_token": "847c150d49798b88527e884e57a828ebfc11baa6f6f15ba65d633977b1ef0716",
-        "CREST_COMMERCIAL_account": "CREST_MULE_00007",
-        "ZENITH_COOPERATIVE_account": "ZENITH_MULE_00008"
+        "BANK_B_account": "BNK_B_MULE_00007",
+        "BANK_C_account": "BNK_C_MULE_00008"
       },
       {
         "canonical_token": "63ec999698bb748e43e81a3a03dffec74edfb82dc92540184164e859e1cd0868",
-        "CREST_COMMERCIAL_account": "CREST_MULE_00012",
-        "ZENITH_COOPERATIVE_account": "ZENITH_MULE_00013"
+        "BANK_B_account": "BNK_B_MULE_00012",
+        "BANK_C_account": "BNK_C_MULE_00013"
+      },
+      {
+        "canonical_token": "e27017e67a53a52dea65d62c57c6194536c57335c122bc63d2e29f264a968f53",
+        "BANK_B_account": "BNK_B_MULE_00036",
+        "BANK_C_account": "BNK_C_MULE_00039"
+      },
+      {
+        "canonical_token": "e4dc90553f72fc1432f393cd56b491e809f3d441f523014fbe2c53edfaee583f",
+        "BANK_B_account": "BNK_B_MULE_00046",
+        "BANK_C_account": "BNK_C_MULE_00049"
+      },
+      {
+        "canonical_token": "caa56a4c835ab7bfd48bb2876b45f28935a6f3f61e5822da9b713cf3a5f33f54",
+        "BANK_B_account": "BNK_B_MULE_00055",
+        "BANK_C_account": "BNK_C_MULE_00052"
+      },
+      {
+        "canonical_token": "dafd1fffd32cb58e6a6d1ea9ebc16e339bb437e01a9def44ba7345ed08ec577e",
+        "BANK_B_account": "BNK_B_MULE_00164",
+        "BANK_C_account": "BNK_C_MULE_00161"
       }
     ],
     "P1_P3": [
       {
         "canonical_token": "ca8a28e9c45258ba343d3dbe0e2e8fdf9fe9cce6944b632e3b355c31893966ca",
-        "APEX_NATIONAL_account": "APEX_MULE_00001",
-        "ZENITH_COOPERATIVE_account": "ZENITH_MULE_00003"
+        "BANK_A_account": "BNK_A_MULE_00001",
+        "BANK_C_account": "BNK_C_MULE_00003"
       },
       {
         "canonical_token": "847c150d49798b88527e884e57a828ebfc11baa6f6f15ba65d633977b1ef0716",
-        "APEX_NATIONAL_account": "APEX_MULE_00006",
-        "ZENITH_COOPERATIVE_account": "ZENITH_MULE_00008"
+        "BANK_A_account": "BNK_A_MULE_00006",
+        "BANK_C_account": "BNK_C_MULE_00008"
       },
       {
         "canonical_token": "63ec999698bb748e43e81a3a03dffec74edfb82dc92540184164e859e1cd0868",
-        "APEX_NATIONAL_account": "APEX_MULE_00011",
-        "ZENITH_COOPERATIVE_account": "ZENITH_MULE_00013"
-      },
-      {
-        "canonical_token": "9a03536b1f378e24ed0a446af03e42d360f1b091840d2ad4f9339dc0061a7807",
-        "APEX_NATIONAL_account": "APEX_MULE_00067",
-        "ZENITH_COOPERATIVE_account": "ZENITH_MULE_00070"
+        "BANK_A_account": "BNK_A_MULE_00011",
+        "BANK_C_account": "BNK_C_MULE_00013"
       },
       {
         "canonical_token": "4d83ef52b037dbaaba3f5ba18df06f91940fb13e9aefc22205750dffe05119da",
-        "APEX_NATIONAL_account": "APEX_MULE_00095",
-        "ZENITH_COOPERATIVE_account": "ZENITH_MULE_00092"
-      },
-      {
-        "canonical_token": "855ce4be8569f97750c33cd4a408e96835784682a54119f77cd49d16d4c6f56e",
-        "APEX_NATIONAL_account": "APEX_MULE_00109",
-        "ZENITH_COOPERATIVE_account": "ZENITH_MULE_00106"
-      },
-      {
-        "canonical_token": "519b6d95c639ab38d8d61d26e00289bd0b83b4ff741bde20a5ffc690cf9e3fee",
-        "APEX_NATIONAL_account": "APEX_MULE_00131",
-        "ZENITH_COOPERATIVE_account": "ZENITH_MULE_00134"
-      },
-      {
-        "canonical_token": "fc72c939d9f0716e83e6b50cb5f1026811ae99b4f1aae52ec5c77372609e8ca8",
-        "APEX_NATIONAL_account": "APEX_MULE_00150",
-        "ZENITH_COOPERATIVE_account": "ZENITH_MULE_00147"
-      },
-      {
-        "canonical_token": "9b8b9aa9c37223fa05606d5f6532c885407fb053c93abf16ac29edaa68bdfdb2",
-        "APEX_NATIONAL_account": "APEX_MULE_00157",
-        "ZENITH_COOPERATIVE_account": "ZENITH_MULE_00160"
+        "BANK_A_account": "BNK_A_MULE_00092",
+        "BANK_C_account": "BNK_C_MULE_00095"
       }
     ]
   }

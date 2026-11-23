@@ -9,20 +9,16 @@
     "SUCCESS"
   ],
   "sender_bank": [
-    "APEX_NATIONAL",
-    "CREST_COMMERCIAL",
-    "HORIZON_FEDERAL",
-    "NEXUS_PAYMENTS",
-    "VANGUARD_MERCANTILE",
-    "ZENITH_COOPERATIVE"
+    "BANK_A",
+    "BANK_B",
+    "BANK_C",
+    "BANK_D"
   ],
   "receiver_bank": [
-    "APEX_NATIONAL",
-    "CREST_COMMERCIAL",
-    "HORIZON_FEDERAL",
-    "NEXUS_PAYMENTS",
-    "VANGUARD_MERCANTILE",
-    "ZENITH_COOPERATIVE"
+    "BANK_A",
+    "BANK_B",
+    "BANK_C",
+    "BANK_D"
   ],
   "pattern_type": [
     "ABNORMAL_OFF_HOURS",

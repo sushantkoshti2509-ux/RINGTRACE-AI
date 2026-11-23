@@ -8,16 +8,14 @@
 
 ## 2. Institutional Framework & Synthetic Architecture
 
-The platform models **six realistic synthetic banking institutions**, adhering strictly to non-infringing naming and neutral regulatory compliance (DPDP Act 2023 & Central Regulatory Directives).
+The platform models synthetic banking institutions (`BANK_A`, `BANK_B`, `BANK_C`, `BANK_D`), adhering strictly to non-infringing naming and neutral regulatory compliance (DPDP Act 2023 & Central Regulatory Directives).
 
 | Institution Code | Entity Name | Color Token | Institutional Specialization |
 | :--- | :--- | :--- | :--- |
-| `APEX_NATIONAL` | **Apex National Bank** | `#06B6D4` (Cyan) | Major retail clearing bank & high-volume UPI hub |
-| `CREST_COMMERCIAL` | **Crest Commercial Bank** | `#10B981` (Emerald) | Corporate treasury, merchant acquiring & payroll settlement |
-| `ZENITH_COOPERATIVE` | **Zenith Cooperative Bank** | `#A855F7` (Purple) | Regional cooperative credit society & microfinance |
-| `HORIZON_FEDERAL` | **Horizon Federal Bank** | `#F59E0B` (Amber) | High-wealth asset management & cross-state remittance |
-| `VANGUARD_MERCANTILE` | **Vanguard Mercantile Bank** | `#3B82F6` (Blue) | Trade commerce, import/export settlement & escrow |
-| `NEXUS_PAYMENTS` | **Nexus Payments Bank** | `#EC4899` (Pink) | Fintech neo-banking, prepaid PPI wallets & virtual accounts |
+| `BANK_A` | **Bank A** | `#06B6D4` (Cyan) | Major retail clearing bank & high-volume UPI hub |
+| `BANK_B` | **Bank B** | `#10B981` (Emerald) | Corporate treasury, merchant acquiring & payroll settlement |
+| `BANK_C` | **Bank C** | `#A855F7` (Purple) | Regional cooperative credit society & microfinance |
+| `BANK_D` | **Bank D** | `#F59E0B` (Amber) | High-wealth asset management & cross-state remittance |
 
 > **Privacy & Masking Guarantee**: In compliance with the Digital Personal Data Protection (DPDP) Act 2023, all account numbers and customer identifiers displayed on user-facing frontends are masked (e.g., `••••0099`), with sensitive cryptographic hashes maintained strictly within zero-knowledge computation envelopes.
 
@@ -32,14 +30,14 @@ flowchart TD
     subgraph DataSynthesis["Hybrid Synthetic Data Generation Engine"]
         PaySim["PaySim Empirical Statistical Distributions<br/>• Log-Normal Amount Sampling<br/>• Diurnal Velocity Curve (10:00 - 18:00 Peak)<br/>• Weekend Volume Dampening (-35%)"]
         AMLSim["IBM AMLSim Laundering Topologies<br/>• Circular Layering Cycles (3-6 Hops)<br/>• Fan-Out Smurfing Splitters<br/>• Fan-In Mule Funneling<br/>• Bipartite & Multi-Hop Bridges"]
-        MultiBank["Multi-Bank Ledger Engine<br/>• 6 Synthetic Member Banks<br/>• Dual-Ledger Inter-Bank Settlement<br/>• Cross-Bank Reconciliation<br/>• Discrepancy Auditing"]
+        MultiBank["Multi-Bank Ledger Engine<br/>• Synthetic Member Banks (Bank A, B, C, D)<br/>• Dual-Ledger Inter-Bank Settlement<br/>• Cross-Bank Reconciliation<br/>• Discrepancy Auditing"]
         
         PaySim --> Engine["src/data_sources/hybrid_generator.py<br/>HybridDatasetGenerator"]
         AMLSim --> Engine
         MultiBank --> Engine
     end
     
-    Engine --> RawData["6 Raw Bank Ledgers<br/>(CSV & JSON per bank)"]
+    Engine --> RawData["Raw Bank Ledgers<br/>(CSV & JSON per bank)"]
     RawData --> Preproc["Preprocessing & Schema Normalization<br/>(clean.py)"]
     Preproc --> Features["Graph & Transaction Feature Engineering<br/>(pipeline.py)"]
     Features --> Models["Model Ensemble & XAI<br/>(RandomForest, XGBoost, SHAP)"]

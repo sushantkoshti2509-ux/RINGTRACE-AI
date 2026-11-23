@@ -97,13 +97,11 @@ export default function MonitoringView() {
               onChange={(e) => { setBankFilter(e.target.value); setPage(0); }}
               className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyan-400"
             >
-              <option value="ALL">All Institutions (Apex, Crest, Zenith, Horizon, Vanguard, Nexus)</option>
-              <option value="APEX_NATIONAL">Apex National Bank</option>
-              <option value="CREST_COMMERCIAL">Crest Commercial Bank</option>
-              <option value="ZENITH_COOPERATIVE">Zenith Cooperative Bank</option>
-              <option value="HORIZON_FEDERAL">Horizon Federal Bank</option>
-              <option value="VANGUARD_MERCANTILE">Vanguard Mercantile Bank</option>
-              <option value="NEXUS_PAYMENTS">Nexus Payments Bank</option>
+              <option value="ALL">All Institutions (Bank A, Bank B, Bank C, Bank D)</option>
+              <option value="BANK_A">Bank A</option>
+              <option value="BANK_B">Bank B</option>
+              <option value="BANK_C">Bank C</option>
+              <option value="BANK_D">Bank D</option>
             </select>
           </div>
 

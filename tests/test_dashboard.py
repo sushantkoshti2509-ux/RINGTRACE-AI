@@ -32,24 +32,22 @@ def test_executive_summary_federated_scale(dashboard_service_instance):
 
     # Verify Bank-Wise monitoring breakdown
     banks = {b["bank_name"]: b for b in summary["bank_wise_monitoring"]}
-    assert "Apex National Bank" in banks
-    assert "Crest Commercial Bank" in banks
-    assert "Zenith Cooperative Bank" in banks
-    assert "Horizon Federal Bank" in banks
-    assert "Vanguard Mercantile Bank" in banks
-    assert "Nexus Payments Bank" in banks
+    assert "Bank A" in banks
+    assert "Bank B" in banks
+    assert "Bank C" in banks
+    assert "Bank D" in banks
 
-    assert banks["Apex National Bank"]["transactions"] == 9200
-    assert banks["Apex National Bank"]["suspicious"] == 120
+    assert banks["Bank A"]["transactions"] == 12500
+    assert banks["Bank A"]["suspicious"] == 165
 
-    assert banks["Crest Commercial Bank"]["transactions"] == 8150
-    assert banks["Crest Commercial Bank"]["suspicious"] == 105
+    assert banks["Bank B"]["transactions"] == 11800
+    assert banks["Bank B"]["suspicious"] == 150
 
-    assert banks["Zenith Cooperative Bank"]["transactions"] == 8080
-    assert banks["Zenith Cooperative Bank"]["suspicious"] == 117
+    assert banks["Bank C"]["transactions"] == 11200
+    assert banks["Bank C"]["suspicious"] == 152
 
-    assert banks["Horizon Federal Bank"]["transactions"] == 7650
-    assert banks["Horizon Federal Bank"]["suspicious"] == 98
+    assert banks["Bank D"]["transactions"] == 10880
+    assert banks["Bank D"]["suspicious"] == 149
 
     # Verify Risk Distribution
     risk_dist = summary["risk_distribution"]
@@ -69,9 +67,9 @@ def test_executive_summary_reconciled_database(dashboard_service_instance):
 def test_transaction_search_and_filtering(dashboard_service_instance):
     """Verifies bank-wise, risk-level, and amount-based filtering."""
     # 1. Bank filter
-    bank_a_txs = dashboard_service_instance.query_transactions(bank_id="APEX_NATIONAL", limit=20)
+    bank_a_txs = dashboard_service_instance.query_transactions(bank_id="BANK_A", limit=20)
     assert len(bank_a_txs) > 0
-    assert all(t["sender_bank"] == "APEX_NATIONAL" or t["receiver_bank"] == "APEX_NATIONAL" for t in bank_a_txs)
+    assert all(t["sender_bank"] == "BANK_A" or t["receiver_bank"] == "BANK_A" for t in bank_a_txs)
 
     # 2. Risk filter: High risk
     high_txs = dashboard_service_instance.query_transactions(risk_level="High", limit=20)
@@ -94,10 +92,10 @@ def test_fastapi_dashboard_endpoints():
     data = resp.json()
     assert data["total_transactions"] == 46380
     assert data["suspicious_transactions"] == 616
-    assert len(data["bank_wise_monitoring"]) == 6
+    assert len(data["bank_wise_monitoring"]) == 4
 
     # 2. Transactions query endpoint
-    resp_tx = client.get("/api/v1/dashboard/transactions?limit=10&bank_id=CREST_COMMERCIAL")
+    resp_tx = client.get("/api/v1/dashboard/transactions?limit=10&bank_id=BANK_B")
     assert resp_tx.status_code == 200
     tx_list = resp_tx.json()
     assert len(tx_list) > 0

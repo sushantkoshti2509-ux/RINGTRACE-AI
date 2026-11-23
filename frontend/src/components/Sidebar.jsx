@@ -56,7 +56,7 @@ export default function Sidebar({ activeTab, setActiveTab }) {
       label: 'Advanced Analytics',
       subtitle: 'Bank-wise and network analytics',
       icon: TrendingUp,
-      badge: '6 BANKS',
+      badge: '4 BANKS',
     },
   ];
 
@@ -88,7 +88,7 @@ export default function Sidebar({ activeTab, setActiveTab }) {
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <div>
               <span className="font-bold text-emerald-300 block text-[11px]">Inter-Bank Fabric Online</span>
-              <span className="text-[10px] text-emerald-500/90">6 Synthetic Banks Active</span>
+              <span className="text-[10px] text-emerald-500/90">Bank A, B, C, D Active</span>
             </div>
           </div>
         </div>

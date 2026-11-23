@@ -58,12 +58,12 @@ integrator = MultiBankDataIntegrator(db_manager=db_manager)
 
 # Simulated API keys for secure inter-bank communication
 BANK_API_KEYS = {
-    "APEX_NATIONAL": "key_apex_national_secure_token_2026",
-    "CREST_COMMERCIAL": "key_crest_commercial_secure_token_2026",
-    "ZENITH_COOPERATIVE": "key_zenith_cooperative_secure_token_2026",
-    "HORIZON_FEDERAL": "key_horizon_federal_secure_token_2026",
-    "VANGUARD_MERCANTILE": "key_vanguard_mercantile_secure_token_2026",
-    "NEXUS_PAYMENTS": "key_nexus_payments_secure_token_2026",
+    "BANK_A": "key_bank_a_secure_token_2026",
+    "BANK_B": "key_bank_b_secure_token_2026",
+    "BANK_C": "key_bank_c_secure_token_2026",
+    "BANK_D": "key_bank_d_secure_token_2026",
+    "BANK_E": "key_bank_e_secure_token_2026",
+    "BANK_F": "key_bank_f_secure_token_2026",
     "REGULATOR": "key_regulator_master_token_2026",
 }
 

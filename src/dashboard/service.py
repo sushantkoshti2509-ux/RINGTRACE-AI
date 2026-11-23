@@ -24,12 +24,10 @@ class DashboardMonitoringService:
 
     # Benchmark federated ledger volumes (matching the multi-bank specification)
     FEDERATED_BENCHMARKS = {
-        "APEX_NATIONAL": {"name": "Apex National Bank", "transactions": 9200, "suspicious": 120, "volume_inr": 324500000.0},
-        "CREST_COMMERCIAL": {"name": "Crest Commercial Bank", "transactions": 8150, "suspicious": 105, "volume_inr": 281200000.0},
-        "ZENITH_COOPERATIVE": {"name": "Zenith Cooperative Bank", "transactions": 8080, "suspicious": 117, "volume_inr": 279300000.0},
-        "HORIZON_FEDERAL": {"name": "Horizon Federal Bank", "transactions": 7650, "suspicious": 98, "volume_inr": 245000000.0},
-        "VANGUARD_MERCANTILE": {"name": "Vanguard Mercantile Bank", "transactions": 6900, "suspicious": 92, "volume_inr": 218000000.0},
-        "NEXUS_PAYMENTS": {"name": "Nexus Payments Bank", "transactions": 6400, "suspicious": 84, "volume_inr": 195000000.0},
+        "BANK_A": {"name": "Bank A", "transactions": 12500, "suspicious": 165, "volume_inr": 324500000.0},
+        "BANK_B": {"name": "Bank B", "transactions": 11800, "suspicious": 150, "volume_inr": 281200000.0},
+        "BANK_C": {"name": "Bank C", "transactions": 11200, "suspicious": 152, "volume_inr": 279300000.0},
+        "BANK_D": {"name": "Bank D", "transactions": 10880, "suspicious": 149, "volume_inr": 245000000.0},
     }
 
     def __init__(self, db_manager: Optional[DatabaseManager] = None):

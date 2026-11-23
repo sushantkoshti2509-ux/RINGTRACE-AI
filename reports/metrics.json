@@ -76,23 +76,23 @@
   "comparative_experiments": {
     "Experiment_A_Isolated_Banks": {
       "threshold": 0.5,
-      "accuracy": 0.6075,
-      "precision": 0.1117,
-      "recall": 0.2667,
-      "f1_score": 0.1574,
-      "false_positive_rate": 0.3382,
-      "false_negative_rate": 0.7333,
-      "pr_auc": 0.1293,
-      "roc_auc": 0.4917,
-      "true_positives": 44,
-      "false_positives": 350,
-      "true_negatives": 685,
-      "false_negatives": 121,
+      "accuracy": 0.6517,
+      "precision": 0.1731,
+      "recall": 0.4061,
+      "f1_score": 0.2428,
+      "false_positive_rate": 0.3092,
+      "false_negative_rate": 0.5939,
+      "pr_auc": 0.1844,
+      "roc_auc": 0.5923,
+      "true_positives": 67,
+      "false_positives": 320,
+      "true_negatives": 715,
+      "false_negatives": 98,
       "confusion_matrix": {
-        "TN": 685,
-        "FP": 350,
-        "FN": 121,
-        "TP": 44
+        "TN": 715,
+        "FP": 320,
+        "FN": 98,
+        "TP": 67
       }
     },
     "Experiment_B_Combined_Graph": {
@@ -138,5 +138,5 @@
       }
     }
   },
-  "pipeline_execution_time_sec": 15.53
+  "pipeline_execution_time_sec": 18.93
 }

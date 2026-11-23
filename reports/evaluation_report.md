@@ -52,11 +52,11 @@ Evaluating detection rates across legitimate profiles to guarantee that gig work
 
 | Evaluation Aspect | Exp A: Isolated Banks | Exp B: Combined Graph | Exp C: Combined Graph + PSI |
 |---|:---:|:---:|:---:|
-| **Precision** | 0.1117 | 1.0000 | **1.0000** |
-| **Recall** | 0.2667 | 1.0000 | **1.0000** |
-| **F1-Score** | 0.1574 | 1.0000 | **1.0000** |
-| **False Positive Rate** | 0.3382 | 0.0000 | **0.0000** |
-| **PR-AUC** | 0.1293 | 1.0000 | **1.0000** |
+| **Precision** | 0.1731 | 1.0000 | **1.0000** |
+| **Recall** | 0.4061 | 1.0000 | **1.0000** |
+| **F1-Score** | 0.2428 | 1.0000 | **1.0000** |
+| **False Positive Rate** | 0.3092 | 0.0000 | **0.0000** |
+| **PR-AUC** | 0.1844 | 1.0000 | **1.0000** |
 
 > **Key Finding:** Isolated bank monitoring misses multi-hop cross-bank laundering chains due to fragmented visibility. Combining graph network analysis with privacy-preserving matching (PSI) provides significant recall and precision improvements without sharing raw customer ledgers.
 

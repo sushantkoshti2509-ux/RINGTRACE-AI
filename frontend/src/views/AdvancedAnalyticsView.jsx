@@ -38,12 +38,10 @@ export default function AdvancedAnalyticsView() {
   }, []);
 
   const bankMetrics = analytics?.bank_metrics || [
-    { bank_name: 'Apex National Bank', bank_id: 'APEX_NATIONAL', transactions: 9200, suspicious: 120, fraud_rate: 1.30, volume_inr: 324500000.0 },
-    { bank_name: 'Crest Commercial Bank', bank_id: 'CREST_COMMERCIAL', transactions: 8150, suspicious: 105, fraud_rate: 1.29, volume_inr: 281200000.0 },
-    { bank_name: 'Zenith Cooperative Bank', bank_id: 'ZENITH_COOPERATIVE', transactions: 8080, suspicious: 117, fraud_rate: 1.45, volume_inr: 279300000.0 },
-    { bank_name: 'Horizon Federal Bank', bank_id: 'HORIZON_FEDERAL', transactions: 7650, suspicious: 98, fraud_rate: 1.28, volume_inr: 245000000.0 },
-    { bank_name: 'Vanguard Mercantile Bank', bank_id: 'VANGUARD_MERCANTILE', transactions: 6900, suspicious: 92, fraud_rate: 1.33, volume_inr: 218000000.0 },
-    { bank_name: 'Nexus Payments Bank', bank_id: 'NEXUS_PAYMENTS', transactions: 6400, suspicious: 84, fraud_rate: 1.31, volume_inr: 195000000.0 },
+    { bank_name: 'Bank A', bank_id: 'BANK_A', transactions: 8500, suspicious: 115, fraud_rate: 1.35, volume_inr: 298000000.0 },
+    { bank_name: 'Bank B', bank_id: 'BANK_B', transactions: 8150, suspicious: 105, fraud_rate: 1.29, volume_inr: 281200000.0 },
+    { bank_name: 'Bank C', bank_id: 'BANK_C', transactions: 8080, suspicious: 117, fraud_rate: 1.45, volume_inr: 279300000.0 },
+    { bank_name: 'Bank D', bank_id: 'BANK_D', transactions: 7650, suspicious: 98, fraud_rate: 1.28, volume_inr: 245000000.0 },
   ];
 
   const topologyDistribution = analytics?.topology_distribution || [
@@ -63,12 +61,10 @@ export default function AdvancedAnalyticsView() {
   ];
 
   const crossBankFlows = analytics?.cross_bank_flows || [
-    { from: 'APEX_NATIONAL', to: 'CREST_COMMERCIAL', tx_count: 1840, volume_inr: 62400000.0 },
-    { from: 'CREST_COMMERCIAL', to: 'ZENITH_COOPERATIVE', tx_count: 1620, volume_inr: 54100000.0 },
-    { from: 'ZENITH_COOPERATIVE', to: 'HORIZON_FEDERAL', tx_count: 1490, volume_inr: 48900000.0 },
-    { from: 'HORIZON_FEDERAL', to: 'VANGUARD_MERCANTILE', tx_count: 1380, volume_inr: 44500000.0 },
-    { from: 'VANGUARD_MERCANTILE', to: 'NEXUS_PAYMENTS', tx_count: 1270, volume_inr: 41200000.0 },
-    { from: 'NEXUS_PAYMENTS', to: 'APEX_NATIONAL', tx_count: 1510, volume_inr: 51800000.0 },
+    { from: 'BANK_A', to: 'BANK_B', tx_count: 2140, volume_inr: 72400000.0 },
+    { from: 'BANK_B', to: 'BANK_C', tx_count: 1920, volume_inr: 64100000.0 },
+    { from: 'BANK_C', to: 'BANK_D', tx_count: 1890, volume_inr: 58900000.0 },
+    { from: 'BANK_D', to: 'BANK_A', tx_count: 1780, volume_inr: 54500000.0 },
   ];
 
   const graphKpis = analytics?.graph_kpis || {

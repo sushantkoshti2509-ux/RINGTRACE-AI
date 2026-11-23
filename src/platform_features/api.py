@@ -181,14 +181,14 @@ def query_investigation_assistant(req: InvestigationQueryRequest):
         case = cases[0] if cases else {
             "case_id": case_id,
             "topology_type": "CIRCULAR_LAYERING",
-            "banks_involved": ["APEX_NATIONAL", "CREST_COMMERCIAL", "ZENITH_COOPERATIVE"],
+            "banks_involved": ["BANK_A", "BANK_B", "BANK_C", "BANK_D"],
             "total_volume": 1450000.0,
             "risk_score": 96.4,
-            "member_accounts": ["APEX_NATIONAL:A001", "CREST_COMMERCIAL:C002", "ZENITH_COOPERATIVE:Z003"],
+            "member_accounts": ["BANK_A:BNK_A_ACC_00001", "BANK_B:BNK_B_ACC_00002", "BANK_C:BNK_C_ACC_00003"],
         }
 
     q_lower = req.query.lower()
-    banks = case.get("banks_involved", ["APEX_NATIONAL", "CREST_COMMERCIAL"])
+    banks = case.get("banks_involved", ["BANK_A", "BANK_B", "BANK_C"])
     if isinstance(banks, str):
         import json
         try:
@@ -304,12 +304,10 @@ def get_advanced_analytics():
     ]
 
     cross_bank_flows = [
-        {"from": "APEX_NATIONAL", "to": "CREST_COMMERCIAL", "tx_count": 1840, "volume_inr": 62400000.0},
-        {"from": "CREST_COMMERCIAL", "to": "ZENITH_COOPERATIVE", "tx_count": 1620, "volume_inr": 54100000.0},
-        {"from": "ZENITH_COOPERATIVE", "to": "HORIZON_FEDERAL", "tx_count": 1490, "volume_inr": 48900000.0},
-        {"from": "HORIZON_FEDERAL", "to": "VANGUARD_MERCANTILE", "tx_count": 1380, "volume_inr": 44500000.0},
-        {"from": "VANGUARD_MERCANTILE", "to": "NEXUS_PAYMENTS", "tx_count": 1270, "volume_inr": 41200000.0},
-        {"from": "NEXUS_PAYMENTS", "to": "APEX_NATIONAL", "tx_count": 1510, "volume_inr": 51800000.0},
+        {"from": "BANK_A", "to": "BANK_B", "tx_count": 2140, "volume_inr": 72400000.0},
+        {"from": "BANK_B", "to": "BANK_C", "tx_count": 1920, "volume_inr": 64100000.0},
+        {"from": "BANK_C", "to": "BANK_D", "tx_count": 1890, "volume_inr": 58900000.0},
+        {"from": "BANK_D", "to": "BANK_A", "tx_count": 1780, "volume_inr": 54500000.0},
     ]
 
     graph_kpis = {
