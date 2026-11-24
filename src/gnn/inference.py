@@ -8,16 +8,9 @@ from typing import Dict, Any, List, Optional
 from pathlib import Path
 import json
 import threading
-import torch
-import numpy as np
-import pandas as pd
-import networkx as nx
 
 import config
-from src.gnn.models import EdgeAwareGNN, GATv2Net
-from src.gnn.dataset import GNNDatasetBuilder
 from src.adapter.detection_adapter import DetectionAdapter
-from src.graph.builder import TransactionGraphBuilder
 
 _service_lock = threading.Lock()
 
@@ -25,24 +18,45 @@ _service_lock = threading.Lock()
 class GNNInferenceService:
     """
     Production-ready GNN inference service with cold-start fallback and model versioning.
+    Uses lazy loading for torch/tensors to maintain minimal runtime memory overhead (< 60MB).
     """
 
     def __init__(self, model_path: Optional[Path] = None):
         self.model_path = model_path or (config.MODELS_DIR / "gnn" / "edge_aware_gnn.pt")
         self.adapter = DetectionAdapter()
-        self.dataset_builder = GNNDatasetBuilder()
-        self.model: Optional[EdgeAwareGNN] = None
+        self.dataset_builder = None
+        self.model = None
         self.pyg_data = None
         self.is_loaded = False
         # Lazy initialization: do not load heavy tensors into RAM until needed
 
+    def _ensure_dataset_builder(self):
+        if self.dataset_builder is None:
+            from src.gnn.dataset import GNNDatasetBuilder
+            self.dataset_builder = GNNDatasetBuilder()
+        return self.dataset_builder
+
     def _load_service(self):
-        """Loads dataset and model checkpoint if available."""
+        """Loads dataset and model checkpoint with zero-overhead disk loading."""
+        import torch
+        from src.gnn.models import EdgeAwareGNN
+        self._ensure_dataset_builder()
         try:
-            accounts_df, transactions_df, _, rings_df, _ = self.adapter.load_data()
-            graph_builder = TransactionGraphBuilder()
-            G = graph_builder.build_graph(accounts_df, transactions_df)
-            self.pyg_data = self.dataset_builder.build_pyg_data(G, accounts_df, transactions_df)
+            pyg_path = config.MODELS_DIR / "gnn" / "pyg_data.pt"
+            maps_path = config.MODELS_DIR / "gnn" / "node_maps.json"
+
+            if pyg_path.exists() and maps_path.exists():
+                self.pyg_data = torch.load(pyg_path, map_location="cpu", weights_only=False)
+                with open(maps_path, "r") as f:
+                    maps = json.load(f)
+                    self.dataset_builder.node_to_idx = maps["node_to_idx"]
+                    self.dataset_builder.idx_to_node = {int(k): v for k, v in maps["idx_to_node"].items()}
+            else:
+                from src.graph.builder import TransactionGraphBuilder
+                accounts_df, transactions_df, _, rings_df, _ = self.adapter.load_data()
+                graph_builder = TransactionGraphBuilder()
+                G = graph_builder.build_graph(accounts_df, transactions_df)
+                self.pyg_data = self.dataset_builder.build_pyg_data(G, accounts_df, transactions_df)
 
             if self.model_path.exists():
                 ckpt = torch.load(self.model_path, map_location="cpu", weights_only=False)
@@ -83,7 +97,19 @@ class GNNInferenceService:
 
     def predict_accounts(self, limit: int = 50) -> List[Dict[str, Any]]:
         """Returns GNN account-level mule probability predictions."""
+        cache_path = config.MODELS_DIR / "gnn" / "predictions_cache.json"
+        if cache_path.exists():
+            try:
+                with open(cache_path, "r") as f:
+                    cache = json.load(f)
+                    if "accounts" in cache and len(cache["accounts"]) >= min(limit, len(cache["accounts"])):
+                        return cache["accounts"][:limit]
+            except Exception:
+                pass
+
         self.ensure_model()
+        import torch
+        self._ensure_dataset_builder()
         with torch.no_grad():
             out = self.model(self.pyg_data.x, self.pyg_data.edge_index, self.pyg_data.edge_attr)
             probs = out["node_probs"].cpu().numpy()
@@ -123,7 +149,19 @@ class GNNInferenceService:
 
     def predict_transactions(self, limit: int = 50) -> List[Dict[str, Any]]:
         """Returns GNN transaction-level edge fraud probabilities."""
+        cache_path = config.MODELS_DIR / "gnn" / "predictions_cache.json"
+        if cache_path.exists():
+            try:
+                with open(cache_path, "r") as f:
+                    cache = json.load(f)
+                    if "transactions" in cache and len(cache["transactions"]) >= min(limit, len(cache["transactions"])):
+                        return cache["transactions"][:limit]
+            except Exception:
+                pass
+
         self.ensure_model()
+        import torch
+        self._ensure_dataset_builder()
         with torch.no_grad():
             out = self.model(self.pyg_data.x, self.pyg_data.edge_index, self.pyg_data.edge_attr)
             edge_probs = out["edge_probs"].cpu().numpy()
@@ -179,7 +217,20 @@ class GNNInferenceService:
 
     def predict_networks(self) -> List[Dict[str, Any]]:
         """Scores candidate rings via GNN global pooling readouts."""
+        cache_path = config.MODELS_DIR / "gnn" / "predictions_cache.json"
+        if cache_path.exists():
+            try:
+                with open(cache_path, "r") as f:
+                    cache = json.load(f)
+                    if "networks" in cache and cache["networks"]:
+                        return cache["networks"]
+            except Exception:
+                pass
+
         self.ensure_model()
+        import torch
+        import numpy as np
+        self._ensure_dataset_builder()
         _, _, _, rings, _ = self.adapter.load_data()
         results = []
 

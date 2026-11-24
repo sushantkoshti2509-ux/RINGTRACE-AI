@@ -25,9 +25,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-# Install Python dependencies
+# Install lightweight CPU-only PyTorch first, then other requirements
 COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu && \
     pip install --no-cache-dir -r requirements.txt
 
 # Copy backend code, models, configurations, and reference data
@@ -48,6 +49,7 @@ ENV PYTHONUNBUFFERED=1 \
     OMP_NUM_THREADS=1 \
     MKL_NUM_THREADS=1 \
     OPENBLAS_NUM_THREADS=1 \
+    WEB_CONCURRENCY=1 \
     PORT=10000 \
     HOST=0.0.0.0
 
@@ -58,5 +60,5 @@ EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
     CMD curl -f http://localhost:${PORT:-10000}/health || exit 1
 
-# Launch production server with dynamic port binding
-CMD ["sh", "-c", "uvicorn src.integration.api:app --host 0.0.0.0 --port ${PORT:-10000}"]
+# Launch production server with dynamic port binding and single worker to stay strictly under 512MB RAM
+CMD ["sh", "-c", "uvicorn src.integration.api:app --host 0.0.0.0 --port ${PORT:-10000} --workers 1"]

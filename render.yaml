@@ -16,3 +16,5 @@ services:
         value: /tmp/matplotlib_cache
       - key: OMP_NUM_THREADS
         value: 1
+      - key: WEB_CONCURRENCY
+        value: 1

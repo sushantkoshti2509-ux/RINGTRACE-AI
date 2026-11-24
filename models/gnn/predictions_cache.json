@@ -1,0 +1,2484 @@
+{
+  "accounts": [
+    {
+      "account_id": "BNK_A_MULE_00100",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220100",
+      "bank": "BANK_A",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00140",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220140",
+      "bank": "BANK_B",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00045",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220045",
+      "bank": "BANK_D",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00102",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220102",
+      "bank": "BANK_A",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00104",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220104",
+      "bank": "BANK_C",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00105",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220105",
+      "bank": "BANK_D",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00126",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220126",
+      "bank": "BANK_C",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00090",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220090",
+      "bank": "BANK_C",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00129",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220129",
+      "bank": "BANK_C",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00130",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220130",
+      "bank": "BANK_B",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00095",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220095",
+      "bank": "BANK_C",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00145",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220145",
+      "bank": "BANK_D",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00065",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220065",
+      "bank": "BANK_D",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00026",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220026",
+      "bank": "BANK_C",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00027",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220027",
+      "bank": "BANK_A",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00028",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220028",
+      "bank": "BANK_D",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00029",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220029",
+      "bank": "BANK_C",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00030",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220030",
+      "bank": "BANK_A",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00053",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220053",
+      "bank": "BANK_A",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00054",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220054",
+      "bank": "BANK_D",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00125",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220125",
+      "bank": "BANK_A",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00040",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220040",
+      "bank": "BANK_B",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00015",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220015",
+      "bank": "BANK_A",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00153",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220153",
+      "bank": "BANK_D",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00165",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220165",
+      "bank": "BANK_C",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00154",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220154",
+      "bank": "BANK_A",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00115",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220115",
+      "bank": "BANK_A",
+      "gnn_score": 1.0,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00098",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220098",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00099",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220099",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00157",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220157",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00158",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220158",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00159",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220159",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00160",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220160",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00042",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220042",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00044",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220044",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00148",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220148",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00149",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220149",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00150",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220150",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00101",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220101",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00103",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220103",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00023",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220023",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00024",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220024",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00025",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220025",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00127",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220127",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00128",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220128",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00092",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220092",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00094",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220094",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00048",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220048",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00049",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220049",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00050",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220050",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00132",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220132",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00133",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220133",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00134",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220134",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00135",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220135",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00072",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220072",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00073",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220073",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00074",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220074",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00075",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220075",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00142",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220142",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00143",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220143",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00144",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220144",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00017",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220017",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00018",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220018",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00019",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220019",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00107",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220107",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00108",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220108",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00020",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220020",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00109",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220109",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00110",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220110",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00032",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220032",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00033",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220033",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00034",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220034",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00035",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220035",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00001",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220001",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00002",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220002",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00003",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220003",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00082",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220082",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00083",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220083",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00004",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220004",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00084",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220084",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00085",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220085",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00005",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220005",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00119",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220119",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00120",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220120",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00068",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220068",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00069",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220069",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00070",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220070",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00051",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220051",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00052",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220052",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00055",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220055",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00122",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220122",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00123",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220123",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00124",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220124",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00151",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220151",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00152",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220152",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00155",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220155",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_D_MULE_00076",
+      "masked_id": "BANK_D:\u2022\u2022\u2022\u20220076",
+      "bank": "BANK_D",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_C_MULE_00077",
+      "masked_id": "BANK_C:\u2022\u2022\u2022\u20220077",
+      "bank": "BANK_C",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_A_MULE_00078",
+      "masked_id": "BANK_A:\u2022\u2022\u2022\u20220078",
+      "bank": "BANK_A",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    },
+    {
+      "account_id": "BNK_B_MULE_00079",
+      "masked_id": "BANK_B:\u2022\u2022\u2022\u20220079",
+      "bank": "BANK_B",
+      "gnn_score": 0.9999,
+      "risk_tier": "CRITICAL",
+      "is_flagged": true
+    }
+  ],
+  "transactions": [
+    {
+      "transaction_id": "GNN_TX_01703",
+      "sender_account": "BNK_A_ACC_00357",
+      "receiver_account": "BNK_C_ACC_00911",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220357",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220911",
+      "corridor": "BANK_A \u2794 BANK_C",
+      "amount": 428039.62,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5493,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_08664",
+      "sender_account": "BNK_B_ACC_00262",
+      "receiver_account": "BNK_C_ACC_00811",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220262",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220811",
+      "corridor": "BANK_B \u2794 BANK_C",
+      "amount": 439303.85,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5342,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_12881",
+      "sender_account": "BNK_D_ACC_00460",
+      "receiver_account": "BNK_D_ACC_00308",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220460",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220308",
+      "corridor": "BANK_D \u2794 BANK_D",
+      "amount": 102842.53,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.531,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_16782",
+      "sender_account": "BNK_D_ACC_00060",
+      "receiver_account": "BNK_B_ACC_00542",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220060",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220542",
+      "corridor": "BANK_D \u2794 BANK_B",
+      "amount": 375503.38,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5306,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_07938",
+      "sender_account": "BNK_C_ACC_00419",
+      "receiver_account": "BNK_D_ACC_00844",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220419",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220844",
+      "corridor": "BANK_C \u2794 BANK_D",
+      "amount": 184218.48,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.529,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_15656",
+      "sender_account": "BNK_D_ACC_00380",
+      "receiver_account": "BNK_D_ACC_00228",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220380",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220228",
+      "corridor": "BANK_D \u2794 BANK_D",
+      "amount": 389310.06,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.5257,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_11818",
+      "sender_account": "BNK_B_ACC_00018",
+      "receiver_account": "BNK_B_ACC_00026",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220018",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220026",
+      "corridor": "BANK_B \u2794 BANK_B",
+      "amount": 416105.06,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.5205,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_04224",
+      "sender_account": "BNK_A_ACC_00441",
+      "receiver_account": "BNK_C_ACC_00327",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220441",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220327",
+      "corridor": "BANK_A \u2794 BANK_C",
+      "amount": 251847.99,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5194,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_00505",
+      "sender_account": "BNK_D_ACC_00308",
+      "receiver_account": "BNK_D_ACC_00356",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220308",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220356",
+      "corridor": "BANK_D \u2794 BANK_D",
+      "amount": 243110.83,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.5169,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_09012",
+      "sender_account": "BNK_D_ACC_00788",
+      "receiver_account": "BNK_D_ACC_00548",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220788",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220548",
+      "corridor": "BANK_D \u2794 BANK_D",
+      "amount": 423860.96,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.5148,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_25379",
+      "sender_account": "BNK_C_ACC_00327",
+      "receiver_account": "BNK_A_ACC_00961",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220327",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220961",
+      "corridor": "BANK_C \u2794 BANK_A",
+      "amount": 441103.76,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5146,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_09076",
+      "sender_account": "BNK_C_ACC_00883",
+      "receiver_account": "BNK_B_ACC_00094",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220883",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220094",
+      "corridor": "BANK_C \u2794 BANK_B",
+      "amount": 435206.8,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5129,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_14780",
+      "sender_account": "BNK_D_ACC_00492",
+      "receiver_account": "BNK_C_ACC_00155",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220492",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220155",
+      "corridor": "BANK_D \u2794 BANK_C",
+      "amount": 393276.32,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5124,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_00813",
+      "sender_account": "BNK_D_ACC_00604",
+      "receiver_account": "BNK_A_ACC_00317",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220604",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220317",
+      "corridor": "BANK_D \u2794 BANK_A",
+      "amount": 151393.96,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5094,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_06869",
+      "sender_account": "BNK_B_ACC_00350",
+      "receiver_account": "BNK_B_ACC_00906",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220350",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220906",
+      "corridor": "BANK_B \u2794 BANK_B",
+      "amount": 382117.15,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.5079,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_25141",
+      "sender_account": "BNK_C_ACC_00539",
+      "receiver_account": "BNK_D_ACC_00392",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220539",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220392",
+      "corridor": "BANK_C \u2794 BANK_D",
+      "amount": 275754.75,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5078,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_02101",
+      "sender_account": "BNK_C_ACC_00163",
+      "receiver_account": "BNK_A_ACC_00533",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220163",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220533",
+      "corridor": "BANK_C \u2794 BANK_A",
+      "amount": 311364.09,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5076,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_09066",
+      "sender_account": "BNK_C_ACC_00587",
+      "receiver_account": "BNK_B_ACC_00590",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220587",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220590",
+      "corridor": "BANK_C \u2794 BANK_B",
+      "amount": 446542.94,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5074,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_02438",
+      "sender_account": "BNK_A_ACC_00245",
+      "receiver_account": "BNK_D_ACC_00404",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220245",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220404",
+      "corridor": "BANK_A \u2794 BANK_D",
+      "amount": 379848.27,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5073,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_03027",
+      "sender_account": "BNK_C_ACC_01027",
+      "receiver_account": "BNK_D_ACC_00644",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20221027",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220644",
+      "corridor": "BANK_C \u2794 BANK_D",
+      "amount": 202715.93,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5072,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_05239",
+      "sender_account": "BNK_D_ACC_00440",
+      "receiver_account": "BNK_A_ACC_00829",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220440",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220829",
+      "corridor": "BANK_D \u2794 BANK_A",
+      "amount": 165899.13,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5067,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_10963",
+      "sender_account": "BNK_A_ACC_00973",
+      "receiver_account": "BNK_A_ACC_00921",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220973",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220921",
+      "corridor": "BANK_A \u2794 BANK_A",
+      "amount": 411839.38,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.5067,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_19970",
+      "sender_account": "BNK_A_ACC_00761",
+      "receiver_account": "BNK_D_ACC_00212",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220761",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220212",
+      "corridor": "BANK_A \u2794 BANK_D",
+      "amount": 403507.87,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5066,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_07028",
+      "sender_account": "BNK_C_ACC_00087",
+      "receiver_account": "BNK_D_ACC_00336",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220087",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220336",
+      "corridor": "BANK_C \u2794 BANK_D",
+      "amount": 410019.31,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5063,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_09425",
+      "sender_account": "BNK_B_ACC_00334",
+      "receiver_account": "BNK_C_ACC_00743",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220334",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220743",
+      "corridor": "BANK_B \u2794 BANK_C",
+      "amount": 307393.89,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5058,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_12950",
+      "sender_account": "BNK_C_ACC_00899",
+      "receiver_account": "BNK_B_ACC_00430",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220899",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220430",
+      "corridor": "BANK_C \u2794 BANK_B",
+      "amount": 178264.05,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5057,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_03135",
+      "sender_account": "BNK_B_ACC_00166",
+      "receiver_account": "BNK_B_ACC_00238",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220166",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220238",
+      "corridor": "BANK_B \u2794 BANK_B",
+      "amount": 247887.89,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.5051,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_05050",
+      "sender_account": "BNK_A_ACC_00929",
+      "receiver_account": "BNK_A_ACC_00253",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220929",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220253",
+      "corridor": "BANK_A \u2794 BANK_A",
+      "amount": 266403.7,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.5051,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_22623",
+      "sender_account": "BNK_D_ACC_00760",
+      "receiver_account": "BNK_C_ACC_00743",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220760",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220743",
+      "corridor": "BANK_D \u2794 BANK_C",
+      "amount": 336190.35,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.504,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_23031",
+      "sender_account": "BNK_D_ACC_00540",
+      "receiver_account": "BNK_A_ACC_00073",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220540",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220073",
+      "corridor": "BANK_D \u2794 BANK_A",
+      "amount": 428231.41,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.504,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_04961",
+      "sender_account": "BNK_B_ACC_00134",
+      "receiver_account": "BNK_C_ACC_01011",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220134",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20221011",
+      "corridor": "BANK_B \u2794 BANK_C",
+      "amount": 235902.33,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.503,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_15637",
+      "sender_account": "BNK_D_ACC_00380",
+      "receiver_account": "BNK_B_ACC_00086",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220380",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220086",
+      "corridor": "BANK_D \u2794 BANK_B",
+      "amount": 344.63,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5015,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_00848",
+      "sender_account": "BNK_A_ACC_00969",
+      "receiver_account": "BNK_A_ACC_00229",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220969",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220229",
+      "corridor": "BANK_A \u2794 BANK_A",
+      "amount": 251359.58,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.5014,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_16691",
+      "sender_account": "BNK_C_ACC_00719",
+      "receiver_account": "BNK_C_ACC_00655",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220719",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220655",
+      "corridor": "BANK_C \u2794 BANK_C",
+      "amount": 2092.52,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.5014,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_23410",
+      "sender_account": "BNK_B_ACC_00246",
+      "receiver_account": "BNK_A_ACC_00493",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220246",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220493",
+      "corridor": "BANK_B \u2794 BANK_A",
+      "amount": 420924.84,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5007,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_06318",
+      "sender_account": "BNK_C_ACC_00911",
+      "receiver_account": "BNK_B_ACC_00678",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220911",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220678",
+      "corridor": "BANK_C \u2794 BANK_B",
+      "amount": 147271.88,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.5,
+      "risk_tier": "HIGH"
+    },
+    {
+      "transaction_id": "GNN_TX_03147",
+      "sender_account": "BNK_C_ACC_00395",
+      "receiver_account": "BNK_B_ACC_00774",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220395",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220774",
+      "corridor": "BANK_C \u2794 BANK_B",
+      "amount": 334.05,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4999,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_16836",
+      "sender_account": "BNK_D_ACC_00396",
+      "receiver_account": "BNK_C_ACC_00939",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220396",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220939",
+      "corridor": "BANK_D \u2794 BANK_C",
+      "amount": 360100.24,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4999,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_04125",
+      "sender_account": "BNK_C_ACC_00723",
+      "receiver_account": "BNK_A_ACC_01005",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220723",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20221005",
+      "corridor": "BANK_C \u2794 BANK_A",
+      "amount": 294092.78,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4997,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_05924",
+      "sender_account": "BNK_A_ACC_00629",
+      "receiver_account": "BNK_A_ACC_00325",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220629",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220325",
+      "corridor": "BANK_A \u2794 BANK_A",
+      "amount": 428478.8,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.499,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_04792",
+      "sender_account": "BNK_D_ACC_00344",
+      "receiver_account": "BNK_A_ACC_00821",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220344",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220821",
+      "corridor": "BANK_D \u2794 BANK_A",
+      "amount": 160549.52,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4986,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_11754",
+      "sender_account": "BNK_D_ACC_00016",
+      "receiver_account": "BNK_A_ACC_00449",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220016",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220449",
+      "corridor": "BANK_D \u2794 BANK_A",
+      "amount": 328396.51,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4986,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_15616",
+      "sender_account": "BNK_D_ACC_00380",
+      "receiver_account": "BNK_C_ACC_00655",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220380",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220655",
+      "corridor": "BANK_D \u2794 BANK_C",
+      "amount": 3876.58,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4986,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_22560",
+      "sender_account": "BNK_B_ACC_00482",
+      "receiver_account": "BNK_B_ACC_00350",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220482",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220350",
+      "corridor": "BANK_B \u2794 BANK_B",
+      "amount": 301.42,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4984,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_04233",
+      "sender_account": "BNK_C_ACC_00387",
+      "receiver_account": "BNK_D_ACC_00612",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220387",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220612",
+      "corridor": "BANK_C \u2794 BANK_D",
+      "amount": 982.09,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4982,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_10416",
+      "sender_account": "BNK_B_ACC_00542",
+      "receiver_account": "BNK_B_ACC_00342",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220542",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220342",
+      "corridor": "BANK_B \u2794 BANK_B",
+      "amount": 174743.5,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4979,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_09663",
+      "sender_account": "BNK_D_ACC_00568",
+      "receiver_account": "BNK_C_ACC_00087",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220568",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220087",
+      "corridor": "BANK_D \u2794 BANK_C",
+      "amount": 791.75,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4974,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_15376",
+      "sender_account": "BNK_B_ACC_00058",
+      "receiver_account": "BNK_B_ACC_00434",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220058",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220434",
+      "corridor": "BANK_B \u2794 BANK_B",
+      "amount": 441642.16,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4971,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_24898",
+      "sender_account": "BNK_A_ACC_00537",
+      "receiver_account": "BNK_C_ACC_00139",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220537",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220139",
+      "corridor": "BANK_A \u2794 BANK_C",
+      "amount": 434059.11,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4971,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_15163",
+      "sender_account": "BNK_C_ACC_00543",
+      "receiver_account": "BNK_B_ACC_00698",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220543",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220698",
+      "corridor": "BANK_C \u2794 BANK_B",
+      "amount": 289557.1,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4969,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_04001",
+      "sender_account": "BNK_A_ACC_00617",
+      "receiver_account": "BNK_A_ACC_00561",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220617",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220561",
+      "corridor": "BANK_A \u2794 BANK_A",
+      "amount": 4524.2,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4967,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_16695",
+      "sender_account": "BNK_C_ACC_00719",
+      "receiver_account": "BNK_A_ACC_00257",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220719",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220257",
+      "corridor": "BANK_C \u2794 BANK_A",
+      "amount": 5415.4,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4966,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_03144",
+      "sender_account": "BNK_C_ACC_00395",
+      "receiver_account": "BNK_C_ACC_00779",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220395",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220779",
+      "corridor": "BANK_C \u2794 BANK_C",
+      "amount": 2122.86,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4963,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_19569",
+      "sender_account": "BNK_A_ACC_00981",
+      "receiver_account": "BNK_A_ACC_00361",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220981",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220361",
+      "corridor": "BANK_A \u2794 BANK_A",
+      "amount": 347334.8,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4963,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_08368",
+      "sender_account": "BNK_D_ACC_00004",
+      "receiver_account": "BNK_C_ACC_00363",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220004",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220363",
+      "corridor": "BANK_D \u2794 BANK_C",
+      "amount": 412512.33,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4961,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_21069",
+      "sender_account": "BNK_A_ACC_00705",
+      "receiver_account": "BNK_B_ACC_00774",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220705",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220774",
+      "corridor": "BANK_A \u2794 BANK_B",
+      "amount": 635.56,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4961,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_26801",
+      "sender_account": "BNK_B_ACC_00230",
+      "receiver_account": "BNK_C_ACC_00595",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220230",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220595",
+      "corridor": "BANK_B \u2794 BANK_C",
+      "amount": 342691.03,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.496,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_16712",
+      "sender_account": "BNK_C_ACC_00719",
+      "receiver_account": "BNK_C_ACC_00787",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220719",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220787",
+      "corridor": "BANK_C \u2794 BANK_C",
+      "amount": 339.07,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4958,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_02406",
+      "sender_account": "BNK_C_ACC_00699",
+      "receiver_account": "BNK_C_ACC_00779",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220699",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220779",
+      "corridor": "BANK_C \u2794 BANK_C",
+      "amount": 671.94,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4954,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_09652",
+      "sender_account": "BNK_D_ACC_00568",
+      "receiver_account": "BNK_D_ACC_00440",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220568",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220440",
+      "corridor": "BANK_D \u2794 BANK_D",
+      "amount": 1583.84,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4954,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_03123",
+      "sender_account": "BNK_D_ACC_01012",
+      "receiver_account": "BNK_B_ACC_00830",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20221012",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220830",
+      "corridor": "BANK_D \u2794 BANK_B",
+      "amount": 255054.29,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4948,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_24479",
+      "sender_account": "BNK_C_ACC_00775",
+      "receiver_account": "BNK_B_ACC_00994",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220775",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220994",
+      "corridor": "BANK_C \u2794 BANK_B",
+      "amount": 291836.31,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4948,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_08087",
+      "sender_account": "BNK_C_ACC_00787",
+      "receiver_account": "BNK_C_ACC_00527",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220787",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220527",
+      "corridor": "BANK_C \u2794 BANK_C",
+      "amount": 268098.55,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4946,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_09654",
+      "sender_account": "BNK_D_ACC_00568",
+      "receiver_account": "BNK_D_ACC_00196",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220568",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220196",
+      "corridor": "BANK_D \u2794 BANK_D",
+      "amount": 2107.4,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4945,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_15644",
+      "sender_account": "BNK_D_ACC_00380",
+      "receiver_account": "BNK_D_ACC_00096",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220380",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220096",
+      "corridor": "BANK_D \u2794 BANK_D",
+      "amount": 608.76,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4943,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_16684",
+      "sender_account": "BNK_C_ACC_00719",
+      "receiver_account": "BNK_B_ACC_00046",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220719",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220046",
+      "corridor": "BANK_C \u2794 BANK_B",
+      "amount": 1147.0,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.494,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_16702",
+      "sender_account": "BNK_C_ACC_00719",
+      "receiver_account": "BNK_C_ACC_00423",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220719",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220423",
+      "corridor": "BANK_C \u2794 BANK_C",
+      "amount": 1110.51,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.494,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_16708",
+      "sender_account": "BNK_C_ACC_00719",
+      "receiver_account": "BNK_A_ACC_00561",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220719",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220561",
+      "corridor": "BANK_C \u2794 BANK_A",
+      "amount": 265.52,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.494,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_02515",
+      "sender_account": "BNK_B_ACC_00686",
+      "receiver_account": "BNK_A_ACC_00217",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220686",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220217",
+      "corridor": "BANK_B \u2794 BANK_A",
+      "amount": 314053.13,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4939,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_04008",
+      "sender_account": "BNK_A_ACC_00617",
+      "receiver_account": "BNK_A_ACC_00969",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220617",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220969",
+      "corridor": "BANK_A \u2794 BANK_A",
+      "amount": 599.56,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4939,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_14280",
+      "sender_account": "BNK_A_ACC_00861",
+      "receiver_account": "BNK_D_ACC_00580",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220861",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220580",
+      "corridor": "BANK_A \u2794 BANK_D",
+      "amount": 387460.21,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4939,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_04979",
+      "sender_account": "BNK_B_ACC_00134",
+      "receiver_account": "BNK_A_ACC_00761",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220134",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220761",
+      "corridor": "BANK_B \u2794 BANK_A",
+      "amount": 2031.68,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4938,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_15650",
+      "sender_account": "BNK_D_ACC_00380",
+      "receiver_account": "BNK_D_ACC_00172",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220380",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220172",
+      "corridor": "BANK_D \u2794 BANK_D",
+      "amount": 996.89,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4937,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_07228",
+      "sender_account": "BNK_D_ACC_00740",
+      "receiver_account": "BNK_B_ACC_00774",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220740",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220774",
+      "corridor": "BANK_D \u2794 BANK_B",
+      "amount": 303.45,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4936,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_03998",
+      "sender_account": "BNK_A_ACC_00617",
+      "receiver_account": "BNK_B_ACC_00122",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220617",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220122",
+      "corridor": "BANK_A \u2794 BANK_B",
+      "amount": 2713.06,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4931,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_18579",
+      "sender_account": "BNK_B_ACC_00458",
+      "receiver_account": "BNK_C_ACC_00059",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220458",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220059",
+      "corridor": "BANK_B \u2794 BANK_C",
+      "amount": 387477.65,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.493,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_16703",
+      "sender_account": "BNK_C_ACC_00719",
+      "receiver_account": "BNK_D_ACC_00152",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220719",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220152",
+      "corridor": "BANK_C \u2794 BANK_D",
+      "amount": 475.1,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4929,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_22554",
+      "sender_account": "BNK_B_ACC_00482",
+      "receiver_account": "BNK_B_ACC_00866",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220482",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220866",
+      "corridor": "BANK_B \u2794 BANK_B",
+      "amount": 5790.45,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4929,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_02559",
+      "sender_account": "BNK_A_ACC_00989",
+      "receiver_account": "BNK_B_ACC_00634",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220989",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220634",
+      "corridor": "BANK_A \u2794 BANK_B",
+      "amount": 381504.68,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4928,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_20872",
+      "sender_account": "BNK_B_ACC_00026",
+      "receiver_account": "BNK_C_ACC_00947",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220026",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220947",
+      "corridor": "BANK_B \u2794 BANK_C",
+      "amount": 330.8,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4928,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_09670",
+      "sender_account": "BNK_D_ACC_00568",
+      "receiver_account": "BNK_A_ACC_00973",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220568",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220973",
+      "corridor": "BANK_D \u2794 BANK_A",
+      "amount": 725.92,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4927,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_09992",
+      "sender_account": "BNK_C_ACC_00255",
+      "receiver_account": "BNK_D_ACC_01032",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220255",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20221032",
+      "corridor": "BANK_C \u2794 BANK_D",
+      "amount": 94736.51,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4926,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_02302",
+      "sender_account": "BNK_B_ACC_00010",
+      "receiver_account": "BNK_C_ACC_00787",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220010",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220787",
+      "corridor": "BANK_B \u2794 BANK_C",
+      "amount": 1411.0,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4924,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_03139",
+      "sender_account": "BNK_C_ACC_00395",
+      "receiver_account": "BNK_C_ACC_00423",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220395",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220423",
+      "corridor": "BANK_C \u2794 BANK_C",
+      "amount": 503.0,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4923,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_09001",
+      "sender_account": "BNK_C_ACC_00811",
+      "receiver_account": "BNK_B_ACC_00634",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220811",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220634",
+      "corridor": "BANK_C \u2794 BANK_B",
+      "amount": 1093.03,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4921,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_04302",
+      "sender_account": "BNK_D_ACC_00496",
+      "receiver_account": "BNK_A_ACC_00245",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220496",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220245",
+      "corridor": "BANK_D \u2794 BANK_A",
+      "amount": 2429.31,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4918,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_20858",
+      "sender_account": "BNK_B_ACC_00026",
+      "receiver_account": "BNK_A_ACC_00969",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220026",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220969",
+      "corridor": "BANK_B \u2794 BANK_A",
+      "amount": 1097.24,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4918,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_09009",
+      "sender_account": "BNK_C_ACC_00811",
+      "receiver_account": "BNK_A_ACC_00325",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220811",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220325",
+      "corridor": "BANK_C \u2794 BANK_A",
+      "amount": 812.98,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4917,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_11796",
+      "sender_account": "BNK_B_ACC_00122",
+      "receiver_account": "BNK_D_ACC_00736",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220122",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220736",
+      "corridor": "BANK_B \u2794 BANK_D",
+      "amount": 1082.36,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4917,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_02361",
+      "sender_account": "BNK_B_ACC_00138",
+      "receiver_account": "BNK_B_ACC_00686",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220138",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220686",
+      "corridor": "BANK_B \u2794 BANK_B",
+      "amount": 397037.92,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4915,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_24217",
+      "sender_account": "BNK_B_ACC_01010",
+      "receiver_account": "BNK_B_ACC_00522",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20221010",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220522",
+      "corridor": "BANK_B \u2794 BANK_B",
+      "amount": 624.66,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4915,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_09651",
+      "sender_account": "BNK_D_ACC_00568",
+      "receiver_account": "BNK_A_ACC_00929",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220568",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220929",
+      "corridor": "BANK_D \u2794 BANK_A",
+      "amount": 3184.1,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4914,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_15652",
+      "sender_account": "BNK_D_ACC_00380",
+      "receiver_account": "BNK_B_ACC_00850",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220380",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220850",
+      "corridor": "BANK_D \u2794 BANK_B",
+      "amount": 198.01,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4914,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_17543",
+      "sender_account": "BNK_A_ACC_00573",
+      "receiver_account": "BNK_C_ACC_00335",
+      "masked_sender": "BANK_A:\u2022\u2022\u2022\u20220573",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220335",
+      "corridor": "BANK_A \u2794 BANK_C",
+      "amount": 427724.39,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4914,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_16766",
+      "sender_account": "BNK_D_ACC_00060",
+      "receiver_account": "BNK_D_ACC_00056",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220060",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220056",
+      "corridor": "BANK_D \u2794 BANK_D",
+      "amount": 2509.07,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4913,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_20838",
+      "sender_account": "BNK_B_ACC_00026",
+      "receiver_account": "BNK_C_ACC_00787",
+      "masked_sender": "BANK_B:\u2022\u2022\u2022\u20220026",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220787",
+      "corridor": "BANK_B \u2794 BANK_C",
+      "amount": 822.05,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4913,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_05313",
+      "sender_account": "BNK_D_ACC_00872",
+      "receiver_account": "BNK_A_ACC_00761",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220872",
+      "masked_receiver": "BANK_A:\u2022\u2022\u2022\u20220761",
+      "corridor": "BANK_D \u2794 BANK_A",
+      "amount": 267.69,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4912,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_01351",
+      "sender_account": "BNK_C_ACC_00591",
+      "receiver_account": "BNK_B_ACC_00054",
+      "masked_sender": "BANK_C:\u2022\u2022\u2022\u20220591",
+      "masked_receiver": "BANK_B:\u2022\u2022\u2022\u20220054",
+      "corridor": "BANK_C \u2794 BANK_B",
+      "amount": 282535.53,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4911,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_11851",
+      "sender_account": "BNK_D_ACC_00736",
+      "receiver_account": "BNK_D_ACC_00456",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220736",
+      "masked_receiver": "BANK_D:\u2022\u2022\u2022\u20220456",
+      "corridor": "BANK_D \u2794 BANK_D",
+      "amount": 116947.48,
+      "is_cross_bank": false,
+      "gnn_fraud_prob": 0.4909,
+      "risk_tier": "NORMAL"
+    },
+    {
+      "transaction_id": "GNN_TX_07862",
+      "sender_account": "BNK_D_ACC_00588",
+      "receiver_account": "BNK_C_ACC_00243",
+      "masked_sender": "BANK_D:\u2022\u2022\u2022\u20220588",
+      "masked_receiver": "BANK_C:\u2022\u2022\u2022\u20220243",
+      "corridor": "BANK_D \u2794 BANK_C",
+      "amount": 376473.5,
+      "is_cross_bank": true,
+      "gnn_fraud_prob": 0.4908,
+      "risk_tier": "NORMAL"
+    }
+  ],
+  "networks": [
+    {
+      "network_id": "CANDIDATE_RING_16",
+      "topology_type": "CIRCULAR_LAYERING",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 1.0,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 764626.14,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_18",
+      "topology_type": "CIRCULAR_LAYERING",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 1.0,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 1283774.19,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_03",
+      "topology_type": "CIRCULAR_LAYERING",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9999,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 808486.42,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_14",
+      "topology_type": "CIRCULAR_LAYERING",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9999,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 636365.62,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_19",
+      "topology_type": "CIRCULAR_LAYERING",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9999,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 627037.6,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_31",
+      "topology_type": "CIRCULAR_LAYERING",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9999,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 297859.17,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_32",
+      "topology_type": "CIRCULAR_LAYERING",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9999,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 515749.44,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_01",
+      "topology_type": "CROSS_BANK_CHAIN",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.9661,
+      "total_volume": 861838.77,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_02",
+      "topology_type": "CROSS_BANK_CHAIN",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.9661,
+      "total_volume": 714137.49,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_04",
+      "topology_type": "CROSS_BANK_CHAIN",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.9661,
+      "total_volume": 1097485.98,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_06",
+      "topology_type": "CROSS_BANK_CHAIN",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.9661,
+      "total_volume": 840358.01,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_08",
+      "topology_type": "CROSS_BANK_CHAIN",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.9661,
+      "total_volume": 493969.36,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_10",
+      "topology_type": "CROSS_BANK_CHAIN",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.9661,
+      "total_volume": 287827.53,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_12",
+      "topology_type": "CROSS_BANK_CHAIN",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.9661,
+      "total_volume": 377688.9,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_13",
+      "topology_type": "CROSS_BANK_CHAIN",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.9661,
+      "total_volume": 451473.24,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_23",
+      "topology_type": "CROSS_BANK_CHAIN",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.9661,
+      "total_volume": 372453.33,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_26",
+      "topology_type": "CROSS_BANK_CHAIN",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.9661,
+      "total_volume": 658665.0,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_29",
+      "topology_type": "CROSS_BANK_CHAIN",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.9661,
+      "total_volume": 275315.43,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_30",
+      "topology_type": "CROSS_BANK_CHAIN",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.9661,
+      "total_volume": 455866.61,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_05",
+      "topology_type": "FAN_OUT_SPLITTER",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 124931.83,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_09",
+      "topology_type": "FAN_OUT_SPLITTER",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 136030.65,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_11",
+      "topology_type": "FAN_OUT_SPLITTER",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 132327.68,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_15",
+      "topology_type": "FAN_OUT_SPLITTER",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 158663.28,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_17",
+      "topology_type": "FAN_OUT_SPLITTER",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 160304.93,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_25",
+      "topology_type": "FAN_OUT_SPLITTER",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 86943.69,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_33",
+      "topology_type": "FAN_OUT_SPLITTER",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9998,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 138178.56,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_07",
+      "topology_type": "FAN_IN_COLLECTOR",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9996,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 196901.39,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_20",
+      "topology_type": "FAN_IN_COLLECTOR",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9996,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 87516.03,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_21",
+      "topology_type": "FAN_IN_COLLECTOR",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9996,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 285189.81,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_24",
+      "topology_type": "FAN_IN_COLLECTOR",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9996,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 164365.15,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_27",
+      "topology_type": "FAN_IN_COLLECTOR",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9996,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 311840.27,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_28",
+      "topology_type": "FAN_IN_COLLECTOR",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_C",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9996,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 119991.03,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    },
+    {
+      "network_id": "CANDIDATE_RING_22",
+      "topology_type": "FAN_IN_COLLECTOR",
+      "member_count": 5,
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B",
+        "BANK_D"
+      ],
+      "gnn_threat_score": 0.9995,
+      "conventional_risk_score": 0.8661,
+      "total_volume": 315509.98,
+      "status": "FLAGGED_FOR_INTERCEPTION"
+    }
+  ]
+}
