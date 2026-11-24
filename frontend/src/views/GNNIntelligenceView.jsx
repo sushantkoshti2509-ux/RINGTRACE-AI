@@ -122,25 +122,34 @@ export default function GNNIntelligenceView() {
   return (
     <div className="flex flex-col gap-6">
       {/* Top Header & Model Status Card */}
-      <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-            <Brain className="w-5 h-5 text-blue-600" />
-            <span>GNN Intelligence Center (Phase 7)</span>
-          </h2>
-          <p className="text-xs text-slate-500 mt-0.5">
-            Relational message-passing fraud detection across Bank A, Bank B, Bank C, and Bank D
-          </p>
+      <div className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 shrink-0">
+            <Brain className="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <h2 className="text-lg font-extrabold text-slate-900 tracking-tight">
+                GNN Relational Fraud Intelligence
+              </h2>
+              <span className="bg-blue-50 text-blue-700 border border-blue-200 font-extrabold text-[10px] px-2 py-0.5 rounded-full font-mono">
+                EDGE-AWARE GINE
+              </span>
+            </div>
+            <p className="text-xs text-slate-600 font-semibold mt-0.5">
+              Relational message-passing fraud detection across Bank A, Bank B, Bank C, and Bank D
+            </p>
+          </div>
         </div>
 
-        <div className="flex items-center gap-2.5">
-          <span className="px-3 py-1 rounded-xl text-xs font-mono font-bold bg-blue-50 text-blue-700 border border-blue-200 shadow-xs">
-            {metadata?.model_name || 'EdgeAwareGNN (GINE)'} • v{metadata?.version || '1.0.0'}
+        <div className="flex items-center gap-3">
+          <span className="px-3.5 py-1.5 rounded-xl text-xs font-mono font-extrabold bg-blue-50 text-blue-800 border border-blue-200 shadow-xs">
+            {metadata?.model_name || 'EdgeAwareGNN (GINE Backbone)'} • v{metadata?.version || '1.0.0-PROD'}
           </span>
           <button
             onClick={fetchGNNData}
             disabled={isLoading}
-            className="p-2 rounded-xl bg-white hover:bg-slate-50 text-slate-600 border border-slate-200 shadow-xs transition-colors"
+            className="p-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-300 shadow-xs transition-colors cursor-pointer"
             title="Refresh Intelligence"
           >
             <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin text-blue-600' : ''}`} />
@@ -148,31 +157,67 @@ export default function GNNIntelligenceView() {
         </div>
       </div>
 
-      {/* 4-Bank Coverage Pills */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      {/* 4-Bank Coverage Pills - High Contrast Institutional Cards */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5">
         {[
-          { code: 'BANK_A', name: 'Bank A', role: 'Primary Settlement', color: '#06b6d4', bg: 'bg-white border-cyan-300 text-cyan-900', badge: 'bg-cyan-50 text-cyan-700 border-cyan-200' },
-          { code: 'BANK_B', name: 'Bank B', role: 'Commercial Gateway', color: '#10b981', bg: 'bg-white border-emerald-300 text-emerald-900', badge: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
-          { code: 'BANK_C', name: 'Bank C', role: 'Cooperative Hub', color: '#a855f7', bg: 'bg-white border-purple-300 text-purple-900', badge: 'bg-purple-50 text-purple-700 border-purple-200' },
-          { code: 'BANK_D', name: 'Bank D', role: 'Federal Gateway', color: '#f59e0b', bg: 'bg-white border-amber-300 text-amber-900', badge: 'bg-amber-50 text-amber-700 border-amber-200' },
+          {
+            code: 'BANK_A',
+            name: 'Bank A',
+            role: 'Primary Settlement Switch',
+            color: '#0284c7',
+            containerClass: 'bg-blue-50/70 border-2 border-blue-200 text-slate-900',
+            nameClass: 'text-blue-950 font-extrabold text-sm',
+            roleClass: 'text-blue-700 font-bold text-xs',
+          },
+          {
+            code: 'BANK_B',
+            name: 'Bank B',
+            role: 'Commercial Gateway Rail',
+            color: '#059669',
+            containerClass: 'bg-emerald-50/70 border-2 border-emerald-200 text-slate-900',
+            nameClass: 'text-emerald-950 font-extrabold text-sm',
+            roleClass: 'text-emerald-700 font-bold text-xs',
+          },
+          {
+            code: 'BANK_C',
+            name: 'Bank C',
+            role: 'Regional Cooperative Hub',
+            color: '#7c3aed',
+            containerClass: 'bg-purple-50/70 border-2 border-purple-200 text-slate-900',
+            nameClass: 'text-purple-950 font-extrabold text-sm',
+            roleClass: 'text-purple-700 font-bold text-xs',
+          },
+          {
+            code: 'BANK_D',
+            name: 'Bank D',
+            role: 'Federal Gateway Rail',
+            color: '#d97706',
+            containerClass: 'bg-amber-50/70 border-2 border-amber-200 text-slate-900',
+            nameClass: 'text-amber-950 font-extrabold text-sm',
+            roleClass: 'text-amber-700 font-bold text-xs',
+          },
         ].map((b) => (
-          <div key={b.code} className={`p-3.5 rounded-xl border-2 flex items-center justify-between shadow-xs ${b.bg}`}>
-            <div className="flex items-center gap-2.5">
-              <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: b.color }} />
+          <div
+            key={b.code}
+            className={`p-4 rounded-xl flex items-center justify-between shadow-xs transition-all ${b.containerClass}`}
+          >
+            <div className="flex items-center gap-3">
+              <span className="w-3 h-3 rounded-full shrink-0 shadow-xs" style={{ backgroundColor: b.color }} />
               <div>
-                <span className="font-bold text-xs block text-slate-900">{b.name}</span>
-                <span className="text-[10px] text-slate-500 font-medium">{b.role}</span>
+                <span className={`block ${b.nameClass}`}>{b.name}</span>
+                <span className={`block mt-0.5 ${b.roleClass}`}>{b.role}</span>
               </div>
             </div>
-            <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border ${b.badge}`}>
+            <span className="text-[10px] font-mono font-extrabold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 shadow-xs flex items-center gap-1.5 shrink-0">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               ONLINE
             </span>
           </div>
         ))}
       </div>
 
-      {/* Navigation Tabs */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-slate-200 pb-2">
+      {/* Navigation Tabs - Bold Vivid Contrasting Pills */}
+      <div className="flex flex-wrap items-center gap-2 border-b border-slate-200 pb-3">
         {[
           { id: 'accounts', label: 'Account Predictions', icon: Brain },
           { id: 'transactions', label: 'Transaction Predictions', icon: Activity },
@@ -187,13 +232,13 @@ export default function GNNIntelligenceView() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 border ${
+              className={`px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center gap-2 border cursor-pointer ${
                 isSel
-                  ? 'bg-blue-50 text-blue-700 border-blue-200 shadow-xs font-bold'
-                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-500/20'
+                  : 'bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border-slate-300 shadow-xs'
               }`}
             >
-              <Icon className="w-3.5 h-3.5" />
+              <Icon className={`w-4 h-4 ${isSel ? 'text-white' : 'text-slate-500'}`} />
               <span>{tab.label}</span>
             </button>
           );
@@ -230,7 +275,7 @@ export default function GNNIntelligenceView() {
           <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
             <div className="overflow-x-auto max-h-[500px]">
               <table className="w-full text-left text-xs font-sans">
-                <thead className="bg-slate-50 sticky top-0 border-b border-slate-200 text-[10px] uppercase font-bold text-slate-500 font-mono tracking-wider">
+                <thead className="bg-slate-100 sticky top-0 border-b border-slate-300 text-xs uppercase font-extrabold text-slate-700 tracking-wider">
                   <tr>
                     <th className="py-3 px-4">Account ID</th>
                     <th className="py-3 px-4">Bank</th>
@@ -338,7 +383,7 @@ export default function GNNIntelligenceView() {
         <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
           <div className="overflow-x-auto max-h-[500px]">
             <table className="w-full text-left text-xs font-sans">
-              <thead className="bg-slate-50 sticky top-0 border-b border-slate-200 text-[10px] uppercase font-bold text-slate-500 font-mono tracking-wider">
+              <thead className="bg-slate-100 sticky top-0 border-b border-slate-300 text-xs uppercase font-extrabold text-slate-700 tracking-wider">
                 <tr>
                   <th className="py-3 px-4">Transaction ID</th>
                   <th className="py-3 px-4">Sender</th>
