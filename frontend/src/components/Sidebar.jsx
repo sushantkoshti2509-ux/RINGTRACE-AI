@@ -12,6 +12,7 @@ import {
   Lock,
   Shield,
   Cpu,
+  Sparkles,
 } from 'lucide-react';
 
 export default function Sidebar({ activeTab, setActiveTab }) {
@@ -62,6 +63,7 @@ export default function Sidebar({ activeTab, setActiveTab }) {
   ];
 
   const secondaryNavItems = [
+    { id: 'landing', label: 'Platform Showcase', icon: Sparkles, badge: 'AURALIS' },
     { id: 'gnn', label: 'GNN Intelligence Center', icon: Cpu, badge: 'PHASE 7' },
     { id: 'interception', label: 'Interception & ROI Simulator', icon: ShieldAlert, badge: 'PROACTIVE' },
     { id: 'digital_twin', label: 'Digital Twin Simulator', icon: Zap, badge: 'SIMULATOR' },

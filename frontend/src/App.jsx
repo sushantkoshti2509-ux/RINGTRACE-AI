@@ -15,6 +15,7 @@ import MuleRingCanvas from './components/MuleRingCanvas';
 import InterceptionSimulator from './components/InterceptionSimulator';
 import DigitalTwinSimulator from './components/DigitalTwinSimulator';
 import GNNIntelligenceView from './views/GNNIntelligenceView';
+import LandingPageView from './views/LandingPageView';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -122,6 +123,7 @@ export default function App() {
 
           {/* Active Module Workstation */}
           <div>
+            {activeTab === 'landing' && <LandingPageView onLaunchDashboard={() => setActiveTab('dashboard')} />}
             {activeTab === 'dashboard' && <MonitoringView />}
             {activeTab === 'network' && (
               <div className="flex flex-col gap-6">
