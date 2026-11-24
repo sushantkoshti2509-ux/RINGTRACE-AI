@@ -61,18 +61,20 @@ export default function App() {
     fetchInit();
   }, []);
 
-  const handleRunSimulation = async ({ strategyKey, delayMinutes }) => {
+  const handleRunSimulation = async ({ strategyKey, strategy_key, delayMinutes, delay_minutes, target_account_id, target_node }) => {
     setIsSimulating(true);
     try {
-      const target = selectedTargetNode || (bottlenecks[0]?.node_id) || 'BANK_A:BANK_MULE_00001';
+      const target = target_account_id || target_node || selectedTargetNode || (bottlenecks[0]?.node_id) || 'BANK_A:BANK_MULE_00001';
+      const strat = strategyKey || strategy_key || 'COOLING_OFF_DELAY';
+      const delay = delayMinutes !== undefined ? delayMinutes : (delay_minutes !== undefined ? delay_minutes : 60);
       const res = await apiFetch('/api/v1/interception/simulate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ring_id: 'RING_001',
           target_node: target,
-          strategy_key: strategyKey,
-          delay_minutes: delayMinutes,
+          strategy_key: strat,
+          delay_minutes: delay,
           officer_id: 'REGULATORY-NODAL-804',
         }),
       });
@@ -193,7 +195,22 @@ export default function App() {
 
           {/* Active Module Workstation */}
           <div>
-            {activeTab === 'dashboard' && <MonitoringView />}
+            {activeTab === 'dashboard' && (
+              <MonitoringView
+                nodes={nodes}
+                edges={edges}
+                bottlenecks={bottlenecks}
+                selectedNodeId={selectedNodeId}
+                setSelectedNodeId={setSelectedNodeId}
+                selectedTargetNode={selectedTargetNode}
+                setSelectedTargetNode={setSelectedTargetNode}
+                simulationResult={simulationResult}
+                isSimulating={isSimulating}
+                isPostDisruption={isPostDisruption}
+                setIsPostDisruption={setIsPostDisruption}
+                onRunSimulation={handleRunSimulation}
+              />
+            )}
             {activeTab === 'network' && (
               <div className="flex flex-col gap-6">
                 <NetworkExplorerView />
