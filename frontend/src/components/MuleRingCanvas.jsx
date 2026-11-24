@@ -26,122 +26,66 @@ const nodeTypes = {
   muleNode: MuleNode,
 };
 
-// 4-Bank Interconnected Layout Generator with pristine geometry and zero line-crossing
-function layoutEcosystemNodes(nodes, layoutMode = 'quadrant', topologyType = 'CIRCULAR') {
-  if (layoutMode === 'flow' || topologyType === 'LAYERED') {
+function getBankKey(node) {
+  const raw = (node.bank || node.id || '').toUpperCase();
+  if (raw.includes('_B') || raw.includes(':B') || raw.endsWith('BANK_B') || raw.includes('BANK B')) return 'BANK_B';
+  if (raw.includes('_C') || raw.includes(':C') || raw.endsWith('BANK_C') || raw.includes('BANK C')) return 'BANK_C';
+  if (raw.includes('_D') || raw.includes(':D') || raw.endsWith('BANK_D') || raw.includes('BANK D')) return 'BANK_D';
+  return 'BANK_A';
+}
+
+// 4-Bank Interconnected Layout Generator with balanced quadrant spacing & zero line-crossing
+function layoutEcosystemNodes(nodes, layoutMode = 'quadrant') {
+  if (layoutMode === 'flow') {
     // Left-to-right pass-through pipeline across Bank A -> Bank B -> Bank C -> Bank D
     const pos = {};
     const bankOrder = ['BANK_A', 'BANK_B', 'BANK_C', 'BANK_D'];
     const bankBuckets = { BANK_A: [], BANK_B: [], BANK_C: [], BANK_D: [] };
     nodes.forEach((n) => {
-      const b = (n.bank || n.id.split(':')[0] || 'BANK_A').toUpperCase();
-      if (b.includes('B')) bankBuckets.BANK_B.push(n);
-      else if (b.includes('C')) bankBuckets.BANK_C.push(n);
-      else if (b.includes('D')) bankBuckets.BANK_D.push(n);
-      else bankBuckets.BANK_A.push(n);
+      const bKey = getBankKey(n);
+      bankBuckets[bKey].push(n);
     });
     bankOrder.forEach((bKey, colIdx) => {
       bankBuckets[bKey].forEach((n, rowIdx) => {
         pos[n.id] = {
-          x: 60 + colIdx * 230,
-          y: 200 + (rowIdx - (bankBuckets[bKey].length - 1) / 2) * 130,
+          x: 60 + colIdx * 270,
+          y: 100 + rowIdx * 170,
         };
       });
     });
     return pos;
   }
 
-  if (topologyType === 'FAN_IN') {
-    // 3 Feeder banks on Left (Bank A, Bank B, Bank D) pointing into 1 Collector (Bank C) on Right
-    const pos = {};
-    const feeders = [];
-    let collector = null;
-    nodes.forEach((n) => {
-      const role = (n.role || '').toLowerCase();
-      const b = (n.bank || n.id.split(':')[0] || '').toUpperCase();
-      if (role.includes('collector') || role.includes('aggregator') || b.includes('C')) {
-        collector = n;
-      } else {
-        feeders.push(n);
-      }
-    });
-    feeders.forEach((n, idx) => {
-      pos[n.id] = {
-        x: 80,
-        y: 80 + idx * 140,
-      };
-    });
-    if (collector) {
-      pos[collector.id] = {
-        x: 640,
-        y: 220,
-      };
-    }
-    return pos;
-  }
-
-  if (topologyType === 'FAN_OUT') {
-    // 1 Distributor on Left (Bank A) disbursing to 3 Exit Mules on Right (Bank B, C, D)
-    const pos = {};
-    let distributor = null;
-    const receivers = [];
-    nodes.forEach((n) => {
-      const role = (n.role || '').toLowerCase();
-      const b = (n.bank || n.id.split(':')[0] || '').toUpperCase();
-      if (role.includes('distributor') || role.includes('splitter') || b.includes('A')) {
-        distributor = n;
-      } else {
-        receivers.push(n);
-      }
-    });
-    if (distributor) {
-      pos[distributor.id] = {
-        x: 80,
-        y: 220,
-      };
-    }
-    receivers.forEach((n, idx) => {
-      pos[n.id] = {
-        x: 640,
-        y: 80 + idx * 140,
-      };
-    });
-    return pos;
-  }
-
-  // Circular & Hybrid 4-Corner Layout:
-  // Bank A (Top-Left)     ────►   Bank B (Top-Right)
-  //        ▲                               │
-  //        │                               ▼
-  // Bank D (Bottom-Left)  ◄────   Bank C (Bottom-Right)
+  // Unified 4-Quadrant Institutional Ecosystem:
+  // Bank A (Top-Left: 60, 70)       ────────►   Bank B (Top-Right: 680, 70)
+  //         ▲                                             │
+  //         │                                             ▼
+  // Bank D (Bottom-Left: 60, 390)    ◄────────   Bank C (Bottom-Right: 680, 390)
   const pos = {};
   const buckets = { BANK_A: [], BANK_B: [], BANK_C: [], BANK_D: [] };
   nodes.forEach((n) => {
-    const b = (n.bank || n.id.split(':')[0] || 'BANK_A').toUpperCase();
-    if (b.includes('B')) buckets.BANK_B.push(n);
-    else if (b.includes('C')) buckets.BANK_C.push(n);
-    else if (b.includes('D')) buckets.BANK_D.push(n);
-    else buckets.BANK_A.push(n);
+    const bKey = getBankKey(n);
+    buckets[bKey].push(n);
   });
 
-  // Top-Left: Bank A
+  // Top-Left: Bank A (Retail Clearing Hub)
   buckets.BANK_A.forEach((n, i) => {
-    pos[n.id] = { x: 80, y: 70 + i * 130 };
+    pos[n.id] = { x: 60, y: 70 + i * 140 };
   });
 
-  // Top-Right: Bank B
+  // Top-Right: Bank B (Corporate Treasury Core)
   buckets.BANK_B.forEach((n, i) => {
-    pos[n.id] = { x: 640, y: 70 + i * 130 };
+    pos[n.id] = { x: 680, y: 70 + i * 140 };
   });
 
-  // Bottom-Right: Bank C
+  // Bottom-Right: Bank C (Regional Cooperative Society)
   buckets.BANK_C.forEach((n, i) => {
-    pos[n.id] = { x: 640, y: 340 + i * 130 };
+    pos[n.id] = { x: 680, y: 390 + i * 140 };
   });
 
-  // Bottom-Left: Bank D
+  // Bottom-Left: Bank D (Wealth & Remittance Gateway)
   buckets.BANK_D.forEach((n, i) => {
-    pos[n.id] = { x: 80, y: 340 + i * 130 };
+    pos[n.id] = { x: 60, y: 390 + i * 140 };
   });
 
   return pos;
@@ -296,6 +240,8 @@ export default function MuleRingCanvas({
         id: e.id,
         source: e.source,
         target: e.target,
+        type: 'smoothstep',
+        pathOptions: { borderRadius: 16 },
         animated: isSuspicious,
         style: {
           stroke: strokeColor,
@@ -388,29 +334,48 @@ export default function MuleRingCanvas({
       </div>
 
       {/* React Flow Canvas Body */}
-      <div className="relative w-full h-[540px] bg-[#080d1a]">
+      <div className="relative w-full h-[600px] bg-[#080d1a]">
         {/* Institutional Quadrant Watermark Overlays (Clockwise 4-Bank Topology: A -> B -> C -> D -> A) */}
         {layoutMode === 'quadrant' && (
-          <div className="absolute inset-0 pointer-events-none grid grid-cols-2 grid-rows-2 p-5 gap-6 opacity-35">
-            <div className="border border-cyan-500/25 rounded-2xl p-3 flex flex-col justify-start">
-              <span className="text-[10px] font-extrabold tracking-widest text-cyan-400 uppercase">
-                BANK A • Retail Clearing Hub (A101 · A102)
-              </span>
+          <div className="absolute inset-0 pointer-events-none grid grid-cols-2 grid-rows-2 p-5 gap-6">
+            {/* Top-Left: Bank A */}
+            <div className="border border-cyan-500/25 bg-cyan-950/10 rounded-2xl p-3 flex flex-col justify-start">
+              <div className="inline-flex items-center gap-1.5 w-fit px-2.5 py-1 rounded-lg bg-cyan-950/70 border border-cyan-500/40 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                <span className="text-[10px] font-extrabold tracking-widest text-cyan-300 uppercase">
+                  BANK A • Retail Clearing Hub (A101 · A102)
+                </span>
+              </div>
             </div>
-            <div className="border border-emerald-500/25 rounded-2xl p-3 flex flex-col justify-start items-end">
-              <span className="text-[10px] font-extrabold tracking-widest text-emerald-400 uppercase">
-                BANK B • Corporate Treasury Core (B201 · B205)
-              </span>
+
+            {/* Top-Right: Bank B */}
+            <div className="border border-emerald-500/25 bg-emerald-950/10 rounded-2xl p-3 flex flex-col justify-start items-end">
+              <div className="inline-flex items-center gap-1.5 w-fit px-2.5 py-1 rounded-lg bg-emerald-950/70 border border-emerald-500/40 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-[10px] font-extrabold tracking-widest text-emerald-300 uppercase">
+                  BANK B • Corporate Treasury Core (B201 · B205)
+                </span>
+              </div>
             </div>
-            <div className="border border-amber-500/25 rounded-2xl p-3 flex flex-col justify-end">
-              <span className="text-[10px] font-extrabold tracking-widest text-amber-400 uppercase">
-                BANK D • Wealth & Remittance Gateway (D401 · D410)
-              </span>
+
+            {/* Bottom-Left: Bank D */}
+            <div className="border border-amber-500/25 bg-amber-950/10 rounded-2xl p-3 flex flex-col justify-end">
+              <div className="inline-flex items-center gap-1.5 w-fit px-2.5 py-1 rounded-lg bg-amber-950/70 border border-amber-500/40 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                <span className="text-[10px] font-extrabold tracking-widest text-amber-300 uppercase">
+                  BANK D • Wealth & Remittance Gateway (D401 · D410)
+                </span>
+              </div>
             </div>
-            <div className="border border-purple-500/25 rounded-2xl p-3 flex flex-col justify-end items-end">
-              <span className="text-[10px] font-extrabold tracking-widest text-purple-400 uppercase">
-                BANK C • Regional Cooperative Society (C301 · C310)
-              </span>
+
+            {/* Bottom-Right: Bank C */}
+            <div className="border border-purple-500/25 bg-purple-950/10 rounded-2xl p-3 flex flex-col justify-end items-end">
+              <div className="inline-flex items-center gap-1.5 w-fit px-2.5 py-1 rounded-lg bg-purple-950/70 border border-purple-500/40 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+                <span className="text-[10px] font-extrabold tracking-widest text-purple-300 uppercase">
+                  BANK C • Regional Cooperative Society (C301 · C310)
+                </span>
+              </div>
             </div>
           </div>
         )}
