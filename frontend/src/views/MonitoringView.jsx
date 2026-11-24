@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { apiFetch } from '../api';
 import GNNGraphDashboard from '../components/GNNGraphDashboard';
-import MuleRingCanvas from '../components/MuleRingCanvas';
-import InterceptionSimulator from '../components/InterceptionSimulator';
 import {
   Search,
   Filter,
@@ -109,95 +107,7 @@ const INITIAL_TRANSACTIONS = [
   },
 ];
 
-export default function MonitoringView({
-  nodes: propNodes,
-  edges: propEdges,
-  bottlenecks: propBottlenecks,
-  selectedNodeId: propSelectedNodeId,
-  setSelectedNodeId: propSetSelectedNodeId,
-  selectedTargetNode: propSelectedTargetNode,
-  setSelectedTargetNode: propSetSelectedTargetNode,
-  simulationResult: propSimulationResult,
-  isSimulating: propIsSimulating,
-  isPostDisruption: propIsPostDisruption,
-  setIsPostDisruption: propSetIsPostDisruption,
-  onRunSimulation: propOnRunSimulation,
-}) {
-  const [internalNodes, setInternalNodes] = useState([]);
-  const [internalEdges, setInternalEdges] = useState([]);
-  const [internalBottlenecks, setInternalBottlenecks] = useState([]);
-  const [internalSelectedNodeId, setInternalSelectedNodeId] = useState(null);
-  const [internalSelectedTargetNode, setInternalSelectedTargetNode] = useState(null);
-  const [internalSimulationResult, setInternalSimulationResult] = useState(null);
-  const [internalIsSimulating, setInternalIsSimulating] = useState(false);
-  const [internalIsPostDisruption, setInternalIsPostDisruption] = useState(false);
-
-  const [activeNetworkView, setActiveNetworkView] = useState('both'); // 'synthetic_canvas' | 'gnn_graph' | 'both'
-
-  const nodes = propNodes && propNodes.length > 0 ? propNodes : internalNodes;
-  const edges = propEdges && propEdges.length > 0 ? propEdges : internalEdges;
-  const bottlenecks = propBottlenecks && propBottlenecks.length > 0 ? propBottlenecks : internalBottlenecks;
-  const selectedNodeId = propSelectedNodeId !== undefined ? propSelectedNodeId : internalSelectedNodeId;
-  const setSelectedNodeId = propSetSelectedNodeId || setInternalSelectedNodeId;
-  const selectedTargetNode = propSelectedTargetNode !== undefined ? propSelectedTargetNode : internalSelectedTargetNode;
-  const setSelectedTargetNode = propSetSelectedTargetNode || setInternalSelectedTargetNode;
-  const simulationResult = propSimulationResult !== undefined ? propSimulationResult : internalSimulationResult;
-  const isSimulating = propIsSimulating !== undefined ? propIsSimulating : internalIsSimulating;
-  const isPostDisruption = propIsPostDisruption !== undefined ? propIsPostDisruption : internalIsPostDisruption;
-  const setIsPostDisruption = propSetIsPostDisruption || setInternalIsPostDisruption;
-
-  const handleRunSimulation = propOnRunSimulation || (async ({ strategyKey, strategy_key, delayMinutes, delay_minutes, target_account_id, target_node }) => {
-    setInternalIsSimulating(true);
-    try {
-      const target = target_account_id || target_node || selectedTargetNode || (bottlenecks[0]?.node_id) || 'BANK_A:BANK_MULE_00001';
-      const strat = strategyKey || strategy_key || 'COOLING_OFF_DELAY';
-      const delay = delayMinutes !== undefined ? delayMinutes : (delay_minutes !== undefined ? delay_minutes : 60);
-      const res = await apiFetch('/api/v1/interception/simulate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ring_id: 'RING_001',
-          target_node: target,
-          strategy_key: strat,
-          delay_minutes: delay,
-          officer_id: 'REGULATORY-NODAL-804',
-        }),
-      });
-
-      if (res.ok) {
-        const result = await res.json();
-        setInternalSimulationResult(result);
-        setIsPostDisruption(true);
-      }
-    } catch (err) {
-      console.error('Simulation error:', err);
-    } finally {
-      setInternalIsSimulating(false);
-    }
-  });
-
-  useEffect(() => {
-    if (!propNodes || propNodes.length === 0) {
-      const fetchTop = async () => {
-        try {
-          const res = await apiFetch('/api/v1/interception/topology');
-          if (res.ok) {
-            const data = await res.json();
-            setInternalNodes(data.nodes || []);
-            setInternalEdges(data.edges || []);
-            setInternalBottlenecks(data.bottlenecks || []);
-            if (data.bottlenecks?.length > 0) {
-              setInternalSelectedTargetNode(data.bottlenecks[0].node_id);
-            }
-          }
-        } catch (e) {
-          console.warn('Topology fetch error:', e);
-        }
-      };
-      fetchTop();
-    }
-  }, [propNodes]);
-
+export default function MonitoringView() {
   const [transactions, setTransactions] = useState(INITIAL_TRANSACTIONS);
   const [totalCount, setTotalCount] = useState(27743);
   const [bankFilter, setBankFilter] = useState('ALL');
@@ -283,107 +193,10 @@ export default function MonitoringView({
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Network Intelligence Workstation Header & View Switcher */}
-      <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
-        <div>
-          <div className="flex items-center gap-2">
-            <h2 className="font-extrabold text-base text-slate-900 tracking-tight">
-              Multi-Bank Network Intelligence & Visual Defense
-            </h2>
-            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-extrabold bg-blue-50 text-blue-700 border border-blue-200">
-              Live Inter-Bank Topology
-            </span>
-          </div>
-          <p className="text-xs text-slate-500 font-semibold mt-0.5">
-            Synthetic multi-bank mule ring design, automated bottleneck severance, and relational GNN detections
-          </p>
-        </div>
-
-        <div className="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs font-bold">
-          <button
-            onClick={() => setActiveNetworkView('synthetic_canvas')}
-            className={`px-3 py-1.5 rounded-lg transition-all ${
-              activeNetworkView === 'synthetic_canvas'
-                ? 'bg-blue-600 text-white font-extrabold shadow-xs'
-                : 'text-slate-700 hover:text-slate-900 hover:bg-slate-200/60'
-            }`}
-          >
-            Multi-Bank Synthetic Canvas & Interception
-          </button>
-          <button
-            onClick={() => setActiveNetworkView('gnn_graph')}
-            className={`px-3 py-1.5 rounded-lg transition-all ${
-              activeNetworkView === 'gnn_graph'
-                ? 'bg-blue-600 text-white font-extrabold shadow-xs'
-                : 'text-slate-700 hover:text-slate-900 hover:bg-slate-200/60'
-            }`}
-          >
-            Four-Bank GNN Relational Network
-          </button>
-          <button
-            onClick={() => setActiveNetworkView('both')}
-            className={`px-3 py-1.5 rounded-lg transition-all ${
-              activeNetworkView === 'both'
-                ? 'bg-blue-600 text-white font-extrabold shadow-xs'
-                : 'text-slate-700 hover:text-slate-900 hover:bg-slate-200/60'
-            }`}
-          >
-            Show Both Stacked
-          </button>
-        </div>
-      </div>
-
-      {/* Multi-Bank Synthetic Network Design & Interception Canvas */}
-      {(activeNetworkView === 'synthetic_canvas' || activeNetworkView === 'both') && (
-        <div id="synthetic-canvas-card" className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col gap-4">
-          <div className="flex flex-wrap items-center justify-between border-b border-slate-100 pb-3 gap-2">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                Multi-Bank Synthetic Network Design & Interception Canvas
-              </span>
-              <span className="text-[10px] text-blue-600 font-mono font-bold bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-100">
-                React Flow DAG
-              </span>
-            </div>
-            <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
-              <span>Interactive Multi-Bank Topology (Bank A · B · C · D)</span>
-            </div>
-          </div>
-
-          <MuleRingCanvas
-            nodesData={nodes}
-            edgesData={edges}
-            selectedNodeId={selectedNodeId}
-            onSelectNode={(id) => {
-              setSelectedNodeId(id);
-              setSelectedTargetNode(id);
-              handleFilterAccount(id);
-            }}
-            targetNodeId={selectedTargetNode}
-            neutralizedNodes={simulationResult?.downstream_nodes_list || []}
-            severedEdges={simulationResult?.severed_edges || []}
-            isPostDisruption={isPostDisruption}
-            onToggleDisruption={setIsPostDisruption}
-          />
-
-          <InterceptionSimulator
-            nodes={nodes}
-            bottlenecks={bottlenecks}
-            selectedTargetNode={selectedTargetNode}
-            onSelectTargetNode={setSelectedTargetNode}
-            onRunSimulation={handleRunSimulation}
-            simulationResult={simulationResult}
-            isLoading={isSimulating}
-          />
-        </div>
-      )}
-
       {/* Four-Bank Unified Relational Fraud Network (GNN Graph) */}
-      {(activeNetworkView === 'gnn_graph' || activeNetworkView === 'both') && (
-        <div id="gnn-network-card" className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-1">
-          <GNNGraphDashboard onFilterAccount={handleFilterAccount} />
-        </div>
-      )}
+      <div id="gnn-network-card" className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-1">
+        <GNNGraphDashboard onFilterAccount={handleFilterAccount} />
+      </div>
 
       {/* Row 4: Status Table (Matching "Employees status" Template Table) */}
       <div id="transaction-status-table" className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">

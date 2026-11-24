@@ -195,22 +195,7 @@ export default function App() {
 
           {/* Active Module Workstation */}
           <div>
-            {activeTab === 'dashboard' && (
-              <MonitoringView
-                nodes={nodes}
-                edges={edges}
-                bottlenecks={bottlenecks}
-                selectedNodeId={selectedNodeId}
-                setSelectedNodeId={setSelectedNodeId}
-                selectedTargetNode={selectedTargetNode}
-                setSelectedTargetNode={setSelectedTargetNode}
-                simulationResult={simulationResult}
-                isSimulating={isSimulating}
-                isPostDisruption={isPostDisruption}
-                setIsPostDisruption={setIsPostDisruption}
-                onRunSimulation={handleRunSimulation}
-              />
-            )}
+            {activeTab === 'dashboard' && <MonitoringView />}
             {activeTab === 'network' && (
               <div className="flex flex-col gap-6">
                 <NetworkExplorerView />
