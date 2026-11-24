@@ -537,7 +537,7 @@ export default function MonitoringView() {
             <div className="mt-5 pt-3 border-t border-slate-100 flex justify-end">
               <button
                 onClick={() => setSelectedTx(null)}
-                className="px-4 py-2 rounded-xl bg-slate-900 text-white font-semibold text-xs hover:bg-slate-800"
+                className="px-5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs shadow-xs transition-colors cursor-pointer"
               >
                 Close
               </button>

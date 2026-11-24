@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart3, Lightbulb, Zap, ShieldCheck, ArrowUpRight, ArrowDownRight } from 'lucide-react';
+import { BarChart3, AlertOctagon, Zap, ShieldCheck } from 'lucide-react';
 
 export default function KPIMetricsBar({ summary = {} }) {
   const cards = [
@@ -7,41 +7,37 @@ export default function KPIMetricsBar({ summary = {} }) {
       label: 'NEW ACCOUNTS / RECONCILED',
       value: (summary.total_transactions || 46380).toLocaleString(),
       badgeIcon: BarChart3,
-      badgeColor: 'text-emerald-600',
+      iconColor: 'text-blue-600',
+      iconBg: 'bg-blue-50 border border-blue-200',
       trend: '↑ 15.4% increase this month',
-      trendColor: 'text-emerald-400',
-      bgClass: 'bg-gradient-to-br from-[#1e3a8a] to-[#1e40af] text-white',
-      labelColor: 'text-blue-100 font-extrabold',
+      trendColor: 'text-emerald-700 font-bold',
     },
     {
       label: 'FLAGGED HIGH-RISK MULES',
       value: (summary.high_risk_count || 128).toLocaleString(),
-      badgeIcon: Lightbulb,
-      badgeColor: 'text-blue-600',
+      badgeIcon: AlertOctagon,
+      iconColor: 'text-rose-600',
+      iconBg: 'bg-rose-50 border border-rose-200',
       trend: '↑ 7.4% same as before',
-      trendColor: 'text-blue-200',
-      bgClass: 'bg-gradient-to-r from-[#1e2d42] to-[#14233a] text-white',
-      labelColor: 'text-slate-200 font-extrabold',
+      trendColor: 'text-rose-700 font-bold',
     },
     {
       label: 'INTERCEPTION LATENCY',
       value: '11.4 ms',
       badgeIcon: Zap,
-      badgeColor: 'text-indigo-600',
+      iconColor: 'text-indigo-600',
+      iconBg: 'bg-indigo-50 border border-indigo-200',
       trend: '↓ 15.4% less latency',
-      trendColor: 'text-indigo-100',
-      bgClass: 'bg-gradient-to-r from-[#4f46e5] to-[#6366f1] text-white',
-      labelColor: 'text-indigo-100 font-extrabold',
+      trendColor: 'text-indigo-700 font-bold',
     },
     {
       label: 'FINANCIAL CAPITAL SHIELDED',
       value: '₹3.42 Cr',
       badgeIcon: ShieldCheck,
-      badgeColor: 'text-teal-600',
+      iconColor: 'text-emerald-600',
+      iconBg: 'bg-emerald-50 border border-emerald-200',
       trend: '↑ 24.1% prevented loss',
-      trendColor: 'text-teal-100',
-      bgClass: 'bg-gradient-to-r from-[#0d9488] to-[#059669] text-white',
-      labelColor: 'text-teal-100 font-extrabold',
+      trendColor: 'text-emerald-700 font-bold',
     },
   ];
 
@@ -52,23 +48,23 @@ export default function KPIMetricsBar({ summary = {} }) {
         return (
           <div
             key={idx}
-            className={`rounded-2xl p-5 shadow-sm transition-all hover:shadow-md flex flex-col justify-between ${c.bgClass}`}
+            className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm transition-all hover:shadow-md flex flex-col justify-between"
           >
             <div className="flex items-start justify-between">
               <div>
-                <span className={`text-xs font-extrabold tracking-wider uppercase block ${c.labelColor}`}>
+                <span className="text-xs font-extrabold tracking-wider uppercase block text-slate-500">
                   {c.label}
                 </span>
-                <div className="text-3xl md:text-4xl font-extrabold font-mono mt-2 tracking-tight">
+                <div className="text-3xl md:text-4xl font-extrabold font-mono text-slate-900 mt-2 tracking-tight">
                   {c.value}
                 </div>
               </div>
-              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0">
-                <Icon className={`w-5 h-5 ${c.badgeColor}`} />
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-xs shrink-0 ${c.iconBg}`}>
+                <Icon className={`w-5 h-5 ${c.iconColor}`} />
               </div>
             </div>
 
-            <div className={`text-xs font-bold mt-4 flex items-center gap-1 ${c.trendColor}`}>
+            <div className={`text-xs mt-4 flex items-center gap-1 ${c.trendColor}`}>
               <span>{c.trend}</span>
             </div>
           </div>
