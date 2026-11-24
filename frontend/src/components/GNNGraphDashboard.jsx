@@ -35,8 +35,8 @@ const nodeTypes = {
 };
 
 // 4-Bank Interconnected Layout Generator with pristine geometry and zero line-crossing
-function layoutEcosystemNodes(nodes, layoutMode = 'quadrant', topologyType = 'CIRCULAR') {
-  if (layoutMode === 'flow' || topologyType === 'LAYERED') {
+function layoutEcosystemNodes(nodes, layoutMode = 'quadrant') {
+  if (layoutMode === 'flow') {
     // Left-to-right pass-through pipeline across Bank A -> Bank B -> Bank C -> Bank D
     const pos = {};
     const bankOrder = ['BANK_A', 'BANK_B', 'BANK_C', 'BANK_D'];
@@ -59,65 +59,7 @@ function layoutEcosystemNodes(nodes, layoutMode = 'quadrant', topologyType = 'CI
     return pos;
   }
 
-  if (topologyType === 'FAN_IN') {
-    // 3 Feeder banks on Left (Bank A, Bank B, Bank D) pointing into 1 Collector (Bank C) on Right
-    const pos = {};
-    const feeders = [];
-    let collector = null;
-    nodes.forEach((n) => {
-      const role = (n.role || '').toLowerCase();
-      const b = (n.bank || n.id.split(':')[0] || '').toUpperCase();
-      if (role.includes('collector') || role.includes('aggregator') || b.includes('C')) {
-        collector = n;
-      } else {
-        feeders.push(n);
-      }
-    });
-    feeders.forEach((n, idx) => {
-      pos[n.id] = {
-        x: 80,
-        y: 80 + idx * 140,
-      };
-    });
-    if (collector) {
-      pos[collector.id] = {
-        x: 640,
-        y: 220,
-      };
-    }
-    return pos;
-  }
-
-  if (topologyType === 'FAN_OUT') {
-    // 1 Distributor on Left (Bank A) disbursing to 3 Exit Mules on Right (Bank B, C, D)
-    const pos = {};
-    let distributor = null;
-    const receivers = [];
-    nodes.forEach((n) => {
-      const role = (n.role || '').toLowerCase();
-      const b = (n.bank || n.id.split(':')[0] || '').toUpperCase();
-      if (role.includes('distributor') || role.includes('splitter') || b.includes('A')) {
-        distributor = n;
-      } else {
-        receivers.push(n);
-      }
-    });
-    if (distributor) {
-      pos[distributor.id] = {
-        x: 80,
-        y: 220,
-      };
-    }
-    receivers.forEach((n, idx) => {
-      pos[n.id] = {
-        x: 640,
-        y: 80 + idx * 140,
-      };
-    });
-    return pos;
-  }
-
-  // Circular & Hybrid 4-Corner Layout:
+  // Unified 4-Corner Layout:
   // Bank A (Top-Left)     ────►   Bank B (Top-Right)
   //        ▲                               │
   //        │                               ▼
@@ -155,32 +97,22 @@ function layoutEcosystemNodes(nodes, layoutMode = 'quadrant', topologyType = 'CI
   return pos;
 }
 
-const TOPOLOGIES = [
-  { id: 'CIRCULAR', label: '🔄 1. Circular Loop', desc: 'Money moves A➔B➔C➔D and returns to A' },
-  { id: 'LAYERED', label: '🪜 2. Layered Chain', desc: 'Sequential multi-hop transit across banks' },
-  { id: 'FAN_IN', label: '📥 3. Fan-In (Smurfing)', desc: 'Multiple bank feeders funnel to one collector' },
-  { id: 'FAN_OUT', label: '📤 4. Fan-Out (Dispersion)', desc: 'One distributor splits to cash-out mules' },
-  { id: 'HYBRID', label: '🌐 5. Hybrid Ecosystem', desc: 'Full unified 4-bank interconnected clearing mesh' },
-];
-
 export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
   const [nodes, setNodes] = useState([]);
   const [edges, setEdges] = useState([]);
   const [gnnPredictions, setGnnPredictions] = useState({});
   const [selectedNodeId, setSelectedNodeId] = useState(null);
-  const [selectedTopology, setSelectedTopology] = useState('CIRCULAR');
   const [topologyInfo, setTopologyInfo] = useState(null);
   const [bankFilter, setBankFilter] = useState('ALL');
   const [layoutMode, setLayoutMode] = useState('quadrant'); // 'quadrant' | 'flow'
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [showExplainer, setShowExplainer] = useState(true);
 
-  const fetchGraphData = async (topoType = selectedTopology) => {
+  const fetchGraphData = async () => {
     setIsLoading(true);
     try {
       const [topRes, gnnRes] = await Promise.all([
-        apiFetch(`/api/v1/interception/topology?topology_type=${encodeURIComponent(topoType)}`),
+        apiFetch('/api/v1/interception/topology?topology_type=HYBRID'),
         apiFetch('/api/v1/gnn/predictions/accounts?limit=60'),
       ]);
 
@@ -210,13 +142,13 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
   };
 
   useEffect(() => {
-    fetchGraphData(selectedTopology);
-  }, [selectedTopology]);
+    fetchGraphData();
+  }, []);
 
   // Compute positions
   const nodePositions = useMemo(() => {
-    return layoutEcosystemNodes(nodes, layoutMode, selectedTopology);
-  }, [nodes, layoutMode, selectedTopology]);
+    return layoutEcosystemNodes(nodes, layoutMode);
+  }, [nodes, layoutMode]);
 
   // Convert to ReactFlow nodes with active highlighting
   const flowNodes = useMemo(() => {
@@ -330,23 +262,23 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
       {/* Top Banner Toolbar */}
       <div className="p-4 bg-slate-900/95 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-cyan-500 to-emerald-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
             <Brain className="w-5 h-5 text-white" />
           </div>
           <div>
             <div className="flex items-center gap-2">
               <span className="font-extrabold text-sm text-white tracking-tight flex items-center gap-1.5">
-                <span>GNN Relational Fraud Network Topology</span>
+                <span>Four-Bank Unified Relational Fraud Network</span>
                 <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
-                  Four-Bank Graph
+                  Bank A · B · C · D
                 </span>
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
-                  Phase 7 GINE + GATv2
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  Unified Ecosystem
                 </span>
               </span>
             </div>
             <div className="text-[11px] text-slate-400 mt-0.5">
-              Intelligence layer: accounts from Bank A, Bank B, Bank C, Bank D organized into a graph where GNN learns suspicious structural relationships
+              One unified network combining accounts and transactions across all four banks with GNN relational fraud detection
             </div>
           </div>
         </div>
@@ -380,22 +312,8 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
             <span>{layoutMode === 'quadrant' ? '4-Bank Quadrants' : 'Flow DAG'}</span>
           </button>
 
-          {/* Toggle Explainer */}
           <button
-            onClick={() => setShowExplainer(!showExplainer)}
-            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold border flex items-center gap-1.5 transition-colors ${
-              showExplainer
-                ? 'bg-purple-600/30 border-purple-500/50 text-purple-200'
-                : 'bg-slate-800 border-slate-700 text-slate-300'
-            }`}
-            title="Toggle 'What is Happening' explanation card"
-          >
-            <Info className="w-3.5 h-3.5 text-purple-400" />
-            <span>Explainer</span>
-          </button>
-
-          <button
-            onClick={() => fetchGraphData(selectedTopology)}
+            onClick={fetchGraphData}
             disabled={isLoading}
             className="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors"
             title="Refresh GNN Topology"
@@ -413,107 +331,11 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
         </div>
       </div>
 
-      {/* Relational Topologies Selector Bar (5 Important Relational Topologies) */}
-      {!isCollapsed && (
-        <div className="px-4 py-2.5 bg-slate-950 border-b border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs">
-          <div className="flex items-center gap-1.5 font-bold text-slate-300">
-            <span className="text-cyan-400 font-mono text-[11px] uppercase tracking-wider">Topologies:</span>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-1.5">
-            {TOPOLOGIES.map((t) => {
-              const isActive = selectedTopology === t.id;
-              return (
-                <button
-                  key={t.id}
-                  onClick={() => setSelectedTopology(t.id)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border shadow-sm ${
-                    isActive
-                      ? 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white border-cyan-400/80 shadow-cyan-500/20 ring-1 ring-cyan-400/50 scale-[1.02]'
-                      : 'bg-slate-900/90 hover:bg-slate-850 text-slate-300 border-slate-700/80'
-                  }`}
-                  title={t.desc}
-                >
-                  <span>{t.label}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
-      {/* "What is Happening?" Interactive Explainability Banner */}
-      {!isCollapsed && showExplainer && topologyInfo && (
-        <div className="bg-slate-900/95 border-b border-slate-800 p-4 flex flex-col gap-3 transition-all animate-fadeIn">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-2.5">
-            <div className="flex items-center gap-2">
-              <span className="px-2.5 py-1 rounded-md text-[11px] font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
-                {topologyInfo.badge || 'Relational Pattern Intelligence'}
-              </span>
-              <h3 className="text-sm font-extrabold text-white tracking-tight">
-                {topologyInfo.title || 'Relational Fraud Network Topology'}
-              </h3>
-            </div>
-            <div className="text-[11px] text-amber-300 font-sans flex items-center gap-1.5 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/30">
-              <AlertTriangle className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-              <span>Potential investigation pattern — not automatic proof of fraud.</span>
-            </div>
-          </div>
-
-          {/* Narrative Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 text-xs">
-            {/* Plain-English What is Happening narrative */}
-            <div className="lg:col-span-2 p-3.5 rounded-xl bg-slate-950/90 border border-slate-800 flex flex-col gap-2.5">
-              <div className="text-slate-400 text-[10px] uppercase tracking-wider font-extrabold flex items-center gap-1.5 text-cyan-400">
-                <Sparkles className="w-3.5 h-3.5" /> What is happening in this network:
-              </div>
-              <p className="text-slate-200 leading-relaxed font-sans text-xs">
-                {topologyInfo.what_is_happening}
-              </p>
-
-              {/* Step-by-Step Flow Cards */}
-              {topologyInfo.steps?.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
-                  {topologyInfo.steps.map((st, sIdx) => (
-                    <div
-                      key={sIdx}
-                      className="px-3 py-2 rounded-lg bg-slate-900/90 border border-slate-800 text-[11px] text-slate-300 flex items-start gap-2 shadow-sm"
-                    >
-                      <span className="w-4 h-4 rounded-full bg-cyan-500/20 text-cyan-300 font-mono font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5 border border-cyan-500/40">
-                        {sIdx + 1}
-                      </span>
-                      <span className="leading-snug">{st}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* How GNN Learns This Structure */}
-            <div className="p-3.5 rounded-xl bg-purple-950/20 border border-purple-500/30 flex flex-col justify-between gap-3">
-              <div>
-                <div className="text-purple-300 text-[10px] uppercase tracking-wider font-extrabold flex items-center gap-1.5">
-                  <Brain className="w-3.5 h-3.5 text-purple-400" /> How GNN Learns This Relationship:
-                </div>
-                <p className="text-slate-300 text-[11px] leading-relaxed mt-2 font-sans">
-                  {topologyInfo.gnn_learning}
-                </p>
-              </div>
-
-              <div className="pt-2.5 border-t border-purple-500/20 flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-400">Message Passing:</span>
-                <span className="text-purple-300 font-bold">4-Hop Relational Hops</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Collapsible Canvas Body */}
       {!isCollapsed && (
         <div className="relative w-full h-[520px] bg-[#070d18]">
           {/* Institutional Quadrant Overlays (Clockwise 4-Bank Topology: A -> B -> C -> D -> A) */}
-          {layoutMode === 'quadrant' && selectedTopology !== 'LAYERED' && (
+          {layoutMode === 'quadrant' && (
             <div className="absolute inset-0 pointer-events-none grid grid-cols-2 grid-rows-2 p-5 gap-6 opacity-35">
               <div className="border border-cyan-500/25 rounded-2xl p-3 flex flex-col justify-start">
                 <span className="text-[10px] font-extrabold tracking-widest text-cyan-400 uppercase">

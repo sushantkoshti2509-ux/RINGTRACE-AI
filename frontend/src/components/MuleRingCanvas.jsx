@@ -147,14 +147,6 @@ function layoutEcosystemNodes(nodes, layoutMode = 'quadrant', topologyType = 'CI
   return pos;
 }
 
-const TOPOLOGIES = [
-  { id: 'CIRCULAR', label: '🔄 1. Circular Loop', desc: 'Money moves A➔B➔C➔D and returns to A' },
-  { id: 'LAYERED', label: '🪜 2. Layered Chain', desc: 'Sequential multi-hop transit across banks' },
-  { id: 'FAN_IN', label: '📥 3. Fan-In (Smurfing)', desc: 'Multiple bank feeders funnel to one collector' },
-  { id: 'FAN_OUT', label: '📤 4. Fan-Out (Dispersion)', desc: 'One distributor splits to cash-out mules' },
-  { id: 'HYBRID', label: '🌐 5. Hybrid Ecosystem', desc: 'Full unified 4-bank interconnected clearing mesh' },
-];
-
 export default function MuleRingCanvas({
   nodesData = [],
   edgesData = [],
@@ -166,17 +158,15 @@ export default function MuleRingCanvas({
   isPostDisruption = false,
   onToggleDisruption = () => {},
 }) {
-  const [activeTopology, setActiveTopology] = useState('CIRCULAR');
   const [localNodes, setLocalNodes] = useState(nodesData);
   const [localEdges, setLocalEdges] = useState(edgesData);
   const [topoMetadata, setTopoMetadata] = useState(null);
   const [layoutMode, setLayoutMode] = useState('quadrant'); // 'quadrant' | 'flow'
   const [bankFilter, setBankFilter] = useState('ALL');
-  const [showExplainer, setShowExplainer] = useState(true);
 
-  const fetchTopology = async (topo) => {
+  const fetchTopology = async () => {
     try {
-      const res = await apiFetch(`/api/v1/interception/topology?topology_type=${encodeURIComponent(topo)}`);
+      const res = await apiFetch('/api/v1/interception/topology?topology_type=HYBRID');
       if (res.ok) {
         const data = await res.json();
         setLocalNodes(data.nodes || []);
@@ -189,13 +179,13 @@ export default function MuleRingCanvas({
   };
 
   useEffect(() => {
-    fetchTopology(activeTopology);
-  }, [activeTopology]);
+    fetchTopology();
+  }, []);
 
   // Compute node positions
   const nodePositions = useMemo(() => {
-    return layoutEcosystemNodes(localNodes, layoutMode, activeTopology);
-  }, [localNodes, layoutMode, activeTopology]);
+    return layoutEcosystemNodes(localNodes, layoutMode);
+  }, [localNodes, layoutMode]);
 
   // Convert topology nodes into React Flow nodes arranged in Unified 4-Bank Layout
   const flowNodes = useMemo(() => {
@@ -340,32 +330,11 @@ export default function MuleRingCanvas({
         <div className="flex flex-wrap items-center gap-2">
           <div className="px-3 py-1.5 rounded-xl bg-slate-950 border border-cyan-500/30 text-xs font-bold text-white flex items-center gap-2 shadow-lg">
             <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
-            <span>Four-Bank Relational Fraud Network</span>
-          </div>
-
-          {/* Topologies Switcher Bar */}
-          <div className="flex flex-wrap items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-[11px] font-semibold">
-            {TOPOLOGIES.map((t) => {
-              const isActive = activeTopology === t.id;
-              return (
-                <button
-                  key={t.id}
-                  onClick={() => setActiveTopology(t.id)}
-                  className={`px-2.5 py-1 rounded-lg transition-all font-bold ${
-                    isActive
-                      ? 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-md'
-                      : 'text-slate-400 hover:text-slate-200'
-                  }`}
-                  title={t.desc}
-                >
-                  {t.label}
-                </button>
-              );
-            })}
+            <span>Four-Bank Unified Relational Fraud Network</span>
           </div>
 
           {/* Bank Quick Filter */}
-          <div className="hidden lg:flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-[11px] font-semibold">
+          <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-[11px] font-semibold">
             {['ALL', 'BANK_A', 'BANK_B', 'BANK_C', 'BANK_D'].map((b) => (
               <button
                 key={b}
@@ -376,7 +345,7 @@ export default function MuleRingCanvas({
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                {b === 'ALL' ? 'All' : b.replace('BANK_', '')}
+                {b === 'ALL' ? 'All Banks' : b.replace('BANK_', 'Bank ')}
               </button>
             ))}
           </div>
@@ -384,19 +353,6 @@ export default function MuleRingCanvas({
 
         {/* View Mode & Layout Buttons */}
         <div className="flex items-center gap-2">
-          {/* Explainer Toggle */}
-          <button
-            onClick={() => setShowExplainer(!showExplainer)}
-            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold border flex items-center gap-1.5 transition-colors ${
-              showExplainer
-                ? 'bg-purple-600/30 border-purple-500/50 text-purple-200'
-                : 'bg-slate-800 border-slate-700 text-slate-300'
-            }`}
-          >
-            <Info className="w-3.5 h-3.5 text-purple-400" />
-            <span>Explainer</span>
-          </button>
-
           {/* Layout Toggle */}
           <button
             onClick={() => setLayoutMode(layoutMode === 'quadrant' ? 'flow' : 'quadrant')}
@@ -431,76 +387,10 @@ export default function MuleRingCanvas({
         </div>
       </div>
 
-      {/* "What is Happening?" Interactive Explainability Banner */}
-      {showExplainer && topoMetadata && (
-        <div className="bg-slate-900/95 border-b border-slate-800 p-4 flex flex-col gap-3 transition-all animate-fadeIn">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-2.5">
-            <div className="flex items-center gap-2">
-              <span className="px-2.5 py-1 rounded-md text-[11px] font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
-                {topoMetadata.badge || 'Relational Pattern Intelligence'}
-              </span>
-              <h3 className="text-sm font-extrabold text-white tracking-tight">
-                {topoMetadata.title || 'Relational Fraud Network Topology'}
-              </h3>
-            </div>
-            <div className="text-[11px] text-amber-300 font-sans flex items-center gap-1.5 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/30">
-              <AlertTriangle className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-              <span>Potential investigation pattern — not automatic proof of fraud.</span>
-            </div>
-          </div>
-
-          {/* Narrative Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 text-xs">
-            <div className="lg:col-span-2 p-3.5 rounded-xl bg-slate-950/90 border border-slate-800 flex flex-col gap-2.5">
-              <div className="text-slate-400 text-[10px] uppercase tracking-wider font-extrabold flex items-center gap-1.5 text-cyan-400">
-                <Sparkles className="w-3.5 h-3.5" /> What is happening in this network:
-              </div>
-              <p className="text-slate-200 leading-relaxed font-sans text-xs">
-                {topoMetadata.what_is_happening}
-              </p>
-
-              {/* Step-by-Step Flow Cards */}
-              {topoMetadata.steps?.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
-                  {topoMetadata.steps.map((st, sIdx) => (
-                    <div
-                      key={sIdx}
-                      className="px-3 py-2 rounded-lg bg-slate-900/90 border border-slate-800 text-[11px] text-slate-300 flex items-start gap-2 shadow-sm"
-                    >
-                      <span className="w-4 h-4 rounded-full bg-cyan-500/20 text-cyan-300 font-mono font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5 border border-cyan-500/40">
-                        {sIdx + 1}
-                      </span>
-                      <span className="leading-snug">{st}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* How GNN Learns This Structure */}
-            <div className="p-3.5 rounded-xl bg-purple-950/20 border border-purple-500/30 flex flex-col justify-between gap-3">
-              <div>
-                <div className="text-purple-300 text-[10px] uppercase tracking-wider font-extrabold flex items-center gap-1.5">
-                  <Activity className="w-3.5 h-3.5 text-purple-400" /> How GNN Learns This Relationship:
-                </div>
-                <p className="text-slate-300 text-[11px] leading-relaxed mt-2 font-sans">
-                  {topoMetadata.gnn_learning}
-                </p>
-              </div>
-
-              <div className="pt-2.5 border-t border-purple-500/20 flex items-center justify-between text-[11px] font-mono">
-                <span className="text-slate-400">Message Passing:</span>
-                <span className="text-purple-300 font-bold">4-Hop Relational Hops</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* React Flow Canvas Body */}
       <div className="relative w-full h-[540px] bg-[#080d1a]">
         {/* Institutional Quadrant Watermark Overlays (Clockwise 4-Bank Topology: A -> B -> C -> D -> A) */}
-        {layoutMode === 'quadrant' && activeTopology !== 'LAYERED' && (
+        {layoutMode === 'quadrant' && (
           <div className="absolute inset-0 pointer-events-none grid grid-cols-2 grid-rows-2 p-5 gap-6 opacity-35">
             <div className="border border-cyan-500/25 rounded-2xl p-3 flex flex-col justify-start">
               <span className="text-[10px] font-extrabold tracking-widest text-cyan-400 uppercase">
