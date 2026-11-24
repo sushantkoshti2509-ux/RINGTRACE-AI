@@ -132,7 +132,7 @@ export default function MonitoringView({
   const [internalIsSimulating, setInternalIsSimulating] = useState(false);
   const [internalIsPostDisruption, setInternalIsPostDisruption] = useState(false);
 
-  const [activeNetworkView, setActiveNetworkView] = useState('synthetic_canvas'); // 'synthetic_canvas' | 'gnn_graph' | 'both'
+  const [activeNetworkView, setActiveNetworkView] = useState('both'); // 'synthetic_canvas' | 'gnn_graph' | 'both'
 
   const nodes = propNodes && propNodes.length > 0 ? propNodes : internalNodes;
   const edges = propEdges && propEdges.length > 0 ? propEdges : internalEdges;

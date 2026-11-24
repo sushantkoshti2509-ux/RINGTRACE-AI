@@ -98,11 +98,32 @@ function layoutEcosystemNodes(nodes, layoutMode = 'quadrant') {
   return pos;
 }
 
+const INITIAL_ECOSYSTEM_NODES = [
+  { id: 'BANK_A:A101', account_code: 'A101', label: 'A101 (Bank A)', masked_id: 'BANK_A:••••A101', bank: 'BANK_A', role: 'Laundering Originator & Return Node', pattern_type: 'CIRCULAR_LOOP', is_mule: 1, tier: 0, strategic_score: 0.142, outbound_volume: 50000.0 },
+  { id: 'BANK_A:A102', account_code: 'A102', label: 'A102 (Bank A)', masked_id: 'BANK_A:••••A102', bank: 'BANK_A', role: 'Dispersion Distributor Account', pattern_type: 'FAN_OUT_DISPERSION', is_mule: 1, tier: 0, strategic_score: 0.131, outbound_volume: 35000.0 },
+  { id: 'BANK_B:B205', account_code: 'B205', label: 'B205 (Bank B)', masked_id: 'BANK_B:••••B205', bank: 'BANK_B', role: 'Inter-Bank Transit Conduit', pattern_type: 'CIRCULAR_LOOP', is_mule: 1, tier: 1, strategic_score: 0.142, outbound_volume: 48000.0 },
+  { id: 'BANK_B:B201', account_code: 'B201', label: 'B201 (Bank B)', masked_id: 'BANK_B:••••B201', bank: 'BANK_B', role: 'Smurfing Feeder Account', pattern_type: 'FAN_IN_SMURFING', is_mule: 1, tier: 1, strategic_score: 0.07, outbound_volume: 48500.0 },
+  { id: 'BANK_C:C310', account_code: 'C310', label: 'C310 (Bank C)', masked_id: 'BANK_C:••••C310', bank: 'BANK_C', role: 'Cooperative Settlement Bridge', pattern_type: 'CIRCULAR_LOOP', is_mule: 1, tier: 2, strategic_score: 0.142, outbound_volume: 46000.0 },
+  { id: 'BANK_C:C301', account_code: 'C301', label: 'C301 (Bank C)', masked_id: 'BANK_C:••••C301', bank: 'BANK_C', role: 'Central Mule Collector & Aggregator', pattern_type: 'FAN_IN_SMURFING', is_mule: 1, tier: 2, strategic_score: 0.131, outbound_volume: 28000.0 },
+  { id: 'BANK_D:D410', account_code: 'D410', label: 'D410 (Bank D)', masked_id: 'BANK_D:••••D410', bank: 'BANK_D', role: 'Wealth Remittance Relay Node', pattern_type: 'CIRCULAR_LOOP', is_mule: 1, tier: 3, strategic_score: 0.142, outbound_volume: 44000.0 },
+  { id: 'BANK_D:D401', account_code: 'D401', label: 'D401 (Bank D)', masked_id: 'BANK_D:••••D401', bank: 'BANK_D', role: 'Cash-Out Exit Mule Account', pattern_type: 'FAN_OUT_DISPERSION', is_mule: 1, tier: 3, strategic_score: 0.04, outbound_volume: 0 },
+];
+
+const INITIAL_ECOSYSTEM_EDGES = [
+  { id: 'BANK_A:A101->BANK_B:B205', source: 'BANK_A:A101', target: 'BANK_B:B205', amount: 50000.0, transaction_id: 'TXN_HYB_001', is_cross_bank: true, sender_bank: 'BANK_A', receiver_bank: 'BANK_B', is_suspicious: 1, pattern_type: 'CIRCULAR_LOOP' },
+  { id: 'BANK_A:A102->BANK_D:D401', source: 'BANK_A:A102', target: 'BANK_D:D401', amount: 35000.0, transaction_id: 'TXN_HYB_006', is_cross_bank: true, sender_bank: 'BANK_A', receiver_bank: 'BANK_D', is_suspicious: 1, pattern_type: 'FAN_OUT_DISPERSION' },
+  { id: 'BANK_B:B205->BANK_C:C310', source: 'BANK_B:B205', target: 'BANK_C:C310', amount: 48000.0, transaction_id: 'TXN_HYB_002', is_cross_bank: true, sender_bank: 'BANK_B', receiver_bank: 'BANK_C', is_suspicious: 1, pattern_type: 'CIRCULAR_LOOP' },
+  { id: 'BANK_B:B201->BANK_C:C301', source: 'BANK_B:B201', target: 'BANK_C:C301', amount: 48500.0, transaction_id: 'TXN_HYB_005', is_cross_bank: true, sender_bank: 'BANK_B', receiver_bank: 'BANK_C', is_suspicious: 1, pattern_type: 'FAN_IN_SMURFING' },
+  { id: 'BANK_C:C310->BANK_D:D410', source: 'BANK_C:C310', target: 'BANK_D:D410', amount: 46000.0, transaction_id: 'TXN_HYB_003', is_cross_bank: true, sender_bank: 'BANK_C', receiver_bank: 'BANK_D', is_suspicious: 1, pattern_type: 'CIRCULAR_LOOP' },
+  { id: 'BANK_C:C301->BANK_A:A102', source: 'BANK_C:C301', target: 'BANK_A:A102', amount: 28000.0, transaction_id: 'TXN_HYB_007', is_cross_bank: true, sender_bank: 'BANK_C', receiver_bank: 'BANK_A', is_suspicious: 0, pattern_type: 'INTERBANK_CLEARING' },
+  { id: 'BANK_D:D410->BANK_A:A101', source: 'BANK_D:D410', target: 'BANK_A:A101', amount: 44000.0, transaction_id: 'TXN_HYB_004', is_cross_bank: true, sender_bank: 'BANK_D', receiver_bank: 'BANK_A', is_suspicious: 1, pattern_type: 'CIRCULAR_LOOP' },
+];
+
 export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
-  const [nodes, setNodes] = useState([]);
-  const [edges, setEdges] = useState([]);
+  const [nodes, setNodes] = useState(INITIAL_ECOSYSTEM_NODES);
+  const [edges, setEdges] = useState(INITIAL_ECOSYSTEM_EDGES);
   const [gnnPredictions, setGnnPredictions] = useState({});
-  const [selectedNodeId, setSelectedNodeId] = useState(null);
+  const [selectedNodeId, setSelectedNodeId] = useState('BANK_A:A101');
   const [topologyInfo, setTopologyInfo] = useState(null);
   const [bankFilter, setBankFilter] = useState('ALL');
   const [layoutMode, setLayoutMode] = useState('quadrant'); // 'quadrant' | 'flow'
@@ -112,31 +133,34 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
   const fetchGraphData = async () => {
     setIsLoading(true);
     try {
-      const [topRes, gnnRes] = await Promise.all([
-        apiFetch('/api/v1/interception/topology?topology_type=HYBRID'),
-        apiFetch('/api/v1/gnn/predictions/accounts?limit=60'),
-      ]);
+      // Fetch topology independently
+      apiFetch('/api/v1/interception/topology?topology_type=HYBRID')
+        .then((r) => (r.ok ? r.json() : null))
+        .then((topData) => {
+          if (topData && topData.nodes && topData.nodes.length > 0) {
+            setNodes(topData.nodes);
+            setEdges(topData.edges || []);
+            setTopologyInfo(topData);
+            setSelectedNodeId(topData.nodes[0].id);
+          }
+        })
+        .catch((e) => console.warn('Topology fetch fallback:', e));
 
-      if (topRes.ok) {
-        const topData = await topRes.json();
-        setNodes(topData.nodes || []);
-        setEdges(topData.edges || []);
-        setTopologyInfo(topData);
-        if (topData.nodes?.length > 0) {
-          setSelectedNodeId(topData.nodes[0].id);
-        }
-      }
-
-      if (gnnRes.ok) {
-        const gnnData = await gnnRes.json();
-        const map = {};
-        (gnnData.predictions || []).forEach((p) => {
-          map[p.account_id] = p;
-        });
-        setGnnPredictions(map);
-      }
+      // Fetch GNN predictions overlay independently
+      apiFetch('/api/v1/gnn/predictions/accounts?limit=60')
+        .then((r) => (r.ok ? r.json() : null))
+        .then((gnnData) => {
+          if (gnnData && gnnData.predictions) {
+            const map = {};
+            gnnData.predictions.forEach((p) => {
+              map[p.account_id] = p;
+            });
+            setGnnPredictions(map);
+          }
+        })
+        .catch((e) => console.warn('GNN prediction fetch fallback:', e));
     } catch (err) {
-      console.error('Failed to load GNN dashboard graph:', err);
+      console.warn('GNN dashboard graph load fallback (using initialized store):', err);
     } finally {
       setIsLoading(false);
     }
@@ -146,14 +170,17 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
     fetchGraphData();
   }, []);
 
+  const displayNodes = nodes && nodes.length > 0 ? nodes : INITIAL_ECOSYSTEM_NODES;
+  const displayEdges = edges && edges.length > 0 ? edges : INITIAL_ECOSYSTEM_EDGES;
+
   // Compute positions
   const nodePositions = useMemo(() => {
-    return layoutEcosystemNodes(nodes, layoutMode);
-  }, [nodes, layoutMode]);
+    return layoutEcosystemNodes(displayNodes, layoutMode);
+  }, [displayNodes, layoutMode]);
 
   // Convert to ReactFlow nodes with active highlighting
   const flowNodes = useMemo(() => {
-    return nodes.map((node) => {
+    return displayNodes.map((node) => {
       const gnnInfo = gnnPredictions[node.id] || {};
       const gnnScore =
         gnnInfo.gnn_score !== undefined
@@ -188,11 +215,11 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
         selected: node.id === selectedNodeId,
       };
     });
-  }, [nodes, nodePositions, selectedNodeId, gnnPredictions, bankFilter]);
+  }, [displayNodes, nodePositions, selectedNodeId, gnnPredictions, bankFilter]);
 
   // Convert to ReactFlow edges
   const flowEdges = useMemo(() => {
-    return edges.map((e) => {
+    return displayEdges.map((e) => {
       const isCirc = (e.pattern_type || '').includes('CIRCULAR');
       const isFanIn = (e.pattern_type || '').includes('FAN_IN');
       const isFanOut = (e.pattern_type || '').includes('FAN_OUT');
