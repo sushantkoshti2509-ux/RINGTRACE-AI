@@ -19,6 +19,7 @@ from src.simulator.generator import UPISimulator
 from src.data_sources.amlsim_loader import AMLSimAdapter
 from src.data_sources.ibm_amldata_loader import IBMAMLDataLoader
 from src.data_sources.paysim_loader import PaySimLoader
+from src.data_sources.rbih_nfpc_loader import RBIHNFPCDataLoader
 
 
 class MultiSourceDataManager:
@@ -61,6 +62,15 @@ class MultiSourceDataManager:
             "strengths": "Very large public Kaggle dataset; standard baseline for transaction-level fraud.",
             "limitations": "Single-institution mobile wallet; lacks cross-bank relationships and multi-hop mule rings.",
         },
+        "RBIH_NFPC_PHASE_2": {
+            "name": "RBIH NFPC Phase 2 (Reserve Bank Innovation Hub)",
+            "role": "Indian Banking Benchmark: National Fraud Prevention Challenge Phase 2 mule account detection.",
+            "target_ecosystem": "Indian Retail Banking, Branch Networks & Digital Payments (UPI / IMPS / NEFT)",
+            "cross_bank": True,
+            "patterns": ["Rapid Pass-Through Dispersion", "Structuring (< ₹50k)", "Dormant Activation", "Multi-Branch Laundering"],
+            "strengths": "Official Reserve Bank Innovation Hub competition schema with 160K accounts, PMJDY schemes, and D/C transaction legs.",
+            "limitations": "Massive full-scale volume (~16 GB, ~400M txs); requires partition ingestion for streaming inference.",
+        },
     }
 
     def __init__(self):
@@ -68,6 +78,7 @@ class MultiSourceDataManager:
         self.amlsim_adapter = AMLSimAdapter()
         self.amldata_loader = IBMAMLDataLoader()
         self.paysim_loader = PaySimLoader()
+        self.rbih_loader = RBIHNFPCDataLoader()
 
     def generate_all_benchmark_sources(self) -> Dict[str, Any]:
         """Generates raw benchmark datasets for all external sources."""
@@ -77,11 +88,14 @@ class MultiSourceDataManager:
         amldata_df = self.amldata_loader.generate_amldata_dataset()
         # 3. PaySim
         paysim_df = self.paysim_loader.generate_paysim_sample()
+        # 4. RBIH NFPC Phase 2
+        rbih_acc, rbih_tx, rbih_lbl, _ = self.rbih_loader.load_or_generate_dataset()
 
         return {
             "IBM_AMLSIM": {"accounts": len(aml_acc), "transactions": len(aml_tx), "alerts": len(aml_alerts)},
             "IBM_AMLDATA": {"transactions": len(amldata_df)},
             "PAYSIM": {"transactions": len(paysim_df)},
+            "RBIH_NFPC_PHASE_2": {"accounts": len(rbih_acc), "transactions": len(rbih_tx), "mule_labels": len(rbih_lbl)},
         }
 
     def load_and_standardize_source(
@@ -101,6 +115,9 @@ class MultiSourceDataManager:
         elif source_key == "PAYSIM":
             p_df = self.paysim_loader.generate_paysim_sample()
             return self.paysim_loader.convert_to_ringtrace_standard(p_df)
+        elif source_key == "RBIH_NFPC_PHASE_2":
+            acc, tx, lbl, _ = self.rbih_loader.load_or_generate_dataset()
+            return self.rbih_loader.convert_to_ringtrace_standard(acc, tx, lbl)
         else:  # OUR_UPI_SIMULATOR (Default Primary)
             acc, tx, rings, _ = self.upi_sim.generate_all()
             return acc, tx, rings
