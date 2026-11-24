@@ -225,32 +225,21 @@ export default function MonitoringView() {
           </div>
 
           {/* Action Link */}
-          <div className="py-4 text-center">
+          <div className="pt-4 flex justify-center">
             <button
               onClick={() => handleFilterAccount('')}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-blue-800 transition-colors"
+              className="px-5 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 font-extrabold text-xs shadow-xs flex items-center gap-1.5 transition-all cursor-pointer"
             >
               <Eye className="w-3.5 h-3.5" />
               <span>Generate Audit Trail Reports</span>
             </button>
-          </div>
-
-          {/* Bottom Blue Smooth Sine Wave Sparkline SVG */}
-          <div className="w-full h-16 pt-1">
-            <svg viewBox="0 0 500 60" className="w-full h-full stroke-blue-600 fill-none" preserveAspectRatio="none">
-              <path
-                d="M0,45 Q30,10 60,40 T120,35 T180,20 T240,42 T300,18 T360,48 T420,15 T480,38 L500,30"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-            </svg>
           </div>
         </div>
 
         {/* Right Analytical Card: Mule Threat Trends */}
         <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 flex flex-col justify-between relative overflow-hidden">
           {/* Top 3 Sub-metrics row */}
-          <div className="flex items-center justify-around pb-2 border-b border-slate-100">
+          <div className="flex items-center justify-around pb-4 border-b border-slate-100">
             <div className="flex flex-col items-center">
               <div className="w-9 h-9 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-1 shadow-xs">
                 <Users className="w-4 h-4" />
@@ -276,19 +265,8 @@ export default function MonitoringView() {
             </div>
           </div>
 
-          {/* Middle Orange Smooth Sine Wave Sparkline SVG */}
-          <div className="w-full h-16 py-1">
-            <svg viewBox="0 0 500 60" className="w-full h-full stroke-orange-500 fill-none" preserveAspectRatio="none">
-              <path
-                d="M0,35 Q25,12 50,30 T100,10 T150,45 T200,15 T250,38 T300,12 T350,42 T400,20 T450,48 L500,22"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
-
           {/* Bottom Controls Row: Trend + Action Button */}
-          <div className="flex flex-col items-center gap-2 pt-2">
+          <div className="flex flex-col items-center gap-2 pt-4">
             <span className="text-xs font-bold text-rose-600 flex items-center gap-1">
               <span>↑ 15.4% high-threat velocity detected today</span>
             </span>
@@ -297,7 +275,7 @@ export default function MonitoringView() {
                 setRiskFilter('High');
                 setPage(0);
               }}
-              className="px-5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs shadow-md shadow-blue-500/20 flex items-center gap-1.5 transition-all"
+              className="px-5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs shadow-md shadow-blue-500/20 flex items-center gap-1.5 transition-all cursor-pointer"
             >
               <Eye className="w-3.5 h-3.5" />
               <span>View Flagged Mule Detections</span>
