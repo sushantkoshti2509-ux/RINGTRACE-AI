@@ -15,7 +15,6 @@ import MuleRingCanvas from './components/MuleRingCanvas';
 import InterceptionSimulator from './components/InterceptionSimulator';
 import DigitalTwinSimulator from './components/DigitalTwinSimulator';
 import GNNIntelligenceView from './views/GNNIntelligenceView';
-import { Plus } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -184,15 +183,6 @@ export default function App() {
                 Latency: 11.4 ms
               </span>
             </div>
-
-            {/* Circular Blue Plus Action Button (Matching Template) */}
-            <button
-              onClick={() => setActiveTab('interception')}
-              className="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center font-bold shadow-md shadow-blue-500/25 transition-transform active:scale-95"
-              title="Launch Interception Simulation"
-            >
-              <Plus className="w-5 h-5" />
-            </button>
           </div>
         </header>
 
