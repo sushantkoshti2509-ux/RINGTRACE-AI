@@ -15,7 +15,7 @@ import MuleRingCanvas from './components/MuleRingCanvas';
 import InterceptionSimulator from './components/InterceptionSimulator';
 import DigitalTwinSimulator from './components/DigitalTwinSimulator';
 import GNNIntelligenceView from './views/GNNIntelligenceView';
-import { Plus, Share2, Globe, Info, Sparkles } from 'lucide-react';
+import { Plus } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -298,31 +298,6 @@ export default function App() {
             </span>
           </div>
         </footer>
-      </div>
-
-      {/* Right Floating Quick-Action Dock (Exact Template Screenshot Parity) */}
-      <div className="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-2 p-1.5 bg-white rounded-2xl border border-slate-200 shadow-lg">
-        <button
-          onClick={() => setActiveTab('analytics')}
-          className="w-10 h-10 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-600 flex items-center justify-center transition-colors shadow-xs"
-          title="Export Analytics & Audit Reports"
-        >
-          <Share2 className="w-4 h-4" />
-        </button>
-        <button
-          onClick={() => setActiveTab('globe3d')}
-          className="w-10 h-10 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-500 flex items-center justify-center transition-colors shadow-xs"
-          title="3D Multi-Bank Cyber Clearing Fabric"
-        >
-          <Globe className="w-4 h-4" />
-        </button>
-        <button
-          onClick={() => setActiveTab('assistant')}
-          className="w-10 h-10 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-600 flex items-center justify-center transition-colors shadow-xs"
-          title="AI Copilot Investigation Assistant"
-        >
-          <Info className="w-4 h-4" />
-        </button>
       </div>
     </div>
   );
