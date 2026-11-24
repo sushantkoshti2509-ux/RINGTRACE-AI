@@ -3,7 +3,7 @@ FastAPI REST API router for Step 9: Centralized Multi-Bank Monitoring Dashboard.
 """
 
 from typing import List, Optional, Dict, Any
-from fastapi import APIRouter, Query, status
+from fastapi import APIRouter, Query, status, Response
 
 from src.dashboard.service import DashboardMonitoringService
 
@@ -29,6 +29,7 @@ def get_dashboard_summary(
     description="Allows authorized users to search, filter, and inspect transaction details across Bank A, Bank B, and Bank C.",
 )
 def search_transactions(
+    response: Response,
     bank_id: Optional[str] = Query(None, description="Bank filter: Bank A, Bank B, Bank C, or ALL"),
     risk_level: Optional[str] = Query(None, description="Risk filter: High, Low, or ALL"),
     min_amount: Optional[float] = Query(None, ge=0.0, description="Minimum transaction amount"),
@@ -37,7 +38,7 @@ def search_transactions(
     limit: int = Query(50, ge=1, le=200),
     offset: int = Query(0, ge=0),
 ):
-    return dashboard_service.query_transactions(
+    results = dashboard_service.query_transactions(
         bank_id=bank_id,
         risk_level=risk_level,
         min_amount=min_amount,
@@ -46,6 +47,15 @@ def search_transactions(
         limit=limit,
         offset=offset,
     )
+    total_matched = dashboard_service.count_transactions(
+        bank_id=bank_id,
+        risk_level=risk_level,
+        min_amount=min_amount,
+        max_amount=max_amount,
+        search_query=search_query,
+    )
+    response.headers["X-Total-Count"] = str(total_matched)
+    return results
 
 
 @router.get(

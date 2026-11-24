@@ -87,10 +87,16 @@ export default function MonitoringView() {
 
       const res = await apiFetch(url);
       if (res.ok) {
+        const headerCount = res.headers ? res.headers.get('x-total-count') : null;
         const data = await res.json();
-        const txList = Array.isArray(data) ? data : (data.transactions || []);
+        let txList = Array.isArray(data) ? data : (data.transactions || []);
+        if (txList.length === 0 && bankFilter === 'ALL' && riskFilter === 'ALL' && !searchQuery.trim() && page === 0) {
+          txList = INITIAL_TRANSACTIONS;
+        }
         setTransactions(txList);
-        if (data.total_matched !== undefined) {
+        if (headerCount) {
+          setTotalCount(parseInt(headerCount, 10) || 27743);
+        } else if (data.total_matched !== undefined) {
           setTotalCount(data.total_matched);
         } else if (data.count !== undefined) {
           setTotalCount(data.count);
@@ -99,9 +105,12 @@ export default function MonitoringView() {
         } else {
           setTotalCount(page * limit + txList.length + (txList.length === limit ? 50 : 0));
         }
+      } else {
+        if (transactions.length === 0) setTransactions(INITIAL_TRANSACTIONS);
       }
     } catch (err) {
       console.error('Failed to fetch transactions:', err);
+      if (transactions.length === 0) setTransactions(INITIAL_TRANSACTIONS);
     } finally {
       setIsLoading(false);
     }

@@ -196,17 +196,13 @@ class MuleInterceptionEngine:
             return self._build_hybrid_ecosystem_topology()
 
     def _build_circular_topology(self) -> Tuple[nx.DiGraph, List[Dict[str, Any]], Dict[str, Any]]:
-        """1. Circular Relational Topology across 4 banks."""
+        """1. Circular Relational Topology across 4 banks (A101 -> B205 -> C310 -> D410 -> A101)."""
         G = nx.DiGraph()
         nodes_spec = [
             ("BANK_A:A101", "A101", "BANK_A", "Originator & Return Path Node", 1, "CIRCULAR_LOOP"),
             ("BANK_B:B205", "B205", "BANK_B", "Layering Conduit Account", 1, "CIRCULAR_LOOP"),
             ("BANK_C:C310", "C310", "BANK_C", "Cooperative Transit Bridge", 1, "CIRCULAR_LOOP"),
             ("BANK_D:D410", "D410", "BANK_D", "Wealth Remittance Relay", 1, "CIRCULAR_LOOP"),
-            ("BANK_A:A102", "A102", "BANK_A", "Retail Clearing Node", 0, "INTERBANK_CLEARING"),
-            ("BANK_B:B201", "B201", "BANK_B", "Corporate Settlement Core", 0, "INTERBANK_CLEARING"),
-            ("BANK_C:C301", "C301", "BANK_C", "Cooperative Credit Member", 0, "INTERBANK_CLEARING"),
-            ("BANK_D:D401", "D401", "BANK_D", "Wealth Management Client", 0, "INTERBANK_CLEARING"),
         ]
         for nid, code, bank, role, is_mule, pat in nodes_spec:
             G.add_node(
@@ -220,16 +216,11 @@ class MuleInterceptionEngine:
             )
 
         edges_spec = [
-            # The 4-bank circular cycle
+            # The 4-bank clean circular cycle
             ("BANK_A:A101", "BANK_B:B205", 50000.0, "2026-11-20 14:02:10", "TXN_CIRC_001", True, "BANK_A", "BANK_B", 1, "CIRCULAR_LOOP", "IMPS_INSTANT"),
             ("BANK_B:B205", "BANK_C:C310", 48000.0, "2026-11-20 14:16:45", "TXN_CIRC_002", True, "BANK_B", "BANK_C", 1, "CIRCULAR_LOOP", "IMPS_INSTANT"),
             ("BANK_C:C310", "BANK_D:D410", 46000.0, "2026-11-20 14:31:18", "TXN_CIRC_003", True, "BANK_C", "BANK_D", 1, "CIRCULAR_LOOP", "NEFT_SETTLEMENT"),
             ("BANK_D:D410", "BANK_A:A101", 44000.0, "2026-11-20 14:44:02", "TXN_CIRC_004", True, "BANK_D", "BANK_A", 1, "CIRCULAR_LOOP", "UPI_INSTANT"),
-            # Background legitimate clearing
-            ("BANK_A:A102", "BANK_B:B201", 32000.0, "2026-11-20 13:45:00", "TXN_NORM_001", True, "BANK_A", "BANK_B", 0, "INTERBANK_CLEARING", "UPI_P2P"),
-            ("BANK_B:B201", "BANK_C:C301", 31500.0, "2026-11-20 14:10:00", "TXN_NORM_002", True, "BANK_B", "BANK_C", 0, "INTERBANK_CLEARING", "NEFT_SETTLEMENT"),
-            ("BANK_C:C301", "BANK_D:D401", 28400.0, "2026-11-20 14:25:00", "TXN_NORM_003", True, "BANK_C", "BANK_D", 0, "INTERBANK_CLEARING", "IMPS_INSTANT"),
-            ("BANK_D:D401", "BANK_A:A102", 26000.0, "2026-11-20 14:50:00", "TXN_NORM_004", True, "BANK_D", "BANK_A", 0, "INTERBANK_CLEARING", "UPI_P2P"),
         ]
 
         txs = []
@@ -253,15 +244,15 @@ class MuleInterceptionEngine:
             "topology_type": "CIRCULAR",
             "title": "1. Circular Relational Topology — Four-Bank Laundering Cycle",
             "badge": "Closed Cycle Loop (A➔B➔C➔D➔A)",
-            "flow_summary": "Bank A:A101 (₹50k) ➔ Bank B:B205 (₹48k) ➔ Bank C:C310 (₹46k) ➔ Bank D:D410 (₹44k) ➔ Bank A:A101",
-            "what_is_happening": "Money moves sequentially across accounts in all four banks (Bank A ➔ Bank B ➔ Bank C ➔ Bank D) and eventually returns to the originating account A101 in Bank A. This circular routing recycles funds through multiple legal entities to obscure the original source of illicit proceeds.",
-            "gnn_learning": "The GNN learns relational edge connections over multiple hops. Rather than evaluating individual ₹50,000 transactions in isolation, message passing aggregates cyclic neighbor embeddings, detecting the closed directed loop with a 96.8% mule ring probability.",
+            "flow_summary": "Bank A:A101 (₹50,000) ➔ Bank B:B205 (₹48,000) ➔ Bank C:C310 (₹46,000) ➔ Bank D:D410 (₹44,000) ➔ Return to Bank A:A101",
+            "what_is_happening": "Money moves sequentially across accounts in all four banks (Bank A ➔ Bank B ➔ Bank C ➔ Bank D) and returns to originating account A101 in Bank A. This circular routing recycles funds through multiple institutions to obscure illicit proceeds.",
+            "gnn_learning": "The GNN learns relational edge connections across 4 hops. Aggregating cyclic neighbor embeddings identifies the closed directed loop with a 96.8% mule ring probability.",
             "disclaimer": "These are potential investigation patterns, not automatic proof of fraud.",
             "steps": [
                 "Step 1: Bank A (A101) transfers ₹50,000 to Bank B (B205) via IMPS instant clearing.",
                 "Step 2: Bank B (B205) forwards ₹48,000 to Bank C (C310) within 14 minutes (sub-90-min holding).",
                 "Step 3: Bank C (C310) forwards ₹46,000 to Bank D (D410) across cooperative settlement rails.",
-                "Step 4: Bank D (D410) executes return path transfer of ₹44,000 back to Bank A (A101), closing the cycle.",
+                "Step 4: Bank D (D410) executes return path transfer of ₹44,000 back to Bank A (A101), closing the loop.",
             ],
             "total_volume": float(sum(d["amount"] for _, _, d in G.edges(data=True))),
             "suspicious_volume": float(sum(d["amount"] for _, _, d in G.edges(data=True) if d.get("is_suspicious") == 1)),
@@ -270,30 +261,22 @@ class MuleInterceptionEngine:
         return G, txs, metadata
 
     def _build_layered_topology(self) -> Tuple[nx.DiGraph, List[Dict[str, Any]], Dict[str, Any]]:
-        """2. Layered Relational Topology across 4 banks."""
+        """2. Layered Relational Topology across 4 banks (A101 -> B201 -> C301 -> D401)."""
         G = nx.DiGraph()
         nodes_spec = [
-            ("BANK_A:A102", "A102", "BANK_A", "Layering Originator", 1, "LAYERED_CHAIN"),
-            ("BANK_B:B202", "B202", "BANK_B", "Intermediary Relay Conduit 1", 1, "LAYERED_CHAIN"),
-            ("BANK_C:C302", "C302", "BANK_C", "Intermediary Relay Conduit 2", 1, "LAYERED_CHAIN"),
-            ("BANK_D:D402", "D402", "BANK_D", "Intermediary Relay Conduit 3", 1, "LAYERED_CHAIN"),
-            ("BANK_B:B204", "B204", "BANK_B", "Terminal Pass-Through Buffer", 1, "LAYERED_CHAIN"),
-            ("BANK_A:A101", "A101", "BANK_A", "Retail Clearing Node", 0, "INTERBANK_CLEARING"),
-            ("BANK_C:C301", "C301", "BANK_C", "Cooperative Credit Member", 0, "INTERBANK_CLEARING"),
-            ("BANK_D:D401", "D401", "BANK_D", "Wealth Management Client", 0, "INTERBANK_CLEARING"),
+            ("BANK_A:A101", "A101", "BANK_A", "Layering Originator", 1, "LAYERED_CHAIN"),
+            ("BANK_B:B201", "B201", "BANK_B", "Intermediary Relay Conduit 1", 1, "LAYERED_CHAIN"),
+            ("BANK_C:C301", "C301", "BANK_C", "Intermediary Relay Conduit 2", 1, "LAYERED_CHAIN"),
+            ("BANK_D:D401", "D401", "BANK_D", "Terminal Cash-Out Relay", 1, "LAYERED_CHAIN"),
         ]
         for nid, code, bank, role, is_mule, pat in nodes_spec:
             G.add_node(nid, account_code=code, bank_id=bank, raw_id=code, role=role, is_mule=is_mule, pattern_type=pat)
 
         edges_spec = [
-            # Layered pass-through chain
-            ("BANK_A:A102", "BANK_B:B202", 120000.0, "2026-11-20 11:00:15", "TXN_LAY_001", True, "BANK_A", "BANK_B", 1, "LAYERED_CHAIN", "NEFT_SETTLEMENT"),
-            ("BANK_B:B202", "BANK_C:C302", 116000.0, "2026-11-20 11:01:10", "TXN_LAY_002", True, "BANK_B", "BANK_C", 1, "LAYERED_CHAIN", "IMPS_INSTANT"),
-            ("BANK_C:C302", "BANK_D:D402", 112000.0, "2026-11-20 11:02:40", "TXN_LAY_003", True, "BANK_C", "BANK_D", 1, "LAYERED_CHAIN", "IMPS_INSTANT"),
-            ("BANK_D:D402", "BANK_B:B204", 108000.0, "2026-11-20 11:04:12", "TXN_LAY_004", True, "BANK_D", "BANK_B", 1, "LAYERED_CHAIN", "RTGS_INTERBANK"),
-            # Background normal
-            ("BANK_C:C301", "BANK_D:D401", 45000.0, "2026-11-20 10:30:00", "TXN_NORM_005", True, "BANK_C", "BANK_D", 0, "INTERBANK_CLEARING", "NEFT_SETTLEMENT"),
-            ("BANK_D:D401", "BANK_A:A101", 38000.0, "2026-11-20 11:15:00", "TXN_NORM_006", True, "BANK_D", "BANK_A", 0, "INTERBANK_CLEARING", "UPI_P2P"),
+            # Clean 4-bank pass-through chain
+            ("BANK_A:A101", "BANK_B:B201", 120000.0, "2026-11-20 11:00:15", "TXN_LAY_001", True, "BANK_A", "BANK_B", 1, "LAYERED_CHAIN", "NEFT_SETTLEMENT"),
+            ("BANK_B:B201", "BANK_C:C301", 116000.0, "2026-11-20 11:01:10", "TXN_LAY_002", True, "BANK_B", "BANK_C", 1, "LAYERED_CHAIN", "IMPS_INSTANT"),
+            ("BANK_C:C301", "BANK_D:D401", 112000.0, "2026-11-20 11:02:40", "TXN_LAY_003", True, "BANK_C", "BANK_D", 1, "LAYERED_CHAIN", "IMPS_INSTANT"),
         ]
 
         txs = []
@@ -305,15 +288,14 @@ class MuleInterceptionEngine:
             "topology_type": "LAYERED",
             "title": "2. Layered Relational Topology — Multi-Hop Pass-Through",
             "badge": "Cross-Bank Rapid Chain",
-            "flow_summary": "Bank A:A102 (₹1.2L) ➔ Bank B:B202 (₹1.16L) ➔ Bank C:C302 (₹1.12L) ➔ Bank D:D402 (₹1.08L) ➔ Bank B:B204",
-            "what_is_happening": "Money passes sequentially through multiple intermediary accounts across all four banks without resting balance (sub-90-second turnaround). Each intermediary takes a small transaction commission while immediately forwarding funds.",
+            "flow_summary": "Bank A:A101 (₹1,20,000) ➔ Bank B:B201 (₹1,16,000) ➔ Bank C:C301 (₹1,12,000) ➔ Bank D:D401",
+            "what_is_happening": "Money passes sequentially through intermediary accounts across all four banks without resting balance (sub-90-second turnaround). Each intermediary takes a small fee while immediately forwarding funds.",
             "gnn_learning": "The GNN captures directional path embeddings and velocity features. Nodes exhibiting equal in-degree and out-degree with minimal holding duration receive high 'Transit Relay' centrality scores.",
             "disclaimer": "These are potential investigation patterns, not automatic proof of fraud.",
             "steps": [
-                "Step 1: Bank A (A102) initiates wire transfer of ₹1,20,000 to Bank B (B202).",
-                "Step 2: Bank B (B202) immediately forwards ₹1,16,000 to Bank C (C302) in under 60 seconds.",
-                "Step 3: Bank C (C302) routes ₹1,12,000 to Bank D (D402) via IMPS.",
-                "Step 4: Bank D (D402) routes ₹1,08,000 to terminal conduit buffer B204 in Bank B.",
+                "Step 1: Bank A (A101) initiates wire transfer of ₹1,20,000 to Bank B (B201).",
+                "Step 2: Bank B (B201) immediately forwards ₹1,16,000 to Bank C (C301) in under 60 seconds.",
+                "Step 3: Bank C (C301) routes ₹1,12,000 to Bank D (D401) via IMPS, completing the transit chain.",
             ],
             "total_volume": float(sum(d["amount"] for _, _, d in G.edges(data=True))),
             "suspicious_volume": float(sum(d["amount"] for _, _, d in G.edges(data=True) if d.get("is_suspicious") == 1)),
@@ -322,29 +304,22 @@ class MuleInterceptionEngine:
         return G, txs, metadata
 
     def _build_fan_in_topology(self) -> Tuple[nx.DiGraph, List[Dict[str, Any]], Dict[str, Any]]:
-        """3. Fan-In Relational Topology (Smurfing Aggregation)."""
+        """3. Fan-In Relational Topology across 4 banks (A101, B201, D401 -> C301)."""
         G = nx.DiGraph()
         nodes_spec = [
-            ("BANK_A:A103", "A103", "BANK_A", "Smurfing Feeder Account", 1, "FAN_IN_SMURFING"),
-            ("BANK_B:B203", "B203", "BANK_B", "Smurfing Feeder Account", 1, "FAN_IN_SMURFING"),
-            ("BANK_D:D403", "D403", "BANK_D", "Smurfing Feeder Account", 1, "FAN_IN_SMURFING"),
-            ("BANK_A:A104", "A104", "BANK_A", "Smurfing Feeder Account", 1, "FAN_IN_SMURFING"),
-            ("BANK_B:B206", "B206", "BANK_B", "Smurfing Feeder Account", 1, "FAN_IN_SMURFING"),
+            ("BANK_A:A101", "A101", "BANK_A", "Smurfing Feeder Account", 1, "FAN_IN_SMURFING"),
+            ("BANK_B:B201", "B201", "BANK_B", "Smurfing Feeder Account", 1, "FAN_IN_SMURFING"),
+            ("BANK_D:D401", "D401", "BANK_D", "Smurfing Feeder Account", 1, "FAN_IN_SMURFING"),
             ("BANK_C:C301", "C301", "BANK_C", "Central Mule Collector & Aggregator", 1, "FAN_IN_SMURFING"),
-            ("BANK_D:D401", "D401", "BANK_D", "Wealth Settlement Node", 0, "INTERBANK_CLEARING"),
         ]
         for nid, code, bank, role, is_mule, pat in nodes_spec:
             G.add_node(nid, account_code=code, bank_id=bank, raw_id=code, role=role, is_mule=is_mule, pattern_type=pat)
 
         edges_spec = [
-            # Fan-In smurfing transfers into collector C301
-            ("BANK_A:A103", "BANK_C:C301", 49000.0, "2026-11-20 15:10:00", "TXN_SMURF_001", True, "BANK_A", "BANK_C", 1, "FAN_IN_SMURFING", "UPI_P2P"),
-            ("BANK_B:B203", "BANK_C:C301", 48500.0, "2026-11-20 15:12:30", "TXN_SMURF_002", True, "BANK_B", "BANK_C", 1, "FAN_IN_SMURFING", "IMPS_INSTANT"),
-            ("BANK_D:D403", "BANK_C:C301", 49200.0, "2026-11-20 15:14:15", "TXN_SMURF_003", True, "BANK_D", "BANK_C", 1, "FAN_IN_SMURFING", "IMPS_INSTANT"),
-            ("BANK_A:A104", "BANK_C:C301", 47800.0, "2026-11-20 15:15:50", "TXN_SMURF_004", True, "BANK_A", "BANK_C", 1, "FAN_IN_SMURFING", "UPI_P2P"),
-            ("BANK_B:B206", "BANK_C:C301", 48900.0, "2026-11-20 15:18:20", "TXN_SMURF_005", True, "BANK_B", "BANK_C", 1, "FAN_IN_SMURFING", "IMPS_INSTANT"),
-            # Background clearing
-            ("BANK_C:C301", "BANK_D:D401", 25000.0, "2026-11-20 14:00:00", "TXN_NORM_007", True, "BANK_C", "BANK_D", 0, "INTERBANK_CLEARING", "NEFT_SETTLEMENT"),
+            # Clean Fan-In smurfing transfers from 3 banks into collector C301
+            ("BANK_A:A101", "BANK_C:C301", 49000.0, "2026-11-20 15:10:00", "TXN_SMURF_001", True, "BANK_A", "BANK_C", 1, "FAN_IN_SMURFING", "UPI_P2P"),
+            ("BANK_B:B201", "BANK_C:C301", 48500.0, "2026-11-20 15:12:30", "TXN_SMURF_002", True, "BANK_B", "BANK_C", 1, "FAN_IN_SMURFING", "IMPS_INSTANT"),
+            ("BANK_D:D401", "BANK_C:C301", 49200.0, "2026-11-20 15:14:15", "TXN_SMURF_003", True, "BANK_D", "BANK_C", 1, "FAN_IN_SMURFING", "IMPS_INSTANT"),
         ]
 
         txs = []
@@ -356,15 +331,14 @@ class MuleInterceptionEngine:
             "topology_type": "FAN_IN",
             "title": "3. Fan-In Relational Topology (Smurfing Aggregation)",
             "badge": "Multi-Bank Aggregation",
-            "flow_summary": "Bank A:A103, Bank B:B203, Bank D:D403 ➔ Bank C:C301 (Collector)",
-            "what_is_happening": "Multiple feeder accounts across Bank A, Bank B, and Bank D funnel structured amounts just below ₹50,000 (to evade mandatory CTR reporting) into a single collector account C301 in Bank C.",
+            "flow_summary": "Bank A:A101, Bank B:B201, Bank D:D401 ➔ Bank C:C301 (Collector)",
+            "what_is_happening": "Multiple feeder accounts across Bank A, Bank B, and Bank D funnel structured amounts below ₹50,000 (to evade mandatory CTR reporting) into a single collector account C301 in Bank C.",
             "gnn_learning": "The GNN's neighborhood aggregation functions compute an abnormally high in-degree ratio relative to historical baseline, flagging C301 as a centralized mule aggregator with 94.7% confidence.",
             "disclaimer": "These are potential investigation patterns, not automatic proof of fraud.",
             "steps": [
-                "Step 1: Bank A (A103) deposits ₹49,000 into Bank C (C301).",
-                "Step 2: Bank B (B203) deposits ₹48,500 into Bank C (C301).",
-                "Step 3: Bank D (D403) deposits ₹49,200 into Bank C (C301).",
-                "Step 4: Additional structured feeders (A104, B206) deposit ₹96,700 into C301, aggregating ₹243,400.",
+                "Step 1: Bank A (A101) deposits ₹49,000 into Bank C (C301).",
+                "Step 2: Bank B (B201) deposits ₹48,500 into Bank C (C301).",
+                "Step 3: Bank D (D401) deposits ₹49,200 into Bank C (C301), aggregating ₹1,46,700 into C301.",
             ],
             "total_volume": float(sum(d["amount"] for _, _, d in G.edges(data=True))),
             "suspicious_volume": float(sum(d["amount"] for _, _, d in G.edges(data=True) if d.get("is_suspicious") == 1)),
@@ -373,29 +347,22 @@ class MuleInterceptionEngine:
         return G, txs, metadata
 
     def _build_fan_out_topology(self) -> Tuple[nx.DiGraph, List[Dict[str, Any]], Dict[str, Any]]:
-        """4. Fan-Out Relational Topology (Mule Dispersion & Cash-Out)."""
+        """4. Fan-Out Relational Topology across 4 banks (A101 -> B201, C301, D401)."""
         G = nx.DiGraph()
         nodes_spec = [
             ("BANK_A:A101", "A101", "BANK_A", "Primary Mule Distributor / Splitter", 1, "FAN_OUT_DISPERSION"),
             ("BANK_B:B201", "B201", "BANK_B", "Cash-Out Exit Mule 1", 1, "FAN_OUT_DISPERSION"),
-            ("BANK_C:C303", "C303", "BANK_C", "Cash-Out Exit Mule 2", 1, "FAN_OUT_DISPERSION"),
+            ("BANK_C:C301", "C301", "BANK_C", "Cash-Out Exit Mule 2", 1, "FAN_OUT_DISPERSION"),
             ("BANK_D:D401", "D401", "BANK_D", "Cash-Out Exit Mule 3", 1, "FAN_OUT_DISPERSION"),
-            ("BANK_B:B204", "B204", "BANK_B", "Cash-Out Exit Mule 4", 1, "FAN_OUT_DISPERSION"),
-            ("BANK_D:D404", "D404", "BANK_D", "Cash-Out Exit Mule 5", 1, "FAN_OUT_DISPERSION"),
-            ("BANK_A:A102", "A102", "BANK_A", "Retail Clearing Node", 0, "INTERBANK_CLEARING"),
         ]
         for nid, code, bank, role, is_mule, pat in nodes_spec:
             G.add_node(nid, account_code=code, bank_id=bank, raw_id=code, role=role, is_mule=is_mule, pattern_type=pat)
 
         edges_spec = [
-            # Fan-Out dispersion from A101
+            # Clean Fan-Out dispersion from A101 to 3 banks
             ("BANK_A:A101", "BANK_B:B201", 35000.0, "2026-11-20 16:01:00", "TXN_DISP_001", True, "BANK_A", "BANK_B", 1, "FAN_OUT_DISPERSION", "UPI_P2P"),
-            ("BANK_A:A101", "BANK_C:C303", 32000.0, "2026-11-20 16:01:45", "TXN_DISP_002", True, "BANK_A", "BANK_C", 1, "FAN_OUT_DISPERSION", "IMPS_INSTANT"),
+            ("BANK_A:A101", "BANK_C:C301", 32000.0, "2026-11-20 16:01:45", "TXN_DISP_002", True, "BANK_A", "BANK_C", 1, "FAN_OUT_DISPERSION", "IMPS_INSTANT"),
             ("BANK_A:A101", "BANK_D:D401", 34000.0, "2026-11-20 16:02:30", "TXN_DISP_003", True, "BANK_A", "BANK_D", 1, "FAN_OUT_DISPERSION", "IMPS_INSTANT"),
-            ("BANK_A:A101", "BANK_B:B204", 30000.0, "2026-11-20 16:03:15", "TXN_DISP_004", True, "BANK_A", "BANK_B", 1, "FAN_OUT_DISPERSION", "UPI_P2P"),
-            ("BANK_A:A101", "BANK_D:D404", 28500.0, "2026-11-20 16:04:00", "TXN_DISP_005", True, "BANK_A", "BANK_D", 1, "FAN_OUT_DISPERSION", "UPI_P2P"),
-            # Background clearing
-            ("BANK_A:A102", "BANK_A:A101", 160000.0, "2026-11-20 15:45:00", "TXN_NORM_008", False, "BANK_A", "BANK_A", 0, "INTERBANK_CLEARING", "NEFT_SETTLEMENT"),
         ]
 
         txs = []
@@ -407,15 +374,14 @@ class MuleInterceptionEngine:
             "topology_type": "FAN_OUT",
             "title": "4. Fan-Out Relational Topology (Mule Dispersion & Cash-Out)",
             "badge": "Mule Splitter & Cash-Out",
-            "flow_summary": "Bank A:A101 (Distributor) ➔ Bank B:B201, Bank C:C303, Bank D:D401, Bank B:B204, Bank D:D404",
-            "what_is_happening": "A central distributor account A101 in Bank A rapidly splits and disburses a large pool of funds into smaller tranches to multiple cash-out mule accounts across Bank B, Bank C, and Bank D.",
+            "flow_summary": "Bank A:A101 (Distributor) ➔ Bank B:B201, Bank C:C301, Bank D:D401",
+            "what_is_happening": "A central distributor account A101 in Bank A rapidly splits and disburses funds into smaller tranches to multiple cash-out mule accounts across Bank B, Bank C, and Bank D.",
             "gnn_learning": "The GNN identifies sudden out-degree spikes and simultaneous outbound burst velocity, classifying A101 as a primary fan-out splitter.",
             "disclaimer": "These are potential investigation patterns, not automatic proof of fraud.",
             "steps": [
                 "Step 1: Bank A (A101) disperses ₹35,000 to Bank B (B201).",
-                "Step 2: Bank A (A101) disperses ₹32,000 to Bank C (C303).",
-                "Step 3: Bank A (A101) disperses ₹34,000 to Bank D (D401).",
-                "Step 4: Bank A (A101) disperses remaining tranches to B204 and D404 within 3 minutes.",
+                "Step 2: Bank A (A101) disperses ₹32,000 to Bank C (C301).",
+                "Step 3: Bank A (A101) disperses ₹34,000 to Bank D (D401), dispersing ₹1,01,000 total.",
             ],
             "total_volume": float(sum(d["amount"] for _, _, d in G.edges(data=True))),
             "suspicious_volume": float(sum(d["amount"] for _, _, d in G.edges(data=True) if d.get("is_suspicious") == 1)),
@@ -424,8 +390,60 @@ class MuleInterceptionEngine:
         return G, txs, metadata
 
     def _build_hybrid_ecosystem_topology(self) -> Tuple[nx.DiGraph, List[Dict[str, Any]], Dict[str, Any]]:
-        """5. Hybrid Relational Topology (Full 4-Bank Interconnected Clearing & Mule Ecosystem)."""
-        return self.build_unified_ecosystem_graph()
+        """5. Hybrid Relational Topology (Clean 8-Node Interconnected 4-Bank Ecosystem)."""
+        G = nx.DiGraph()
+        # Exactly 2 accounts per bank across the 4 banks
+        nodes_spec = [
+            ("BANK_A:A101", "A101", "BANK_A", "Laundering Originator & Return Node", 1, "CIRCULAR_LOOP"),
+            ("BANK_A:A102", "A102", "BANK_A", "Dispersion Distributor Account", 1, "FAN_OUT_DISPERSION"),
+            ("BANK_B:B205", "B205", "BANK_B", "Inter-Bank Transit Conduit", 1, "CIRCULAR_LOOP"),
+            ("BANK_B:B201", "B201", "BANK_B", "Smurfing Feeder Account", 1, "FAN_IN_SMURFING"),
+            ("BANK_C:C310", "C310", "BANK_C", "Cooperative Settlement Bridge", 1, "CIRCULAR_LOOP"),
+            ("BANK_C:C301", "C301", "BANK_C", "Central Mule Collector & Aggregator", 1, "FAN_IN_SMURFING"),
+            ("BANK_D:D410", "D410", "BANK_D", "Wealth Remittance Relay Node", 1, "CIRCULAR_LOOP"),
+            ("BANK_D:D401", "D401", "BANK_D", "Cash-Out Exit Mule Account", 1, "FAN_OUT_DISPERSION"),
+        ]
+        for nid, code, bank, role, is_mule, pat in nodes_spec:
+            G.add_node(nid, account_code=code, bank_id=bank, raw_id=code, role=role, is_mule=is_mule, pattern_type=pat)
+
+        edges_spec = [
+            # 1. 4-Bank Circular Loop
+            ("BANK_A:A101", "BANK_B:B205", 50000.0, "2026-11-20 14:02:10", "TXN_HYB_001", True, "BANK_A", "BANK_B", 1, "CIRCULAR_LOOP", "IMPS_INSTANT"),
+            ("BANK_B:B205", "BANK_C:C310", 48000.0, "2026-11-20 14:16:45", "TXN_HYB_002", True, "BANK_B", "BANK_C", 1, "CIRCULAR_LOOP", "IMPS_INSTANT"),
+            ("BANK_C:C310", "BANK_D:D410", 46000.0, "2026-11-20 14:31:18", "TXN_HYB_003", True, "BANK_C", "BANK_D", 1, "CIRCULAR_LOOP", "NEFT_SETTLEMENT"),
+            ("BANK_D:D410", "BANK_A:A101", 44000.0, "2026-11-20 14:44:02", "TXN_HYB_004", True, "BANK_D", "BANK_A", 1, "CIRCULAR_LOOP", "UPI_INSTANT"),
+            # 2. Cross-Bank Smurfing Feeder
+            ("BANK_B:B201", "BANK_C:C301", 48500.0, "2026-11-20 15:10:00", "TXN_HYB_005", True, "BANK_B", "BANK_C", 1, "FAN_IN_SMURFING", "IMPS_INSTANT"),
+            # 3. Cross-Bank Dispersion Cash-Out
+            ("BANK_A:A102", "BANK_D:D401", 35000.0, "2026-11-20 16:01:00", "TXN_HYB_006", True, "BANK_A", "BANK_D", 1, "FAN_OUT_DISPERSION", "UPI_P2P"),
+            # 4. Background Normal Inter-Bank Clearing
+            ("BANK_C:C301", "BANK_A:A102", 28000.0, "2026-11-20 16:30:00", "TXN_HYB_007", True, "BANK_C", "BANK_A", 0, "INTERBANK_CLEARING", "NEFT_SETTLEMENT"),
+        ]
+
+        txs = []
+        for u, v, amt, ts, txid, cross, sb, rb, susp, pat, ch in edges_spec:
+            G.add_edge(u, v, amount=amt, timestamp=ts, transaction_id=txid, is_cross_bank=cross, sender_bank=sb, receiver_bank=rb, is_suspicious=susp, pattern_type=pat, channel=ch)
+            txs.append({"transaction_id": txid, "sender": u, "receiver": v, "amount": amt, "timestamp": ts, "is_cross_bank": cross, "sender_bank": sb, "receiver_bank": rb, "is_suspicious": susp, "pattern_type": pat, "channel": ch})
+
+        metadata = {
+            "topology_type": "HYBRID",
+            "title": "5. Four-Bank Unified Relational Fraud Network Topology",
+            "badge": "Unified 4-Bank Ecosystem (Clean Mesh)",
+            "flow_summary": "Bank A ➔ Bank B ➔ Bank C ➔ Bank D interconnected with circular, smurfing, and dispersion patterns",
+            "what_is_happening": "All four banks (Bank A, Bank B, Bank C, Bank D) exchange funds across institutional boundaries. The network highlights suspicious circular cycling (A101➔B205➔C310➔D410➔A101), cross-bank smurfing (B201➔C301), and rapid dispersion (A102➔D401) alongside legitimate interbank clearing.",
+            "gnn_learning": "The Graph Neural Network learns multi-relational structural topologies across banks, identifying accounts with high mule probability based on graph motifs rather than isolated transaction amounts.",
+            "disclaimer": "These are potential investigation patterns, not automatic proof of fraud.",
+            "steps": [
+                "Circular Loop: A101 (Bank A) ➔ B205 (Bank B) ➔ C310 (Bank C) ➔ D410 (Bank D) ➔ A101 (Bank A).",
+                "Smurfing Aggregation: B201 (Bank B) funnels ₹48,500 structured micro-deposit into C301 (Bank C).",
+                "Dispersion Cash-Out: A102 (Bank A) splits ₹35,000 to exit mule D401 (Bank D).",
+                "Inter-Bank Clearing: Normal institutional clearing flow from C301 to A102 (₹28,000).",
+            ],
+            "total_volume": float(sum(d["amount"] for _, _, d in G.edges(data=True))),
+            "suspicious_volume": float(sum(d["amount"] for _, _, d in G.edges(data=True) if d.get("is_suspicious") == 1)),
+            "banks_involved": ["BANK_A", "BANK_B", "BANK_C", "BANK_D"],
+        }
+        return G, txs, metadata
 
     def build_unified_ecosystem_graph(
         self,

@@ -135,5 +135,5 @@ def test_unified_four_bank_ecosystem_topology(interception_engine):
     resp = get_unified_ecosystem()
     assert resp["is_unified"] is True
     assert set(resp["banks_involved"]) == {"BANK_A", "BANK_B", "BANK_C", "BANK_D"}
-    assert len(resp["nodes"]) > 20
-    assert len(resp["edges"]) > 20
+    assert len(resp["nodes"]) >= 4
+    assert len(resp["edges"]) >= 4

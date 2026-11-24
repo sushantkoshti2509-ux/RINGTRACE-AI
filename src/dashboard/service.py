@@ -184,6 +184,44 @@ class DashboardMonitoringService:
                 })
             return results
 
+    def count_transactions(
+        self,
+        bank_id: Optional[str] = None,
+        risk_level: Optional[str] = None,
+        min_amount: Optional[float] = None,
+        max_amount: Optional[float] = None,
+        search_query: Optional[str] = None,
+    ) -> int:
+        """Counts total transactions matching the specified filters."""
+        with self.db.get_session() as session:
+            query = session.query(func.count(IntegratedTransactionModel.transaction_id))
+
+            if bank_id and bank_id.upper() not in ["ALL", "ALL BANKS"]:
+                norm_b = bank_id.upper().replace(" ", "_")
+                query = query.filter((IntegratedTransactionModel.sender_bank == norm_b) | (IntegratedTransactionModel.receiver_bank == norm_b))
+
+            if risk_level and risk_level.upper() not in ["ALL", "ALL TIERS"]:
+                if risk_level.lower() == "high":
+                    query = query.filter(IntegratedTransactionModel.is_suspicious == 1)
+                elif risk_level.lower() == "low":
+                    query = query.filter(IntegratedTransactionModel.is_suspicious == 0)
+
+            if min_amount is not None:
+                query = query.filter(IntegratedTransactionModel.amount >= min_amount)
+            if max_amount is not None:
+                query = query.filter(IntegratedTransactionModel.amount <= max_amount)
+
+            if search_query:
+                term = f"%{search_query.strip()}%"
+                query = query.filter(
+                    (IntegratedTransactionModel.transaction_id.ilike(term))
+                    | (IntegratedTransactionModel.sender_account.ilike(term))
+                    | (IntegratedTransactionModel.receiver_account.ilike(term))
+                    | (IntegratedTransactionModel.customer_id.ilike(term))
+                )
+
+            return int(query.scalar() or 0)
+
     def get_time_series_trends(self) -> Dict[str, Any]:
         """Provides daily and hourly temporal trends for analytical charts."""
         with self.db.get_session() as session:
