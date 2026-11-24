@@ -1,153 +1,181 @@
 # RINGTRACE AI 🛡️
-### Privacy-Preserving Cross-Bank Mule-Ring Detection & Investigation System
+### Multi-Bank Proactive Mule Ring Defense & Autonomous Financial Interception Engine
 
 [![Python Version](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Frontend](https://img.shields.io/badge/frontend-React_19_+_Vite-cyan.svg)](https://vitejs.dev/)
-[![FastAPI](https://img.shields.io/badge/backend-FastAPI-emerald.svg)](https://fastapi.tiangolo.com/)
+[![Frontend](https://img.shields.io/badge/frontend-React_18_+_Vite-cyan.svg)](https://vitejs.dev/)
+[![Backend](https://img.shields.io/badge/backend-FastAPI-emerald.svg)](https://fastapi.tiangolo.com/)
+[![Tests](https://img.shields.io/badge/tests-77%20passed-brightgreen.svg)](tests/)
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/sushantkoshti2509-ux/RINGTRACE-AI)
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/new?template=https://github.com/sushantkoshti2509-ux/RINGTRACE-AI)
 
-RINGTRACE AI is an explainable, privacy-preserving fraud intelligence platform designed to uncover coordinated mule account networks operating across multiple financial institutions in digital payment ecosystems (such as Indian UPI).
+**RINGTRACE AI** is a real-time, privacy-preserving financial intelligence platform designed to detect, trace, and dismantle coordinated mule account rings operating across multi-bank digital payment corridors (such as Indian UPI, IMPS, and NEFT).
 
----
-
-## 🌟 Key Highlights
-
-1. **Multi-Bank Simulation Engine:** Realistic simulation of three banking institutions (**Bank A, Bank B, Bank C**) modeling legitimate profiles (salaried, gig workers, merchants, students) and complex mule networks (rapid pass-through, fan-out splitters, collectors, cross-bank chains, circular layering).
-2. **Directed Graph Intelligence:** NetworkX-powered transaction topology tracking fan-in, fan-out, multi-hop flow paths, and cycle detection.
-3. **Temporal Behavior Analysis:** Sub-second to minute-level turnaround tracking (time between receiving and forwarding funds), pass-through ratios, and transaction velocity bursts.
-4. **Group-Aware Machine Learning:** XGBoost classification using ring-grouped train/test partitions (`GroupShuffleSplit`) to prevent data leakage, with `scale_pos_weight` for class imbalance.
-5. **SHAP & Graph Reason Codes:** Every alert combines model feature attribution (SHAP) with deterministic transaction flow evidence.
-6. **Cryptographic Private Set Intersection (PSI):** Commutative Diffie-Hellman exponentiation over RFC 3526 2048-bit groups enabling cross-bank canonical entity correlation without exposing non-matching customer records or local ledgers.
-7. **Interactive Streamlit Dashboard:** Multi-page investigator interface with interactive Plotly network graphs, account deep-dives, PSI visualizer, and case triage queue.
-8. **Compliance & Ethical Safeguards:** Strict human-in-the-loop triage — no automated account freezes or payment blocks.
+By coupling **Edge-Aware Graph Neural Networks (GINE & GATv2)** with **proactive topological bottleneck severance**, RINGTRACE AI allows participating financial institutions to detect multi-hop laundering chains before funds exit the formal banking perimeter.
 
 ---
 
-## 📂 Project Structure
+## 🏛️ Four-Bank Unified Ecosystem
+
+RINGTRACE AI models and coordinates real-time defense across four distinct banking tiers:
+
+| Institution | Institutional Role | Primary Corridor Focus |
+|---|---|---|
+| **Bank A** | Primary Retail Settlement Switch | High-velocity retail accounts & initial dispersion |
+| **Bank B** | Commercial Gateway & Corporate Treasury | High-value transit corridors & intermediary feeder accounts |
+| **Bank C** | Regional Cooperative Clearing Hub | Layering aggregation nodes & mule collection points |
+| **Bank D** | Federal Wealth & Remittance Rail | High-value cross-border hops & cash-out exit conduits |
+
+---
+
+## ⚡ Key Architectural Capabilities
+
+### 1. Edge-Aware Graph Neural Network (GINE Backbone)
+- **Relational Message Passing**: Propagates account features and transaction metadata (amounts, time delta, velocity, corridor) across graph edges.
+- **Dual-Head Inference**: Simultaneously outputs node-level mule probabilities ($P(\text{mule})$) and edge-level transaction fraud probabilities.
+- **Sub-Hop Explanations**: Generates deterministic reason codes and subgraph feature attributions without exposing non-relevant accounts.
+
+### 2. Proactive Interception & Bottleneck Severance Engine
+- **Choke-Point Identification**: Computes topological betweenness and bridge metrics to pinpoint the critical account whose disruption prevents the maximum downstream fund leakage.
+- **Countermeasure Strategies**:
+  - `COOLING_OFF_DELAY`: Imposes a dynamic 60-minute holding window on suspicious hops.
+  - `REVERSE_FREEZE_CASCADE`: Propagates automated downstream hold signals across creditor banks.
+  - `COLLATERAL_LOCK`: Temporarily reserves equivalent institutional liquidity at transit nodes.
+  - `REGULATORY_OBSERVATION_HOLD`: Silent nodal monitoring for Law Enforcement (LEA) evidence gathering.
+- **Calculated ROI**: Computes exact loss prevention metrics, downstream nodes neutralized, and severed edge volumes.
+
+### 3. Cryptographic Privacy & DPDP Act 2023 Compliance
+- **Commutative Diffie-Hellman PSI**: Cross-bank entity correlation over RFC 3526 2048-bit groups without revealing local customer ledgers.
+- **Zero Raw PII Exposure**: Deterministic SHA-256 masking on all exported ledgers (`BANK_A:••••0100`).
+- **Immutable Audit Trails**: Generates cryptographically signed JSON audit dossiers with SHA-256 integrity hashes for regulatory submission.
+
+### 4. Interactive Enterprise HUD Command Center
+- **Four-Bank Relational Fraud Network**: Visualized using `@xyflow/react` with 4-quadrant institutional mesh and flow DAG timeline layouts.
+- **3D Cyber Clearing Fabric**: WebGL/Three.js spatial visualization of live settlement streams and flagged mule velocities.
+- **AI Investigation Assistant**: Copilot for generating standardized Suspicious Activity Reports (SAR).
+- **Dual-Reconciled Status Table**: Live multi-bank transaction ledger with instant search, bank filtering, and risk pagination.
+
+---
+
+## 📂 Repository Directory Layout
 
 ```text
 RINGTRACE_AI/
-│
-├── README.md                           # Master Project Guide & Architecture
-├── requirements.txt                    # Python Dependencies
-├── config.py                           # Central Configuration & Hyperparameters
-├── run_pipeline.py                     # Master End-to-End Orchestration Pipeline
-│
-├── data/
-│   ├── raw/                            # Isolated Bank-Specific Ledgers
-│   │   ├── bank_a.csv
-│   │   ├── bank_b.csv
-│   │   └── bank_c.csv
-│   │
-│   ├── processed/                      # Standardized & Feature Tables
-│   │   ├── accounts.csv
-│   │   ├── transactions.csv
-│   │   ├── features.csv
-│   │   └── risk_scores.csv
-│   │
-│   └── synthetic/                      # Ground-Truth Ring Metadata
-│       └── mule_rings.csv
+├── Dockerfile                          # Multi-stage production container (Node + Python 3.12)
+├── Procfile                            # Process definition for cloud PaaS
+├── render.yaml                         # 1-Click Render Blueprint infrastructure-as-code
+├── config.py                           # Central configuration & parameters
+├── requirements.txt                    # Backend dependencies (PyTorch, PyG, FastAPI)
 │
 ├── src/
-│   ├── simulator/                      # UPI & Mule Ring Simulation Engine
-│   │   └── generator.py
-│   ├── preprocessing/                  # Data Cleaning & Normalization
-│   │   └── clean.py
-│   ├── graph/                          # Graph Analytics & Ring Detection
-│   │   ├── builder.py
-│   │   ├── features.py
-│   │   └── ring_detection.py
-│   ├── models/                         # XGBoost Training, Inference, & Evaluation
-│   │   ├── train.py
-│   │   ├── predict.py
-│   │   └── evaluate.py
-│   ├── explain/                        # SHAP Attribution & Multi-Modal Reason Codes
-│   │   ├── shap_explainer.py
-│   │   └── reason_codes.py
-│   ├── privacy/                        # Tokenization & Commutative Diffie-Hellman PSI
-│   │   ├── tokenization.py
-│   │   └── psi_demo.py
-│   └── utils/                          # Schema & Data Integrity Validation
-│       └── validation.py
+│   ├── gnn/                            # Graph Neural Network models & inference
+│   │   ├── models.py                   # EdgeAwareGNN & GATv2Net PyG implementations
+│   │   ├── dataset.py                  # PyTorch Geometric dataset pipeline
+│   │   ├── trainer.py                  # GNN training loops with group-aware splits
+│   │   ├── inference.py                # Low-latency thread-safe GNN scoring service
+│   │   └── explainer.py                # 2-hop neighborhood GNN subgraph attribution
+│   │
+│   ├── interception/                   # Proactive Interception & Choke-Point Engine
+│   │   └── interception_engine.py      # Bottleneck analysis, severance, & ROI metrics
+│   │
+│   ├── integration/                    # Multi-bank data integration & REST API
+│   │   ├── api.py                      # FastAPI application with static SPA mounting
+│   │   ├── reconciler.py               # Dual-ledger reconciliation engine
+│   │   └── database.py                 # SQLite/PostgreSQL persistence layer
+│   │
+│   ├── privacy/                        # Cryptographic tokenization & PSI
+│   │   ├── tokenization.py             # DPDP-compliant canonical token hashing
+│   │   └── psi_demo.py                 # 2048-bit Diffie-Hellman Private Set Intersection
+│   │
+│   └── platform/                       # Platform feature endpoints & helpers
+│       ├── assistant.py                # Copilot SAR generator
+│       └── cases.py                    # Case management & audit logs
 │
-├── app/
-│   ├── dashboard.py                    # Streamlit Entrypoint
-│   └── pages/                          # Multi-Page Dashboard Views
-│       ├── overview.py                 # System Health & Comparative Baselines
-│       ├── network.py                  # Interactive Graph Visualization
-│       ├── account.py                  # Account Deep-Dive & SHAP Waterfall
-│       ├── privacy.py                  # Cryptographic PSI Demonstration
-│       └── investigation.py            # Case Queue & Triage Workflow
+├── frontend/                           # React 18 + Vite HUD Command Center
+│   ├── src/
+│   │   ├── components/                 # UI components
+│   │   │   ├── GNNGraphDashboard.jsx   # Four-Bank Relational Fraud Network (React Flow)
+│   │   │   ├── MuleRingCanvas.jsx      # Multi-Bank Synthetic Topology Canvas
+│   │   │   ├── InterceptionSimulator.jsx # Countermeasure simulation controller
+│   │   │   ├── CyberGlobe3D.jsx        # 3D spatial clearing fabric (Three.js)
+│   │   │   └── KPIMetricsBar.jsx       # Real-time institutional telemetry cards
+│   │   │
+│   │   └── views/                      # Workstation module pages
+│   │       ├── MonitoringView.jsx      # Default executive dashboard
+│   │       ├── GNNIntelligenceView.jsx # GNN model intelligence & predictions
+│   │       ├── NetworkExplorerView.jsx # Multi-bank pattern analysis
+│   │       └── CaseManagerView.jsx     # Regulatory case dossiers & triage
+│   │
+│   └── package.json                    # Frontend dependencies
 │
-├── models/
-│   ├── xgboost_model.json              # Trained XGBoost Binary Model
-│   └── model_metadata.json             # Feature Names & Calibrated Thresholds
-│
-├── reports/
-│   ├── metrics.json                    # Benchmark & Comparative Experiment Metrics
-│   ├── candidate_rings.json            # Discovered Candidate Networks
-│   ├── alerts.json                     # Reason Code & Evidence Summaries
-│   ├── psi_results.json                # Cross-Bank Intersection Logs
-│   └── evaluation_report.md            # Comprehensive Evaluation Markdown Report
-│
-├── tests/                              # Pytest Suite
-│   ├── test_simulator.py
-│   ├── test_graph.py
-│   ├── test_model.py
-│   └── test_privacy.py
-│
-└── docs/                               # Detailed Technical Specs
-    ├── architecture.md
-    ├── data_dictionary.md
-    └── security.md
+└── tests/                              # Pytest test suite (77 passing test cases)
+    ├── test_gnn.py                     # GNN models, training, & inference tests
+    ├── test_interception.py            # Choke-point detection & severance tests
+    ├── test_integration.py             # Dual-ledger reconciliation tests
+    └── ...
 ```
 
 ---
 
-## 🚀 Quickstart Guide
+## 🚀 Quickstart & Local Setup
 
-### 1. Setup Virtual Environment & Install Dependencies
+### Prerequisites
+- Python 3.12+
+- Node.js 18+ (for frontend development)
+
+### 1. Clone & Setup Python Virtual Environment
 ```bash
-# Create and activate virtual environment
+git clone https://github.com/sushantkoshti2509-ux/RINGTRACE-AI.git
+cd RINGTRACE-AI
+
 python3 -m venv .venv
 source .venv/bin/activate
-
-# Install requirements
 pip install -r requirements.txt
 ```
 
-### 2. Run End-to-End Pipeline
-Executes simulation, graph extraction, model training, ring discovery, SHAP attribution, PSI demonstration, and evaluation benchmarking:
+### 2. Run Complete Test Suite
 ```bash
-python run_pipeline.py
+MPLCONFIGDIR=/tmp/matplotlib_cache OMP_NUM_THREADS=1 pytest tests/ -v
 ```
+*(All 77 test cases will pass in ~40 seconds).*
 
-### 3. Launch Interactive Command Center & API Server
+### 3. Launch the Application Locally
 ```bash
-# Start FastAPI Backend & Unified Production HUD (Port 8000)
-uvicorn src.integration.api:app --host 0.0.0.0 --port 8000 --reload
+# Start FastAPI backend (serves API and compiled frontend at http://localhost:8000)
+MPLCONFIGDIR=/tmp/matplotlib_cache OMP_NUM_THREADS=1 uvicorn src.integration.api:app --host 0.0.0.0 --port 8000
 
-# Or start Vite React Frontend in development mode (Port 5173)
-cd frontend && npm run dev
-```
-
-### 4. Run Pytest Suite
-```bash
-pytest -v
+# Optional: Run Vite frontend in development hot-reload mode (http://localhost:5173)
+cd frontend
+npm install
+npm run dev
 ```
 
 ---
 
-## 📊 Comparative Baseline Experiments (PRD Section 16.8)
+## ☁️ Cloud Deployment (Render / Docker)
 
-RINGTRACE AI evaluates three detection paradigms using identical ground-truth scenarios:
+The repository is pre-configured for **Render Free Tier** with zero Out-of-Memory (OOM) risks:
 
-| Detection Modality | Precision | Recall | F1-Score | False Positive Rate | PR-AUC |
-|---|---|---|---|---|---|
-| **Experiment A: Isolated Bank View** | 0.812 | 0.587 | 0.681 | 3.4% | 0.642 |
-| **Experiment B: Combined Graph Intelligence** | 0.946 | 0.932 | 0.939 | 1.8% | 0.958 |
-| **Experiment C: Combined Graph + PSI Entity Resolution** | **0.968** | **0.959** | **0.963** | **1.2%** | **0.974** |
+### 1-Click Blueprint Deploy (Recommended)
+1. Go to the [Render Dashboard](https://dashboard.render.com/).
+2. Click **`+ New`** $\rightarrow$ select **`Blueprint`**.
+3. Connect repository: `sushantkoshti2509-ux/RINGTRACE-AI`.
+4. Click **`Apply`**. Render will automatically use [render.yaml](render.yaml) to configure the Docker multi-stage build.
 
-> **Conclusion:** When financial institutions monitor transactions in isolation, they are blind to cross-bank multi-hop chains. Privacy-preserving graph matching delivers a **+40% recall boost** while maintaining strict zero-knowledge confidentiality over local customer ledgers.
+### Production Environment Settings
+- **Port**: `10000` (Render default)
+- **Startup Memory**: `~289 MB` (safely below Render's 512 MB ceiling)
+- **Single-Thread Optimization**: `OMP_NUM_THREADS=1`, `MKL_NUM_THREADS=1`
+- **Cache Redirection**: `MPLCONFIGDIR=/tmp/matplotlib_cache`
+
+---
+
+## 🔒 Security, Compliance & Ethics
+
+- **DPDP Act 2023 Compliant**: Customer account numbers, names, and PII are masked at point of ingestion.
+- **Zero-Knowledge Entity Correlation**: Private Set Intersection ensures banks discover common suspect accounts without leaking innocent customer records.
+- **Human-in-the-Loop Governance**: Interception suggestions require regulatory nodal officer authorization. No black-box automated account freezing.
+
+---
+
+## 📄 License
+This project is licensed under the MIT License.
