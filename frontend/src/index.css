@@ -43,3 +43,12 @@
 .cyber-grid {
   background-color: #f4f6f9;
 }
+
+/* Hide React Flow Attribution Watermark & Minimap Box */
+.react-flow__attribution {
+  display: none !important;
+}
+
+.react-flow__minimap {
+  display: none !important;
+}

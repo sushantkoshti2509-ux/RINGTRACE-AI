@@ -4,7 +4,6 @@ import {
   ReactFlow,
   Background,
   Controls,
-  MiniMap,
   MarkerType,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
@@ -389,21 +388,11 @@ export default function MuleRingCanvas({
           fitViewOptions={{ padding: 0.2 }}
           minZoom={0.25}
           maxZoom={1.6}
+          proOptions={{ hideAttribution: true }}
           className="bg-[#080d1a]"
         >
           <Background color="#1e293b" gap={24} size={1} />
           <Controls className="!bg-slate-900 !border-slate-800 !fill-slate-300 !rounded-xl !overflow-hidden !shadow-xl" />
-          <MiniMap
-            nodeColor={(n) => {
-              const b = (n.data?.bank || '').toUpperCase();
-              if (b.includes('A')) return '#06b6d4';
-              if (b.includes('B')) return '#10b981';
-              if (b.includes('C')) return '#a855f7';
-              return '#f59e0b';
-            }}
-            maskColor="rgba(7, 11, 20, 0.75)"
-            className="!bg-slate-950 !border !border-slate-800 !rounded-xl !overflow-hidden"
-          />
         </ReactFlow>
 
         {/* Bottom Ecosystem Legend */}

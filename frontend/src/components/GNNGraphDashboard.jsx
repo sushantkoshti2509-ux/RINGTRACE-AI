@@ -4,7 +4,6 @@ import {
   ReactFlow,
   Background,
   Controls,
-  MiniMap,
   MarkerType,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
@@ -392,7 +391,7 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
             fitViewOptions={{ padding: 0.16 }}
             minZoom={0.25}
             maxZoom={1.6}
-            attributionPosition="bottom-right"
+            proOptions={{ hideAttribution: true }}
           >
             <Background color="#1e293b" gap={24} size={1} />
             <Controls className="!bg-slate-900 !border-slate-800 !text-slate-300 !fill-slate-300 !rounded-xl !overflow-hidden" />
