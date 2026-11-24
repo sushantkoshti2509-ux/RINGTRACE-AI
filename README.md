@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Frontend](https://img.shields.io/badge/frontend-React_19_+_Vite-cyan.svg)](https://vitejs.dev/)
 [![FastAPI](https://img.shields.io/badge/backend-FastAPI-emerald.svg)](https://fastapi.tiangolo.com/)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/sushantkoshti2509-ux/RINGTRACE-AI)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/new?template=https://github.com/sushantkoshti2509-ux/RINGTRACE-AI)
 
 RINGTRACE AI is an explainable, privacy-preserving fraud intelligence platform designed to uncover coordinated mule account networks operating across multiple financial institutions in digital payment ecosystems (such as Indian UPI).
 
