@@ -74,8 +74,16 @@ function MuleNode({ data, selected }) {
       {/* Input Handle (Left) */}
       <Handle
         type="target"
+        id="left"
         position={Position.Left}
         className="!w-3 !h-3 !bg-cyan-400 !border-2 !border-slate-950 -left-1.5"
+      />
+      {/* Top Handle for Cross-Quadrant Routing */}
+      <Handle
+        type="target"
+        id="top"
+        position={Position.Top}
+        className="!w-2.5 !h-2.5 !bg-cyan-400 !border-2 !border-slate-950 -top-1"
       />
 
       {/* Top Header Badge: Bank & DPDP Masked ID */}
@@ -129,8 +137,16 @@ function MuleNode({ data, selected }) {
       {/* Output Handle (Right) */}
       <Handle
         type="source"
+        id="right"
         position={Position.Right}
         className="!w-3 !h-3 !bg-cyan-400 !border-2 !border-slate-950 -right-1.5"
+      />
+      {/* Bottom Handle for Cross-Quadrant Routing */}
+      <Handle
+        type="source"
+        id="bottom"
+        position={Position.Bottom}
+        className="!w-2.5 !h-2.5 !bg-cyan-400 !border-2 !border-slate-950 -bottom-1"
       />
     </div>
   );

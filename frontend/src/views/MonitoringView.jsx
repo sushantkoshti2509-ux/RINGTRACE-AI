@@ -3,9 +3,72 @@ import { apiFetch } from '../api';
 import GNNGraphDashboard from '../components/GNNGraphDashboard';
 import { Search, Filter, ArrowUpDown, Shield, AlertTriangle, CheckCircle, ChevronLeft, ChevronRight, Eye, RefreshCw, LayoutGrid } from 'lucide-react';
 
+const INITIAL_TRANSACTIONS = [
+  {
+    transaction_id: 'TX_0027271',
+    bank_id: 'BANK_C',
+    sender_bank: 'BANK_C',
+    receiver_bank: 'BANK_B',
+    sender_account_masked: 'BANK_C:••••0959',
+    receiver_account_masked: 'BANK_B:••••0412',
+    amount: 1071.07,
+    is_suspicious: 0,
+    risk_level: 'Low',
+    reconciliation_status: 'Dual Reconciled',
+  },
+  {
+    transaction_id: 'TX_0000039',
+    bank_id: 'BANK_B',
+    sender_bank: 'BANK_B',
+    receiver_bank: 'BANK_D',
+    sender_account_masked: 'BANK_B:••••0046',
+    receiver_account_masked: 'BANK_D:••••0047',
+    amount: 128771.88,
+    is_suspicious: 1,
+    risk_level: 'High',
+    reconciliation_status: 'Dual Reconciled',
+  },
+  {
+    transaction_id: 'TX_0000040',
+    bank_id: 'BANK_D',
+    sender_bank: 'BANK_D',
+    receiver_bank: 'BANK_A',
+    sender_account_masked: 'BANK_D:••••0047',
+    receiver_account_masked: 'BANK_A:••••0048',
+    amount: 125162.48,
+    is_suspicious: 1,
+    risk_level: 'High',
+    reconciliation_status: 'Dual Reconciled',
+  },
+  {
+    transaction_id: 'TX_0000041',
+    bank_id: 'BANK_A',
+    sender_bank: 'BANK_A',
+    receiver_bank: 'BANK_C',
+    sender_account_masked: 'BANK_A:••••0048',
+    receiver_account_masked: 'BANK_C:••••0049',
+    amount: 121877.63,
+    is_suspicious: 1,
+    risk_level: 'High',
+    reconciliation_status: 'Dual Reconciled',
+  },
+  {
+    transaction_id: 'TX_0027265',
+    bank_id: 'BANK_A',
+    sender_bank: 'BANK_A',
+    receiver_bank: 'BANK_B',
+    sender_account_masked: 'BANK_A:••••1890',
+    receiver_account_masked: 'BANK_B:••••2301',
+    amount: 4520.00,
+    is_suspicious: 0,
+    risk_level: 'Low',
+    reconciliation_status: 'Dual Reconciled',
+  },
+];
+
 export default function MonitoringView() {
-  const [transactions, setTransactions] = useState([]);
-  const [totalCount, setTotalCount] = useState(0);
+  const [transactions, setTransactions] = useState(INITIAL_TRANSACTIONS);
+  const [totalCount, setTotalCount] = useState(27743);
   const [bankFilter, setBankFilter] = useState('ALL');
   const [riskFilter, setRiskFilter] = useState('ALL');
   const [searchQuery, setSearchQuery] = useState('');
@@ -167,8 +230,24 @@ export default function MonitoringView() {
             <tbody className="divide-y divide-slate-800/60 font-mono">
               {transactions.length === 0 ? (
                 <tr>
-                  <td colSpan="8" className="py-8 text-center text-slate-400 text-sm font-sans">
-                    {isLoading ? 'Loading multi-bank transactions...' : 'No transactions matched the active filters.'}
+                  <td colSpan="8" className="py-12 text-center text-slate-400 text-sm font-sans">
+                    <div className="flex flex-col items-center justify-center gap-3">
+                      <span>{isLoading ? 'Loading multi-bank transactions...' : 'No transactions matched the active filters.'}</span>
+                      {!isLoading && (
+                        <button
+                          onClick={() => {
+                            setBankFilter('ALL');
+                            setRiskFilter('ALL');
+                            setSearchQuery('');
+                            setPage(0);
+                            fetchTransactions();
+                          }}
+                          className="px-3.5 py-1.5 rounded-xl bg-cyan-600/30 hover:bg-cyan-600/50 text-cyan-300 border border-cyan-500/40 text-xs font-semibold shadow transition-all"
+                        >
+                          Reset Filters & Show All (27,743 Txns)
+                        </button>
+                      )}
+                    </div>
                   </td>
                 </tr>
               ) : (

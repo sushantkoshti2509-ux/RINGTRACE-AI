@@ -107,3 +107,33 @@ def test_all_regulatory_countermeasure_strategies(interception_engine):
         )
         assert res["strategy_used"]["code"].startswith("STRAT_REG_")
         assert res["interception_rate_pct"] > 0
+
+
+def test_unified_four_bank_ecosystem_topology(interception_engine):
+    """Verifies that the unified 4-bank interconnected banking ecosystem combines all 4 banks in one directed graph."""
+    from src.interception.api import get_unified_ecosystem
+
+    # 1. Engine graph construction
+    G, txs, metadata = interception_engine.build_unified_ecosystem_graph()
+    assert G.number_of_nodes() > 20
+    assert G.number_of_edges() > 20
+
+    banks_in_graph = {G.nodes[n].get("bank_id") for n in G.nodes()}
+    assert banks_in_graph == {"BANK_A", "BANK_B", "BANK_C", "BANK_D"}
+
+    # Verify presence of cross-bank edges connecting banks
+    cross_bank_edges = [(u, v) for u, v, d in G.edges(data=True) if d.get("is_cross_bank")]
+    assert len(cross_bank_edges) > 10
+
+    # Verify suspicious pattern presence
+    patterns = {d.get("pattern_type") for _, _, d in G.edges(data=True)}
+    assert any("CIRCULAR" in p for p in patterns)
+    assert any("FAN" in p for p in patterns)
+    assert "INTERBANK_CLEARING" in patterns
+
+    # 2. REST API endpoint output
+    resp = get_unified_ecosystem()
+    assert resp["is_unified"] is True
+    assert set(resp["banks_involved"]) == {"BANK_A", "BANK_B", "BANK_C", "BANK_D"}
+    assert len(resp["nodes"]) > 20
+    assert len(resp["edges"]) > 20

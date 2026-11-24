@@ -45,8 +45,79 @@ def get_strategies():
     return {"strategies": engine.STRATEGIES}
 
 
-@router.get("/topology", summary="Get directed graph topology for a mule ring")
-def get_ring_topology(ring_id: Optional[str] = Query(None)):
+@router.get("/topology", summary="Get directed graph topology for a mule ring or unified 4-bank ecosystem")
+def get_ring_topology(
+    ring_id: Optional[str] = Query(None, description="Candidate Ring ID, or omit/'UNIFIED_ECOSYSTEM' for full 4-bank unified network"),
+    mode: Optional[str] = Query(None, description="'unified' or 'ring'"),
+):
+    # If explicitly requesting unified ecosystem or no ring_id specified (and not mode=='ring')
+    is_unified = (
+        mode == "unified"
+        or ring_id in [None, "", "UNIFIED_ECOSYSTEM", "ALL", "ECOSYSTEM"]
+    )
+
+    if is_unified:
+        G, ecosystem_txs, metadata = engine.build_unified_ecosystem_graph()
+        bottlenecks = engine.analyze_bottlenecks(G)
+        bottleneck_map = {b["node_id"]: b for b in bottlenecks}
+
+        nodes = []
+        for node in G.nodes():
+            b_info = bottleneck_map.get(node, {})
+            node_data = G.nodes[node]
+            bank = node_data.get("bank_id", "BANK_A")
+            role = node_data.get("role") or b_info.get("role", "Transit Relay Account")
+            pat_type = node_data.get("pattern_type", "INTERBANK_CLEARING")
+            is_mule = int(node_data.get("is_mule", 0))
+
+            nodes.append({
+                "id": node,
+                "masked_id": engine.mask_account_id(node),
+                "bank": bank,
+                "role": role,
+                "pattern_type": pat_type,
+                "is_mule": is_mule,
+                "tier": 0 if bank == "BANK_A" else (1 if bank == "BANK_B" else (2 if bank == "BANK_C" else 3)),
+                "in_degree": G.in_degree(node),
+                "out_degree": G.out_degree(node),
+                "strategic_score": b_info.get("strategic_score", 0.5),
+                "betweenness": b_info.get("betweenness_centrality", 0.0),
+                "inbound_volume": b_info.get("inbound_volume", 0.0),
+                "outbound_volume": b_info.get("outbound_volume", 0.0),
+            })
+
+        edges = []
+        for u, v, data in G.edges(data=True):
+            edges.append({
+                "id": f"{u}->{v}",
+                "source": u,
+                "target": v,
+                "amount": float(data.get("amount", 0.0)),
+                "timestamp": str(data.get("timestamp", "")),
+                "transaction_id": str(data.get("transaction_id", "")),
+                "is_cross_bank": bool(data.get("is_cross_bank", False)),
+                "sender_bank": str(data.get("sender_bank", "")),
+                "receiver_bank": str(data.get("receiver_bank", "")),
+                "is_suspicious": int(data.get("is_suspicious", 0)),
+                "pattern_type": str(data.get("pattern_type", "")),
+                "channel": str(data.get("channel", "UPI_P2P")),
+            })
+
+        return {
+            "ring_id": "UNIFIED_ECOSYSTEM",
+            "is_unified": True,
+            "title": metadata["title"],
+            "banks_involved": metadata["banks_involved"],
+            "total_volume": metadata["total_volume"],
+            "suspicious_volume": metadata["suspicious_volume"],
+            "risk_score": 0.88,
+            "detected_patterns": metadata.get("detected_patterns", []),
+            "nodes": nodes,
+            "edges": edges,
+            "bottlenecks": bottlenecks,
+        }
+
+    # Otherwise, handle specific candidate ring
     rings = engine.get_candidate_rings()
     selected_ring = None
     if ring_id:
@@ -64,12 +135,11 @@ def get_ring_topology(ring_id: Optional[str] = Query(None)):
     bottlenecks = engine.analyze_bottlenecks(G)
     bottleneck_map = {b["node_id"]: b for b in bottlenecks}
 
-    # Assign topological rank or left-to-right layer for visual clarity
+    # Assign topological rank or fallback
     try:
         topo_order = list(nx.topological_sort(G))
         node_tiers = {n: idx for idx, n in enumerate(topo_order)}
     except Exception:
-        # Fallback if cycles exist
         node_tiers = {n: i for i, n in enumerate(G.nodes())}
 
     nodes = []
@@ -105,16 +175,25 @@ def get_ring_topology(ring_id: Optional[str] = Query(None)):
             "is_cross_bank": bool(data.get("is_cross_bank", False)),
             "sender_bank": str(data.get("sender_bank", "")),
             "receiver_bank": str(data.get("receiver_bank", "")),
+            "is_suspicious": 1,
+            "pattern_type": selected_ring.get("topology_type", "CIRCULAR_LAYERING"),
+            "channel": "IMPS_INSTANT",
         })
 
     return {
         "ring_id": selected_ring.get("candidate_ring_id"),
+        "is_unified": False,
         "total_volume": float(selected_ring.get("total_volume", 0.0)),
         "risk_score": float(selected_ring.get("composite_risk_score", 0.85)),
         "nodes": nodes,
         "edges": edges,
         "bottlenecks": bottlenecks,
     }
+
+
+@router.get("/ecosystem", summary="Get full 4-bank unified financial clearing and mule detection ecosystem")
+def get_unified_ecosystem():
+    return get_ring_topology(ring_id="UNIFIED_ECOSYSTEM", mode="unified")
 
 
 @router.post("/simulate", summary="Simulate targeted interception countermeasure")
