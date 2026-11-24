@@ -74,8 +74,10 @@ def main():
                     IntegratedTransactionModel.transaction_id == row["transaction_id"]
                 ).first()
                 if not existing:
+                    cust_id = str(row.get("customer_id") or f"CUST_{row['sender_account']}")
                     session.add(IntegratedTransactionModel(
                         transaction_id=row["transaction_id"],
+                        customer_id=cust_id,
                         sender_account=row["sender_account"],
                         receiver_account=row["receiver_account"],
                         sender_bank=row["sender_bank"],
@@ -86,6 +88,8 @@ def main():
                         is_suspicious=row["is_suspicious"],
                         is_cross_bank=row["sender_bank"] != row["receiver_bank"],
                         pattern_type="RAPID_DISPERSION" if row["is_suspicious"] == 1 else "NORMAL_P2P",
+                        participating_banks=f"{row['sender_bank']},{row['receiver_bank']}",
+                        primary_source_bank=row["sender_bank"],
                     ))
                     count += 1
             session.commit()

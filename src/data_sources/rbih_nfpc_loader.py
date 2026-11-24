@@ -383,8 +383,11 @@ class RBIHNFPCDataLoader:
 
             is_susp = 1 if (mule_label_map.get(src_raw, 0) == 1 and mule_label_map.get(dst_raw, 0) == 1) else 0
 
+            cust_id = str(row.get("customer_id") or f"CUST_{src_raw}")
+
             std_transactions.append({
                 "transaction_id": str(row["transaction_id"]),
+                "customer_id": cust_id,
                 "timestamp": str(row.get("transaction_timestamp", "2026-11-20 12:00:00")),
                 "sender_account": s_acc,
                 "receiver_account": r_acc,
@@ -395,6 +398,8 @@ class RBIHNFPCDataLoader:
                 "is_suspicious": is_susp,
                 "ring_id": "RBIH_MULE_RING" if is_susp else "NONE",
                 "channel_code": channel_raw,
+                "participating_banks": f"{s_bank},{r_bank}",
+                "primary_source_bank": s_bank,
             })
 
         std_tx_df = pd.DataFrame(std_transactions)
