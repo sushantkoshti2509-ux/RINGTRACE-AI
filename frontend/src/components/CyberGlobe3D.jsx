@@ -24,7 +24,8 @@ export default function CyberGlobe3D() {
     scene.fog = new THREE.FogExp2(0x070b14, 0.002);
 
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.set(0, 30, 85);
+    camera.position.set(0, 0, 78);
+    camera.lookAt(0, 0, 0);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(width, height);
@@ -42,17 +43,17 @@ export default function CyberGlobe3D() {
       color: 0x06b6d4,
       wireframe: true,
       transparent: true,
-      opacity: 0.15,
+      opacity: 0.28,
     });
     const sphereMesh = new THREE.Mesh(sphereGeo, sphereMat);
     globeGroup.add(sphereMesh);
 
     // 2. Inner Glowing Core
-    const innerGeo = new THREE.SphereGeometry(sphereRadius * 0.85, 24, 24);
+    const innerGeo = new THREE.SphereGeometry(sphereRadius * 0.88, 24, 24);
     const innerMat = new THREE.MeshBasicMaterial({
-      color: 0x0f172a,
+      color: 0x0a1020,
       transparent: true,
-      opacity: 0.8,
+      opacity: 0.95,
     });
     const innerMesh = new THREE.Mesh(innerGeo, innerMat);
     globeGroup.add(innerMesh);
@@ -206,6 +207,7 @@ export default function CyberGlobe3D() {
       const h = currentMount.clientHeight;
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
+      camera.lookAt(0, 0, 0);
       renderer.setSize(w, h);
     };
     window.addEventListener('resize', handleResize);
@@ -275,31 +277,31 @@ export default function CyberGlobe3D() {
   }, [isRotating]);
 
   return (
-    <div className="relative w-full h-[500px] rounded-2xl overflow-hidden glass-panel border border-cyan-500/20 shadow-2xl flex flex-col">
+    <div className="relative w-full h-[600px] rounded-2xl overflow-hidden bg-gradient-to-b from-[#090e1a] via-[#070b14] to-[#040711] border border-slate-800 shadow-2xl flex flex-col">
       {/* Top Telemetry & Controls Overlay */}
-      <div className="absolute top-4 left-5 right-5 z-10 flex flex-col gap-2.5 pointer-events-none">
+      <div className="absolute top-5 left-6 right-6 z-10 flex flex-col gap-3 pointer-events-none">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+          <div className="flex items-center gap-3.5">
+            <div className="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.35)] shrink-0">
               <Globe className="w-5 h-5 animate-pulse-slow" />
             </div>
             <div>
-              <div className="text-xs uppercase tracking-wider text-cyan-400/90 font-bold flex items-center gap-2">
+              <div className="text-xs uppercase tracking-wider text-cyan-300 font-extrabold flex items-center gap-2">
                 <span>3D Multi-Bank Cyber Clearing Fabric</span>
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
               </div>
-              <div className="text-[11px] text-slate-400">
+              <div className="text-xs text-slate-300 font-medium mt-0.5">
                 Cross-Bank Synthetic Settlement & Mule Ring Detection Sphere (Drag to rotate)
               </div>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 pointer-events-auto">
+          <div className="flex items-center gap-2.5 pointer-events-auto">
             {/* Institution Filter Dropdown */}
             <select
               value={activeBank}
               onChange={(e) => setActiveBank(e.target.value)}
-              className="px-2.5 py-1 text-xs rounded-lg bg-slate-900/90 hover:bg-slate-800 text-cyan-300 border border-slate-700/80 font-mono focus:outline-none shadow-md"
+              className="px-3 py-1.5 text-xs rounded-xl bg-slate-900 hover:bg-slate-850 text-cyan-300 border border-slate-700 font-mono font-bold focus:outline-none focus:border-cyan-500 shadow-md cursor-pointer"
             >
               <option value="ALL_BANKS">All Institutions (4 Banks + Central)</option>
               <option value="BANK_A">Bank A (Primary Hub)</option>
@@ -311,10 +313,10 @@ export default function CyberGlobe3D() {
 
             <button
               onClick={() => setIsRotating(!isRotating)}
-              className="px-2.5 py-1 text-xs rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 border border-slate-700/60 flex items-center gap-1.5 transition-colors shadow-md"
+              className="px-3 py-1.5 text-xs font-bold rounded-xl bg-slate-900 hover:bg-slate-850 text-slate-200 border border-slate-700 flex items-center gap-1.5 transition-colors shadow-md cursor-pointer"
             >
-              <RefreshCw className={`w-3 h-3 ${isRotating ? 'animate-spin text-cyan-400' : ''}`} />
-              {isRotating ? 'Pause Orbit' : 'Resume Orbit'}
+              <RefreshCw className={`w-3.5 h-3.5 ${isRotating ? 'animate-spin text-cyan-400' : ''}`} />
+              <span>{isRotating ? 'Pause Orbit' : 'Resume Orbit'}</span>
             </button>
           </div>
         </div>
