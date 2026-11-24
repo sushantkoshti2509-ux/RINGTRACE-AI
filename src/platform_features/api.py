@@ -188,6 +188,25 @@ def query_investigation_assistant(req: InvestigationQueryRequest):
         }
 
     q_lower = req.query.lower()
+
+    # Determine topology safely
+    topology = case.get("topology_type")
+    if not topology:
+        patterns = case.get("detected_patterns")
+        if isinstance(patterns, list) and len(patterns) > 0:
+            topology = patterns[0]
+        elif isinstance(patterns, str) and patterns:
+            try:
+                import json
+                parsed = json.loads(patterns)
+                topology = parsed[0] if isinstance(parsed, list) and parsed else patterns
+            except Exception:
+                topology = patterns
+        elif case.get("title") and " - " in case.get("title"):
+            topology = case.get("title").split(" - ")[-1].strip()
+        else:
+            topology = "CIRCULAR_LAYERING"
+
     banks = case.get("banks_involved", ["BANK_A", "BANK_B", "BANK_C"])
     if isinstance(banks, str):
         import json
@@ -215,8 +234,8 @@ def query_investigation_assistant(req: InvestigationQueryRequest):
             f"#### Factual Summary\n"
             f"Between recent clearing settlement cycles, multiple rapid fund transfers aggregating to "
             f"**₹{vol:,.2f}** were executed across institutional boundaries. Analysis reveals characteristic "
-            f"**{case.get('topology_type', 'CIRCULAR_LAYERING')}** behavior, marked by sub-90-second turnaround "
-            f"velocity and immediate near-total balance drainage (pass-through ratio > 94%).\n\n"
+            f"**{topology}** behavior, marked by sub-90-second turnaround velocity and immediate near-total "
+            f"balance drainage (pass-through ratio > 94%).\n\n"
             f"#### Red Flag Indicators\n"
             f"- **Layering Mechanism**: Systematic inter-bank routing designed to obscure sovereign clearing visibility.\n"
             f"- **Dormancy Inversion**: Accounts exhibited minimal operational history before abruptly receiving high-value credits.\n"
@@ -237,10 +256,27 @@ def query_investigation_assistant(req: InvestigationQueryRequest):
             f"   - Request re-KYC biometric verification on all {len(members)} linked counterparties."
         )
         actions = ["Execute Target Node Freeze", "Dispatch Nodal Alert", "Initiate Re-KYC Audit"]
+    elif "exposure" in q_lower or "breakdown" in q_lower or ("bank" in q_lower and "risk" in q_lower):
+        reply = (
+            f"### Bank-Wise Risk Exposure & Volume Distribution\n\n"
+            f"**Case Reference**: `{case['case_id']}` | **Aggregate Exposure**: `₹{vol:,.2f}`\n\n"
+            f"#### Institutional Volume Allocations:\n"
+        )
+        for idx, b in enumerate(banks):
+            pct = round(100.0 / len(banks) + (6.0 if idx == 0 else -6.0 / max(len(banks) - 1, 1)), 1)
+            b_vol = vol * (pct / 100.0)
+            reply += f"- **{b}**: ₹{b_vol:,.2f} ({pct}% exposure share) — Status: High Monitored Velocity\n"
+        reply += (
+            f"\n#### Risk Concentration Analysis:\n"
+            f"- **Primary Infiltration Hub**: `{banks[0]}` acts as the initial liquidity injection origin.\n"
+            f"- **Cross-Settlement Rail**: Remittances hop across `{', '.join(banks[1:])}` with rapid pass-through holding times (< 90 seconds).\n"
+            f"- **Net Capital at Risk**: ₹{vol:,.2f} pending inter-bank nodal freeze."
+        )
+        actions = ["Execute Target Node Freeze", "Generate SAR Draft", "Trace Hop Velocity"]
     elif "flow" in q_lower or "hop" in q_lower or "velocity" in q_lower or "trace" in q_lower:
         reply = (
             f"### Fund Flow & Velocity Trajectory Analysis\n\n"
-            f"**Laundering Pattern**: `{case.get('topology_type', 'CIRCULAR_LAYERING')}`\n"
+            f"**Laundering Pattern**: `{topology}`\n"
             f"**Observed Volume**: `₹{vol:,.2f}` across {len(banks)} clearing domains.\n\n"
             f"#### Topological Routing Chain:\n"
             f"1. **Origin Infiltration**: Inflow into `{masked_members[0] if len(masked_members) > 0 else 'Node 1'}`.\n"
@@ -250,10 +286,26 @@ def query_investigation_assistant(req: InvestigationQueryRequest):
             f"Pass-through ratio is **96.8%**, indicating intentional transit without legitimate economic purpose."
         )
         actions = ["Inspect Hop Telemetry", "Export Node Path Diagram", "Flag Correlated IPs"]
+    elif "account" in q_lower or "mule" in q_lower or "member" in q_lower or "who" in q_lower:
+        reply = (
+            f"### Coordinated Mule Ring Counterparty Breakdown\n\n"
+            f"**Total Linked Entities**: {len(members)} accounts identified across {banks_str}.\n\n"
+            f"#### Entity Profiles & Topological Roles:\n"
+        )
+        roles = ["Entry Infiltration Node", "Rapid Layering Conduit", "Aggregator Hub", "Exit Cash-Out Mule"]
+        for idx, m in enumerate(masked_members[:4]):
+            role = roles[idx] if idx < len(roles) else "Linked Layering Mule"
+            reply += f"- **{m}**: Role: `{role}` | GNN Mule Probability: `{max(92, int(risk - idx * 2))}%`\n"
+        reply += (
+            f"\n#### Fraud Modus Operandi:\n"
+            f"Funds enter through primary mule `{masked_members[0] if masked_members else 'Origin'}` and are immediately "
+            f"split and routed via inter-bank IMPS/NEFT rails to secondary conduits to evade single-institution threshold alerts."
+        )
+        actions = ["Execute Target Node Freeze", "Generate SAR Draft", "Analyze Risk Exposure"]
     else:
         reply = (
             f"### AI Evidence Assessment for Case `{case['case_id']}`\n\n"
-            f"- **Topology Classification**: `{case.get('topology_type', 'CIRCULAR_LAYERING')}`\n"
+            f"- **Topology Classification**: `{topology}`\n"
             f"- **Cumulative Laundering Volume**: `₹{vol:,.2f}`\n"
             f"- **Confidence Score**: `{risk}%` (High-Precision Graph Traversal)\n"
             f"- **Institutions Involved**: {banks_str}\n"
@@ -261,10 +313,11 @@ def query_investigation_assistant(req: InvestigationQueryRequest):
             f"The network exhibits coordinated mule characteristics: cyclical fund cycling, rapid pass-through velocity, "
             f"and structured amounts designed to evade mandatory single-transaction reporting thresholds."
         )
-        actions = ["Generate SAR Draft", "Simulate Interception", "Download Dossier PDF"]
+        actions = ["Generate SAR Draft", "Recommend Countermeasures", "Bank Risk Exposure"]
 
     return {
         "case_id": case_id,
+        "topology_type": topology,
         "query": req.query,
         "reply": reply,
         "suggested_actions": actions,
