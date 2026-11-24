@@ -1,8 +1,8 @@
 {
-  "train_samples": 905,
-  "test_samples": 295,
-  "train_mules": 130,
-  "test_mules": 35,
+  "train_samples": 90,
+  "test_samples": 30,
+  "train_mules": 12,
+  "test_mules": 3,
   "champion_model": "Random Forest",
   "models": {
     "Random Forest": {
@@ -16,10 +16,10 @@
       "roc_auc": 1.0,
       "false_positive_rate": 0.0,
       "confusion_matrix": {
-        "TN": 260,
+        "TN": 27,
         "FP": 0,
         "FN": 0,
-        "TP": 35
+        "TP": 3
       }
     },
     "XGBoost": {
@@ -33,12 +33,12 @@
       "roc_auc": 1.0,
       "false_positive_rate": 0.0,
       "confusion_matrix": {
-        "TN": 260,
+        "TN": 27,
         "FP": 0,
         "FN": 0,
-        "TP": 35
+        "TP": 3
       },
-      "scale_pos_weight": 5.962
+      "scale_pos_weight": 6.5
     },
     "Logistic Regression": {
       "model_name": "Logistic Regression",
@@ -51,29 +51,29 @@
       "roc_auc": 1.0,
       "false_positive_rate": 0.0,
       "confusion_matrix": {
-        "TN": 260,
+        "TN": 27,
         "FP": 0,
         "FN": 0,
-        "TP": 35
+        "TP": 3
       }
     },
     "Isolation Forest": {
       "model_name": "Isolation Forest",
-      "threshold": 0.5218,
-      "accuracy": 0.9356,
-      "precision": 0.6481,
+      "threshold": 0.7469,
+      "accuracy": 1.0,
+      "precision": 1.0,
       "recall": 1.0,
-      "f1_score": 0.7865,
-      "pr_auc": 0.875,
-      "roc_auc": 0.988,
-      "false_positive_rate": 0.0731,
+      "f1_score": 1.0,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "false_positive_rate": 0.0,
       "confusion_matrix": {
-        "TN": 241,
-        "FP": 19,
+        "TN": 27,
+        "FP": 0,
         "FN": 0,
-        "TP": 35
+        "TP": 3
       },
-      "contamination": 0.144
+      "contamination": 0.133
     }
   },
   "ranked_by_f1": [

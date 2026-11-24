@@ -194,7 +194,7 @@ def test_investigation_case_manager_and_pdf(tmp_path):
 
 def test_platform_assistant_and_advanced_analytics_endpoints():
     """Verifies FastAPI endpoints for AI Investigation Assistant and Advanced Analytics."""
-    from starlette.testclient import TestClient
+    from fastapi.testclient import TestClient
     from src.integration.api import app
 
     client = TestClient(app)
@@ -223,7 +223,7 @@ def test_platform_assistant_and_advanced_analytics_endpoints():
 
 def test_five_pattern_detection_and_digital_twin_endpoints():
     """Verifies all 5 fraud detection algorithms and digital twin replay/simulation endpoints."""
-    from starlette.testclient import TestClient
+    from fastapi.testclient import TestClient
     from src.integration.api import app
 
     client = TestClient(app)

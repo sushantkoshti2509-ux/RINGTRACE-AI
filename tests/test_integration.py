@@ -8,7 +8,7 @@ import pytest
 import pandas as pd
 import numpy as np
 from pathlib import Path
-from starlette.testclient import TestClient
+from fastapi.testclient import TestClient
 
 import config
 from src.integration.schemas import TransactionCreate, BankSubmissionRequest

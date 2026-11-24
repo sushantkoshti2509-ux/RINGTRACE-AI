@@ -12,7 +12,7 @@ export default function AlertsView() {
   const fetchAlerts = async () => {
     setIsLoading(true);
     try {
-      let url = '/api/v1/alerts/?limit=50';
+      let url = '/api/v1/alerts?limit=50';
       if (statusFilter !== 'ALL') url += `&status=${statusFilter}`;
       const res = await apiFetch(url);
       if (res.ok) {

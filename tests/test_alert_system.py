@@ -11,7 +11,7 @@ Validates:
 
 import pytest
 from datetime import datetime, timezone
-from starlette.testclient import TestClient
+from fastapi.testclient import TestClient
 
 from src.alerts.engine import AlertEngine
 from src.alerts.notifier import AlertNotifier

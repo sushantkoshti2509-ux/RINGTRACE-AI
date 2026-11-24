@@ -9,7 +9,7 @@ Validates:
 """
 
 import pytest
-from starlette.testclient import TestClient
+from fastapi.testclient import TestClient
 
 from src.dashboard.service import DashboardMonitoringService
 from src.integration.db import DatabaseManager

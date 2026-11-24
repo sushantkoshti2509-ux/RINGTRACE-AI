@@ -6,7 +6,7 @@ dynamic in-memory state updates, database audit persistence, and FastAPI endpoin
 
 import pytest
 import time
-from starlette.testclient import TestClient
+from fastapi.testclient import TestClient
 
 import config
 from src.realtime.detector import RealtimeFraudDetector
@@ -19,7 +19,18 @@ def detector_instance(tmp_path):
     """Initializes RealtimeFraudDetector with isolated test database."""
     test_db_url = f"sqlite:///{tmp_path / 'test_realtime.db'}"
     db = DatabaseManager(db_url=test_db_url)
-    return RealtimeFraudDetector(db_manager=db)
+    detector = RealtimeFraudDetector(db_manager=db)
+    # Warm up detector to avoid cold-start JIT/initialization latency spikes
+    detector.process_transaction({
+        "transaction_id": "TX_WARMUP",
+        "sender_account": "ACC_WARMUP_01",
+        "receiver_account": "ACC_WARMUP_02",
+        "sender_bank": "BANK_A",
+        "receiver_bank": "BANK_A",
+        "amount": 100.0,
+        "timestamp": "2026-11-22 12:00:00",
+    })
+    return detector
 
 
 def test_realtime_normal_transaction_detection(detector_instance):

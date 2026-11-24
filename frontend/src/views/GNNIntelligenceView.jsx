@@ -157,7 +157,7 @@ export default function GNNIntelligenceView() {
         </div>
       </div>
 
-      {/* 4-Bank Coverage Pills - High Contrast Institutional Cards */}
+      {/* 4-Bank Coverage Pills - High Contrast Institutional Enterprise Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5">
         {[
           {
@@ -165,47 +165,39 @@ export default function GNNIntelligenceView() {
             name: 'Bank A',
             role: 'Primary Settlement Switch',
             color: '#0284c7',
-            containerClass: 'bg-blue-50/70 border-2 border-blue-200 text-slate-900',
-            nameClass: 'text-blue-950 font-extrabold text-sm',
-            roleClass: 'text-blue-700 font-bold text-xs',
+            dotClass: 'bg-blue-600',
           },
           {
             code: 'BANK_B',
             name: 'Bank B',
             role: 'Commercial Gateway Rail',
             color: '#059669',
-            containerClass: 'bg-emerald-50/70 border-2 border-emerald-200 text-slate-900',
-            nameClass: 'text-emerald-950 font-extrabold text-sm',
-            roleClass: 'text-emerald-700 font-bold text-xs',
+            dotClass: 'bg-emerald-600',
           },
           {
             code: 'BANK_C',
             name: 'Bank C',
             role: 'Regional Cooperative Hub',
             color: '#7c3aed',
-            containerClass: 'bg-purple-50/70 border-2 border-purple-200 text-slate-900',
-            nameClass: 'text-purple-950 font-extrabold text-sm',
-            roleClass: 'text-purple-700 font-bold text-xs',
+            dotClass: 'bg-purple-600',
           },
           {
             code: 'BANK_D',
             name: 'Bank D',
             role: 'Federal Gateway Rail',
             color: '#d97706',
-            containerClass: 'bg-amber-50/70 border-2 border-amber-200 text-slate-900',
-            nameClass: 'text-amber-950 font-extrabold text-sm',
-            roleClass: 'text-amber-700 font-bold text-xs',
+            dotClass: 'bg-amber-600',
           },
         ].map((b) => (
           <div
             key={b.code}
-            className={`p-4 rounded-xl flex items-center justify-between shadow-xs transition-all ${b.containerClass}`}
+            className="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-sm flex items-center justify-between transition-all hover:border-slate-300"
           >
             <div className="flex items-center gap-3">
-              <span className="w-3 h-3 rounded-full shrink-0 shadow-xs" style={{ backgroundColor: b.color }} />
+              <span className={`w-3.5 h-3.5 rounded-full shrink-0 shadow-xs ${b.dotClass}`} />
               <div>
-                <span className={`block ${b.nameClass}`}>{b.name}</span>
-                <span className={`block mt-0.5 ${b.roleClass}`}>{b.role}</span>
+                <span className="block font-extrabold text-sm text-slate-900 tracking-tight">{b.name}</span>
+                <span className="block mt-0.5 text-xs text-slate-600 font-semibold">{b.role}</span>
               </div>
             </div>
             <span className="text-[10px] font-mono font-extrabold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 shadow-xs flex items-center gap-1.5 shrink-0">

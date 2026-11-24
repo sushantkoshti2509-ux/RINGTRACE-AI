@@ -139,12 +139,14 @@ def update_case_disposition(case_id: str, req: DispositionRequest):
 @router.get("/cases/{case_id}/pdf", summary="Download official investigation dossier PDF")
 def download_case_pdf(case_id: str):
     """Generates and streams official ReportLab PDF case dossier."""
-    case = case_manager.db.get_investigation_case(case_id)
+    import re
+    safe_case_id = re.sub(r"[^a-zA-Z0-9_\-]", "", case_id) or "case"
+    case = case_manager.db.get_investigation_case(safe_case_id) or case_manager.db.get_investigation_case(case_id)
     if not case:
         # Fallback to generated dummy case if DB is cold
         case = {
-            "case_id": case_id,
-            "title": f"Mule Ring Laundering Dossier - {case_id}",
+            "case_id": safe_case_id,
+            "title": f"Mule Ring Laundering Dossier - {safe_case_id}",
             "risk_score": 94.5,
             "status": "UNDER_INVESTIGATION",
             "topology_type": "FAN_OUT_SPLITTER",
@@ -159,7 +161,7 @@ def download_case_pdf(case_id: str):
     return Response(
         content=pdf_bytes,
         media_type="application/pdf",
-        headers={"Content-Disposition": f"attachment; filename=Dossier_{case_id}.pdf"},
+        headers={"Content-Disposition": f'attachment; filename="Dossier_{safe_case_id}.pdf"'},
     )
 
 

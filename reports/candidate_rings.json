@@ -1,19 +1,18 @@
 [
   {
-    "candidate_ring_id": "CANDIDATE_RING_04",
+    "candidate_ring_id": "CANDIDATE_RING_01",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BNK_C_MULE_00049",
-      "BNK_B_MULE_00050",
-      "BNK_A_MULE_00048",
-      "BNK_B_MULE_00046",
-      "BNK_D_MULE_00047"
+      "BNK_A_MULE_00149",
+      "BNK_D_MULE_00148",
+      "BNK_A_MULE_00146",
+      "BNK_B_MULE_00147",
+      "BNK_B_MULE_00150"
     ],
     "banks_involved": [
       "BANK_A",
       "BANK_B",
-      "BANK_C",
       "BANK_D"
     ],
     "is_cross_bank": true,
@@ -21,21 +20,21 @@
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.9661,
-    "total_volume": 493969.36,
+    "total_volume": 861838.77,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_07",
+    "candidate_ring_id": "CANDIDATE_RING_02",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
       "BNK_C_MULE_00068",
-      "BNK_B_MULE_00066",
+      "BNK_A_MULE_00067",
       "BNK_D_MULE_00069",
       "BNK_B_MULE_00070",
-      "BNK_A_MULE_00067"
+      "BNK_B_MULE_00066"
     ],
     "banks_involved": [
       "BANK_A",
@@ -54,15 +53,67 @@
     "internal_tx_count": 4
   },
   {
+    "candidate_ring_id": "CANDIDATE_RING_04",
+    "topology_type": "CROSS_BANK_CHAIN",
+    "size": 5,
+    "member_accounts": [
+      "BNK_B_MULE_00096",
+      "BNK_D_MULE_00098",
+      "BNK_A_MULE_00097",
+      "BNK_A_MULE_00100",
+      "BNK_B_MULE_00099"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.9661,
+    "total_volume": 1097485.98,
+    "hop_count": 4,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_06",
+    "topology_type": "CROSS_BANK_CHAIN",
+    "size": 5,
+    "member_accounts": [
+      "BNK_D_MULE_00142",
+      "BNK_A_MULE_00141",
+      "BNK_D_MULE_00145",
+      "BNK_A_MULE_00144",
+      "BNK_C_MULE_00143"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_C",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.9661,
+    "total_volume": 840358.01,
+    "hop_count": 4,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
     "candidate_ring_id": "CANDIDATE_RING_08",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BNK_A_MULE_00118",
-      "BNK_D_MULE_00116",
-      "BNK_B_MULE_00117",
-      "BNK_D_MULE_00120",
-      "BNK_C_MULE_00119"
+      "BNK_D_MULE_00047",
+      "BNK_A_MULE_00048",
+      "BNK_B_MULE_00050",
+      "BNK_B_MULE_00046",
+      "BNK_C_MULE_00049"
     ],
     "banks_involved": [
       "BANK_A",
@@ -75,46 +126,46 @@
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.9661,
-    "total_volume": 372453.33,
+    "total_volume": 493969.36,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_09",
+    "candidate_ring_id": "CANDIDATE_RING_10",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BNK_C_MULE_00121",
-      "BNK_B_MULE_00123",
-      "BNK_A_MULE_00125",
-      "BNK_A_MULE_00122",
-      "BNK_C_MULE_00124"
+      "BNK_D_MULE_00025",
+      "BNK_B_MULE_00021",
+      "BNK_B_MULE_00024",
+      "BNK_C_MULE_00023",
+      "BNK_D_MULE_00022"
     ],
     "banks_involved": [
-      "BANK_A",
       "BANK_B",
-      "BANK_C"
+      "BANK_C",
+      "BANK_D"
     ],
     "is_cross_bank": true,
     "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.9661,
-    "total_volume": 275315.43,
+    "total_volume": 287827.53,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_17",
+    "candidate_ring_id": "CANDIDATE_RING_12",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BNK_C_MULE_00071",
-      "BNK_B_MULE_00073",
       "BNK_C_MULE_00074",
       "BNK_A_MULE_00072",
+      "BNK_B_MULE_00073",
+      "BNK_C_MULE_00071",
       "BNK_A_MULE_00075"
     ],
     "banks_involved": [
@@ -133,14 +184,14 @@
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_18",
+    "candidate_ring_id": "CANDIDATE_RING_13",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BNK_B_MULE_00016",
       "BNK_A_MULE_00020",
       "BNK_C_MULE_00018",
       "BNK_A_MULE_00017",
+      "BNK_B_MULE_00016",
       "BNK_B_MULE_00019"
     ],
     "banks_involved": [
@@ -159,17 +210,18 @@
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_20",
+    "candidate_ring_id": "CANDIDATE_RING_23",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
-      "BNK_B_MULE_00021",
-      "BNK_D_MULE_00025",
-      "BNK_B_MULE_00024",
-      "BNK_D_MULE_00022",
-      "BNK_C_MULE_00023"
+      "BNK_B_MULE_00117",
+      "BNK_C_MULE_00119",
+      "BNK_A_MULE_00118",
+      "BNK_D_MULE_00120",
+      "BNK_D_MULE_00116"
     ],
     "banks_involved": [
+      "BANK_A",
       "BANK_B",
       "BANK_C",
       "BANK_D"
@@ -179,20 +231,20 @@
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.9661,
-    "total_volume": 287827.53,
+    "total_volume": 372453.33,
     "hop_count": 4,
     "has_cycles": false,
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_24",
+    "candidate_ring_id": "CANDIDATE_RING_26",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
+      "BNK_B_MULE_00043",
       "BNK_C_MULE_00041",
       "BNK_D_MULE_00042",
       "BNK_D_MULE_00045",
-      "BNK_B_MULE_00043",
       "BNK_C_MULE_00044"
     ],
     "banks_involved": [
@@ -211,15 +263,41 @@
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_26",
+    "candidate_ring_id": "CANDIDATE_RING_29",
+    "topology_type": "CROSS_BANK_CHAIN",
+    "size": 5,
+    "member_accounts": [
+      "BNK_C_MULE_00121",
+      "BNK_A_MULE_00125",
+      "BNK_A_MULE_00122",
+      "BNK_B_MULE_00123",
+      "BNK_C_MULE_00124"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B",
+      "BANK_C"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.9661,
+    "total_volume": 275315.43,
+    "hop_count": 4,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_30",
     "topology_type": "CROSS_BANK_CHAIN",
     "size": 5,
     "member_accounts": [
       "BNK_B_MULE_00093",
-      "BNK_D_MULE_00094",
-      "BNK_C_MULE_00091",
       "BNK_A_MULE_00092",
-      "BNK_C_MULE_00095"
+      "BNK_C_MULE_00091",
+      "BNK_C_MULE_00095",
+      "BNK_D_MULE_00094"
     ],
     "banks_involved": [
       "BANK_A",
@@ -238,171 +316,68 @@
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_27",
-    "topology_type": "CROSS_BANK_CHAIN",
-    "size": 5,
-    "member_accounts": [
-      "BNK_B_MULE_00150",
-      "BNK_B_MULE_00147",
-      "BNK_A_MULE_00149",
-      "BNK_A_MULE_00146",
-      "BNK_D_MULE_00148"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.9661,
-    "total_volume": 861838.77,
-    "hop_count": 4,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_29",
-    "topology_type": "CROSS_BANK_CHAIN",
-    "size": 5,
-    "member_accounts": [
-      "BNK_C_MULE_00143",
-      "BNK_A_MULE_00144",
-      "BNK_D_MULE_00142",
-      "BNK_A_MULE_00141",
-      "BNK_D_MULE_00145"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_C",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.9661,
-    "total_volume": 840358.01,
-    "hop_count": 4,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_32",
-    "topology_type": "CROSS_BANK_CHAIN",
-    "size": 5,
-    "member_accounts": [
-      "BNK_A_MULE_00100",
-      "BNK_A_MULE_00097",
-      "BNK_B_MULE_00099",
-      "BNK_D_MULE_00098",
-      "BNK_B_MULE_00096"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.9661,
-    "total_volume": 1097485.98,
-    "hop_count": 4,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_01",
-    "topology_type": "FAN_IN_COLLECTOR",
-    "size": 5,
-    "member_accounts": [
-      "BNK_C_MULE_00087",
-      "BNK_C_MULE_00090",
-      "BNK_D_MULE_00088",
-      "BNK_A_MULE_00086",
-      "BNK_A_MULE_00089"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_C",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 164365.15,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_02",
-    "topology_type": "FAN_OUT_SPLITTER",
-    "size": 5,
-    "member_accounts": [
-      "BNK_D_MULE_00107",
-      "BNK_B_MULE_00108",
-      "BNK_A_MULE_00106",
-      "BNK_D_MULE_00110",
-      "BNK_A_MULE_00109"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 136030.65,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
     "candidate_ring_id": "CANDIDATE_RING_03",
-    "topology_type": "FAN_IN_COLLECTOR",
+    "topology_type": "CIRCULAR_LAYERING",
     "size": 5,
     "member_accounts": [
-      "BNK_A_MULE_00115",
-      "BNK_D_MULE_00111",
-      "BNK_D_MULE_00114",
-      "BNK_B_MULE_00113",
-      "BNK_A_MULE_00112"
+      "BNK_A_MULE_00001",
+      "BNK_D_MULE_00004",
+      "BNK_B_MULE_00002",
+      "BNK_C_MULE_00003",
+      "BNK_A_MULE_00005"
     ],
     "banks_involved": [
       "BANK_A",
       "BANK_B",
+      "BANK_C",
       "BANK_D"
     ],
     "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
+    "cross_bank_tx_count": 4,
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.8661,
-    "total_volume": 285189.81,
+    "total_volume": 808486.42,
     "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
+    "has_cycles": true,
+    "internal_tx_count": 5
   },
   {
     "candidate_ring_id": "CANDIDATE_RING_05",
+    "topology_type": "FAN_OUT_SPLITTER",
+    "size": 5,
+    "member_accounts": [
+      "BNK_C_MULE_00035",
+      "BNK_B_MULE_00031",
+      "BNK_C_MULE_00032",
+      "BNK_B_MULE_00034",
+      "BNK_D_MULE_00033"
+    ],
+    "banks_involved": [
+      "BANK_B",
+      "BANK_C",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 3,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 124931.83,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_07",
     "topology_type": "FAN_IN_COLLECTOR",
     "size": 5,
     "member_accounts": [
-      "BNK_B_MULE_00164",
-      "BNK_D_MULE_00162",
-      "BNK_C_MULE_00165",
       "BNK_A_MULE_00163",
-      "BNK_C_MULE_00161"
+      "BNK_B_MULE_00164",
+      "BNK_C_MULE_00165",
+      "BNK_C_MULE_00161",
+      "BNK_D_MULE_00162"
     ],
     "banks_involved": [
       "BANK_A",
@@ -421,15 +396,146 @@
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_06",
+    "candidate_ring_id": "CANDIDATE_RING_09",
+    "topology_type": "FAN_OUT_SPLITTER",
+    "size": 5,
+    "member_accounts": [
+      "BNK_D_MULE_00110",
+      "BNK_B_MULE_00108",
+      "BNK_A_MULE_00109",
+      "BNK_A_MULE_00106",
+      "BNK_D_MULE_00107"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 3,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 136030.65,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_11",
+    "topology_type": "FAN_OUT_SPLITTER",
+    "size": 5,
+    "member_accounts": [
+      "BNK_C_MULE_00133",
+      "BNK_A_MULE_00132",
+      "BNK_D_MULE_00131",
+      "BNK_D_MULE_00135",
+      "BNK_B_MULE_00134"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B",
+      "BANK_C",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 3,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 132327.68,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_14",
+    "topology_type": "CIRCULAR_LAYERING",
+    "size": 5,
+    "member_accounts": [
+      "BNK_A_MULE_00151",
+      "BNK_A_MULE_00154",
+      "BNK_D_MULE_00153",
+      "BNK_B_MULE_00155",
+      "BNK_B_MULE_00152"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 5,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 636365.62,
+    "hop_count": 2,
+    "has_cycles": true,
+    "internal_tx_count": 5
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_15",
+    "topology_type": "FAN_OUT_SPLITTER",
+    "size": 5,
+    "member_accounts": [
+      "BNK_B_MULE_00084",
+      "BNK_B_MULE_00081",
+      "BNK_A_MULE_00085",
+      "BNK_D_MULE_00083",
+      "BNK_A_MULE_00082"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 3,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 158663.28,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_16",
+    "topology_type": "CIRCULAR_LAYERING",
+    "size": 5,
+    "member_accounts": [
+      "BNK_A_MULE_00027",
+      "BNK_D_MULE_00028",
+      "BNK_C_MULE_00029",
+      "BNK_C_MULE_00026",
+      "BNK_A_MULE_00030"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_C",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 5,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 764626.14,
+    "hop_count": 2,
+    "has_cycles": true,
+    "internal_tx_count": 5
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_17",
     "topology_type": "FAN_OUT_SPLITTER",
     "size": 5,
     "member_accounts": [
       "BNK_C_MULE_00060",
       "BNK_A_MULE_00056",
-      "BNK_A_MULE_00059",
+      "BNK_B_MULE_00058",
       "BNK_C_MULE_00057",
-      "BNK_B_MULE_00058"
+      "BNK_A_MULE_00059"
     ],
     "banks_involved": [
       "BANK_A",
@@ -447,14 +553,172 @@
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_10",
+    "candidate_ring_id": "CANDIDATE_RING_18",
+    "topology_type": "CIRCULAR_LAYERING",
+    "size": 5,
+    "member_accounts": [
+      "BNK_C_MULE_00104",
+      "BNK_D_MULE_00101",
+      "BNK_A_MULE_00102",
+      "BNK_D_MULE_00105",
+      "BNK_B_MULE_00103"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B",
+      "BANK_C",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 1283774.19,
+    "hop_count": 2,
+    "has_cycles": true,
+    "internal_tx_count": 5
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_19",
+    "topology_type": "CIRCULAR_LAYERING",
+    "size": 5,
+    "member_accounts": [
+      "BNK_B_MULE_00055",
+      "BNK_A_MULE_00053",
+      "BNK_C_MULE_00052",
+      "BNK_B_MULE_00051",
+      "BNK_D_MULE_00054"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B",
+      "BANK_C",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 4,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 627037.6,
+    "hop_count": 2,
+    "has_cycles": true,
+    "internal_tx_count": 5
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_20",
+    "topology_type": "FAN_IN_COLLECTOR",
+    "size": 5,
+    "member_accounts": [
+      "BNK_B_MULE_00137",
+      "BNK_C_MULE_00139",
+      "BNK_D_MULE_00138",
+      "BNK_C_MULE_00136",
+      "BNK_B_MULE_00140"
+    ],
+    "banks_involved": [
+      "BANK_B",
+      "BANK_C",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 3,
+    "avg_account_risk": 0.9985,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 87516.03,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_21",
+    "topology_type": "FAN_IN_COLLECTOR",
+    "size": 5,
+    "member_accounts": [
+      "BNK_D_MULE_00111",
+      "BNK_A_MULE_00115",
+      "BNK_A_MULE_00112",
+      "BNK_D_MULE_00114",
+      "BNK_B_MULE_00113"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 3,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 285189.81,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_22",
+    "topology_type": "FAN_IN_COLLECTOR",
+    "size": 5,
+    "member_accounts": [
+      "BNK_B_MULE_00061",
+      "BNK_D_MULE_00062",
+      "BNK_D_MULE_00065",
+      "BNK_A_MULE_00063",
+      "BNK_B_MULE_00064"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 3,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 315509.98,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_24",
+    "topology_type": "FAN_IN_COLLECTOR",
+    "size": 5,
+    "member_accounts": [
+      "BNK_D_MULE_00088",
+      "BNK_A_MULE_00086",
+      "BNK_C_MULE_00087",
+      "BNK_C_MULE_00090",
+      "BNK_A_MULE_00089"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_C",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 3,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 164365.15,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_25",
     "topology_type": "FAN_OUT_SPLITTER",
     "size": 5,
     "member_accounts": [
       "BNK_C_MULE_00158",
       "BNK_A_MULE_00160",
-      "BNK_D_MULE_00159",
       "BNK_B_MULE_00157",
+      "BNK_D_MULE_00159",
       "BNK_A_MULE_00156"
     ],
     "banks_involved": [
@@ -474,15 +738,69 @@
     "internal_tx_count": 4
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_11",
+    "candidate_ring_id": "CANDIDATE_RING_27",
+    "topology_type": "FAN_IN_COLLECTOR",
+    "size": 5,
+    "member_accounts": [
+      "BNK_A_MULE_00011",
+      "BNK_A_MULE_00015",
+      "BNK_B_MULE_00012",
+      "BNK_D_MULE_00014",
+      "BNK_C_MULE_00013"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B",
+      "BANK_C",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 3,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 311840.27,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_28",
+    "topology_type": "FAN_IN_COLLECTOR",
+    "size": 5,
+    "member_accounts": [
+      "BNK_A_MULE_00037",
+      "BNK_B_MULE_00040",
+      "BNK_B_MULE_00036",
+      "BNK_D_MULE_00038",
+      "BNK_C_MULE_00039"
+    ],
+    "banks_involved": [
+      "BANK_A",
+      "BANK_B",
+      "BANK_C",
+      "BANK_D"
+    ],
+    "is_cross_bank": true,
+    "cross_bank_tx_count": 3,
+    "avg_account_risk": 0.9986,
+    "max_account_risk": 0.9986,
+    "ring_risk_score": 0.8661,
+    "total_volume": 119991.03,
+    "hop_count": 2,
+    "has_cycles": false,
+    "internal_tx_count": 4
+  },
+  {
+    "candidate_ring_id": "CANDIDATE_RING_31",
     "topology_type": "CIRCULAR_LAYERING",
     "size": 5,
     "member_accounts": [
-      "BNK_D_MULE_00101",
-      "BNK_B_MULE_00103",
-      "BNK_C_MULE_00104",
-      "BNK_A_MULE_00102",
-      "BNK_D_MULE_00105"
+      "BNK_D_MULE_00080",
+      "BNK_C_MULE_00077",
+      "BNK_D_MULE_00076",
+      "BNK_B_MULE_00079",
+      "BNK_A_MULE_00078"
     ],
     "banks_involved": [
       "BANK_A",
@@ -495,93 +813,13 @@
     "avg_account_risk": 0.9986,
     "max_account_risk": 0.9986,
     "ring_risk_score": 0.8661,
-    "total_volume": 1283774.19,
+    "total_volume": 297859.17,
     "hop_count": 2,
     "has_cycles": true,
     "internal_tx_count": 5
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_12",
-    "topology_type": "CIRCULAR_LAYERING",
-    "size": 5,
-    "member_accounts": [
-      "BNK_B_MULE_00002",
-      "BNK_C_MULE_00003",
-      "BNK_A_MULE_00001",
-      "BNK_A_MULE_00005",
-      "BNK_D_MULE_00004"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 808486.42,
-    "hop_count": 2,
-    "has_cycles": true,
-    "internal_tx_count": 5
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_13",
-    "topology_type": "CIRCULAR_LAYERING",
-    "size": 5,
-    "member_accounts": [
-      "BNK_A_MULE_00030",
-      "BNK_D_MULE_00028",
-      "BNK_C_MULE_00029",
-      "BNK_A_MULE_00027",
-      "BNK_C_MULE_00026"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_C",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 5,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 764626.14,
-    "hop_count": 2,
-    "has_cycles": true,
-    "internal_tx_count": 5
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_14",
-    "topology_type": "CIRCULAR_LAYERING",
-    "size": 5,
-    "member_accounts": [
-      "BNK_B_MULE_00055",
-      "BNK_C_MULE_00052",
-      "BNK_A_MULE_00053",
-      "BNK_D_MULE_00054",
-      "BNK_B_MULE_00051"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 627037.6,
-    "hop_count": 2,
-    "has_cycles": true,
-    "internal_tx_count": 5
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_15",
+    "candidate_ring_id": "CANDIDATE_RING_32",
     "topology_type": "CIRCULAR_LAYERING",
     "size": 5,
     "member_accounts": [
@@ -607,253 +845,15 @@
     "internal_tx_count": 5
   },
   {
-    "candidate_ring_id": "CANDIDATE_RING_16",
-    "topology_type": "FAN_OUT_SPLITTER",
-    "size": 5,
-    "member_accounts": [
-      "BNK_A_MULE_00132",
-      "BNK_D_MULE_00131",
-      "BNK_B_MULE_00134",
-      "BNK_C_MULE_00133",
-      "BNK_D_MULE_00135"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 132327.68,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_19",
-    "topology_type": "CIRCULAR_LAYERING",
-    "size": 5,
-    "member_accounts": [
-      "BNK_D_MULE_00080",
-      "BNK_D_MULE_00076",
-      "BNK_A_MULE_00078",
-      "BNK_B_MULE_00079",
-      "BNK_C_MULE_00077"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 4,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 297859.17,
-    "hop_count": 2,
-    "has_cycles": true,
-    "internal_tx_count": 5
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_21",
-    "topology_type": "FAN_IN_COLLECTOR",
-    "size": 5,
-    "member_accounts": [
-      "BNK_B_MULE_00137",
-      "BNK_B_MULE_00140",
-      "BNK_C_MULE_00136",
-      "BNK_C_MULE_00139",
-      "BNK_D_MULE_00138"
-    ],
-    "banks_involved": [
-      "BANK_B",
-      "BANK_C",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9985,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 87516.03,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_22",
-    "topology_type": "FAN_IN_COLLECTOR",
-    "size": 5,
-    "member_accounts": [
-      "BNK_B_MULE_00040",
-      "BNK_B_MULE_00036",
-      "BNK_C_MULE_00039",
-      "BNK_D_MULE_00038",
-      "BNK_A_MULE_00037"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 119991.03,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_23",
-    "topology_type": "FAN_OUT_SPLITTER",
-    "size": 5,
-    "member_accounts": [
-      "BNK_C_MULE_00032",
-      "BNK_D_MULE_00033",
-      "BNK_B_MULE_00031",
-      "BNK_C_MULE_00035",
-      "BNK_B_MULE_00034"
-    ],
-    "banks_involved": [
-      "BANK_B",
-      "BANK_C",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 124931.83,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_25",
-    "topology_type": "FAN_IN_COLLECTOR",
-    "size": 5,
-    "member_accounts": [
-      "BNK_D_MULE_00065",
-      "BNK_D_MULE_00062",
-      "BNK_B_MULE_00064",
-      "BNK_B_MULE_00061",
-      "BNK_A_MULE_00063"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 315509.98,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_28",
-    "topology_type": "FAN_IN_COLLECTOR",
-    "size": 5,
-    "member_accounts": [
-      "BNK_C_MULE_00013",
-      "BNK_D_MULE_00014",
-      "BNK_B_MULE_00012",
-      "BNK_A_MULE_00011",
-      "BNK_A_MULE_00015"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_C",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 311840.27,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_30",
-    "topology_type": "FAN_OUT_SPLITTER",
-    "size": 5,
-    "member_accounts": [
-      "BNK_D_MULE_00083",
-      "BNK_B_MULE_00084",
-      "BNK_A_MULE_00082",
-      "BNK_A_MULE_00085",
-      "BNK_B_MULE_00081"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 3,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 158663.28,
-    "hop_count": 2,
-    "has_cycles": false,
-    "internal_tx_count": 4
-  },
-  {
-    "candidate_ring_id": "CANDIDATE_RING_31",
-    "topology_type": "CIRCULAR_LAYERING",
-    "size": 5,
-    "member_accounts": [
-      "BNK_D_MULE_00153",
-      "BNK_B_MULE_00155",
-      "BNK_A_MULE_00151",
-      "BNK_A_MULE_00154",
-      "BNK_B_MULE_00152"
-    ],
-    "banks_involved": [
-      "BANK_A",
-      "BANK_B",
-      "BANK_D"
-    ],
-    "is_cross_bank": true,
-    "cross_bank_tx_count": 5,
-    "avg_account_risk": 0.9986,
-    "max_account_risk": 0.9986,
-    "ring_risk_score": 0.8661,
-    "total_volume": 636365.62,
-    "hop_count": 2,
-    "has_cycles": true,
-    "internal_tx_count": 5
-  },
-  {
     "candidate_ring_id": "CANDIDATE_RING_33",
     "topology_type": "FAN_OUT_SPLITTER",
     "size": 5,
     "member_accounts": [
-      "BNK_A_MULE_00006",
+      "BNK_B_MULE_00007",
       "BNK_C_MULE_00008",
-      "BNK_D_MULE_00009",
+      "BNK_A_MULE_00006",
       "BNK_A_MULE_00010",
-      "BNK_B_MULE_00007"
+      "BNK_D_MULE_00009"
     ],
     "banks_involved": [
       "BANK_A",

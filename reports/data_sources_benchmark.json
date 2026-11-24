@@ -38,5 +38,15 @@
     "Key Suspicious Patterns":"Transfer to Cash-Out Pair",
     "Key Strength":"Very large public Kaggle dataset; standard baseline for transaction-level fraud.",
     "Known Limitation":"Single-institution mobile wallet; lacks cross-bank relationships and multi-hop mule rings."
+  },
+  {
+    "Source Key":"RBIH_NFPC_PHASE_2",
+    "Data Source":"RBIH NFPC Phase 2 (Reserve Bank Innovation Hub)",
+    "Strategic Role":"Indian Banking Benchmark: National Fraud Prevention Challenge Phase 2 mule account detection.",
+    "Target Ecosystem":"Indian Retail Banking, Branch Networks & Digital Payments (UPI \/ IMPS \/ NEFT)",
+    "Cross-Bank Visibility":"\u2705 Multi-Bank",
+    "Key Suspicious Patterns":"Rapid Pass-Through Dispersion, Structuring (< \u20b950k), Dormant Activation",
+    "Key Strength":"Official Reserve Bank Innovation Hub competition schema with 160K accounts, PMJDY schemes, and D\/C transaction legs.",
+    "Known Limitation":"Massive full-scale volume (~16 GB, ~400M txs); requires partition ingestion for streaming inference."
   }
 ]

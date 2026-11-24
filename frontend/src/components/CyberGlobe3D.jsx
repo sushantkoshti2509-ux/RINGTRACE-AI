@@ -30,6 +30,8 @@ export default function CyberGlobe3D() {
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.domElement.style.display = 'block';
+    renderer.domElement.style.margin = 'auto';
     currentMount.appendChild(renderer.domElement);
 
     // Root Group for rotation
@@ -198,17 +200,24 @@ export default function CyberGlobe3D() {
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mouseup', onMouseUp);
 
-    // Resize Handler
+    // Resize Handler with ResizeObserver to ensure centered alignment across all tabs and window sizes
     const handleResize = () => {
       if (!currentMount) return;
       const w = currentMount.clientWidth;
       const h = currentMount.clientHeight;
+      if (w === 0 || h === 0) return;
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
+      camera.position.set(0, 0, 78);
       camera.lookAt(0, 0, 0);
       renderer.setSize(w, h);
     };
     window.addEventListener('resize', handleResize);
+
+    const resizeObserver = new ResizeObserver(() => {
+      handleResize();
+    });
+    resizeObserver.observe(currentMount);
 
     // Animation Loop
     let animationFrameId;
@@ -266,6 +275,7 @@ export default function CyberGlobe3D() {
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mouseup', onMouseUp);
       window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
       if (currentMount.contains(renderer.domElement)) {
         currentMount.removeChild(renderer.domElement);
       }
@@ -336,9 +346,8 @@ export default function CyberGlobe3D() {
             <div
               key={b.code}
               onClick={() => setActiveBank(activeBank === b.code ? 'ALL_BANKS' : b.code)}
-              className={`p-3.5 rounded-xl border-2 transition-all cursor-pointer shadow-xs flex items-center justify-between ${b.bg} ${
-                activeBank === b.code ? 'ring-2 ring-blue-500 shadow-md' : 'opacity-90 hover:opacity-100'
-              }`}
+              className={`p-3.5 rounded-xl border-2 transition-all cursor-pointer shadow-xs flex items-center justify-between ${b.bg} ${activeBank === b.code ? 'ring-2 ring-blue-500 shadow-md' : 'opacity-90 hover:opacity-100'
+                }`}
             >
               <div className="flex items-center gap-2.5">
                 <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: b.color }} />
@@ -356,7 +365,7 @@ export default function CyberGlobe3D() {
       </div>
 
       {/* 3D Canvas Box - Centered Sphere Viewport */}
-      <div className="relative w-full h-[540px] rounded-2xl overflow-hidden bg-gradient-to-b from-[#090e1a] via-[#070b14] to-[#040711] border border-slate-800 shadow-xl flex flex-col">
+      <div className="relative w-full h-[540px] rounded-2xl overflow-hidden bg-gradient-to-b from-[#090e1a] via-[#070b14] to-[#040711] border border-slate-800 shadow-xl flex items-center justify-center">
         {/* Subtle Canvas Watermark Tag */}
         <div className="absolute top-4 left-5 z-10 pointer-events-none">
           <span className="text-[11px] font-mono font-extrabold text-cyan-400/90 bg-cyan-950/60 border border-cyan-500/30 px-3 py-1 rounded-lg backdrop-blur-md">
@@ -365,7 +374,7 @@ export default function CyberGlobe3D() {
         </div>
 
         {/* 3D Canvas Mount Point */}
-        <div ref={mountRef} className="w-full h-full cursor-grab active:cursor-grabbing" />
+        <div ref={mountRef} className="w-full h-full cursor-grab active:cursor-grabbing flex items-center justify-center" />
       </div>
 
       {/* Bottom Telemetry HUD Cards */}
