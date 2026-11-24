@@ -142,13 +142,13 @@ export default function AdvancedAnalyticsView() {
             <Building2 className="w-4 h-4 text-cyan-400" />
             Bank-Wise Transaction Volume & Fraud Metrics (6 Synthetic Institutions)
           </span>
-          <span className="text-[10px] text-slate-400 font-mono">Central Regulatory Clearing Standard</span>
+          <span className="text-[10px] text-slate-500 font-mono">Central Regulatory Clearing Standard</span>
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="border-b border-slate-800 text-[11px] text-slate-400 uppercase">
+              <tr className="border-b border-slate-200 bg-slate-50 text-[11px] text-slate-500 font-bold uppercase tracking-wider">
                 <th className="py-2.5 px-3">Institution</th>
                 <th className="py-2.5 px-3 text-right">Transactions</th>
                 <th className="py-2.5 px-3 text-right">Flagged Suspicious</th>
@@ -157,28 +157,28 @@ export default function AdvancedAnalyticsView() {
                 <th className="py-2.5 px-3 text-center">Risk Posture</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60 text-xs">
+            <tbody className="divide-y divide-slate-100 text-xs">
               {bankMetrics.map((b) => (
-                <tr key={b.bank_id} className="hover:bg-slate-900/60 transition-colors">
-                  <td className="py-3 px-3 font-semibold text-white flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-cyan-400" />
+                <tr key={b.bank_id} className="hover:bg-slate-50/80 transition-colors">
+                  <td className="py-3 px-3 font-bold text-slate-900 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-blue-600" />
                     <span>{b.bank_name}</span>
                     <span className="text-[10px] font-mono text-slate-500">({b.bank_id})</span>
                   </td>
-                  <td className="py-3 px-3 text-right font-mono text-slate-300">
+                  <td className="py-3 px-3 text-right font-mono text-slate-700 font-semibold">
                     {b.transactions.toLocaleString()}
                   </td>
-                  <td className="py-3 px-3 text-right font-mono text-rose-400 font-bold">
+                  <td className="py-3 px-3 text-right font-mono text-rose-600 font-bold">
                     {b.suspicious.toLocaleString()}
                   </td>
-                  <td className="py-3 px-3 text-right font-mono text-amber-300">
+                  <td className="py-3 px-3 text-right font-mono text-amber-600 font-bold">
                     {b.fraud_rate}%
                   </td>
-                  <td className="py-3 px-3 text-right font-mono text-slate-200">
+                  <td className="py-3 px-3 text-right font-mono text-slate-900 font-bold">
                     ₹{(b.volume_inr || 0).toLocaleString()}
                   </td>
                   <td className="py-3 px-3 text-center">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-amber-50 text-amber-700 border border-amber-200">
                       MONITORED
                     </span>
                   </td>

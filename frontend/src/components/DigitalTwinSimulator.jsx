@@ -465,54 +465,54 @@ export default function DigitalTwinSimulator() {
                   <div className="overflow-x-auto">
                     <table className="w-full text-left text-xs font-sans">
                       <thead>
-                        <tr className="border-b border-slate-800 text-slate-400 uppercase text-[10px]">
+                        <tr className="border-b border-slate-200 bg-slate-50 text-slate-500 uppercase text-[10px] font-bold tracking-wider">
                           <th className="py-2.5 px-3">Metric</th>
-                          <th className="py-2.5 px-3 text-cyan-300">Baseline Actual</th>
-                          <th className="py-2.5 px-3 text-amber-400">Simulated Digital Twin</th>
+                          <th className="py-2.5 px-3 text-blue-700">Baseline Actual</th>
+                          <th className="py-2.5 px-3 text-amber-700">Simulated Digital Twin</th>
                           <th className="py-2.5 px-3">Topological Shift</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-800 font-mono">
-                        <tr>
-                          <td className="py-3 px-3 text-slate-300 font-sans">Network Hops</td>
-                          <td className="py-3 px-3 text-white">
+                      <tbody className="divide-y divide-slate-100 font-mono">
+                        <tr className="hover:bg-slate-50/80 transition-colors">
+                          <td className="py-3 px-3 text-slate-800 font-sans font-semibold">Network Hops</td>
+                          <td className="py-3 px-3 text-slate-900 font-bold">
                             {scenarioResult.baseline_comparison.baseline.hops} Hops
                           </td>
-                          <td className="py-3 px-3 text-amber-400 font-bold">
+                          <td className="py-3 px-3 text-amber-600 font-bold">
                             {scenarioResult.baseline_comparison.simulated.hops} Hops
                           </td>
-                          <td className="py-3 px-3 text-slate-400">
+                          <td className="py-3 px-3 text-slate-500 font-medium">
                             +{scenarioResult.baseline_comparison.simulated.hops -
                               scenarioResult.baseline_comparison.baseline.hops}{' '}
                             Synthetic Nodes
                           </td>
                         </tr>
-                        <tr>
-                          <td className="py-3 px-3 text-slate-300 font-sans">Detection Latency</td>
-                          <td className="py-3 px-3 text-white">
+                        <tr className="hover:bg-slate-50/80 transition-colors">
+                          <td className="py-3 px-3 text-slate-800 font-sans font-semibold">Detection Latency</td>
+                          <td className="py-3 px-3 text-slate-900 font-bold">
                             {scenarioResult.baseline_comparison.baseline.turnaround_latency_sec}s
                           </td>
-                          <td className="py-3 px-3 text-amber-400 font-bold">
+                          <td className="py-3 px-3 text-amber-600 font-bold">
                             {scenarioResult.baseline_comparison.simulated.turnaround_latency_sec}s
                           </td>
-                          <td className="py-3 px-3 text-emerald-400">Rapid Anomaly Alert</td>
+                          <td className="py-3 px-3 text-emerald-700 font-bold">Rapid Anomaly Alert</td>
                         </tr>
-                        <tr>
-                          <td className="py-3 px-3 text-slate-300 font-sans">Ring Risk Score</td>
-                          <td className="py-3 px-3 text-white">
+                        <tr className="hover:bg-slate-50/80 transition-colors">
+                          <td className="py-3 px-3 text-slate-800 font-sans font-semibold">Ring Risk Score</td>
+                          <td className="py-3 px-3 text-slate-900 font-bold">
                             {scenarioResult.baseline_comparison.baseline.risk_score}%
                           </td>
-                          <td className="py-3 px-3 text-rose-400 font-bold">
+                          <td className="py-3 px-3 text-rose-600 font-bold">
                             {scenarioResult.baseline_comparison.simulated.risk_score}%
                           </td>
-                          <td className="py-3 px-3 text-rose-400">
+                          <td className="py-3 px-3 text-rose-600 font-bold">
                             +{scenarioResult.baseline_comparison.delta.risk_increase_points} pts
                           </td>
                         </tr>
-                        <tr>
-                          <td className="py-3 px-3 text-slate-300 font-sans">Evasion Likelihood</td>
-                          <td className="py-3 px-3 text-slate-400">Baseline</td>
-                          <td className="py-3 px-3 text-emerald-400 font-sans font-bold" colSpan="2">
+                        <tr className="hover:bg-slate-50/80 transition-colors">
+                          <td className="py-3 px-3 text-slate-800 font-sans font-semibold">Evasion Likelihood</td>
+                          <td className="py-3 px-3 text-slate-500 font-medium">Baseline</td>
+                          <td className="py-3 px-3 text-emerald-700 font-sans font-bold" colSpan="2">
                             {scenarioResult.baseline_comparison.delta.evasion_analysis}
                           </td>
                         </tr>
