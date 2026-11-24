@@ -1,20 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { apiFetch } from './api';
 import Sidebar from './components/Sidebar';
 import KPIMetricsBar from './components/KPIMetricsBar';
 import MonitoringView from './views/MonitoringView';
-import RealtimeScorerView from './views/RealtimeScorerView';
-import NetworkExplorerView from './views/NetworkExplorerView';
-import XAIView from './views/XAIView';
-import AlertsView from './views/AlertsView';
-import CaseManagerView from './views/CaseManagerView';
-import InvestigationAssistantView from './views/InvestigationAssistantView';
-import AdvancedAnalyticsView from './views/AdvancedAnalyticsView';
-import CyberGlobe3D from './components/CyberGlobe3D';
-import MuleRingCanvas from './components/MuleRingCanvas';
-import InterceptionSimulator from './components/InterceptionSimulator';
-import DigitalTwinSimulator from './components/DigitalTwinSimulator';
-import GNNIntelligenceView from './views/GNNIntelligenceView';
+
+const RealtimeScorerView = lazy(() => import('./views/RealtimeScorerView'));
+const NetworkExplorerView = lazy(() => import('./views/NetworkExplorerView'));
+const XAIView = lazy(() => import('./views/XAIView'));
+const AlertsView = lazy(() => import('./views/AlertsView'));
+const CaseManagerView = lazy(() => import('./views/CaseManagerView'));
+const InvestigationAssistantView = lazy(() => import('./views/InvestigationAssistantView'));
+const AdvancedAnalyticsView = lazy(() => import('./views/AdvancedAnalyticsView'));
+const CyberGlobe3D = lazy(() => import('./components/CyberGlobe3D'));
+const MuleRingCanvas = lazy(() => import('./components/MuleRingCanvas'));
+const InterceptionSimulator = lazy(() => import('./components/InterceptionSimulator'));
+const DigitalTwinSimulator = lazy(() => import('./components/DigitalTwinSimulator'));
+const GNNIntelligenceView = lazy(() => import('./views/GNNIntelligenceView'));
+
+function ViewLoader() {
+  return (
+    <div className="flex flex-col items-center justify-center p-12 bg-white rounded-2xl border border-slate-200">
+      <div className="w-8 h-8 border-3 border-blue-600 border-t-transparent rounded-full animate-spin mb-3"></div>
+      <span className="text-xs font-bold text-slate-500">Loading module data...</span>
+    </div>
+  );
+}
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -33,12 +43,16 @@ export default function App() {
   const [isSimulating, setIsSimulating] = useState(false);
   const [isPostDisruption, setIsPostDisruption] = useState(false);
 
-  // Fetch initial data
+  // Fetch initial data in parallel
   useEffect(() => {
     const fetchInit = async () => {
       try {
-        const topRes = await apiFetch('/api/v1/interception/topology');
-        if (topRes.ok) {
+        const [topRes, sumRes] = await Promise.all([
+          apiFetch('/api/v1/interception/topology'),
+          apiFetch('/api/v1/dashboard/summary?mode=federated'),
+        ]);
+
+        if (topRes && topRes.ok) {
           const data = await topRes.json();
           setNodes(data.nodes || []);
           setEdges(data.edges || []);
@@ -48,8 +62,7 @@ export default function App() {
           }
         }
 
-        const sumRes = await apiFetch('/api/v1/dashboard/summary?mode=federated');
-        if (sumRes.ok) {
+        if (sumRes && sumRes.ok) {
           const sumData = await sumRes.json();
           setSummary(sumData);
         }
@@ -195,20 +208,58 @@ export default function App() {
 
           {/* Active Module Workstation */}
           <div>
-            {activeTab === 'dashboard' && <MonitoringView />}
-            {activeTab === 'network' && (
-              <div className="flex flex-col gap-6">
-                <NetworkExplorerView />
-                {/* Embedded Topology & Interception Simulator */}
-                <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col gap-4">
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                    <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                      Multi-Bank Synthetic Network Design & Interception Canvas
-                    </span>
-                    <span className="text-[10px] text-blue-600 font-mono font-bold bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-100">
-                      React Flow DAG
-                    </span>
+            <Suspense fallback={<ViewLoader />}>
+              {activeTab === 'dashboard' && <MonitoringView />}
+              {activeTab === 'network' && (
+                <div className="flex flex-col gap-6">
+                  <NetworkExplorerView />
+                  {/* Embedded Topology & Interception Simulator */}
+                  <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col gap-4">
+                    <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                      <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                        Multi-Bank Synthetic Network Design & Interception Canvas
+                      </span>
+                      <span className="text-[10px] text-blue-600 font-mono font-bold bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-100">
+                        React Flow DAG
+                      </span>
+                    </div>
+                    <MuleRingCanvas
+                      nodesData={nodes}
+                      edgesData={edges}
+                      selectedNodeId={selectedNodeId}
+                      onSelectNode={(id) => {
+                        setSelectedNodeId(id);
+                        setSelectedTargetNode(id);
+                      }}
+                      targetNodeId={selectedTargetNode}
+                      neutralizedNodes={simulationResult?.downstream_nodes_list || []}
+                      severedEdges={simulationResult?.severed_edges || []}
+                      isPostDisruption={isPostDisruption}
+                      onToggleDisruption={setIsPostDisruption}
+                    />
+                    <InterceptionSimulator
+                      nodes={nodes}
+                      bottlenecks={bottlenecks}
+                      selectedTargetNode={selectedTargetNode}
+                      onSelectTargetNode={setSelectedTargetNode}
+                      onRunSimulation={handleRunSimulation}
+                      simulationResult={simulationResult}
+                      isLoading={isSimulating}
+                    />
                   </div>
+                </div>
+              )}
+              {activeTab === 'xai' && <XAIView />}
+              {activeTab === 'assistant' && <InvestigationAssistantView />}
+              {activeTab === 'cases' && <CaseManagerView />}
+              {activeTab === 'analytics' && <AdvancedAnalyticsView />}
+              {activeTab === 'gnn' && <GNNIntelligenceView />}
+              {activeTab === 'realtime' && <RealtimeScorerView />}
+              {activeTab === 'alerts' && <AlertsView />}
+              {activeTab === 'globe3d' && <CyberGlobe3D />}
+              {activeTab === 'digital_twin' && <DigitalTwinSimulator />}
+              {activeTab === 'interception' && (
+                <div className="flex flex-col gap-6">
                   <MuleRingCanvas
                     nodesData={nodes}
                     edgesData={edges}
@@ -233,44 +284,8 @@ export default function App() {
                     isLoading={isSimulating}
                   />
                 </div>
-              </div>
-            )}
-            {activeTab === 'xai' && <XAIView />}
-            {activeTab === 'assistant' && <InvestigationAssistantView />}
-            {activeTab === 'cases' && <CaseManagerView />}
-            {activeTab === 'analytics' && <AdvancedAnalyticsView />}
-            {activeTab === 'gnn' && <GNNIntelligenceView />}
-            {activeTab === 'realtime' && <RealtimeScorerView />}
-            {activeTab === 'alerts' && <AlertsView />}
-            {activeTab === 'globe3d' && <CyberGlobe3D />}
-            {activeTab === 'digital_twin' && <DigitalTwinSimulator />}
-            {activeTab === 'interception' && (
-              <div className="flex flex-col gap-6">
-                <MuleRingCanvas
-                  nodesData={nodes}
-                  edgesData={edges}
-                  selectedNodeId={selectedNodeId}
-                  onSelectNode={(id) => {
-                    setSelectedNodeId(id);
-                    setSelectedTargetNode(id);
-                  }}
-                  targetNodeId={selectedTargetNode}
-                  neutralizedNodes={simulationResult?.downstream_nodes_list || []}
-                  severedEdges={simulationResult?.severed_edges || []}
-                  isPostDisruption={isPostDisruption}
-                  onToggleDisruption={setIsPostDisruption}
-                />
-                <InterceptionSimulator
-                  nodes={nodes}
-                  bottlenecks={bottlenecks}
-                  selectedTargetNode={selectedTargetNode}
-                  onSelectTargetNode={setSelectedTargetNode}
-                  onRunSimulation={handleRunSimulation}
-                  simulationResult={simulationResult}
-                  isLoading={isSimulating}
-                />
-              </div>
-            )}
+              )}
+            </Suspense>
           </div>
         </main>
 

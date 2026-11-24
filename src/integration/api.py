@@ -8,6 +8,7 @@ from typing import List, Optional, Dict, Any
 from fastapi import FastAPI, Header, HTTPException, Query, status, Request
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 from datetime import datetime, timezone
@@ -37,7 +38,7 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# Security Headers Middleware
+# Security and Cache Headers Middleware
 @app.middleware("http")
 async def add_security_headers(request: Request, call_next):
     response = await call_next(request)
@@ -45,7 +46,12 @@ async def add_security_headers(request: Request, call_next):
     response.headers["X-Frame-Options"] = "DENY"
     response.headers["X-XSS-Protection"] = "1; mode=block"
     response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    if request.url.path.startswith("/assets/"):
+        response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
     return response
+
+# Enable GZip compression for responses > 500 bytes (shrinks JS/CSS/JSON transfers by 70-85%)
+app.add_middleware(GZipMiddleware, minimum_size=500)
 
 # Enable CORS for dashboard integration with robust origin specification and regex matching
 app.add_middleware(

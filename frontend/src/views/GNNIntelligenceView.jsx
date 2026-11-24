@@ -80,9 +80,14 @@ export default function GNNIntelligenceView() {
         .then((d) => { if (d) setComparison(d); })
         .catch((e) => console.warn('GNN comparison fetch fallback:', e));
 
-      // Fetch accounts (Primary table)
-      const accRes = await apiFetch('/api/v1/gnn/predictions/accounts?limit=80');
-      if (accRes.ok) {
+      // Fetch accounts, transactions, and networks in parallel with Promise.all
+      const [accRes, txRes, netRes] = await Promise.all([
+        apiFetch('/api/v1/gnn/predictions/accounts?limit=80'),
+        apiFetch('/api/v1/gnn/predictions/transactions?limit=80'),
+        apiFetch('/api/v1/gnn/predictions/networks'),
+      ]);
+
+      if (accRes && accRes.ok) {
         const accData = await accRes.json();
         if (accData.predictions && accData.predictions.length > 0) {
           setAccounts(accData.predictions);
@@ -91,18 +96,14 @@ export default function GNNIntelligenceView() {
         }
       }
 
-      // Fetch transactions
-      const txRes = await apiFetch('/api/v1/gnn/predictions/transactions?limit=80');
-      if (txRes.ok) {
+      if (txRes && txRes.ok) {
         const txData = await txRes.json();
         if (txData.predictions && txData.predictions.length > 0) {
           setTransactions(txData.predictions);
         }
       }
 
-      // Fetch networks
-      const netRes = await apiFetch('/api/v1/gnn/predictions/networks');
-      if (netRes.ok) {
+      if (netRes && netRes.ok) {
         const netData = await netRes.json();
         if (netData.networks && netData.networks.length > 0) {
           setNetworks(netData.networks);

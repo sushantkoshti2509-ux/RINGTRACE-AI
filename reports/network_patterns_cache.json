@@ -1,0 +1,1709 @@
+{
+  "summary": {
+    "total_cycles_detected": 50,
+    "total_layering_chains": 25,
+    "total_fan_in_collectors": 398,
+    "total_fan_out_splitters": 519,
+    "total_hybrid_communities": 37
+  },
+  "evidence_records": [
+    {
+      "network_id": "NET_CYC_001",
+      "pattern_detected": "CIRCULAR_TRANSFERS",
+      "algorithm": "Directed Cycle Detection (Tarjan / Johnson)",
+      "participating_accounts": [
+        "BNK_C_MULE_00077",
+        "BNK_A_MULE_00078",
+        "BNK_B_MULE_00079",
+        "BNK_D_MULE_00080",
+        "BNK_D_MULE_00076"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220077",
+        "\u2022\u2022\u2022\u20220078",
+        "\u2022\u2022\u2022\u20220079",
+        "\u2022\u2022\u2022\u20220080",
+        "\u2022\u2022\u2022\u20220076"
+      ],
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (< 5 min latency)",
+      "supporting_metrics": {
+        "cycle_length": 5,
+        "layering_hops": 5,
+        "is_closed_loop": true
+      },
+      "confidence_score": 0.96,
+      "risk_score": 96.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_CYC_002",
+      "pattern_detected": "CIRCULAR_TRANSFERS",
+      "algorithm": "Directed Cycle Detection (Tarjan / Johnson)",
+      "participating_accounts": [
+        "BNK_D_MULE_00153",
+        "BNK_A_MULE_00154",
+        "BNK_B_MULE_00155",
+        "BNK_A_MULE_00151",
+        "BNK_B_MULE_00152"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220153",
+        "\u2022\u2022\u2022\u20220154",
+        "\u2022\u2022\u2022\u20220155",
+        "\u2022\u2022\u2022\u20220151",
+        "\u2022\u2022\u2022\u20220152"
+      ],
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (< 5 min latency)",
+      "supporting_metrics": {
+        "cycle_length": 5,
+        "layering_hops": 5,
+        "is_closed_loop": true
+      },
+      "confidence_score": 0.96,
+      "risk_score": 96.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_CYC_003",
+      "pattern_detected": "CIRCULAR_TRANSFERS",
+      "algorithm": "Directed Cycle Detection (Tarjan / Johnson)",
+      "participating_accounts": [
+        "BNK_C_MULE_00052",
+        "BNK_A_MULE_00053",
+        "BNK_D_MULE_00054",
+        "BNK_B_MULE_00055",
+        "BNK_B_MULE_00051"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220052",
+        "\u2022\u2022\u2022\u20220053",
+        "\u2022\u2022\u2022\u20220054",
+        "\u2022\u2022\u2022\u20220055",
+        "\u2022\u2022\u2022\u20220051"
+      ],
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (< 5 min latency)",
+      "supporting_metrics": {
+        "cycle_length": 5,
+        "layering_hops": 5,
+        "is_closed_loop": true
+      },
+      "confidence_score": 0.96,
+      "risk_score": 96.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_CYC_004",
+      "pattern_detected": "CIRCULAR_TRANSFERS",
+      "algorithm": "Directed Cycle Detection (Tarjan / Johnson)",
+      "participating_accounts": [
+        "BNK_C_MULE_00029",
+        "BNK_A_MULE_00030",
+        "BNK_C_MULE_00026",
+        "BNK_A_MULE_00027",
+        "BNK_D_MULE_00028"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220029",
+        "\u2022\u2022\u2022\u20220030",
+        "\u2022\u2022\u2022\u20220026",
+        "\u2022\u2022\u2022\u20220027",
+        "\u2022\u2022\u2022\u20220028"
+      ],
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (< 5 min latency)",
+      "supporting_metrics": {
+        "cycle_length": 5,
+        "layering_hops": 5,
+        "is_closed_loop": true
+      },
+      "confidence_score": 0.96,
+      "risk_score": 96.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_CYC_005",
+      "pattern_detected": "CIRCULAR_TRANSFERS",
+      "algorithm": "Directed Cycle Detection (Tarjan / Johnson)",
+      "participating_accounts": [
+        "BNK_A_MULE_00001",
+        "BNK_B_MULE_00002",
+        "BNK_C_MULE_00003",
+        "BNK_D_MULE_00004",
+        "BNK_A_MULE_00005"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220001",
+        "\u2022\u2022\u2022\u20220002",
+        "\u2022\u2022\u2022\u20220003",
+        "\u2022\u2022\u2022\u20220004",
+        "\u2022\u2022\u2022\u20220005"
+      ],
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (< 5 min latency)",
+      "supporting_metrics": {
+        "cycle_length": 5,
+        "layering_hops": 5,
+        "is_closed_loop": true
+      },
+      "confidence_score": 0.96,
+      "risk_score": 96.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_CYC_006",
+      "pattern_detected": "CIRCULAR_TRANSFERS",
+      "algorithm": "Directed Cycle Detection (Tarjan / Johnson)",
+      "participating_accounts": [
+        "BNK_C_MULE_00126",
+        "BNK_B_MULE_00127",
+        "BNK_D_MULE_00128",
+        "BNK_C_MULE_00129",
+        "BNK_B_MULE_00130"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220126",
+        "\u2022\u2022\u2022\u20220127",
+        "\u2022\u2022\u2022\u20220128",
+        "\u2022\u2022\u2022\u20220129",
+        "\u2022\u2022\u2022\u20220130"
+      ],
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (< 5 min latency)",
+      "supporting_metrics": {
+        "cycle_length": 5,
+        "layering_hops": 5,
+        "is_closed_loop": true
+      },
+      "confidence_score": 0.96,
+      "risk_score": 96.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_CYC_007",
+      "pattern_detected": "CIRCULAR_TRANSFERS",
+      "algorithm": "Directed Cycle Detection (Tarjan / Johnson)",
+      "participating_accounts": [
+        "BNK_B_MULE_00103",
+        "BNK_C_MULE_00104",
+        "BNK_D_MULE_00105",
+        "BNK_D_MULE_00101",
+        "BNK_A_MULE_00102"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220103",
+        "\u2022\u2022\u2022\u20220104",
+        "\u2022\u2022\u2022\u20220105",
+        "\u2022\u2022\u2022\u20220101",
+        "\u2022\u2022\u2022\u20220102"
+      ],
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (< 5 min latency)",
+      "supporting_metrics": {
+        "cycle_length": 5,
+        "layering_hops": 5,
+        "is_closed_loop": true
+      },
+      "confidence_score": 0.96,
+      "risk_score": 96.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_CYC_008",
+      "pattern_detected": "CIRCULAR_TRANSFERS",
+      "algorithm": "Directed Cycle Detection (Tarjan / Johnson)",
+      "participating_accounts": [
+        "BNK_B_ACC_00646",
+        "BNK_A_ACC_00973",
+        "BNK_A_ACC_00921",
+        "BNK_A_ACC_00601",
+        "BNK_C_ACC_00699"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220646",
+        "\u2022\u2022\u2022\u20220973",
+        "\u2022\u2022\u2022\u20220921",
+        "\u2022\u2022\u2022\u20220601",
+        "\u2022\u2022\u2022\u20220699"
+      ],
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (< 5 min latency)",
+      "supporting_metrics": {
+        "cycle_length": 5,
+        "layering_hops": 5,
+        "is_closed_loop": true
+      },
+      "confidence_score": 0.96,
+      "risk_score": 96.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_CYC_009",
+      "pattern_detected": "CIRCULAR_TRANSFERS",
+      "algorithm": "Directed Cycle Detection (Tarjan / Johnson)",
+      "participating_accounts": [
+        "BNK_B_ACC_00646",
+        "BNK_A_ACC_00973",
+        "BNK_A_ACC_00921",
+        "BNK_D_ACC_00680",
+        "BNK_C_ACC_00699"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220646",
+        "\u2022\u2022\u2022\u20220973",
+        "\u2022\u2022\u2022\u20220921",
+        "\u2022\u2022\u2022\u20220680",
+        "\u2022\u2022\u2022\u20220699"
+      ],
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (< 5 min latency)",
+      "supporting_metrics": {
+        "cycle_length": 5,
+        "layering_hops": 5,
+        "is_closed_loop": true
+      },
+      "confidence_score": 0.96,
+      "risk_score": 96.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_CYC_010",
+      "pattern_detected": "CIRCULAR_TRANSFERS",
+      "algorithm": "Directed Cycle Detection (Tarjan / Johnson)",
+      "participating_accounts": [
+        "BNK_B_ACC_00646",
+        "BNK_C_ACC_00547",
+        "BNK_B_ACC_00922",
+        "BNK_C_ACC_00503",
+        "BNK_A_ACC_00889"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220646",
+        "\u2022\u2022\u2022\u20220547",
+        "\u2022\u2022\u2022\u20220922",
+        "\u2022\u2022\u2022\u20220503",
+        "\u2022\u2022\u2022\u20220889"
+      ],
+      "banks_involved": [
+        "BANK_A",
+        "BANK_B"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (< 5 min latency)",
+      "supporting_metrics": {
+        "cycle_length": 5,
+        "layering_hops": 5,
+        "is_closed_loop": true
+      },
+      "confidence_score": 0.96,
+      "risk_score": 96.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_LAY_001",
+      "pattern_detected": "LAYERING_CHAINS",
+      "algorithm": "Multi-Hop Path Analysis",
+      "participating_accounts": [
+        "BNK_A_ACC_00125",
+        "BNK_C_ACC_00111",
+        "BNK_B_ACC_00322",
+        "BNK_B_ACC_00354",
+        "BNK_A_ACC_00417"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220125",
+        "\u2022\u2022\u2022\u20220111",
+        "\u2022\u2022\u2022\u20220322",
+        "\u2022\u2022\u2022\u20220354",
+        "\u2022\u2022\u2022\u20220417"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (Rapid Relay)",
+      "supporting_metrics": {
+        "hop_count": 4,
+        "total_volume": 4046.11,
+        "pass_through_velocity": "Sub-90s Rapid Transit"
+      },
+      "confidence_score": 0.91,
+      "risk_score": 91.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_LAY_002",
+      "pattern_detected": "LAYERING_CHAINS",
+      "algorithm": "Multi-Hop Path Analysis",
+      "participating_accounts": [
+        "BNK_A_ACC_00125",
+        "BNK_C_ACC_00111",
+        "BNK_B_ACC_00322",
+        "BNK_B_ACC_00622",
+        "BNK_A_ACC_00417"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220125",
+        "\u2022\u2022\u2022\u20220111",
+        "\u2022\u2022\u2022\u20220322",
+        "\u2022\u2022\u2022\u20220622",
+        "\u2022\u2022\u2022\u20220417"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (Rapid Relay)",
+      "supporting_metrics": {
+        "hop_count": 4,
+        "total_volume": 5904.63,
+        "pass_through_velocity": "Sub-90s Rapid Transit"
+      },
+      "confidence_score": 0.91,
+      "risk_score": 91.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_LAY_003",
+      "pattern_detected": "LAYERING_CHAINS",
+      "algorithm": "Multi-Hop Path Analysis",
+      "participating_accounts": [
+        "BNK_A_ACC_00125",
+        "BNK_C_ACC_00111",
+        "BNK_D_ACC_00864",
+        "BNK_A_ACC_00901",
+        "BNK_A_ACC_00417"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220125",
+        "\u2022\u2022\u2022\u20220111",
+        "\u2022\u2022\u2022\u20220864",
+        "\u2022\u2022\u2022\u20220901",
+        "\u2022\u2022\u2022\u20220417"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (Rapid Relay)",
+      "supporting_metrics": {
+        "hop_count": 4,
+        "total_volume": 3648.06,
+        "pass_through_velocity": "Sub-90s Rapid Transit"
+      },
+      "confidence_score": 0.91,
+      "risk_score": 91.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_LAY_004",
+      "pattern_detected": "LAYERING_CHAINS",
+      "algorithm": "Multi-Hop Path Analysis",
+      "participating_accounts": [
+        "BNK_A_ACC_00125",
+        "BNK_C_ACC_00111",
+        "BNK_C_ACC_00707",
+        "BNK_C_ACC_00479",
+        "BNK_A_ACC_00417"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220125",
+        "\u2022\u2022\u2022\u20220111",
+        "\u2022\u2022\u2022\u20220707",
+        "\u2022\u2022\u2022\u20220479",
+        "\u2022\u2022\u2022\u20220417"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (Rapid Relay)",
+      "supporting_metrics": {
+        "hop_count": 4,
+        "total_volume": 3535.74,
+        "pass_through_velocity": "Sub-90s Rapid Transit"
+      },
+      "confidence_score": 0.91,
+      "risk_score": 91.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_LAY_005",
+      "pattern_detected": "LAYERING_CHAINS",
+      "algorithm": "Multi-Hop Path Analysis",
+      "participating_accounts": [
+        "BNK_A_ACC_00125",
+        "BNK_C_ACC_01007",
+        "BNK_D_ACC_00052",
+        "BNK_B_ACC_00298",
+        "BNK_A_ACC_00417"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220125",
+        "\u2022\u2022\u2022\u20221007",
+        "\u2022\u2022\u2022\u20220052",
+        "\u2022\u2022\u2022\u20220298",
+        "\u2022\u2022\u2022\u20220417"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (Rapid Relay)",
+      "supporting_metrics": {
+        "hop_count": 4,
+        "total_volume": 3515.21,
+        "pass_through_velocity": "Sub-90s Rapid Transit"
+      },
+      "confidence_score": 0.91,
+      "risk_score": 91.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_LAY_006",
+      "pattern_detected": "LAYERING_CHAINS",
+      "algorithm": "Multi-Hop Path Analysis",
+      "participating_accounts": [
+        "BNK_A_ACC_00125",
+        "BNK_C_ACC_01007",
+        "BNK_D_ACC_00588",
+        "BNK_D_ACC_00548",
+        "BNK_A_ACC_00417"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220125",
+        "\u2022\u2022\u2022\u20221007",
+        "\u2022\u2022\u2022\u20220588",
+        "\u2022\u2022\u2022\u20220548",
+        "\u2022\u2022\u2022\u20220417"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (Rapid Relay)",
+      "supporting_metrics": {
+        "hop_count": 4,
+        "total_volume": 3739.42,
+        "pass_through_velocity": "Sub-90s Rapid Transit"
+      },
+      "confidence_score": 0.91,
+      "risk_score": 91.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_LAY_007",
+      "pattern_detected": "LAYERING_CHAINS",
+      "algorithm": "Multi-Hop Path Analysis",
+      "participating_accounts": [
+        "BNK_A_ACC_00125",
+        "BNK_C_ACC_01007",
+        "BNK_D_ACC_00588",
+        "BNK_C_ACC_00479",
+        "BNK_A_ACC_00417"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220125",
+        "\u2022\u2022\u2022\u20221007",
+        "\u2022\u2022\u2022\u20220588",
+        "\u2022\u2022\u2022\u20220479",
+        "\u2022\u2022\u2022\u20220417"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (Rapid Relay)",
+      "supporting_metrics": {
+        "hop_count": 4,
+        "total_volume": 3814.76,
+        "pass_through_velocity": "Sub-90s Rapid Transit"
+      },
+      "confidence_score": 0.91,
+      "risk_score": 91.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_LAY_008",
+      "pattern_detected": "LAYERING_CHAINS",
+      "algorithm": "Multi-Hop Path Analysis",
+      "participating_accounts": [
+        "BNK_A_ACC_00125",
+        "BNK_C_ACC_01007",
+        "BNK_B_ACC_00786",
+        "BNK_C_ACC_00479",
+        "BNK_A_ACC_00417"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220125",
+        "\u2022\u2022\u2022\u20221007",
+        "\u2022\u2022\u2022\u20220786",
+        "\u2022\u2022\u2022\u20220479",
+        "\u2022\u2022\u2022\u20220417"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (Rapid Relay)",
+      "supporting_metrics": {
+        "hop_count": 4,
+        "total_volume": 6224.56,
+        "pass_through_velocity": "Sub-90s Rapid Transit"
+      },
+      "confidence_score": 0.91,
+      "risk_score": 91.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_LAY_009",
+      "pattern_detected": "LAYERING_CHAINS",
+      "algorithm": "Multi-Hop Path Analysis",
+      "participating_accounts": [
+        "BNK_A_ACC_00125",
+        "BNK_C_ACC_01007",
+        "BNK_A_ACC_01009",
+        "BNK_A_ACC_00081",
+        "BNK_A_ACC_00417"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220125",
+        "\u2022\u2022\u2022\u20221007",
+        "\u2022\u2022\u2022\u20221009",
+        "\u2022\u2022\u2022\u20220081",
+        "\u2022\u2022\u2022\u20220417"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (Rapid Relay)",
+      "supporting_metrics": {
+        "hop_count": 4,
+        "total_volume": 4704.07,
+        "pass_through_velocity": "Sub-90s Rapid Transit"
+      },
+      "confidence_score": 0.91,
+      "risk_score": 91.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_LAY_010",
+      "pattern_detected": "LAYERING_CHAINS",
+      "algorithm": "Multi-Hop Path Analysis",
+      "participating_accounts": [
+        "BNK_A_ACC_00125",
+        "BNK_C_ACC_01007",
+        "BNK_C_ACC_00379",
+        "BNK_B_ACC_00354",
+        "BNK_A_ACC_00417"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220125",
+        "\u2022\u2022\u2022\u20221007",
+        "\u2022\u2022\u2022\u20220379",
+        "\u2022\u2022\u2022\u20220354",
+        "\u2022\u2022\u2022\u20220417"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Clearing Cycle 2026-11-24 (Rapid Relay)",
+      "supporting_metrics": {
+        "hop_count": 4,
+        "total_volume": 5560.36,
+        "pass_through_velocity": "Sub-90s Rapid Transit"
+      },
+      "confidence_score": 0.91,
+      "risk_score": 91.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FIN_001",
+      "pattern_detected": "FAN_IN_COLLECTOR",
+      "algorithm": "High Inbound Connectivity Aggregator",
+      "participating_accounts": [
+        "BNK_B_ACC_00434",
+        "BNK_B_ACC_00058",
+        "BNK_B_ACC_00278",
+        "BNK_B_ACC_00830",
+        "BNK_A_ACC_00457",
+        "BNK_C_ACC_00279",
+        "BNK_C_ACC_00211",
+        "BNK_B_ACC_00458",
+        "BNK_D_ACC_00388"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220434",
+        "\u2022\u2022\u2022\u20220058",
+        "\u2022\u2022\u2022\u20220278",
+        "\u2022\u2022\u2022\u20220830",
+        "\u2022\u2022\u2022\u20220457",
+        "\u2022\u2022\u2022\u20220279",
+        "\u2022\u2022\u2022\u20220211",
+        "\u2022\u2022\u2022\u20220458",
+        "\u2022\u2022\u2022\u20220388"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Concentrated 30-min Ingestion Window",
+      "supporting_metrics": {
+        "in_degree": 17,
+        "total_inbound_volume": 760883.96,
+        "source_count": 8
+      },
+      "confidence_score": 0.89,
+      "risk_score": 88.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FIN_002",
+      "pattern_detected": "FAN_IN_COLLECTOR",
+      "algorithm": "High Inbound Connectivity Aggregator",
+      "participating_accounts": [
+        "BNK_A_ACC_00921",
+        "BNK_B_ACC_00310",
+        "BNK_A_ACC_00973",
+        "BNK_A_ACC_00725",
+        "BNK_D_ACC_00856",
+        "BNK_A_ACC_00241",
+        "BNK_B_ACC_00138",
+        "BNK_B_ACC_00854",
+        "BNK_C_ACC_01023"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220921",
+        "\u2022\u2022\u2022\u20220310",
+        "\u2022\u2022\u2022\u20220973",
+        "\u2022\u2022\u2022\u20220725",
+        "\u2022\u2022\u2022\u20220856",
+        "\u2022\u2022\u2022\u20220241",
+        "\u2022\u2022\u2022\u20220138",
+        "\u2022\u2022\u2022\u20220854",
+        "\u2022\u2022\u2022\u20221023"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Concentrated 30-min Ingestion Window",
+      "supporting_metrics": {
+        "in_degree": 13,
+        "total_inbound_volume": 746293.35,
+        "source_count": 8
+      },
+      "confidence_score": 0.89,
+      "risk_score": 88.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FIN_003",
+      "pattern_detected": "FAN_IN_COLLECTOR",
+      "algorithm": "High Inbound Connectivity Aggregator",
+      "participating_accounts": [
+        "BNK_C_ACC_00743",
+        "BNK_D_ACC_00760",
+        "BNK_C_ACC_00035",
+        "BNK_C_ACC_00903",
+        "BNK_D_ACC_00180",
+        "BNK_D_ACC_00824",
+        "BNK_B_ACC_00610",
+        "BNK_B_ACC_00694",
+        "BNK_B_ACC_00634"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220743",
+        "\u2022\u2022\u2022\u20220760",
+        "\u2022\u2022\u2022\u20220035",
+        "\u2022\u2022\u2022\u20220903",
+        "\u2022\u2022\u2022\u20220180",
+        "\u2022\u2022\u2022\u20220824",
+        "\u2022\u2022\u2022\u20220610",
+        "\u2022\u2022\u2022\u20220694",
+        "\u2022\u2022\u2022\u20220634"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Concentrated 30-min Ingestion Window",
+      "supporting_metrics": {
+        "in_degree": 17,
+        "total_inbound_volume": 666848.13,
+        "source_count": 8
+      },
+      "confidence_score": 0.89,
+      "risk_score": 88.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FIN_004",
+      "pattern_detected": "FAN_IN_COLLECTOR",
+      "algorithm": "High Inbound Connectivity Aggregator",
+      "participating_accounts": [
+        "BNK_C_ACC_00911",
+        "BNK_A_ACC_00385",
+        "BNK_D_ACC_00768",
+        "BNK_A_ACC_00845",
+        "BNK_C_ACC_00703",
+        "BNK_D_ACC_01012",
+        "BNK_A_ACC_00873",
+        "BNK_A_ACC_00789",
+        "BNK_C_ACC_00219"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220911",
+        "\u2022\u2022\u2022\u20220385",
+        "\u2022\u2022\u2022\u20220768",
+        "\u2022\u2022\u2022\u20220845",
+        "\u2022\u2022\u2022\u20220703",
+        "\u2022\u2022\u2022\u20221012",
+        "\u2022\u2022\u2022\u20220873",
+        "\u2022\u2022\u2022\u20220789",
+        "\u2022\u2022\u2022\u20220219"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Concentrated 30-min Ingestion Window",
+      "supporting_metrics": {
+        "in_degree": 67,
+        "total_inbound_volume": 481512.64,
+        "source_count": 8
+      },
+      "confidence_score": 0.89,
+      "risk_score": 88.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FIN_005",
+      "pattern_detected": "FAN_IN_COLLECTOR",
+      "algorithm": "High Inbound Connectivity Aggregator",
+      "participating_accounts": [
+        "BNK_B_ACC_00262",
+        "BNK_B_ACC_00662",
+        "BNK_C_ACC_00491",
+        "BNK_C_ACC_00931",
+        "BNK_A_ACC_00041",
+        "BNK_B_ACC_00154",
+        "BNK_D_ACC_00396",
+        "BNK_A_ACC_00313",
+        "BNK_D_ACC_00204"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220262",
+        "\u2022\u2022\u2022\u20220662",
+        "\u2022\u2022\u2022\u20220491",
+        "\u2022\u2022\u2022\u20220931",
+        "\u2022\u2022\u2022\u20220041",
+        "\u2022\u2022\u2022\u20220154",
+        "\u2022\u2022\u2022\u20220396",
+        "\u2022\u2022\u2022\u20220313",
+        "\u2022\u2022\u2022\u20220204"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Concentrated 30-min Ingestion Window",
+      "supporting_metrics": {
+        "in_degree": 81,
+        "total_inbound_volume": 479398.44,
+        "source_count": 8
+      },
+      "confidence_score": 0.89,
+      "risk_score": 88.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FIN_006",
+      "pattern_detected": "FAN_IN_COLLECTOR",
+      "algorithm": "High Inbound Connectivity Aggregator",
+      "participating_accounts": [
+        "BNK_B_ACC_00590",
+        "BNK_B_ACC_00990",
+        "BNK_A_ACC_00861",
+        "BNK_C_ACC_00043",
+        "BNK_D_ACC_00224",
+        "BNK_D_ACC_00076",
+        "BNK_B_ACC_00802",
+        "BNK_D_ACC_00036",
+        "BNK_A_ACC_00189"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220590",
+        "\u2022\u2022\u2022\u20220990",
+        "\u2022\u2022\u2022\u20220861",
+        "\u2022\u2022\u2022\u20220043",
+        "\u2022\u2022\u2022\u20220224",
+        "\u2022\u2022\u2022\u20220076",
+        "\u2022\u2022\u2022\u20220802",
+        "\u2022\u2022\u2022\u20220036",
+        "\u2022\u2022\u2022\u20220189"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Concentrated 30-min Ingestion Window",
+      "supporting_metrics": {
+        "in_degree": 17,
+        "total_inbound_volume": 475810.08,
+        "source_count": 8
+      },
+      "confidence_score": 0.89,
+      "risk_score": 88.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FIN_007",
+      "pattern_detected": "FAN_IN_COLLECTOR",
+      "algorithm": "High Inbound Connectivity Aggregator",
+      "participating_accounts": [
+        "BNK_A_ACC_00049",
+        "BNK_A_ACC_01001",
+        "BNK_D_ACC_00880",
+        "BNK_B_ACC_00942",
+        "BNK_C_ACC_00491",
+        "BNK_B_ACC_01006",
+        "BNK_D_ACC_00840",
+        "BNK_C_ACC_00943",
+        "BNK_B_ACC_00698"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220049",
+        "\u2022\u2022\u2022\u20221001",
+        "\u2022\u2022\u2022\u20220880",
+        "\u2022\u2022\u2022\u20220942",
+        "\u2022\u2022\u2022\u20220491",
+        "\u2022\u2022\u2022\u20221006",
+        "\u2022\u2022\u2022\u20220840",
+        "\u2022\u2022\u2022\u20220943",
+        "\u2022\u2022\u2022\u20220698"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Concentrated 30-min Ingestion Window",
+      "supporting_metrics": {
+        "in_degree": 68,
+        "total_inbound_volume": 471193.45,
+        "source_count": 8
+      },
+      "confidence_score": 0.89,
+      "risk_score": 88.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FIN_008",
+      "pattern_detected": "FAN_IN_COLLECTOR",
+      "algorithm": "High Inbound Connectivity Aggregator",
+      "participating_accounts": [
+        "BNK_D_ACC_00424",
+        "BNK_A_ACC_00261",
+        "BNK_B_ACC_00706",
+        "BNK_C_ACC_00811",
+        "BNK_B_ACC_00694",
+        "BNK_D_ACC_00144",
+        "BNK_A_ACC_00217",
+        "BNK_A_ACC_00193",
+        "BNK_D_ACC_00404"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220424",
+        "\u2022\u2022\u2022\u20220261",
+        "\u2022\u2022\u2022\u20220706",
+        "\u2022\u2022\u2022\u20220811",
+        "\u2022\u2022\u2022\u20220694",
+        "\u2022\u2022\u2022\u20220144",
+        "\u2022\u2022\u2022\u20220217",
+        "\u2022\u2022\u2022\u20220193",
+        "\u2022\u2022\u2022\u20220404"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Concentrated 30-min Ingestion Window",
+      "supporting_metrics": {
+        "in_degree": 90,
+        "total_inbound_volume": 470048.87,
+        "source_count": 8
+      },
+      "confidence_score": 0.89,
+      "risk_score": 88.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FIN_009",
+      "pattern_detected": "FAN_IN_COLLECTOR",
+      "algorithm": "High Inbound Connectivity Aggregator",
+      "participating_accounts": [
+        "BNK_C_ACC_00811",
+        "BNK_C_ACC_00487",
+        "BNK_A_ACC_00657",
+        "BNK_C_ACC_00627",
+        "BNK_B_ACC_00262",
+        "BNK_A_ACC_00789",
+        "BNK_D_ACC_00792",
+        "BNK_A_ACC_00825",
+        "BNK_D_ACC_00272"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220811",
+        "\u2022\u2022\u2022\u20220487",
+        "\u2022\u2022\u2022\u20220657",
+        "\u2022\u2022\u2022\u20220627",
+        "\u2022\u2022\u2022\u20220262",
+        "\u2022\u2022\u2022\u20220789",
+        "\u2022\u2022\u2022\u20220792",
+        "\u2022\u2022\u2022\u20220825",
+        "\u2022\u2022\u2022\u20220272"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Concentrated 30-min Ingestion Window",
+      "supporting_metrics": {
+        "in_degree": 17,
+        "total_inbound_volume": 464740.61,
+        "source_count": 8
+      },
+      "confidence_score": 0.89,
+      "risk_score": 88.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FIN_010",
+      "pattern_detected": "FAN_IN_COLLECTOR",
+      "algorithm": "High Inbound Connectivity Aggregator",
+      "participating_accounts": [
+        "BNK_B_ACC_00094",
+        "BNK_D_ACC_00876",
+        "BNK_A_ACC_00117",
+        "BNK_B_ACC_00274",
+        "BNK_C_ACC_00391",
+        "BNK_C_ACC_00883",
+        "BNK_B_ACC_00642",
+        "BNK_C_ACC_00687",
+        "BNK_B_ACC_00258"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220094",
+        "\u2022\u2022\u2022\u20220876",
+        "\u2022\u2022\u2022\u20220117",
+        "\u2022\u2022\u2022\u20220274",
+        "\u2022\u2022\u2022\u20220391",
+        "\u2022\u2022\u2022\u20220883",
+        "\u2022\u2022\u2022\u20220642",
+        "\u2022\u2022\u2022\u20220687",
+        "\u2022\u2022\u2022\u20220258"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Concentrated 30-min Ingestion Window",
+      "supporting_metrics": {
+        "in_degree": 18,
+        "total_inbound_volume": 462037.74,
+        "source_count": 8
+      },
+      "confidence_score": 0.89,
+      "risk_score": 88.5,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FOUT_001",
+      "pattern_detected": "FAN_OUT_SPLITTER",
+      "algorithm": "High Outbound Smurfing Splitter",
+      "participating_accounts": [
+        "BNK_A_ACC_00781",
+        "BNK_C_ACC_00651",
+        "BNK_C_ACC_00455",
+        "BNK_B_ACC_00334",
+        "BNK_D_ACC_00056",
+        "BNK_C_ACC_00587",
+        "BNK_C_ACC_00671",
+        "BNK_A_ACC_00217",
+        "BNK_D_ACC_00252"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220781",
+        "\u2022\u2022\u2022\u20220651",
+        "\u2022\u2022\u2022\u20220455",
+        "\u2022\u2022\u2022\u20220334",
+        "\u2022\u2022\u2022\u20220056",
+        "\u2022\u2022\u2022\u20220587",
+        "\u2022\u2022\u2022\u20220671",
+        "\u2022\u2022\u2022\u20220217",
+        "\u2022\u2022\u2022\u20220252"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Sub-60s Dispersion Burst",
+      "supporting_metrics": {
+        "out_degree": 32,
+        "total_outbound_volume": 653756.01,
+        "destination_count": 8
+      },
+      "confidence_score": 0.93,
+      "risk_score": 93.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FOUT_002",
+      "pattern_detected": "FAN_OUT_SPLITTER",
+      "algorithm": "High Outbound Smurfing Splitter",
+      "participating_accounts": [
+        "BNK_D_ACC_00988",
+        "BNK_D_ACC_00932",
+        "BNK_C_ACC_00255",
+        "BNK_A_ACC_00225",
+        "BNK_D_ACC_00360",
+        "BNK_D_ACC_01016",
+        "BNK_C_ACC_00995",
+        "BNK_C_ACC_00711",
+        "BNK_C_ACC_00847"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220988",
+        "\u2022\u2022\u2022\u20220932",
+        "\u2022\u2022\u2022\u20220255",
+        "\u2022\u2022\u2022\u20220225",
+        "\u2022\u2022\u2022\u20220360",
+        "\u2022\u2022\u2022\u20221016",
+        "\u2022\u2022\u2022\u20220995",
+        "\u2022\u2022\u2022\u20220711",
+        "\u2022\u2022\u2022\u20220847"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Sub-60s Dispersion Burst",
+      "supporting_metrics": {
+        "out_degree": 38,
+        "total_outbound_volume": 604550.44,
+        "destination_count": 8
+      },
+      "confidence_score": 0.93,
+      "risk_score": 93.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FOUT_003",
+      "pattern_detected": "FAN_OUT_SPLITTER",
+      "algorithm": "High Outbound Smurfing Splitter",
+      "participating_accounts": [
+        "BNK_A_ACC_00573",
+        "BNK_D_ACC_00508",
+        "BNK_B_ACC_00202",
+        "BNK_B_ACC_00378",
+        "BNK_B_ACC_00890",
+        "BNK_A_ACC_00669",
+        "BNK_C_ACC_00067",
+        "BNK_B_ACC_00850",
+        "BNK_D_ACC_00136"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220573",
+        "\u2022\u2022\u2022\u20220508",
+        "\u2022\u2022\u2022\u20220202",
+        "\u2022\u2022\u2022\u20220378",
+        "\u2022\u2022\u2022\u20220890",
+        "\u2022\u2022\u2022\u20220669",
+        "\u2022\u2022\u2022\u20220067",
+        "\u2022\u2022\u2022\u20220850",
+        "\u2022\u2022\u2022\u20220136"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Sub-60s Dispersion Burst",
+      "supporting_metrics": {
+        "out_degree": 47,
+        "total_outbound_volume": 587199.91,
+        "destination_count": 8
+      },
+      "confidence_score": 0.93,
+      "risk_score": 93.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FOUT_004",
+      "pattern_detected": "FAN_OUT_SPLITTER",
+      "algorithm": "High Outbound Smurfing Splitter",
+      "participating_accounts": [
+        "BNK_A_ACC_00489",
+        "BNK_D_ACC_00712",
+        "BNK_D_ACC_00440",
+        "BNK_A_ACC_00033",
+        "BNK_A_ACC_00861",
+        "BNK_B_ACC_00386",
+        "BNK_A_ACC_00893",
+        "BNK_D_ACC_00340",
+        "BNK_A_ACC_00397"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220489",
+        "\u2022\u2022\u2022\u20220712",
+        "\u2022\u2022\u2022\u20220440",
+        "\u2022\u2022\u2022\u20220033",
+        "\u2022\u2022\u2022\u20220861",
+        "\u2022\u2022\u2022\u20220386",
+        "\u2022\u2022\u2022\u20220893",
+        "\u2022\u2022\u2022\u20220340",
+        "\u2022\u2022\u2022\u20220397"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Sub-60s Dispersion Burst",
+      "supporting_metrics": {
+        "out_degree": 40,
+        "total_outbound_volume": 584023.79,
+        "destination_count": 8
+      },
+      "confidence_score": 0.93,
+      "risk_score": 93.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FOUT_005",
+      "pattern_detected": "FAN_OUT_SPLITTER",
+      "algorithm": "High Outbound Smurfing Splitter",
+      "participating_accounts": [
+        "BNK_A_ACC_00537",
+        "BNK_C_ACC_00615",
+        "BNK_D_ACC_00660",
+        "BNK_D_ACC_00460",
+        "BNK_C_ACC_00139",
+        "BNK_D_ACC_01024",
+        "BNK_A_ACC_00093",
+        "BNK_B_ACC_00382",
+        "BNK_A_ACC_00673"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220537",
+        "\u2022\u2022\u2022\u20220615",
+        "\u2022\u2022\u2022\u20220660",
+        "\u2022\u2022\u2022\u20220460",
+        "\u2022\u2022\u2022\u20220139",
+        "\u2022\u2022\u2022\u20221024",
+        "\u2022\u2022\u2022\u20220093",
+        "\u2022\u2022\u2022\u20220382",
+        "\u2022\u2022\u2022\u20220673"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Sub-60s Dispersion Burst",
+      "supporting_metrics": {
+        "out_degree": 32,
+        "total_outbound_volume": 474190.99,
+        "destination_count": 8
+      },
+      "confidence_score": 0.93,
+      "risk_score": 93.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FOUT_006",
+      "pattern_detected": "FAN_OUT_SPLITTER",
+      "algorithm": "High Outbound Smurfing Splitter",
+      "participating_accounts": [
+        "BNK_B_ACC_00058",
+        "BNK_B_ACC_00434",
+        "BNK_C_ACC_00391",
+        "BNK_B_ACC_00766",
+        "BNK_C_ACC_00879",
+        "BNK_D_ACC_01032",
+        "BNK_D_ACC_00748",
+        "BNK_D_ACC_00404",
+        "BNK_C_ACC_00019"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220058",
+        "\u2022\u2022\u2022\u20220434",
+        "\u2022\u2022\u2022\u20220391",
+        "\u2022\u2022\u2022\u20220766",
+        "\u2022\u2022\u2022\u20220879",
+        "\u2022\u2022\u2022\u20221032",
+        "\u2022\u2022\u2022\u20220748",
+        "\u2022\u2022\u2022\u20220404",
+        "\u2022\u2022\u2022\u20220019"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Sub-60s Dispersion Burst",
+      "supporting_metrics": {
+        "out_degree": 33,
+        "total_outbound_volume": 472535.52,
+        "destination_count": 8
+      },
+      "confidence_score": 0.93,
+      "risk_score": 93.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FOUT_007",
+      "pattern_detected": "FAN_OUT_SPLITTER",
+      "algorithm": "High Outbound Smurfing Splitter",
+      "participating_accounts": [
+        "BNK_C_ACC_00327",
+        "BNK_C_ACC_00251",
+        "BNK_D_ACC_00600",
+        "BNK_C_ACC_00711",
+        "BNK_A_ACC_00257",
+        "BNK_B_ACC_00198",
+        "BNK_C_ACC_00387",
+        "BNK_D_ACC_00832",
+        "BNK_A_ACC_00977"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220327",
+        "\u2022\u2022\u2022\u20220251",
+        "\u2022\u2022\u2022\u20220600",
+        "\u2022\u2022\u2022\u20220711",
+        "\u2022\u2022\u2022\u20220257",
+        "\u2022\u2022\u2022\u20220198",
+        "\u2022\u2022\u2022\u20220387",
+        "\u2022\u2022\u2022\u20220832",
+        "\u2022\u2022\u2022\u20220977"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Sub-60s Dispersion Burst",
+      "supporting_metrics": {
+        "out_degree": 31,
+        "total_outbound_volume": 471201.85,
+        "destination_count": 8
+      },
+      "confidence_score": 0.93,
+      "risk_score": 93.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FOUT_008",
+      "pattern_detected": "FAN_OUT_SPLITTER",
+      "algorithm": "High Outbound Smurfing Splitter",
+      "participating_accounts": [
+        "BNK_C_ACC_00587",
+        "BNK_C_ACC_00883",
+        "BNK_A_ACC_00865",
+        "BNK_A_ACC_00473",
+        "BNK_D_ACC_00744",
+        "BNK_A_ACC_00589",
+        "BNK_A_ACC_00309",
+        "BNK_C_ACC_00179",
+        "BNK_A_ACC_00105"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220587",
+        "\u2022\u2022\u2022\u20220883",
+        "\u2022\u2022\u2022\u20220865",
+        "\u2022\u2022\u2022\u20220473",
+        "\u2022\u2022\u2022\u20220744",
+        "\u2022\u2022\u2022\u20220589",
+        "\u2022\u2022\u2022\u20220309",
+        "\u2022\u2022\u2022\u20220179",
+        "\u2022\u2022\u2022\u20220105"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Sub-60s Dispersion Burst",
+      "supporting_metrics": {
+        "out_degree": 34,
+        "total_outbound_volume": 470699.29,
+        "destination_count": 8
+      },
+      "confidence_score": 0.93,
+      "risk_score": 93.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FOUT_009",
+      "pattern_detected": "FAN_OUT_SPLITTER",
+      "algorithm": "High Outbound Smurfing Splitter",
+      "participating_accounts": [
+        "BNK_D_ACC_00304",
+        "BNK_B_ACC_00702",
+        "BNK_C_ACC_00935",
+        "BNK_D_ACC_00888",
+        "BNK_A_ACC_00465",
+        "BNK_D_ACC_00172",
+        "BNK_C_ACC_01015",
+        "BNK_A_ACC_00025",
+        "BNK_A_ACC_00925"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220304",
+        "\u2022\u2022\u2022\u20220702",
+        "\u2022\u2022\u2022\u20220935",
+        "\u2022\u2022\u2022\u20220888",
+        "\u2022\u2022\u2022\u20220465",
+        "\u2022\u2022\u2022\u20220172",
+        "\u2022\u2022\u2022\u20221015",
+        "\u2022\u2022\u2022\u20220025",
+        "\u2022\u2022\u2022\u20220925"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Sub-60s Dispersion Burst",
+      "supporting_metrics": {
+        "out_degree": 40,
+        "total_outbound_volume": 466430.41,
+        "destination_count": 8
+      },
+      "confidence_score": 0.93,
+      "risk_score": 93.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_FOUT_010",
+      "pattern_detected": "FAN_OUT_SPLITTER",
+      "algorithm": "High Outbound Smurfing Splitter",
+      "participating_accounts": [
+        "BNK_D_ACC_00540",
+        "BNK_C_ACC_00755",
+        "BNK_D_ACC_01016",
+        "BNK_B_ACC_00242",
+        "BNK_D_ACC_00376",
+        "BNK_B_ACC_00630",
+        "BNK_B_ACC_00982",
+        "BNK_B_ACC_00254",
+        "BNK_D_ACC_00472"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220540",
+        "\u2022\u2022\u2022\u20220755",
+        "\u2022\u2022\u2022\u20221016",
+        "\u2022\u2022\u2022\u20220242",
+        "\u2022\u2022\u2022\u20220376",
+        "\u2022\u2022\u2022\u20220630",
+        "\u2022\u2022\u2022\u20220982",
+        "\u2022\u2022\u2022\u20220254",
+        "\u2022\u2022\u2022\u20220472"
+      ],
+      "banks_involved": [
+        "BANK_A"
+      ],
+      "detection_time_window": "Sub-60s Dispersion Burst",
+      "supporting_metrics": {
+        "out_degree": 33,
+        "total_outbound_volume": 464778.21,
+        "destination_count": 8
+      },
+      "confidence_score": 0.93,
+      "risk_score": 93.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_HYB_001",
+      "pattern_detected": "HYBRID_RINGS",
+      "algorithm": "Community Partitioning & Composite Pattern Scoring",
+      "participating_accounts": [
+        "BNK_A_ACC_00009",
+        "BNK_A_ACC_00013",
+        "BNK_A_ACC_00021",
+        "BNK_A_ACC_00061",
+        "BNK_A_ACC_00065",
+        "BNK_A_ACC_00069",
+        "BNK_A_ACC_00073",
+        "BNK_A_ACC_00089",
+        "BNK_A_ACC_00093",
+        "BNK_A_ACC_00105"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220009",
+        "\u2022\u2022\u2022\u20220013",
+        "\u2022\u2022\u2022\u20220021",
+        "\u2022\u2022\u2022\u20220061",
+        "\u2022\u2022\u2022\u20220065",
+        "\u2022\u2022\u2022\u20220069",
+        "\u2022\u2022\u2022\u20220073",
+        "\u2022\u2022\u2022\u20220089"
+      ],
+      "banks_involved": [
+        "UNKNOWN"
+      ],
+      "detection_time_window": "Cross-Bank Settlement Timeline",
+      "supporting_metrics": {
+        "cluster_size": 377,
+        "has_cycles": true,
+        "max_fan_in": 43,
+        "max_fan_out": 30
+      },
+      "confidence_score": 1.0,
+      "risk_score": 100.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_HYB_002",
+      "pattern_detected": "HYBRID_RINGS",
+      "algorithm": "Community Partitioning & Composite Pattern Scoring",
+      "participating_accounts": [
+        "BNK_A_ACC_00001",
+        "BNK_A_ACC_00005",
+        "BNK_A_ACC_00017",
+        "BNK_A_ACC_00025",
+        "BNK_A_ACC_00029",
+        "BNK_A_ACC_00033",
+        "BNK_A_ACC_00041",
+        "BNK_A_ACC_00045",
+        "BNK_A_ACC_00049",
+        "BNK_A_ACC_00053"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220001",
+        "\u2022\u2022\u2022\u20220005",
+        "\u2022\u2022\u2022\u20220017",
+        "\u2022\u2022\u2022\u20220025",
+        "\u2022\u2022\u2022\u20220029",
+        "\u2022\u2022\u2022\u20220033",
+        "\u2022\u2022\u2022\u20220041",
+        "\u2022\u2022\u2022\u20220045"
+      ],
+      "banks_involved": [
+        "UNKNOWN"
+      ],
+      "detection_time_window": "Cross-Bank Settlement Timeline",
+      "supporting_metrics": {
+        "cluster_size": 368,
+        "has_cycles": true,
+        "max_fan_in": 49,
+        "max_fan_out": 29
+      },
+      "confidence_score": 1.0,
+      "risk_score": 100.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_HYB_003",
+      "pattern_detected": "HYBRID_RINGS",
+      "algorithm": "Community Partitioning & Composite Pattern Scoring",
+      "participating_accounts": [
+        "BNK_A_ACC_00037",
+        "BNK_A_ACC_00057",
+        "BNK_A_ACC_00097",
+        "BNK_A_ACC_00117",
+        "BNK_A_ACC_00121",
+        "BNK_A_ACC_00157",
+        "BNK_A_ACC_00173",
+        "BNK_A_ACC_00185",
+        "BNK_A_ACC_00193",
+        "BNK_A_ACC_00229"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220037",
+        "\u2022\u2022\u2022\u20220057",
+        "\u2022\u2022\u2022\u20220097",
+        "\u2022\u2022\u2022\u20220117",
+        "\u2022\u2022\u2022\u20220121",
+        "\u2022\u2022\u2022\u20220157",
+        "\u2022\u2022\u2022\u20220173",
+        "\u2022\u2022\u2022\u20220185"
+      ],
+      "banks_involved": [
+        "UNKNOWN"
+      ],
+      "detection_time_window": "Cross-Bank Settlement Timeline",
+      "supporting_metrics": {
+        "cluster_size": 262,
+        "has_cycles": true,
+        "max_fan_in": 32,
+        "max_fan_out": 19
+      },
+      "confidence_score": 1.0,
+      "risk_score": 100.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_HYB_004",
+      "pattern_detected": "HYBRID_RINGS",
+      "algorithm": "Community Partitioning & Composite Pattern Scoring",
+      "participating_accounts": [
+        "BNK_A_ACC_00233",
+        "BNK_A_ACC_00381",
+        "BNK_A_ACC_00641",
+        "BNK_B_ACC_00158",
+        "BNK_B_ACC_00350",
+        "BNK_B_ACC_00354",
+        "BNK_B_ACC_00442",
+        "BNK_B_ACC_00534",
+        "BNK_B_ACC_00550",
+        "BNK_B_ACC_00562"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220233",
+        "\u2022\u2022\u2022\u20220381",
+        "\u2022\u2022\u2022\u20220641",
+        "\u2022\u2022\u2022\u20220158",
+        "\u2022\u2022\u2022\u20220350",
+        "\u2022\u2022\u2022\u20220354",
+        "\u2022\u2022\u2022\u20220442",
+        "\u2022\u2022\u2022\u20220534"
+      ],
+      "banks_involved": [
+        "UNKNOWN"
+      ],
+      "detection_time_window": "Cross-Bank Settlement Timeline",
+      "supporting_metrics": {
+        "cluster_size": 28,
+        "has_cycles": true,
+        "max_fan_in": 8,
+        "max_fan_out": 4
+      },
+      "confidence_score": 1.0,
+      "risk_score": 100.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_HYB_005",
+      "pattern_detected": "HYBRID_RINGS",
+      "algorithm": "Community Partitioning & Composite Pattern Scoring",
+      "participating_accounts": [
+        "BNK_A_MULE_00102",
+        "BNK_B_MULE_00103",
+        "BNK_C_MULE_00104",
+        "BNK_D_MULE_00101",
+        "BNK_D_MULE_00105"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220102",
+        "\u2022\u2022\u2022\u20220103",
+        "\u2022\u2022\u2022\u20220104",
+        "\u2022\u2022\u2022\u20220101",
+        "\u2022\u2022\u2022\u20220105"
+      ],
+      "banks_involved": [
+        "UNKNOWN"
+      ],
+      "detection_time_window": "Cross-Bank Settlement Timeline",
+      "supporting_metrics": {
+        "cluster_size": 5,
+        "has_cycles": true,
+        "max_fan_in": 1,
+        "max_fan_out": 1
+      },
+      "confidence_score": 0.75,
+      "risk_score": 75.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_HYB_006",
+      "pattern_detected": "HYBRID_RINGS",
+      "algorithm": "Community Partitioning & Composite Pattern Scoring",
+      "participating_accounts": [
+        "BNK_B_MULE_00127",
+        "BNK_B_MULE_00130",
+        "BNK_C_MULE_00126",
+        "BNK_C_MULE_00129",
+        "BNK_D_MULE_00128"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220127",
+        "\u2022\u2022\u2022\u20220130",
+        "\u2022\u2022\u2022\u20220126",
+        "\u2022\u2022\u2022\u20220129",
+        "\u2022\u2022\u2022\u20220128"
+      ],
+      "banks_involved": [
+        "UNKNOWN"
+      ],
+      "detection_time_window": "Cross-Bank Settlement Timeline",
+      "supporting_metrics": {
+        "cluster_size": 5,
+        "has_cycles": true,
+        "max_fan_in": 1,
+        "max_fan_out": 1
+      },
+      "confidence_score": 0.75,
+      "risk_score": 75.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_HYB_007",
+      "pattern_detected": "HYBRID_RINGS",
+      "algorithm": "Community Partitioning & Composite Pattern Scoring",
+      "participating_accounts": [
+        "BNK_A_MULE_00001",
+        "BNK_A_MULE_00005",
+        "BNK_B_MULE_00002",
+        "BNK_C_MULE_00003",
+        "BNK_D_MULE_00004"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220001",
+        "\u2022\u2022\u2022\u20220005",
+        "\u2022\u2022\u2022\u20220002",
+        "\u2022\u2022\u2022\u20220003",
+        "\u2022\u2022\u2022\u20220004"
+      ],
+      "banks_involved": [
+        "UNKNOWN"
+      ],
+      "detection_time_window": "Cross-Bank Settlement Timeline",
+      "supporting_metrics": {
+        "cluster_size": 5,
+        "has_cycles": true,
+        "max_fan_in": 1,
+        "max_fan_out": 1
+      },
+      "confidence_score": 0.75,
+      "risk_score": 75.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    },
+    {
+      "network_id": "NET_HYB_008",
+      "pattern_detected": "HYBRID_RINGS",
+      "algorithm": "Community Partitioning & Composite Pattern Scoring",
+      "participating_accounts": [
+        "BNK_A_MULE_00027",
+        "BNK_A_MULE_00030",
+        "BNK_C_MULE_00026",
+        "BNK_C_MULE_00029",
+        "BNK_D_MULE_00028"
+      ],
+      "masked_accounts": [
+        "\u2022\u2022\u2022\u20220027",
+        "\u2022\u2022\u2022\u20220030",
+        "\u2022\u2022\u2022\u20220026",
+        "\u2022\u2022\u2022\u20220029",
+        "\u2022\u2022\u2022\u20220028"
+      ],
+      "banks_involved": [
+        "UNKNOWN"
+      ],
+      "detection_time_window": "Cross-Bank Settlement Timeline",
+      "supporting_metrics": {
+        "cluster_size": 5,
+        "has_cycles": true,
+        "max_fan_in": 1,
+        "max_fan_out": 1
+      },
+      "confidence_score": 0.75,
+      "risk_score": 75.0,
+      "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE"
+    }
+  ]
+}

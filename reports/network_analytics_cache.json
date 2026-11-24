@@ -1,0 +1,479 @@
+{
+  "total_nodes": 1200,
+  "total_edges": 26937,
+  "density": 0.01872,
+  "cycle_count": 50,
+  "cycles": [
+    {
+      "cycle_length": 5,
+      "hops": [
+        {
+          "node_id": "BNK_C_MULE_00077",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220077",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_MULE_00078",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220078",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_B_MULE_00079",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220079",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_D_MULE_00080",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220080",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_D_MULE_00076",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220076",
+          "bank": "BANK_A"
+        }
+      ],
+      "path_string": "BANK_A:\u2022\u2022\u2022\u20220077 \u2794 BANK_A:\u2022\u2022\u2022\u20220078 \u2794 BANK_A:\u2022\u2022\u2022\u20220079 \u2794 BANK_A:\u2022\u2022\u2022\u20220080 \u2794 BANK_A:\u2022\u2022\u2022\u20220076 \u2794 BANK_A:\u2022\u2022\u2022\u20220077"
+    },
+    {
+      "cycle_length": 5,
+      "hops": [
+        {
+          "node_id": "BNK_D_MULE_00153",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220153",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_MULE_00154",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220154",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_B_MULE_00155",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220155",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_MULE_00151",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220151",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_B_MULE_00152",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220152",
+          "bank": "BANK_A"
+        }
+      ],
+      "path_string": "BANK_A:\u2022\u2022\u2022\u20220153 \u2794 BANK_A:\u2022\u2022\u2022\u20220154 \u2794 BANK_A:\u2022\u2022\u2022\u20220155 \u2794 BANK_A:\u2022\u2022\u2022\u20220151 \u2794 BANK_A:\u2022\u2022\u2022\u20220152 \u2794 BANK_A:\u2022\u2022\u2022\u20220153"
+    },
+    {
+      "cycle_length": 5,
+      "hops": [
+        {
+          "node_id": "BNK_C_MULE_00052",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220052",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_MULE_00053",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220053",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_D_MULE_00054",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220054",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_B_MULE_00055",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220055",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_B_MULE_00051",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220051",
+          "bank": "BANK_A"
+        }
+      ],
+      "path_string": "BANK_A:\u2022\u2022\u2022\u20220052 \u2794 BANK_A:\u2022\u2022\u2022\u20220053 \u2794 BANK_A:\u2022\u2022\u2022\u20220054 \u2794 BANK_A:\u2022\u2022\u2022\u20220055 \u2794 BANK_A:\u2022\u2022\u2022\u20220051 \u2794 BANK_A:\u2022\u2022\u2022\u20220052"
+    },
+    {
+      "cycle_length": 5,
+      "hops": [
+        {
+          "node_id": "BNK_C_MULE_00029",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220029",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_MULE_00030",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220030",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_MULE_00026",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220026",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_MULE_00027",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220027",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_D_MULE_00028",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220028",
+          "bank": "BANK_A"
+        }
+      ],
+      "path_string": "BANK_A:\u2022\u2022\u2022\u20220029 \u2794 BANK_A:\u2022\u2022\u2022\u20220030 \u2794 BANK_A:\u2022\u2022\u2022\u20220026 \u2794 BANK_A:\u2022\u2022\u2022\u20220027 \u2794 BANK_A:\u2022\u2022\u2022\u20220028 \u2794 BANK_A:\u2022\u2022\u2022\u20220029"
+    },
+    {
+      "cycle_length": 5,
+      "hops": [
+        {
+          "node_id": "BNK_A_MULE_00001",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220001",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_B_MULE_00002",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220002",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_MULE_00003",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220003",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_D_MULE_00004",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220004",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_MULE_00005",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220005",
+          "bank": "BANK_A"
+        }
+      ],
+      "path_string": "BANK_A:\u2022\u2022\u2022\u20220001 \u2794 BANK_A:\u2022\u2022\u2022\u20220002 \u2794 BANK_A:\u2022\u2022\u2022\u20220003 \u2794 BANK_A:\u2022\u2022\u2022\u20220004 \u2794 BANK_A:\u2022\u2022\u2022\u20220005 \u2794 BANK_A:\u2022\u2022\u2022\u20220001"
+    },
+    {
+      "cycle_length": 5,
+      "hops": [
+        {
+          "node_id": "BNK_C_MULE_00126",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220126",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_B_MULE_00127",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220127",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_D_MULE_00128",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220128",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_MULE_00129",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220129",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_B_MULE_00130",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220130",
+          "bank": "BANK_A"
+        }
+      ],
+      "path_string": "BANK_A:\u2022\u2022\u2022\u20220126 \u2794 BANK_A:\u2022\u2022\u2022\u20220127 \u2794 BANK_A:\u2022\u2022\u2022\u20220128 \u2794 BANK_A:\u2022\u2022\u2022\u20220129 \u2794 BANK_A:\u2022\u2022\u2022\u20220130 \u2794 BANK_A:\u2022\u2022\u2022\u20220126"
+    },
+    {
+      "cycle_length": 5,
+      "hops": [
+        {
+          "node_id": "BNK_B_MULE_00103",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220103",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_MULE_00104",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220104",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_D_MULE_00105",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220105",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_D_MULE_00101",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220101",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_MULE_00102",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220102",
+          "bank": "BANK_A"
+        }
+      ],
+      "path_string": "BANK_A:\u2022\u2022\u2022\u20220103 \u2794 BANK_A:\u2022\u2022\u2022\u20220104 \u2794 BANK_A:\u2022\u2022\u2022\u20220105 \u2794 BANK_A:\u2022\u2022\u2022\u20220101 \u2794 BANK_A:\u2022\u2022\u2022\u20220102 \u2794 BANK_A:\u2022\u2022\u2022\u20220103"
+    },
+    {
+      "cycle_length": 5,
+      "hops": [
+        {
+          "node_id": "BNK_B_ACC_00646",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220646",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_ACC_00973",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220973",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_ACC_00921",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220921",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_ACC_00601",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220601",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_ACC_00699",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220699",
+          "bank": "BANK_A"
+        }
+      ],
+      "path_string": "BANK_A:\u2022\u2022\u2022\u20220646 \u2794 BANK_A:\u2022\u2022\u2022\u20220973 \u2794 BANK_A:\u2022\u2022\u2022\u20220921 \u2794 BANK_A:\u2022\u2022\u2022\u20220601 \u2794 BANK_A:\u2022\u2022\u2022\u20220699 \u2794 BANK_A:\u2022\u2022\u2022\u20220646"
+    },
+    {
+      "cycle_length": 5,
+      "hops": [
+        {
+          "node_id": "BNK_B_ACC_00646",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220646",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_ACC_00973",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220973",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_ACC_00921",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220921",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_D_ACC_00680",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220680",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_ACC_00699",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220699",
+          "bank": "BANK_A"
+        }
+      ],
+      "path_string": "BANK_A:\u2022\u2022\u2022\u20220646 \u2794 BANK_A:\u2022\u2022\u2022\u20220973 \u2794 BANK_A:\u2022\u2022\u2022\u20220921 \u2794 BANK_A:\u2022\u2022\u2022\u20220680 \u2794 BANK_A:\u2022\u2022\u2022\u20220699 \u2794 BANK_A:\u2022\u2022\u2022\u20220646"
+    },
+    {
+      "cycle_length": 5,
+      "hops": [
+        {
+          "node_id": "BNK_B_ACC_00646",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220646",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_ACC_00547",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220547",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_B_ACC_00922",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220922",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_ACC_00503",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220503",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_ACC_00889",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220889",
+          "bank": "BANK_A"
+        }
+      ],
+      "path_string": "BANK_A:\u2022\u2022\u2022\u20220646 \u2794 BANK_A:\u2022\u2022\u2022\u20220547 \u2794 BANK_A:\u2022\u2022\u2022\u20220922 \u2794 BANK_A:\u2022\u2022\u2022\u20220503 \u2794 BANK_A:\u2022\u2022\u2022\u20220889 \u2794 BANK_A:\u2022\u2022\u2022\u20220646"
+    },
+    {
+      "cycle_length": 5,
+      "hops": [
+        {
+          "node_id": "BNK_B_ACC_00646",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220646",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_ACC_00547",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220547",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_B_ACC_00922",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220922",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_ACC_00573",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220573",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_ACC_00745",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220745",
+          "bank": "BANK_A"
+        }
+      ],
+      "path_string": "BANK_A:\u2022\u2022\u2022\u20220646 \u2794 BANK_A:\u2022\u2022\u2022\u20220547 \u2794 BANK_A:\u2022\u2022\u2022\u20220922 \u2794 BANK_A:\u2022\u2022\u2022\u20220573 \u2794 BANK_A:\u2022\u2022\u2022\u20220745 \u2794 BANK_A:\u2022\u2022\u2022\u20220646"
+    },
+    {
+      "cycle_length": 5,
+      "hops": [
+        {
+          "node_id": "BNK_B_ACC_00646",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220646",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_ACC_00547",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220547",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_B_ACC_00922",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220922",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_ACC_00237",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220237",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_ACC_00699",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220699",
+          "bank": "BANK_A"
+        }
+      ],
+      "path_string": "BANK_A:\u2022\u2022\u2022\u20220646 \u2794 BANK_A:\u2022\u2022\u2022\u20220547 \u2794 BANK_A:\u2022\u2022\u2022\u20220922 \u2794 BANK_A:\u2022\u2022\u2022\u20220237 \u2794 BANK_A:\u2022\u2022\u2022\u20220699 \u2794 BANK_A:\u2022\u2022\u2022\u20220646"
+    },
+    {
+      "cycle_length": 5,
+      "hops": [
+        {
+          "node_id": "BNK_B_ACC_00646",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220646",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_ACC_00547",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220547",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_ACC_00111",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220111",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_D_ACC_00872",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220872",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_D_ACC_00244",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220244",
+          "bank": "BANK_A"
+        }
+      ],
+      "path_string": "BANK_A:\u2022\u2022\u2022\u20220646 \u2794 BANK_A:\u2022\u2022\u2022\u20220547 \u2794 BANK_A:\u2022\u2022\u2022\u20220111 \u2794 BANK_A:\u2022\u2022\u2022\u20220872 \u2794 BANK_A:\u2022\u2022\u2022\u20220244 \u2794 BANK_A:\u2022\u2022\u2022\u20220646"
+    },
+    {
+      "cycle_length": 5,
+      "hops": [
+        {
+          "node_id": "BNK_B_ACC_00646",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220646",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_ACC_00547",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220547",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_ACC_00481",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220481",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_ACC_00885",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220885",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_D_ACC_00320",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220320",
+          "bank": "BANK_A"
+        }
+      ],
+      "path_string": "BANK_A:\u2022\u2022\u2022\u20220646 \u2794 BANK_A:\u2022\u2022\u2022\u20220547 \u2794 BANK_A:\u2022\u2022\u2022\u20220481 \u2794 BANK_A:\u2022\u2022\u2022\u20220885 \u2794 BANK_A:\u2022\u2022\u2022\u20220320 \u2794 BANK_A:\u2022\u2022\u2022\u20220646"
+    },
+    {
+      "cycle_length": 5,
+      "hops": [
+        {
+          "node_id": "BNK_B_ACC_00646",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220646",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_ACC_00547",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220547",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_C_ACC_00183",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220183",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_D_ACC_00544",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220544",
+          "bank": "BANK_A"
+        },
+        {
+          "node_id": "BNK_A_ACC_00889",
+          "masked_id": "BANK_A:\u2022\u2022\u2022\u20220889",
+          "bank": "BANK_A"
+        }
+      ],
+      "path_string": "BANK_A:\u2022\u2022\u2022\u20220646 \u2794 BANK_A:\u2022\u2022\u2022\u20220547 \u2794 BANK_A:\u2022\u2022\u2022\u20220183 \u2794 BANK_A:\u2022\u2022\u2022\u20220544 \u2794 BANK_A:\u2022\u2022\u2022\u20220889 \u2794 BANK_A:\u2022\u2022\u2022\u20220646"
+    }
+  ],
+  "velocity_distribution": {
+    "under_60s": 142,
+    "1_to_5_min": 289,
+    "5_to_15_min": 194,
+    "over_15_min": 105
+  }
+}

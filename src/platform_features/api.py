@@ -24,6 +24,9 @@ adapter = DetectionAdapter()
 case_manager = CaseManager()
 report_generator = InvestigationReportGenerator()
 
+_analytics_cache = None
+_patterns_cache = None
+
 
 class DispositionRequest(BaseModel):
     disposition: str
@@ -33,6 +36,20 @@ class DispositionRequest(BaseModel):
 @router.get("/network/analytics", summary="Get cross-bank graph analytics & cycle detection")
 def get_network_analytics():
     """Returns detected cycles, turnaround velocity breakdown, and structural centrality."""
+    global _analytics_cache
+    if _analytics_cache is not None:
+        return _analytics_cache
+
+    disk_path = config.REPORTS_DIR / "network_analytics_cache.json"
+    if disk_path.exists():
+        try:
+            import json
+            with open(disk_path, "r") as f:
+                _analytics_cache = json.load(f)
+                return _analytics_cache
+        except Exception:
+            pass
+
     accounts, txs, _, rings, _ = adapter.load_data()
     G = nx.DiGraph()
 
@@ -71,7 +88,7 @@ def get_network_analytics():
         "over_15_min": 105,
     }
 
-    return {
+    _analytics_cache = {
         "total_nodes": G.number_of_nodes(),
         "total_edges": G.number_of_edges(),
         "density": round(nx.density(G), 5),
@@ -79,6 +96,7 @@ def get_network_analytics():
         "cycles": formatted_cycles,
         "velocity_distribution": velocity_distribution,
     }
+    return _analytics_cache
 
 
 @router.get("/xai/features", summary="Get global and sample local SHAP explainability")
@@ -411,6 +429,20 @@ def get_network_patterns():
     5. Hybrid rings (Community clusters)
     Includes evidence objects: Network ID, accounts, related transactions, metrics, confidence, and GT labels.
     """
+    global _patterns_cache
+    if _patterns_cache is not None:
+        return _patterns_cache
+
+    disk_path = config.REPORTS_DIR / "network_patterns_cache.json"
+    if disk_path.exists():
+        try:
+            import json
+            with open(disk_path, "r") as f:
+                _patterns_cache = json.load(f)
+                return _patterns_cache
+        except Exception:
+            pass
+
     accounts, txs, _, rings, _ = adapter.load_data()
     G = nx.DiGraph()
 
@@ -543,10 +575,11 @@ def get_network_patterns():
             "ground_truth_label": "CONFIRMED_GROUND_TRUTH_MULE",
         })
 
-    return {
+    _patterns_cache = {
         "summary": topologies["summary"],
         "evidence_records": evidence_records,
     }
+    return _patterns_cache
 
 
 @router.post("/digital-twin/replay", summary="Chronological transaction replay sequence")

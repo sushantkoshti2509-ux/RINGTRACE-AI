@@ -19,6 +19,8 @@ import config
 class DetectionAdapter:
     """Standardizes existing detection results for new intelligence modules."""
 
+    _cached_data = None
+
     def __init__(self):
         self.accounts_path = config.PROCESSED_DATA_DIR / "accounts.csv"
         self.transactions_path = config.PROCESSED_DATA_DIR / "transactions.csv"
@@ -27,7 +29,10 @@ class DetectionAdapter:
         self.alerts_path = config.REPORTS_DIR / "alerts.json"
 
     def load_data(self) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, List[Dict[str, Any]], List[Dict[str, Any]]]:
-        """Loads all standard preprocessed tables and reports safely."""
+        """Loads all standard preprocessed tables and reports safely with memory caching."""
+        if DetectionAdapter._cached_data is not None:
+            return DetectionAdapter._cached_data
+
         accounts = pd.read_csv(self.accounts_path) if self.accounts_path.exists() else pd.DataFrame()
         transactions = pd.read_csv(self.transactions_path) if self.transactions_path.exists() else pd.DataFrame()
         risk_scores = pd.read_csv(self.risk_scores_path) if self.risk_scores_path.exists() else pd.DataFrame()
@@ -42,7 +47,8 @@ class DetectionAdapter:
             with open(self.alerts_path, "r") as f:
                 alerts = json.load(f)
 
-        return accounts, transactions, risk_scores, candidate_rings, alerts
+        DetectionAdapter._cached_data = (accounts, transactions, risk_scores, candidate_rings, alerts)
+        return DetectionAdapter._cached_data
 
     def get_standardized_transactions(self) -> pd.DataFrame:
         """Returns transactions with bank-qualified sender and receiver account identifiers."""
