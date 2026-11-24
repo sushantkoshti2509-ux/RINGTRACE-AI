@@ -239,14 +239,14 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
           height: 15,
         },
         label: isDimmed ? undefined : `₹${(e.amount || 0).toLocaleString()}`,
-        labelStyle: { fill: '#f1f5f9', fontWeight: 700, fontSize: 10 },
+        labelStyle: { fill: '#0f172a', fontWeight: 800, fontSize: 10 },
         labelBgStyle: {
-          fill: '#0f172a',
-          fillOpacity: 0.92,
+          fill: '#ffffff',
+          fillOpacity: 0.98,
           stroke: strokeColor,
           strokeWidth: 1.5,
-          rx: 4,
-          ry: 4,
+          rx: 6,
+          ry: 6,
         },
       };
     });
@@ -336,45 +336,45 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
 
       {/* Collapsible Canvas Body */}
       {!isCollapsed && (
-        <div className="relative w-full h-[600px] bg-[#080e1b]">
+        <div className="relative w-full h-[600px] bg-[#f8fafc] border-t border-slate-100">
           {/* Institutional Quadrant Overlays (Clockwise 4-Bank Topology: A -> B -> C -> D -> A) */}
           {layoutMode === 'quadrant' && (
             <div className="absolute inset-0 pointer-events-none grid grid-cols-2 grid-rows-2 p-5 gap-6">
               {/* Top-Left: Bank A */}
-              <div className="border border-cyan-500/25 bg-cyan-950/10 rounded-2xl p-3 flex flex-col justify-start">
-                <div className="inline-flex items-center gap-1.5 w-fit px-2.5 py-1 rounded-lg bg-cyan-950/70 border border-cyan-500/40 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                  <span className="text-[10px] font-extrabold tracking-widest text-cyan-300 uppercase">
+              <div className="border-2 border-dashed border-cyan-300/80 bg-cyan-50/40 rounded-2xl p-3 flex flex-col justify-start">
+                <div className="inline-flex items-center gap-1.5 w-fit px-3 py-1.5 rounded-xl bg-white border border-cyan-200 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+                  <span className="text-[10px] font-extrabold tracking-wider text-cyan-900 uppercase font-mono">
                     BANK A • Retail Clearing Hub (A101 · A102)
                   </span>
                 </div>
               </div>
 
               {/* Top-Right: Bank B */}
-              <div className="border border-emerald-500/25 bg-emerald-950/10 rounded-2xl p-3 flex flex-col justify-start items-end">
-                <div className="inline-flex items-center gap-1.5 w-fit px-2.5 py-1 rounded-lg bg-emerald-950/70 border border-emerald-500/40 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[10px] font-extrabold tracking-widest text-emerald-300 uppercase">
+              <div className="border-2 border-dashed border-emerald-300/80 bg-emerald-50/40 rounded-2xl p-3 flex flex-col justify-start items-end">
+                <div className="inline-flex items-center gap-1.5 w-fit px-3 py-1.5 rounded-xl bg-white border border-emerald-200 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-[10px] font-extrabold tracking-wider text-emerald-900 uppercase font-mono">
                     BANK B • Corporate Treasury Core (B201 · B205)
                   </span>
                 </div>
               </div>
 
               {/* Bottom-Left: Bank D */}
-              <div className="border border-amber-500/25 bg-amber-950/10 rounded-2xl p-3 flex flex-col justify-end">
-                <div className="inline-flex items-center gap-1.5 w-fit px-2.5 py-1 rounded-lg bg-amber-950/70 border border-amber-500/40 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                  <span className="text-[10px] font-extrabold tracking-widest text-amber-300 uppercase">
+              <div className="border-2 border-dashed border-amber-300/80 bg-amber-50/40 rounded-2xl p-3 flex flex-col justify-end">
+                <div className="inline-flex items-center gap-1.5 w-fit px-3 py-1.5 rounded-xl bg-white border border-amber-200 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                  <span className="text-[10px] font-extrabold tracking-wider text-amber-900 uppercase font-mono">
                     BANK D • Wealth & Remittance Gateway (D401 · D410)
                   </span>
                 </div>
               </div>
 
               {/* Bottom-Right: Bank C */}
-              <div className="border border-purple-500/25 bg-purple-950/10 rounded-2xl p-3 flex flex-col justify-end items-end">
-                <div className="inline-flex items-center gap-1.5 w-fit px-2.5 py-1 rounded-lg bg-purple-950/70 border border-purple-500/40 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
-                  <span className="text-[10px] font-extrabold tracking-widest text-purple-300 uppercase">
+              <div className="border-2 border-dashed border-purple-300/80 bg-purple-50/40 rounded-2xl p-3 flex flex-col justify-end items-end">
+                <div className="inline-flex items-center gap-1.5 w-fit px-3 py-1.5 rounded-xl bg-white border border-purple-200 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+                  <span className="text-[10px] font-extrabold tracking-wider text-purple-900 uppercase font-mono">
                     BANK C • Regional Cooperative Society (C301 · C310)
                   </span>
                 </div>
@@ -392,58 +392,59 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
             minZoom={0.25}
             maxZoom={1.6}
             proOptions={{ hideAttribution: true }}
+            className="bg-[#f8fafc]"
           >
-            <Background color="#1e293b" gap={24} size={1} />
-            <Controls className="!bg-slate-900 !border-slate-800 !text-slate-300 !fill-slate-300 !rounded-xl !overflow-hidden" />
+            <Background color="#cbd5e1" gap={24} size={1.2} />
+            <Controls className="!bg-white !border !border-slate-200 !text-slate-700 !fill-slate-700 !rounded-xl !overflow-hidden !shadow-md" />
           </ReactFlow>
 
           {/* Topology Legend Bar (Top-Right, neatly positioned without overlapping Bank A) */}
-          <div className="absolute top-4 right-4 z-10 hidden md:flex flex-wrap items-center gap-2.5 bg-slate-900/90 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-slate-700/80 text-[10px] text-slate-300 shadow-xl pointer-events-none">
-            <span className="font-bold text-white flex items-center gap-1">
-              <Network className="w-3.5 h-3.5 text-blue-400" /> Legend:
+          <div className="absolute top-4 right-4 z-10 hidden md:flex flex-wrap items-center gap-2.5 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-slate-200 text-[10px] text-slate-700 shadow-md pointer-events-none">
+            <span className="font-bold text-slate-900 flex items-center gap-1">
+              <Network className="w-3.5 h-3.5 text-blue-600" /> Legend:
             </span>
-            <span className="flex items-center gap-1 text-cyan-300">
-              <span className="w-2 h-2 rounded-full bg-cyan-400" /> Bank A
+            <span className="flex items-center gap-1 text-cyan-800 font-semibold">
+              <span className="w-2 h-2 rounded-full bg-cyan-500" /> Bank A
             </span>
-            <span className="flex items-center gap-1 text-emerald-300">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" /> Bank B
+            <span className="flex items-center gap-1 text-emerald-800 font-semibold">
+              <span className="w-2 h-2 rounded-full bg-emerald-500" /> Bank B
             </span>
-            <span className="flex items-center gap-1 text-purple-300">
-              <span className="w-2 h-2 rounded-full bg-purple-400" /> Bank C
+            <span className="flex items-center gap-1 text-purple-800 font-semibold">
+              <span className="w-2 h-2 rounded-full bg-purple-500" /> Bank C
             </span>
-            <span className="flex items-center gap-1 text-amber-300">
-              <span className="w-2 h-2 rounded-full bg-amber-400" /> Bank D
+            <span className="flex items-center gap-1 text-amber-800 font-semibold">
+              <span className="w-2 h-2 rounded-full bg-amber-500" /> Bank D
             </span>
-            <span className="text-slate-600">|</span>
-            <span className="flex items-center gap-1 text-rose-300 font-semibold">
+            <span className="text-slate-300">|</span>
+            <span className="flex items-center gap-1 text-rose-700 font-semibold">
               <span className="w-2.5 h-0.5 bg-rose-500 rounded" /> Circular Loop
             </span>
-            <span className="flex items-center gap-1 text-purple-300 font-semibold">
+            <span className="flex items-center gap-1 text-purple-700 font-semibold">
               <span className="w-2.5 h-0.5 bg-purple-500 rounded" /> Smurfing Fan-In
             </span>
-            <span className="flex items-center gap-1 text-emerald-300 font-semibold">
+            <span className="flex items-center gap-1 text-emerald-700 font-semibold">
               <span className="w-2.5 h-0.5 bg-emerald-500 rounded" /> Clearing
             </span>
           </div>
 
-          {/* Selected Node Floating GNN Inspector Drawer (Dark Glass, Pristine Contrast) */}
+          {/* Selected Node Floating GNN Inspector Drawer (Clean Light Card, High Contrast) */}
           {selectedNode && (
-            <div className="absolute bottom-4 left-4 z-20 bg-slate-900/95 backdrop-blur-xl rounded-2xl p-4 border border-slate-700/80 shadow-2xl max-w-sm flex flex-col gap-2.5 animate-fadeIn">
-              <div className="flex items-center justify-between gap-3 border-b border-slate-800 pb-2">
+            <div className="absolute bottom-4 left-4 z-20 bg-white/98 backdrop-blur-xl rounded-2xl p-4 border border-slate-200 shadow-xl max-w-sm flex flex-col gap-2.5 animate-fadeIn">
+              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-2">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shrink-0" />
-                  <span className="font-mono text-sm font-bold text-white">
+                  <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse shrink-0" />
+                  <span className="font-mono text-sm font-extrabold text-slate-900">
                     {selectedNode.account_code || selectedNode.id}
                   </span>
-                  <span className="text-[11px] text-slate-400 font-mono">
+                  <span className="text-[11px] text-slate-500 font-mono font-medium">
                     ({selectedNode.masked_id})
                   </span>
                 </div>
                 <span
                   className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-bold border ${
                     selectedNode.is_mule
-                      ? 'bg-rose-500/20 text-rose-300 border-rose-500/40'
-                      : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                      ? 'bg-rose-50 text-rose-700 border-rose-200'
+                      : 'bg-emerald-50 text-emerald-700 border-emerald-200'
                   }`}
                 >
                   GNN Threat: {((selectedGNN?.gnn_score || (selectedNode.is_mule ? 0.94 : 0.08)) * 100).toFixed(1)}%
@@ -451,13 +452,13 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
               </div>
 
               <div className="grid grid-cols-2 gap-2 text-xs">
-                <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800">
-                  <span className="text-slate-400 block text-[10px] font-medium">Bank Institution</span>
-                  <span className="font-bold text-cyan-400 font-mono text-xs">{selectedNode.bank}</span>
+                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                  <span className="text-slate-500 block text-[10px] font-medium">Bank Institution</span>
+                  <span className="font-bold text-slate-900 font-mono text-xs">{selectedNode.bank}</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800">
-                  <span className="text-slate-400 block text-[10px] font-medium">Relational Role</span>
-                  <span className="font-semibold text-slate-200 truncate block text-xs">
+                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                  <span className="text-slate-500 block text-[10px] font-medium">Relational Role</span>
+                  <span className="font-semibold text-slate-700 truncate block text-xs">
                     {selectedNode.role || 'Transit Relay'}
                   </span>
                 </div>
@@ -466,7 +467,7 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
               <div className="pt-1">
                 <button
                   onClick={() => onFilterAccount(selectedNode.account_code || selectedNode.id)}
-                  className="w-full py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-md shadow-blue-500/25 transition-all"
+                  className="w-full py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-md shadow-blue-500/20 transition-all"
                 >
                   <Filter className="w-3.5 h-3.5" />
                   <span>Filter Ledger by This Account</span>

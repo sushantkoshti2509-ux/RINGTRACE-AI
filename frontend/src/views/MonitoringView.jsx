@@ -19,6 +19,9 @@ import {
   FileText,
   Shield,
   Activity,
+  Share2,
+  Globe,
+  Info,
 } from 'lucide-react';
 
 const INITIAL_TRANSACTIONS = [
@@ -304,12 +307,12 @@ export default function MonitoringView() {
       </div>
 
       {/* Row 3: Four-Bank Unified Relational Fraud Network (GNN Graph) */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-1">
+      <div id="gnn-network-card" className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-1">
         <GNNGraphDashboard onFilterAccount={handleFilterAccount} />
       </div>
 
       {/* Row 4: Status Table (Matching "Employees status" Template Table) */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+      <div id="transaction-status-table" className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
         {/* Table Top Header Bar */}
         <div className="p-5 border-b border-slate-100 flex flex-wrap items-center justify-between gap-3 bg-white">
           <div>
@@ -564,6 +567,43 @@ export default function MonitoringView() {
           </div>
         </div>
       )}
+      {/* Floating Action Dock (Matching Template Screenshot Image 4) */}
+      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 bg-white/95 backdrop-blur-md rounded-3xl p-1.5 border border-slate-200 shadow-xl hidden xl:flex flex-col gap-2">
+        <button
+          onClick={() => {
+            const el = document.getElementById('gnn-network-card');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="w-10 h-10 rounded-2xl bg-blue-50 hover:bg-blue-100 text-blue-600 flex items-center justify-center transition-transform hover:scale-105 shadow-xs"
+          title="Jump to 4-Bank GNN Relational Network"
+        >
+          <Share2 className="w-5 h-5" />
+        </button>
+        <button
+          onClick={() => {
+            const el = document.getElementById('transaction-status-table');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="w-10 h-10 rounded-2xl bg-rose-50 hover:bg-rose-100 text-rose-500 flex items-center justify-center transition-transform hover:scale-105 shadow-xs"
+          title="Jump to Reconciled Status Table"
+        >
+          <Globe className="w-5 h-5" />
+        </button>
+        <button
+          onClick={() => {
+            setRiskFilter(riskFilter === 'High' ? 'ALL' : 'High');
+            setPage(0);
+          }}
+          className={`w-10 h-10 rounded-2xl flex items-center justify-center transition-transform hover:scale-105 shadow-xs ${
+            riskFilter === 'High'
+              ? 'bg-emerald-600 text-white'
+              : 'bg-emerald-50 hover:bg-emerald-100 text-emerald-600'
+          }`}
+          title="Filter High Threat Mule Accounts"
+        >
+          <Info className="w-5 h-5" />
+        </button>
+      </div>
     </div>
   );
 }

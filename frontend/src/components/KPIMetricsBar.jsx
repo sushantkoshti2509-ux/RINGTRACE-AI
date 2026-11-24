@@ -10,8 +10,8 @@ export default function KPIMetricsBar({ summary = {} }) {
       badgeColor: 'text-emerald-600',
       trend: '↑ 15.4% increase this month',
       trendColor: 'text-emerald-400',
-      bgClass: 'bg-[#18181b] text-white',
-      labelColor: 'text-slate-400',
+      bgClass: 'bg-gradient-to-br from-[#1e3a8a] to-[#1e40af] text-white',
+      labelColor: 'text-blue-200',
     },
     {
       label: 'FLAGGED HIGH-RISK MULES',

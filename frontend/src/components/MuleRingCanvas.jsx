@@ -198,14 +198,14 @@ export default function MuleRingCanvas({
             height: 16,
           },
           label: `🛑 INTERCEPTED ₹${(e.amount || 0).toLocaleString()}`,
-          labelStyle: { fill: '#fca5a5', fontWeight: 700, fontSize: 10 },
+          labelStyle: { fill: '#b91c1c', fontWeight: 800, fontSize: 10 },
           labelBgStyle: {
-            fill: '#450a0a',
-            fillOpacity: 0.9,
+            fill: '#fef2f2',
+            fillOpacity: 0.98,
             stroke: '#ef4444',
-            strokeWidth: 1,
-            rx: 4,
-            ry: 4,
+            strokeWidth: 1.5,
+            rx: 6,
+            ry: 6,
           },
         };
       }
@@ -255,39 +255,39 @@ export default function MuleRingCanvas({
           height: 15,
         },
         label: isDimmed ? undefined : `₹${(e.amount || 0).toLocaleString()}`,
-        labelStyle: { fill: '#f1f5f9', fontWeight: 700, fontSize: 10 },
+        labelStyle: { fill: '#0f172a', fontWeight: 800, fontSize: 10 },
         labelBgStyle: {
-          fill: '#0f172a',
-          fillOpacity: 0.92,
+          fill: '#ffffff',
+          fillOpacity: 0.98,
           stroke: strokeColor,
           strokeWidth: 1.5,
-          rx: 4,
-          ry: 4,
+          rx: 6,
+          ry: 6,
         },
       };
     });
   }, [localEdges, severedEdges, isPostDisruption, bankFilter]);
 
   return (
-    <div className="relative w-full rounded-2xl overflow-hidden glass-panel border border-slate-800 shadow-2xl flex flex-col">
+    <div className="relative w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col bg-white">
       {/* Top Controls Toolbar */}
-      <div className="p-3.5 bg-slate-900/95 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
+      <div className="p-3.5 bg-white border-b border-slate-100 flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap items-center gap-2">
-          <div className="px-3 py-1.5 rounded-xl bg-slate-950 border border-cyan-500/30 text-xs font-bold text-white flex items-center gap-2 shadow-lg">
-            <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
+          <div className="px-3 py-1.5 rounded-xl bg-blue-50 border border-blue-200 text-xs font-bold text-blue-900 flex items-center gap-2 shadow-xs">
+            <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse" />
             <span>Four-Bank Unified Relational Fraud Network</span>
           </div>
 
           {/* Bank Quick Filter */}
-          <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-[11px] font-semibold">
+          <div className="flex items-center gap-1 bg-slate-50 p-1 rounded-xl border border-slate-200 text-[11px] font-semibold">
             {['ALL', 'BANK_A', 'BANK_B', 'BANK_C', 'BANK_D'].map((b) => (
               <button
                 key={b}
                 onClick={() => setBankFilter(b)}
                 className={`px-2.5 py-1 rounded-lg transition-all ${
                   bankFilter === b
-                    ? 'bg-cyan-500 text-slate-950 font-bold shadow'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-blue-600 text-white font-bold shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 {b === 'ALL' ? 'All Banks' : b.replace('BANK_', 'Bank ')}
@@ -301,20 +301,20 @@ export default function MuleRingCanvas({
           {/* Layout Toggle */}
           <button
             onClick={() => setLayoutMode(layoutMode === 'quadrant' ? 'flow' : 'quadrant')}
-            className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 flex items-center gap-1.5 shadow-lg transition-all"
+            className="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 flex items-center gap-1.5 shadow-xs transition-all"
             title="Toggle Layout"
           >
-            <Layers className="w-3.5 h-3.5 text-cyan-400" />
+            <Layers className="w-3.5 h-3.5 text-blue-600" />
             <span>{layoutMode === 'quadrant' ? '4-Bank Quadrants' : 'Flow DAG'}</span>
           </button>
 
           {/* Pre vs Post Disruption Toggle */}
           <button
             onClick={() => onToggleDisruption(!isPostDisruption)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-300 flex items-center gap-2 shadow-lg ${
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-300 flex items-center gap-2 shadow-sm ${
               isPostDisruption
-                ? 'bg-rose-600/90 hover:bg-rose-500 text-white border border-rose-400 ring-2 ring-rose-500/30'
-                : 'bg-cyan-600/90 hover:bg-cyan-500 text-white border border-cyan-400 ring-2 ring-cyan-500/30'
+                ? 'bg-rose-600 hover:bg-rose-700 text-white border border-rose-500 shadow-rose-500/20'
+                : 'bg-blue-600 hover:bg-blue-700 text-white border border-blue-500 shadow-blue-500/20'
             }`}
           >
             {isPostDisruption ? (
@@ -333,45 +333,45 @@ export default function MuleRingCanvas({
       </div>
 
       {/* React Flow Canvas Body */}
-      <div className="relative w-full h-[600px] bg-[#080d1a]">
+      <div className="relative w-full h-[600px] bg-[#f8fafc] border-t border-slate-100">
         {/* Institutional Quadrant Watermark Overlays (Clockwise 4-Bank Topology: A -> B -> C -> D -> A) */}
         {layoutMode === 'quadrant' && (
           <div className="absolute inset-0 pointer-events-none grid grid-cols-2 grid-rows-2 p-5 gap-6">
             {/* Top-Left: Bank A */}
-            <div className="border border-cyan-500/25 bg-cyan-950/10 rounded-2xl p-3 flex flex-col justify-start">
-              <div className="inline-flex items-center gap-1.5 w-fit px-2.5 py-1 rounded-lg bg-cyan-950/70 border border-cyan-500/40 shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="text-[10px] font-extrabold tracking-widest text-cyan-300 uppercase">
+            <div className="border-2 border-dashed border-cyan-300/80 bg-cyan-50/40 rounded-2xl p-3 flex flex-col justify-start">
+              <div className="inline-flex items-center gap-1.5 w-fit px-3 py-1.5 rounded-xl bg-white border border-cyan-200 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+                <span className="text-[10px] font-extrabold tracking-wider text-cyan-900 uppercase font-mono">
                   BANK A • Retail Clearing Hub (A101 · A102)
                 </span>
               </div>
             </div>
 
             {/* Top-Right: Bank B */}
-            <div className="border border-emerald-500/25 bg-emerald-950/10 rounded-2xl p-3 flex flex-col justify-start items-end">
-              <div className="inline-flex items-center gap-1.5 w-fit px-2.5 py-1 rounded-lg bg-emerald-950/70 border border-emerald-500/40 shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-[10px] font-extrabold tracking-widest text-emerald-300 uppercase">
+            <div className="border-2 border-dashed border-emerald-300/80 bg-emerald-50/40 rounded-2xl p-3 flex flex-col justify-start items-end">
+              <div className="inline-flex items-center gap-1.5 w-fit px-3 py-1.5 rounded-xl bg-white border border-emerald-200 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-[10px] font-extrabold tracking-wider text-emerald-900 uppercase font-mono">
                   BANK B • Corporate Treasury Core (B201 · B205)
                 </span>
               </div>
             </div>
 
             {/* Bottom-Left: Bank D */}
-            <div className="border border-amber-500/25 bg-amber-950/10 rounded-2xl p-3 flex flex-col justify-end">
-              <div className="inline-flex items-center gap-1.5 w-fit px-2.5 py-1 rounded-lg bg-amber-950/70 border border-amber-500/40 shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                <span className="text-[10px] font-extrabold tracking-widest text-amber-300 uppercase">
+            <div className="border-2 border-dashed border-amber-300/80 bg-amber-50/40 rounded-2xl p-3 flex flex-col justify-end">
+              <div className="inline-flex items-center gap-1.5 w-fit px-3 py-1.5 rounded-xl bg-white border border-amber-200 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                <span className="text-[10px] font-extrabold tracking-wider text-amber-900 uppercase font-mono">
                   BANK D • Wealth & Remittance Gateway (D401 · D410)
                 </span>
               </div>
             </div>
 
             {/* Bottom-Right: Bank C */}
-            <div className="border border-purple-500/25 bg-purple-950/10 rounded-2xl p-3 flex flex-col justify-end items-end">
-              <div className="inline-flex items-center gap-1.5 w-fit px-2.5 py-1 rounded-lg bg-purple-950/70 border border-purple-500/40 shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
-                <span className="text-[10px] font-extrabold tracking-widest text-purple-300 uppercase">
+            <div className="border-2 border-dashed border-purple-300/80 bg-purple-50/40 rounded-2xl p-3 flex flex-col justify-end items-end">
+              <div className="inline-flex items-center gap-1.5 w-fit px-3 py-1.5 rounded-xl bg-white border border-purple-200 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+                <span className="text-[10px] font-extrabold tracking-wider text-purple-900 uppercase font-mono">
                   BANK C • Regional Cooperative Society (C301 · C310)
                 </span>
               </div>
@@ -389,35 +389,35 @@ export default function MuleRingCanvas({
           minZoom={0.25}
           maxZoom={1.6}
           proOptions={{ hideAttribution: true }}
-          className="bg-[#080d1a]"
+          className="bg-[#f8fafc]"
         >
-          <Background color="#1e293b" gap={24} size={1} />
-          <Controls className="!bg-slate-900 !border-slate-800 !fill-slate-300 !rounded-xl !overflow-hidden !shadow-xl" />
+          <Background color="#cbd5e1" gap={24} size={1.2} />
+          <Controls className="!bg-white !border !border-slate-200 !text-slate-700 !fill-slate-700 !rounded-xl !overflow-hidden !shadow-md" />
         </ReactFlow>
 
         {/* Bottom Ecosystem Legend */}
-        <div className="absolute bottom-4 left-5 z-10 hidden md:flex items-center gap-3 px-3.5 py-1.5 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-800 text-[11px] text-slate-300 shadow-lg pointer-events-none">
-          <span className="text-slate-400 font-semibold uppercase tracking-wider text-[10px]">Ecosystem Legend:</span>
-          <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-cyan-400" />
+        <div className="absolute bottom-4 left-5 z-10 hidden md:flex items-center gap-3 px-3.5 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-[11px] text-slate-700 shadow-md pointer-events-none">
+          <span className="text-slate-500 font-bold uppercase tracking-wider text-[10px]">Ecosystem Legend:</span>
+          <div className="flex items-center gap-1.5 text-cyan-800 font-semibold">
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan-500" />
             <span>Bank A (Retail)</span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+          <div className="flex items-center gap-1.5 text-emerald-800 font-semibold">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
             <span>Bank B (Corporate)</span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-purple-400" />
+          <div className="flex items-center gap-1.5 text-purple-800 font-semibold">
+            <span className="w-2.5 h-2.5 rounded-full bg-purple-500" />
             <span>Bank C (Cooperative)</span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+          <div className="flex items-center gap-1.5 text-amber-800 font-semibold">
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
             <span>Bank D (Wealth)</span>
           </div>
-          <span className="text-slate-600">|</span>
-          <div className="flex items-center gap-1.5">
+          <span className="text-slate-300">|</span>
+          <div className="flex items-center gap-1.5 text-rose-700 font-bold">
             <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping" />
-            <span className="text-rose-300 font-bold">Choke Point Bottleneck</span>
+            <span>Choke Point Bottleneck</span>
           </div>
         </div>
       </div>
