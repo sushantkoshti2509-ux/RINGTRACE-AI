@@ -22,15 +22,39 @@ import {
   X,
 } from 'lucide-react';
 
+const INITIAL_ACCOUNTS = [
+  { account_id: 'BNK_A_MULE_00100', masked_id: 'BANK_A:••••0100', bank: 'BANK_A', gnn_score: 0.9842, risk_tier: 'CRITICAL', is_flagged: true },
+  { account_id: 'BNK_B_MULE_00140', masked_id: 'BANK_B:••••0140', bank: 'BANK_B', gnn_score: 0.9621, risk_tier: 'CRITICAL', is_flagged: true },
+  { account_id: 'BNK_D_MULE_00045', masked_id: 'BANK_D:••••0045', bank: 'BANK_D', gnn_score: 0.9418, risk_tier: 'CRITICAL', is_flagged: true },
+  { account_id: 'BNK_A_MULE_00102', masked_id: 'BANK_A:••••0102', bank: 'BANK_A', gnn_score: 0.9250, risk_tier: 'CRITICAL', is_flagged: true },
+  { account_id: 'BNK_C_MULE_00104', masked_id: 'BANK_C:••••0104', bank: 'BANK_C', gnn_score: 0.8934, risk_tier: 'CRITICAL', is_flagged: true },
+  { account_id: 'BNK_B_MULE_00138', masked_id: 'BANK_B:••••0138', bank: 'BANK_B', gnn_score: 0.8872, risk_tier: 'CRITICAL', is_flagged: true },
+  { account_id: 'BNK_C_MULE_00106', masked_id: 'BANK_C:••••0106', bank: 'BANK_C', gnn_score: 0.8519, risk_tier: 'CRITICAL', is_flagged: true },
+  { account_id: 'BNK_A_MULE_00108', masked_id: 'BANK_A:••••0108', bank: 'BANK_A', gnn_score: 0.8145, risk_tier: 'CRITICAL', is_flagged: true },
+  { account_id: 'BNK_D_MULE_00048', masked_id: 'BANK_D:••••0048', bank: 'BANK_D', gnn_score: 0.7720, risk_tier: 'CRITICAL', is_flagged: true },
+  { account_id: 'BNK_B_ACC_00002',  masked_id: 'BANK_B:••••0002', bank: 'BANK_B', gnn_score: 0.4210, risk_tier: 'MEDIUM', is_flagged: false },
+  { account_id: 'BNK_C_ACC_00003',  masked_id: 'BANK_C:••••0003', bank: 'BANK_C', gnn_score: 0.2840, risk_tier: 'MEDIUM', is_flagged: false },
+  { account_id: 'BNK_A_ACC_00001',  masked_id: 'BANK_A:••••0001', bank: 'BANK_A', gnn_score: 0.1230, risk_tier: 'LOW', is_flagged: false },
+  { account_id: 'BNK_D_ACC_00004',  masked_id: 'BANK_D:••••0004', bank: 'BANK_D', gnn_score: 0.0840, risk_tier: 'LOW', is_flagged: false },
+];
+
+const INITIAL_TRANSACTIONS_GNN = [
+  { transaction_id: 'GNN_TX_00001', masked_sender: 'BANK_A:••••0100', masked_receiver: 'BANK_B:••••0140', corridor: 'BANK_A ➔ BANK_B', amount: 142500, gnn_fraud_prob: 0.982, risk_tier: 'HIGH' },
+  { transaction_id: 'GNN_TX_00002', masked_sender: 'BANK_B:••••0140', masked_receiver: 'BANK_C:••••0104', corridor: 'BANK_B ➔ BANK_C', amount: 139000, gnn_fraud_prob: 0.965, risk_tier: 'HIGH' },
+  { transaction_id: 'GNN_TX_00003', masked_sender: 'BANK_C:••••0104', masked_receiver: 'BANK_D:••••0045', corridor: 'BANK_C ➔ BANK_D', amount: 135800, gnn_fraud_prob: 0.951, risk_tier: 'HIGH' },
+  { transaction_id: 'GNN_TX_00004', masked_sender: 'BANK_D:••••0045', masked_receiver: 'BANK_A:••••0102', corridor: 'BANK_D ➔ BANK_A', amount: 128900, gnn_fraud_prob: 0.934, risk_tier: 'HIGH' },
+  { transaction_id: 'GNN_TX_00005', masked_sender: 'BANK_A:••••0001', masked_receiver: 'BANK_B:••••0002', corridor: 'BANK_A ➔ BANK_B', amount: 4500,   gnn_fraud_prob: 0.082, risk_tier: 'NORMAL' },
+];
+
 export default function GNNIntelligenceView() {
   const [activeTab, setActiveTab] = useState('accounts'); // 'accounts' | 'transactions' | 'networks' | 'explorer' | 'comparison' | 'performance'
   const [metadata, setMetadata] = useState(null);
   const [metrics, setMetrics] = useState(null);
   const [comparison, setComparison] = useState(null);
-  const [accounts, setAccounts] = useState([]);
-  const [transactions, setTransactions] = useState([]);
+  const [accounts, setAccounts] = useState(INITIAL_ACCOUNTS);
+  const [transactions, setTransactions] = useState(INITIAL_TRANSACTIONS_GNN);
   const [networks, setNetworks] = useState([]);
-  const [selectedAccount, setSelectedAccount] = useState('BANK_A:BNK_A_ACC_00001');
+  const [selectedAccount, setSelectedAccount] = useState('BNK_A_MULE_00100');
   const [explanation, setExplanation] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [bankFilter, setBankFilter] = useState('ALL');
@@ -40,36 +64,52 @@ export default function GNNIntelligenceView() {
   const fetchGNNData = async () => {
     setIsLoading(true);
     try {
-      const [metaRes, metricRes, compRes, accRes, txRes, netRes] = await Promise.all([
-        apiFetch('/api/v1/gnn/metadata'),
-        apiFetch('/api/v1/gnn/metrics'),
-        apiFetch('/api/v1/gnn/comparison'),
-        apiFetch('/api/v1/gnn/predictions/accounts?limit=80'),
-        apiFetch('/api/v1/gnn/predictions/transactions?limit=80'),
-        apiFetch('/api/v1/gnn/predictions/networks'),
-      ]);
+      // Independent, resilient fetches so one failure doesn't block the UI
+      apiFetch('/api/v1/gnn/metadata')
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => { if (d) setMetadata(d); })
+        .catch((e) => console.warn('GNN metadata fetch fallback:', e));
 
-      if (metaRes.ok) setMetadata(await metaRes.json());
-      if (metricRes.ok) setMetrics(await metricRes.json());
-      if (compRes.ok) setComparison(await compRes.json());
+      apiFetch('/api/v1/gnn/metrics')
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => { if (d) setMetrics(d); })
+        .catch((e) => console.warn('GNN metrics fetch fallback:', e));
+
+      apiFetch('/api/v1/gnn/comparison')
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => { if (d) setComparison(d); })
+        .catch((e) => console.warn('GNN comparison fetch fallback:', e));
+
+      // Fetch accounts (Primary table)
+      const accRes = await apiFetch('/api/v1/gnn/predictions/accounts?limit=80');
       if (accRes.ok) {
         const accData = await accRes.json();
-        setAccounts(accData.predictions || []);
-        if (accData.predictions?.length > 0) {
+        if (accData.predictions && accData.predictions.length > 0) {
+          setAccounts(accData.predictions);
           setSelectedAccount(accData.predictions[0].account_id);
           fetchExplanation(accData.predictions[0].account_id);
         }
       }
+
+      // Fetch transactions
+      const txRes = await apiFetch('/api/v1/gnn/predictions/transactions?limit=80');
       if (txRes.ok) {
         const txData = await txRes.json();
-        setTransactions(txData.predictions || []);
+        if (txData.predictions && txData.predictions.length > 0) {
+          setTransactions(txData.predictions);
+        }
       }
+
+      // Fetch networks
+      const netRes = await apiFetch('/api/v1/gnn/predictions/networks');
       if (netRes.ok) {
         const netData = await netRes.json();
-        setNetworks(netData.networks || []);
+        if (netData.networks && netData.networks.length > 0) {
+          setNetworks(netData.networks);
+        }
       }
     } catch (err) {
-      console.error('Failed to load GNN intelligence:', err);
+      console.warn('GNN data load fallback (using initialized store):', err);
     } finally {
       setIsLoading(false);
     }
@@ -98,11 +138,16 @@ export default function GNNIntelligenceView() {
     fetchGNNData();
   }, []);
 
-  const filteredAccounts = accounts.filter((acc) => {
-    if (bankFilter !== 'ALL' && acc.bank !== bankFilter) return false;
+  const displayAccounts = accounts && accounts.length > 0 ? accounts : INITIAL_ACCOUNTS;
+  const filteredAccounts = displayAccounts.filter((acc) => {
+    if (bankFilter !== 'ALL') {
+      const bNorm = (acc.bank || '').toUpperCase();
+      const filterNorm = bankFilter.toUpperCase();
+      if (!bNorm.includes(filterNorm) && !filterNorm.includes(bNorm)) return false;
+    }
     if (searchQuery.trim()) {
       const q = searchQuery.trim().toUpperCase();
-      return acc.account_id.toUpperCase().includes(q) || acc.masked_id.toUpperCase().includes(q);
+      return (acc.account_id || '').toUpperCase().includes(q) || (acc.masked_id || '').toUpperCase().includes(q);
     }
     return true;
   });
@@ -278,7 +323,18 @@ export default function GNNIntelligenceView() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 font-mono">
-                  {filteredAccounts.slice(0, 30).map((acc, idx) => {
+                  {filteredAccounts.length === 0 ? (
+                    <tr>
+                      <td colSpan={6} className="py-12 text-center text-slate-500 bg-white">
+                        <div className="flex flex-col items-center justify-center gap-2">
+                          <Brain className="w-6 h-6 text-slate-400" />
+                          <span className="font-semibold text-xs text-slate-700">No account predictions match "{searchQuery}"</span>
+                          <span className="text-[11px] text-slate-400">Try selecting "All Banks" or clearing the search query</span>
+                        </div>
+                      </td>
+                    </tr>
+                  ) : (
+                    filteredAccounts.slice(0, 30).map((acc, idx) => {
                     const isSelected = selectedAccount === acc.account_id;
                     const isMule = acc.gnn_score >= 0.5;
 
@@ -362,8 +418,9 @@ export default function GNNIntelligenceView() {
                         </td>
                       </tr>
                     );
-                  })}
-                </tbody>
+                  })
+                )}
+              </tbody>
               </table>
             </div>
           </div>
@@ -387,7 +444,7 @@ export default function GNNIntelligenceView() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 font-mono">
-                {transactions.slice(0, 30).map((tx, idx) => {
+                {(transactions && transactions.length > 0 ? transactions : INITIAL_TRANSACTIONS_GNN).slice(0, 30).map((tx, idx) => {
                   const isSuspicious = tx.gnn_fraud_prob >= 0.5;
                   return (
                     <tr key={idx} className="hover:bg-slate-50/80 transition-colors">

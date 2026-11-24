@@ -7,6 +7,7 @@ transaction-, and network-level predictions.
 from typing import Dict, Any, List, Optional
 from pathlib import Path
 import json
+import threading
 import torch
 import numpy as np
 import pandas as pd
@@ -17,6 +18,8 @@ from src.gnn.models import EdgeAwareGNN, GATv2Net
 from src.gnn.dataset import GNNDatasetBuilder
 from src.adapter.detection_adapter import DetectionAdapter
 from src.graph.builder import TransactionGraphBuilder
+
+_service_lock = threading.Lock()
 
 
 class GNNInferenceService:
@@ -52,13 +55,16 @@ class GNNInferenceService:
 
     def ensure_model(self):
         """Ensures model is trained/loaded before inference."""
-        if not self.is_loaded:
-            self._load_service()
-        if not self.is_loaded or self.model is None:
-            from src.gnn.trainer import GNNTrainer
-            trainer = GNNTrainer()
-            trainer.train_and_evaluate(epochs=15)
-            self._load_service()
+        if self.is_loaded and self.model is not None and self.pyg_data is not None:
+            return
+        with _service_lock:
+            if not self.is_loaded or self.model is None or self.pyg_data is None:
+                self._load_service()
+            if not self.is_loaded or self.model is None or self.pyg_data is None:
+                from src.gnn.trainer import GNNTrainer
+                trainer = GNNTrainer()
+                trainer.train_and_evaluate(epochs=15)
+                self._load_service()
 
     def get_metadata(self) -> Dict[str, Any]:
         """Returns model version, architecture, parameter count, and status without heavy cold start."""
@@ -85,12 +91,27 @@ class GNNInferenceService:
         results = []
         for idx, node in self.dataset_builder.idx_to_node.items():
             prob = float(probs[idx])
-            bank = node.split(":")[0] if ":" in node else "BANK_A"
+            node_str = str(node).upper()
+            if "BNK_A" in node_str or "BANK_A" in node_str or "BANK A" in node_str:
+                bank = "BANK_A"
+            elif "BNK_B" in node_str or "BANK_B" in node_str or "BANK B" in node_str:
+                bank = "BANK_B"
+            elif "BNK_C" in node_str or "BANK_C" in node_str or "BANK C" in node_str:
+                bank = "BANK_C"
+            elif "BNK_D" in node_str or "BANK_D" in node_str or "BANK D" in node_str:
+                bank = "BANK_D"
+            elif ":" in node_str:
+                bank = node_str.split(":")[0]
+            else:
+                bank = "BANK_A"
+
+            clean_id = node.split(":")[-1] if ":" in node else node
+            masked_id = f"{bank}:••••{clean_id[-4:]}" if len(clean_id) >= 4 else f"{bank}:{clean_id}"
             tier = "CRITICAL" if prob >= 0.75 else ("HIGH" if prob >= 0.50 else ("MEDIUM" if prob >= 0.25 else "LOW"))
 
             results.append({
                 "account_id": node,
-                "masked_id": f"{bank}:••••{node[-4:]}" if len(node) > 4 else node,
+                "masked_id": masked_id,
                 "bank": bank,
                 "gnn_score": float(round(prob, 4)),
                 "risk_tier": tier,
@@ -118,8 +139,25 @@ class GNNInferenceService:
             v_node = self.dataset_builder.idx_to_node.get(v_idx, f"NODE_{v_idx}")
             prob = float(edge_probs[e_idx])
 
-            s_bank = u_node.split(":")[0] if ":" in u_node else "BANK_A"
-            r_bank = v_node.split(":")[0] if ":" in v_node else "BANK_B"
+            u_str = str(u_node).upper()
+            v_str = str(v_node).upper()
+            if "BNK_A" in u_str or "BANK_A" in u_str: s_bank = "BANK_A"
+            elif "BNK_B" in u_str or "BANK_B" in u_str: s_bank = "BANK_B"
+            elif "BNK_C" in u_str or "BANK_C" in u_str: s_bank = "BANK_C"
+            elif "BNK_D" in u_str or "BANK_D" in u_str: s_bank = "BANK_D"
+            else: s_bank = u_str.split(":")[0] if ":" in u_str else "BANK_A"
+
+            if "BNK_A" in v_str or "BANK_A" in v_str: r_bank = "BANK_A"
+            elif "BNK_B" in v_str or "BANK_B" in v_str: r_bank = "BANK_B"
+            elif "BNK_C" in v_str or "BANK_C" in v_str: r_bank = "BANK_C"
+            elif "BNK_D" in v_str or "BANK_D" in v_str: r_bank = "BANK_D"
+            else: r_bank = v_str.split(":")[0] if ":" in v_str else "BANK_B"
+
+            u_clean = u_node.split(":")[-1] if ":" in u_node else u_node
+            v_clean = v_node.split(":")[-1] if ":" in v_node else v_node
+            masked_sender = f"{s_bank}:••••{u_clean[-4:]}" if len(u_clean) >= 4 else f"{s_bank}:{u_clean}"
+            masked_receiver = f"{r_bank}:••••{v_clean[-4:]}" if len(v_clean) >= 4 else f"{r_bank}:{v_clean}"
+
             amt_log = float(edge_attr[e_idx, 0]) if edge_attr.shape[1] > 0 else 3.0
             amt_approx = float(round(10.0 ** amt_log - 1.0, 2))
 
@@ -127,8 +165,8 @@ class GNNInferenceService:
                 "transaction_id": f"GNN_TX_{e_idx+1:05d}",
                 "sender_account": u_node,
                 "receiver_account": v_node,
-                "masked_sender": f"{s_bank}:••••{u_node[-4:]}",
-                "masked_receiver": f"{r_bank}:••••{v_node[-4:]}",
+                "masked_sender": masked_sender,
+                "masked_receiver": masked_receiver,
                 "corridor": f"{s_bank} ➔ {r_bank}",
                 "amount": amt_approx,
                 "is_cross_bank": s_bank != r_bank,
