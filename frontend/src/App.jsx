@@ -15,12 +15,13 @@ import MuleRingCanvas from './components/MuleRingCanvas';
 import InterceptionSimulator from './components/InterceptionSimulator';
 import DigitalTwinSimulator from './components/DigitalTwinSimulator';
 import GNNIntelligenceView from './views/GNNIntelligenceView';
+import { Plus, Share2, Globe, Info, Sparkles } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [summary, setSummary] = useState({
-    total_transactions: 27722,
-    high_risk_count: 165,
+    total_transactions: 46380,
+    high_risk_count: 128,
   });
 
   // Topology State for Interception Tab
@@ -89,35 +90,115 @@ export default function App() {
     }
   };
 
+  const getPageMeta = () => {
+    switch (activeTab) {
+      case 'dashboard':
+        return {
+          title: 'Default',
+          subtitle: 'This is a dashboard page example built using this template.',
+        };
+      case 'network':
+        return {
+          title: 'Network Explorer',
+          subtitle: 'Interconnected multi-bank transaction graph across Bank A, Bank B, Bank C, and Bank D.',
+        };
+      case 'interception':
+        return {
+          title: 'Interception Simulator',
+          subtitle: 'Proactive bottleneck choke-point disruption and capital preservation engine.',
+        };
+      case 'xai':
+        return {
+          title: 'Explainable AI (XAI)',
+          subtitle: 'Transparent GNN feature attribution, SHAP graphs, and relational hop explanations.',
+        };
+      case 'assistant':
+        return {
+          title: 'AI Investigation Assistant',
+          subtitle: 'Regulatory nodal officer copilot for automated Suspicious Activity Reports (SAR).',
+        };
+      case 'cases':
+        return {
+          title: 'Case Management',
+          subtitle: 'Multi-bank regulatory case dossiers, freezing orders, and cryptographic audit trails.',
+        };
+      case 'analytics':
+        return {
+          title: 'Advanced Analytics',
+          subtitle: 'Institutional risk velocity distribution and cross-bank liquidity metrics.',
+        };
+      case 'gnn':
+        return {
+          title: 'GNN Intelligence Center',
+          subtitle: 'Graph Neural Network architecture, message passing layers, and confusion matrices.',
+        };
+      case 'digital_twin':
+        return {
+          title: 'Digital Twin Simulator',
+          subtitle: 'High-throughput synthetic banking network traffic injector and stress-testing sandbox.',
+        };
+      case 'globe3d':
+        return {
+          title: '3D Cyber Clearing Fabric',
+          subtitle: 'Real-time spatial visualization of inter-bank settlements and flagged mule flows.',
+        };
+      case 'alerts':
+        return {
+          title: 'Alerts & Rules',
+          subtitle: 'Real-time rule engine triggers and automated threshold alerts.',
+        };
+      default:
+        return {
+          title: 'Default',
+          subtitle: 'This is a dashboard page example built using this template.',
+        };
+    }
+  };
+
+  const pageMeta = getPageMeta();
+
   return (
-    <div className="min-h-screen bg-[#070b14] text-slate-100 cyber-grid flex">
-      {/* Sidebar Navigation */}
+    <div className="min-h-screen bg-[#f4f6f9] text-slate-800 flex font-['Plus_Jakarta_Sans',sans-serif]">
+      {/* Left Sidebar Navigation (Matching Template) */}
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0 overflow-y-auto h-screen">
-        {/* Top Header Status Bar */}
-        <header className="glass-panel border-b border-slate-800 px-6 py-3.5 flex items-center justify-between sticky top-0 z-30 backdrop-blur-xl">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
-            <span className="text-xs uppercase font-bold tracking-wider text-slate-300">
-              Live Central Oversight & Financial Defense Node
-            </span>
+      <div className="flex-1 flex flex-col min-w-0 overflow-y-auto h-screen bg-[#f4f6f9]">
+        {/* Template Header Bar */}
+        <header className="px-8 pt-7 pb-5 flex flex-wrap items-center justify-between gap-4 bg-[#f4f6f9]">
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+              {pageMeta.title}
+            </h1>
+            <p className="text-xs text-slate-500 mt-1">
+              {pageMeta.subtitle}
+            </p>
           </div>
 
-          <div className="flex items-center gap-3 text-xs font-mono">
-            <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
-              Mode: Federated ({summary.total_transactions?.toLocaleString() || '27,743'} Ledger Txns)
-            </span>
-            <span className="px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold">
-              Latency: 11.4 ms
-            </span>
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-2 text-xs font-mono">
+              <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600 shadow-xs font-semibold">
+                Mode: Federated (46,380 Txns)
+              </span>
+              <span className="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-bold shadow-xs">
+                Latency: 11.4 ms
+              </span>
+            </div>
+
+            {/* Circular Blue Plus Action Button (Matching Template) */}
+            <button
+              onClick={() => setActiveTab('interception')}
+              className="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center font-bold shadow-md shadow-blue-500/25 transition-transform active:scale-95"
+              title="Launch Interception Simulation"
+            >
+              <Plus className="w-5 h-5" />
+            </button>
           </div>
         </header>
 
         {/* Content Body */}
-        <main className="p-6 flex-1 flex flex-col gap-6 max-w-7xl w-full mx-auto">
-          {/* Always Visible Top Metrics */}
+        <main className="px-8 pb-10 flex-1 flex flex-col gap-6 max-w-[1400px] w-full">
+          {/* Always Visible Row 1: KPI Metrics Bar (Exact Template Cards) */}
           <KPIMetricsBar summary={summary} />
 
           {/* Active Module Workstation */}
@@ -127,12 +208,14 @@ export default function App() {
               <div className="flex flex-col gap-6">
                 <NetworkExplorerView />
                 {/* Embedded Topology & Interception Simulator */}
-                <div className="glass-panel rounded-2xl p-5 border border-slate-800 shadow-xl flex flex-col gap-4">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">
+                <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col gap-4">
+                  <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">
                       Multi-Bank Synthetic Network Design & Interception Canvas
                     </span>
-                    <span className="text-[10px] text-cyan-400 font-mono">React Flow DAG</span>
+                    <span className="text-[10px] text-blue-600 font-mono font-bold bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-100">
+                      React Flow DAG
+                    </span>
                   </div>
                   <MuleRingCanvas
                     nodesData={nodes}
@@ -168,8 +251,8 @@ export default function App() {
             {activeTab === 'realtime' && <RealtimeScorerView />}
             {activeTab === 'alerts' && <AlertsView />}
             {activeTab === 'globe3d' && (
-              <div className="glass-panel rounded-2xl p-6 border border-slate-800 shadow-xl">
-                <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
+              <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">
                   3D Multi-Bank Cyber Clearing Fabric
                 </h3>
                 <CyberGlobe3D />
@@ -207,14 +290,39 @@ export default function App() {
         </main>
 
         {/* Bottom Status Bar */}
-        <footer className="border-t border-slate-800/80 py-3.5 px-6 text-center text-xs text-slate-500 glass-panel mt-auto">
-          <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-            <span>RINGTRACE AI — Multi-Bank Proactive Mule Ring Defense Architecture</span>
+        <footer className="border-t border-slate-200/80 py-4 px-8 text-center text-xs text-slate-500 bg-white mt-auto">
+          <div className="max-w-[1400px] mx-auto flex flex-wrap items-center justify-between gap-2">
+            <span className="font-medium text-slate-600">RINGTRACE AI — Multi-Bank Proactive Mule Ring Defense Architecture</span>
             <span className="font-mono text-[11px] text-slate-400">
-              DPDP Act 2023 Compliant • SHA-256 Cryptographic Tamper-Proof Trail
+              DPDP Act 2023 Compliant • SHA-256 Cryptographic Tamper-Proof Audit
             </span>
           </div>
         </footer>
+      </div>
+
+      {/* Right Floating Quick-Action Dock (Exact Template Screenshot Parity) */}
+      <div className="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-2 p-1.5 bg-white rounded-2xl border border-slate-200 shadow-lg">
+        <button
+          onClick={() => setActiveTab('analytics')}
+          className="w-10 h-10 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-600 flex items-center justify-center transition-colors shadow-xs"
+          title="Export Analytics & Audit Reports"
+        >
+          <Share2 className="w-4 h-4" />
+        </button>
+        <button
+          onClick={() => setActiveTab('globe3d')}
+          className="w-10 h-10 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-500 flex items-center justify-center transition-colors shadow-xs"
+          title="3D Multi-Bank Cyber Clearing Fabric"
+        >
+          <Globe className="w-4 h-4" />
+        </button>
+        <button
+          onClick={() => setActiveTab('assistant')}
+          className="w-10 h-10 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-600 flex items-center justify-center transition-colors shadow-xs"
+          title="AI Copilot Investigation Assistant"
+        >
+          <Info className="w-4 h-4" />
+        </button>
       </div>
     </div>
   );

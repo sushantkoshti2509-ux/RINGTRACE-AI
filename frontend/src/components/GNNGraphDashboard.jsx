@@ -258,26 +258,26 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
   }, [selectedNodeId, gnnPredictions]);
 
   return (
-    <div className="glass-panel rounded-2xl border border-cyan-500/25 shadow-2xl overflow-hidden flex flex-col transition-all">
-      {/* Top Banner Toolbar */}
-      <div className="p-4 bg-slate-900/95 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
+    <div className="rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col transition-all bg-white">
+      {/* Top Banner Toolbar (Light Template Theme) */}
+      <div className="p-4 bg-white border-b border-slate-100 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+          <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-md shadow-blue-500/20 text-white">
             <Brain className="w-5 h-5 text-white" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-sm text-white tracking-tight flex items-center gap-1.5">
+              <span className="font-extrabold text-sm text-slate-900 tracking-tight flex items-center gap-1.5">
                 <span>Four-Bank Unified Relational Fraud Network</span>
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-blue-50 text-blue-700 border border-blue-200">
                   Bank A · B · C · D
                 </span>
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
                   Unified Ecosystem
                 </span>
               </span>
             </div>
-            <div className="text-[11px] text-slate-400 mt-0.5">
+            <div className="text-[11px] text-slate-500 mt-0.5">
               One unified network combining accounts and transactions across all four banks with GNN relational fraud detection
             </div>
           </div>
@@ -286,15 +286,15 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
         {/* Toolbar Controls */}
         <div className="flex flex-wrap items-center gap-2">
           {/* Bank Quick Filter */}
-          <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-[11px] font-semibold">
+          <div className="flex items-center gap-1 bg-slate-50 p-1 rounded-xl border border-slate-200 text-[11px] font-semibold">
             {['ALL', 'BANK_A', 'BANK_B', 'BANK_C', 'BANK_D'].map((b) => (
               <button
                 key={b}
                 onClick={() => setBankFilter(b)}
                 className={`px-2.5 py-1 rounded-lg transition-all ${
                   bankFilter === b
-                    ? 'bg-cyan-500 text-slate-950 font-bold shadow'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-blue-600 text-white font-bold shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 {b === 'ALL' ? 'All Banks' : b.replace('BANK_', 'Bank ')}
@@ -305,25 +305,25 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
           {/* Layout Mode Toggle */}
           <button
             onClick={() => setLayoutMode(layoutMode === 'quadrant' ? 'flow' : 'quadrant')}
-            className="px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 flex items-center gap-1.5 transition-colors"
+            className="px-2.5 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 flex items-center gap-1.5 transition-colors shadow-xs"
             title="Toggle between 4-Bank Ecosystem Mesh and Flow DAG"
           >
-            <Layers className="w-3.5 h-3.5 text-cyan-400" />
+            <Layers className="w-3.5 h-3.5 text-blue-600" />
             <span>{layoutMode === 'quadrant' ? '4-Bank Quadrants' : 'Flow DAG'}</span>
           </button>
 
           <button
             onClick={fetchGraphData}
             disabled={isLoading}
-            className="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors"
+            className="p-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-600 border border-slate-200 transition-colors shadow-xs"
             title="Refresh GNN Topology"
           >
-            <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin text-cyan-400' : ''}`} />
+            <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin text-blue-600' : ''}`} />
           </button>
 
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors"
+            className="p-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-600 border border-slate-200 transition-colors shadow-xs"
             title={isCollapsed ? 'Expand GNN Graph' : 'Collapse GNN Graph'}
           >
             {isCollapsed ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
