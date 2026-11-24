@@ -1,11 +1,20 @@
+---
+title: RINGTRACE AI
+emoji: 🛡️
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 10000
+---
+
 # RINGTRACE AI 🛡️
 ### Multi-Bank Proactive Mule Ring Defense & Autonomous Financial Interception Engine
 
 [![Python Version](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Frontend](https://img.shields.io/badge/frontend-React_18_+_Vite-cyan.svg)](https://vitejs.dev/)
 [![Backend](https://img.shields.io/badge/backend-FastAPI-emerald.svg)](https://fastapi.tiangolo.com/)
 [![Tests](https://img.shields.io/badge/tests-77%20passed-brightgreen.svg)](tests/)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/new?template=https://github.com/sushantkoshti2509-ux/RINGTRACE-AI)
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/sushantkoshti2509-ux/RINGTRACE-AI)
 
 **RINGTRACE AI** is a real-time, privacy-preserving financial intelligence platform designed to detect, trace, and dismantle coordinated mule account rings operating across multi-bank digital payment corridors (such as Indian UPI, IMPS, and NEFT).
