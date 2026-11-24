@@ -57,7 +57,16 @@ class MuleInterceptionEngine:
 
     def __init__(self):
         self.adapter = DetectionAdapter()
-        self.accounts, self.transactions, self.risk_scores, self.rings, _ = self.adapter.load_data()
+        self.accounts = None
+        self.transactions = None
+        self.risk_scores = None
+        self.rings = None
+        self._loaded = False
+
+    def _ensure_data(self):
+        if not self._loaded:
+            self.accounts, self.transactions, self.risk_scores, self.rings, _ = self.adapter.load_data()
+            self._loaded = True
 
     @staticmethod
     def mask_account_id(account_id: str, preserve_chars: int = 4) -> str:
@@ -78,6 +87,7 @@ class MuleInterceptionEngine:
 
     def get_candidate_rings(self) -> List[Dict[str, Any]]:
         """Returns discovered candidate rings suitable for interception simulation."""
+        self._ensure_data()
         return self.rings
 
     def build_ring_subgraph(self, ring: Dict[str, Any]) -> Tuple[nx.DiGraph, List[Dict[str, Any]]]:
@@ -85,6 +95,7 @@ class MuleInterceptionEngine:
         Extracts the directed transaction subgraph for the given mule ring.
         Identifies transaction flows, amounts, and bank borders.
         """
+        self._ensure_data()
         members = set(ring.get("member_accounts", []))
         G = nx.DiGraph()
 
@@ -463,6 +474,7 @@ class MuleInterceptionEngine:
            - Multi-Hop Cross-Bank Rapid Transit Chains
         """
         G = nx.DiGraph()
+        self._ensure_data()
         df = self.transactions
 
         # 1. Suspicious Circular Transactions (4-Bank loop)

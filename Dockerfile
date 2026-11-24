@@ -46,14 +46,15 @@ ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     MPLCONFIGDIR=/tmp/matplotlib_cache \
     OMP_NUM_THREADS=1 \
-    PORT=8000 \
+    PORT=10000 \
     HOST=0.0.0.0
 
+EXPOSE 10000
 EXPOSE 8000
 
 # Health check to ensure API is responsive
 HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
-    CMD curl -f http://localhost:${PORT:-8000}/health || exit 1
+    CMD curl -f http://localhost:${PORT:-10000}/health || exit 1
 
 # Launch production server with dynamic port binding
-CMD ["sh", "-c", "uvicorn src.integration.api:app --host 0.0.0.0 --port ${PORT:-8000}"]
+CMD ["sh", "-c", "uvicorn src.integration.api:app --host 0.0.0.0 --port ${PORT:-10000}"]

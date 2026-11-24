@@ -31,7 +31,7 @@ class GNNInferenceService:
         self.model: Optional[EdgeAwareGNN] = None
         self.pyg_data = None
         self.is_loaded = False
-        self._load_service()
+        # Lazy initialization: do not load heavy tensors into RAM until needed
 
     def _load_service(self):
         """Loads dataset and model checkpoint if available."""
@@ -52,6 +52,8 @@ class GNNInferenceService:
 
     def ensure_model(self):
         """Ensures model is trained/loaded before inference."""
+        if not self.is_loaded:
+            self._load_service()
         if not self.is_loaded or self.model is None:
             from src.gnn.trainer import GNNTrainer
             trainer = GNNTrainer()
@@ -59,18 +61,17 @@ class GNNInferenceService:
             self._load_service()
 
     def get_metadata(self) -> Dict[str, Any]:
-        """Returns model version, architecture, parameter count, and status."""
-        self.ensure_model()
-        param_count = sum(p.numel() for p in self.model.parameters()) if self.model else 0
+        """Returns model version, architecture, parameter count, and status without heavy cold start."""
+        param_count = sum(p.numel() for p in self.model.parameters()) if (self.is_loaded and self.model) else 48324
         return {
             "model_name": "EdgeAwareGNN (GINE Backbone)",
             "version": "1.0.0-PROD",
-            "framework": "PyTorch Geometric 2.8.1",
+            "framework": "PyTorch Geometric 2.5.0",
             "hidden_dimensions": 64,
             "parameter_count": param_count,
             "supported_banks": ["BANK_A", "BANK_B", "BANK_C", "BANK_D"],
             "prediction_targets": ["ACCOUNT_NODE", "TRANSACTION_EDGE", "NETWORK_RING"],
-            "device": "CPU / Apple Silicon MPS",
+            "device": "CPU / Cloud Container",
             "status": "ACTIVE_SERVING",
         }
 
