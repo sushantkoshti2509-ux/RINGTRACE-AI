@@ -48,16 +48,23 @@ def get_strategies():
 @router.get("/topology", summary="Get directed graph topology for a mule ring or unified 4-bank ecosystem")
 def get_ring_topology(
     ring_id: Optional[str] = Query(None, description="Candidate Ring ID, or omit/'UNIFIED_ECOSYSTEM' for full 4-bank unified network"),
+    topology_type: Optional[str] = Query(None, description="One of: 'HYBRID', 'CIRCULAR', 'LAYERED', 'FAN_IN', 'FAN_OUT'"),
     mode: Optional[str] = Query(None, description="'unified' or 'ring'"),
 ):
-    # If explicitly requesting unified ecosystem or no ring_id specified (and not mode=='ring')
-    is_unified = (
-        mode == "unified"
-        or ring_id in [None, "", "UNIFIED_ECOSYSTEM", "ALL", "ECOSYSTEM"]
-    )
+    topo_type_val = topology_type if isinstance(topology_type, str) else None
+    ring_id_val = ring_id if isinstance(ring_id, str) else None
+    mode_val = mode if isinstance(mode, str) else None
 
-    if is_unified:
-        G, ecosystem_txs, metadata = engine.build_unified_ecosystem_graph()
+    valid_topo_keys = ["CIRCULAR", "LAYERED", "FAN_IN", "FAN_OUT", "HYBRID", "1", "2", "3", "4", "5"]
+    is_topo_request = (
+        topo_type_val is not None
+        or (ring_id_val and any(k in ring_id_val.upper() for k in valid_topo_keys))
+        or ring_id_val in [None, "", "UNIFIED_ECOSYSTEM", "ALL", "ECOSYSTEM"]
+    ) and mode_val != "ring"
+
+    if is_topo_request:
+        chosen_type = topo_type_val or (ring_id_val if ring_id_val in valid_topo_keys else "HYBRID")
+        G, ecosystem_txs, metadata = engine.build_relational_topology_graph(topology_type=chosen_type)
         bottlenecks = engine.analyze_bottlenecks(G)
         bottleneck_map = {b["node_id"]: b for b in bottlenecks}
 
@@ -66,12 +73,15 @@ def get_ring_topology(
             b_info = bottleneck_map.get(node, {})
             node_data = G.nodes[node]
             bank = node_data.get("bank_id", "BANK_A")
+            account_code = node_data.get("account_code") or node.split(":")[-1]
             role = node_data.get("role") or b_info.get("role", "Transit Relay Account")
             pat_type = node_data.get("pattern_type", "INTERBANK_CLEARING")
             is_mule = int(node_data.get("is_mule", 0))
 
             nodes.append({
                 "id": node,
+                "account_code": account_code,
+                "label": f"{account_code} ({bank.replace('BANK_', 'Bank ')})",
                 "masked_id": engine.mask_account_id(node),
                 "bank": bank,
                 "role": role,
@@ -104,13 +114,20 @@ def get_ring_topology(
             })
 
         return {
-            "ring_id": "UNIFIED_ECOSYSTEM",
+            "ring_id": metadata.get("topology_type", "UNIFIED_ECOSYSTEM"),
             "is_unified": True,
+            "topology_type": metadata.get("topology_type", "HYBRID"),
             "title": metadata["title"],
+            "badge": metadata.get("badge", "Unified Four-Bank Interconnected Mesh"),
+            "flow_summary": metadata.get("flow_summary", ""),
+            "what_is_happening": metadata.get("what_is_happening", ""),
+            "gnn_learning": metadata.get("gnn_learning", ""),
+            "disclaimer": metadata.get("disclaimer", "These are potential investigation patterns, not automatic proof of fraud."),
+            "steps": metadata.get("steps", []),
             "banks_involved": metadata["banks_involved"],
             "total_volume": metadata["total_volume"],
             "suspicious_volume": metadata["suspicious_volume"],
-            "risk_score": 0.88,
+            "risk_score": 0.88 if metadata.get("suspicious_volume", 0) > 0 else 0.12,
             "detected_patterns": metadata.get("detected_patterns", []),
             "nodes": nodes,
             "edges": edges,

@@ -107,10 +107,17 @@ function MuleNode({ data, selected }) {
         )}
       </div>
 
-      {/* Account Number (Masked) */}
-      <div className="font-mono text-sm font-bold text-white tracking-wide flex items-center gap-1.5">
-        <span className={`w-2 h-2 rounded-full ${isTarget ? 'bg-rose-400 animate-ping' : bStyle.dot}`} />
-        <span>{data.masked_id}</span>
+      {/* Account Code & Number */}
+      <div className="font-mono text-sm font-bold text-white tracking-wide flex items-center justify-between">
+        <div className="flex items-center gap-1.5">
+          <span className={`w-2.5 h-2.5 rounded-full ${isTarget ? 'bg-rose-400 animate-ping' : bStyle.dot}`} />
+          <span className="text-white font-extrabold text-sm">{data.account_code || data.masked_id}</span>
+        </div>
+        {data.account_code && (
+          <span className="text-[10px] text-slate-400 font-mono font-normal">
+            {data.masked_id}
+          </span>
+        )}
       </div>
 
       {/* Role Tag */}

@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { apiFetch } from '../api';
 import {
   ReactFlow,
   Background,
@@ -17,6 +18,8 @@ import {
   Layers,
   Network,
   Activity,
+  AlertTriangle,
+  Info,
 } from 'lucide-react';
 
 const nodeTypes = {
@@ -63,7 +66,7 @@ function layoutEcosystemNodes(nodes, layoutMode = 'quadrant') {
       n.in_degree >= 1 &&
       n.out_degree >= 1;
 
-    if (isBridge && buckets.CENTER.length < 5) {
+    if (isBridge && buckets.CENTER.length < 4) {
       buckets.CENTER.push(n);
     } else if (b.includes('A')) {
       buckets.BANK_A.push(n);
@@ -84,39 +87,47 @@ function layoutEcosystemNodes(nodes, layoutMode = 'quadrant') {
   buckets.BANK_A.forEach((n, i) => {
     const col = i % 3;
     const row = Math.floor(i / 3);
-    pos[n.id] = { x: 40 + col * 190, y: 50 + row * 130 };
+    pos[n.id] = { x: 50 + col * 200, y: 50 + row * 130 };
   });
 
   // Bank B (Top-Right: Corporate Treasury)
   buckets.BANK_B.forEach((n, i) => {
     const col = i % 3;
     const row = Math.floor(i / 3);
-    pos[n.id] = { x: 700 + col * 190, y: 50 + row * 130 };
+    pos[n.id] = { x: 720 + col * 200, y: 50 + row * 130 };
   });
 
   // Center Transit / Laundering Corridor
   buckets.CENTER.forEach((n, i) => {
     const col = i % 2;
     const row = Math.floor(i / 2);
-    pos[n.id] = { x: 440 + col * 180, y: 240 + row * 130 };
+    pos[n.id] = { x: 440 + col * 190, y: 240 + row * 130 };
   });
 
   // Bank C (Bottom-Left: Cooperative Society)
   buckets.BANK_C.forEach((n, i) => {
     const col = i % 3;
     const row = Math.floor(i / 3);
-    pos[n.id] = { x: 40 + col * 190, y: 440 + row * 130 };
+    pos[n.id] = { x: 50 + col * 200, y: 440 + row * 130 };
   });
 
   // Bank D (Bottom-Right: Wealth & Remittance)
   buckets.BANK_D.forEach((n, i) => {
     const col = i % 3;
     const row = Math.floor(i / 3);
-    pos[n.id] = { x: 700 + col * 190, y: 440 + row * 130 };
+    pos[n.id] = { x: 720 + col * 200, y: 440 + row * 130 };
   });
 
   return pos;
 }
+
+const TOPOLOGIES = [
+  { id: 'CIRCULAR', label: '🔄 1. Circular Loop', desc: 'Money moves A➔B➔C➔D and returns to A' },
+  { id: 'LAYERED', label: '🪜 2. Layered Chain', desc: 'Sequential multi-hop transit across banks' },
+  { id: 'FAN_IN', label: '📥 3. Fan-In (Smurfing)', desc: 'Multiple bank feeders funnel to one collector' },
+  { id: 'FAN_OUT', label: '📤 4. Fan-Out (Dispersion)', desc: 'One distributor splits to cash-out mules' },
+  { id: 'HYBRID', label: '🌐 5. Hybrid Ecosystem', desc: 'Full unified 4-bank interconnected clearing mesh' },
+];
 
 export default function MuleRingCanvas({
   nodesData = [],
@@ -129,18 +140,40 @@ export default function MuleRingCanvas({
   isPostDisruption = false,
   onToggleDisruption = () => {},
 }) {
+  const [activeTopology, setActiveTopology] = useState('CIRCULAR');
+  const [localNodes, setLocalNodes] = useState(nodesData);
+  const [localEdges, setLocalEdges] = useState(edgesData);
+  const [topoMetadata, setTopoMetadata] = useState(null);
   const [layoutMode, setLayoutMode] = useState('quadrant'); // 'quadrant' | 'flow'
-  const [patternFilter, setPatternFilter] = useState('ALL');
   const [bankFilter, setBankFilter] = useState('ALL');
+  const [showExplainer, setShowExplainer] = useState(true);
+
+  const fetchTopology = async (topo) => {
+    try {
+      const res = await apiFetch(`/api/v1/interception/topology?topology_type=${encodeURIComponent(topo)}`);
+      if (res.ok) {
+        const data = await res.json();
+        setLocalNodes(data.nodes || []);
+        setLocalEdges(data.edges || []);
+        setTopoMetadata(data);
+      }
+    } catch (e) {
+      console.warn('Failed to switch topology:', e);
+    }
+  };
+
+  useEffect(() => {
+    fetchTopology(activeTopology);
+  }, [activeTopology]);
 
   // Compute node positions
   const nodePositions = useMemo(() => {
-    return layoutEcosystemNodes(nodesData, layoutMode);
-  }, [nodesData, layoutMode]);
+    return layoutEcosystemNodes(localNodes, layoutMode);
+  }, [localNodes, layoutMode]);
 
   // Convert topology nodes into React Flow nodes arranged in Unified 4-Bank Layout
   const flowNodes = useMemo(() => {
-    return nodesData.map((node) => {
+    return localNodes.map((node) => {
       const isTarget = node.id === targetNodeId;
       const isNeutralized = isPostDisruption && neutralizedNodes.includes(node.id);
       const pos = nodePositions[node.id] || { x: 100, y: 100 };
@@ -148,9 +181,7 @@ export default function MuleRingCanvas({
       // Filter check
       const nodeBank = (node.bank || node.id.split(':')[0] || '').toUpperCase();
       const matchesBank = bankFilter === 'ALL' || nodeBank.includes(bankFilter.toUpperCase());
-      const matchesPattern =
-        patternFilter === 'ALL' || (node.pattern_type && node.pattern_type.includes(patternFilter));
-      const isDimmed = !matchesBank || (!matchesPattern && patternFilter !== 'ALL');
+      const isDimmed = !matchesBank;
 
       return {
         id: node.id,
@@ -171,19 +202,18 @@ export default function MuleRingCanvas({
       };
     });
   }, [
-    nodesData,
+    localNodes,
     nodePositions,
     selectedNodeId,
     targetNodeId,
     neutralizedNodes,
     isPostDisruption,
     bankFilter,
-    patternFilter,
   ]);
 
   // Convert topology edges into React Flow edges with animated pulses or severed status
   const flowEdges = useMemo(() => {
-    return edgesData.map((e) => {
+    return localEdges.map((e) => {
       const isSevered =
         isPostDisruption &&
         severedEdges.some(
@@ -224,19 +254,20 @@ export default function MuleRingCanvas({
       const isCirc = (e.pattern_type || '').includes('CIRCULAR');
       const isFanIn = (e.pattern_type || '').includes('FAN_IN');
       const isFanOut = (e.pattern_type || '').includes('FAN_OUT');
-      const isSuspicious = e.is_suspicious === 1 || isCirc || isFanIn || isFanOut;
+      const isTransit =
+        (e.pattern_type || '').includes('TRANSIT') ||
+        (e.pattern_type || '').includes('CHAIN') ||
+        (e.pattern_type || '').includes('LAYERED');
+      const isSuspicious = e.is_suspicious === 1 || isCirc || isFanIn || isFanOut || isTransit;
 
       let strokeColor = '#64748b'; // default legitimate
       if (isCirc) strokeColor = '#f43f5e';
       else if (isFanIn) strokeColor = '#a855f7';
       else if (isFanOut) strokeColor = '#f59e0b';
+      else if (isTransit) strokeColor = '#06b6d4';
       else if (e.is_cross_bank) strokeColor = '#10b981';
 
       let isDimmed = false;
-      if (patternFilter !== 'ALL') {
-        const matches = (e.pattern_type || '').includes(patternFilter);
-        if (!matches) isDimmed = true;
-      }
       if (bankFilter !== 'ALL') {
         const sBank = (e.sender_bank || '').toUpperCase();
         const rBank = (e.receiver_bank || '').toUpperCase();
@@ -253,63 +284,62 @@ export default function MuleRingCanvas({
         style: {
           stroke: strokeColor,
           strokeWidth: isSuspicious ? 2.5 : 1.5,
-          opacity: isDimmed ? 0.12 : 0.9,
+          opacity: isDimmed ? 0.12 : 0.95,
           strokeDasharray: isSuspicious ? undefined : '5 4',
         },
         markerEnd: {
           type: MarkerType.ArrowClosed,
           color: strokeColor,
-          width: 14,
-          height: 14,
+          width: 15,
+          height: 15,
         },
         label: isDimmed ? undefined : `₹${(e.amount || 0).toLocaleString()}`,
-        labelStyle: { fill: '#94a3b8', fontWeight: 600, fontSize: 9 },
+        labelStyle: { fill: '#f1f5f9', fontWeight: 700, fontSize: 10 },
         labelBgStyle: {
           fill: '#0f172a',
-          fillOpacity: 0.85,
+          fillOpacity: 0.92,
           stroke: strokeColor,
-          strokeWidth: 1,
+          strokeWidth: 1.5,
           rx: 4,
           ry: 4,
         },
       };
     });
-  }, [edgesData, severedEdges, isPostDisruption, patternFilter, bankFilter]);
+  }, [localEdges, severedEdges, isPostDisruption, bankFilter]);
 
   return (
-    <div className="relative w-full h-[580px] rounded-2xl overflow-hidden glass-panel border border-slate-800 shadow-2xl">
+    <div className="relative w-full rounded-2xl overflow-hidden glass-panel border border-slate-800 shadow-2xl flex flex-col">
       {/* Top Controls Toolbar */}
-      <div className="absolute top-4 left-5 right-5 z-10 flex flex-wrap items-center justify-between gap-3 pointer-events-none">
-        <div className="flex flex-wrap items-center gap-2 pointer-events-auto">
-          <div className="px-3 py-1.5 rounded-xl bg-slate-900/95 backdrop-blur-md border border-cyan-500/30 text-xs font-bold text-white flex items-center gap-2 shadow-lg">
+      <div className="p-3.5 bg-slate-900/95 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="px-3 py-1.5 rounded-xl bg-slate-950 border border-cyan-500/30 text-xs font-bold text-white flex items-center gap-2 shadow-lg">
             <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
-            <span>Four-Bank Unified Interconnected Ecosystem</span>
+            <span>Four-Bank Relational Fraud Network</span>
           </div>
 
-          {/* Pattern Highlights */}
-          <div className="hidden sm:flex items-center gap-1 bg-slate-950/90 backdrop-blur-md p-1 rounded-xl border border-slate-800 text-[11px] font-semibold">
-            {[
-              { id: 'ALL', label: 'All Patterns' },
-              { id: 'CIRCULAR', label: '🔄 4-Bank Loop' },
-              { id: 'FAN_IN', label: '📥 Smurfing' },
-              { id: 'FAN_OUT', label: '📤 Dispersion' },
-            ].map((p) => (
-              <button
-                key={p.id}
-                onClick={() => setPatternFilter(p.id)}
-                className={`px-2.5 py-1 rounded-lg transition-all ${
-                  patternFilter === p.id
-                    ? 'bg-purple-600 text-white font-bold shadow'
-                    : 'text-slate-400 hover:text-slate-200'
-                }`}
-              >
-                {p.label}
-              </button>
-            ))}
+          {/* Topologies Switcher Bar */}
+          <div className="flex flex-wrap items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-[11px] font-semibold">
+            {TOPOLOGIES.map((t) => {
+              const isActive = activeTopology === t.id;
+              return (
+                <button
+                  key={t.id}
+                  onClick={() => setActiveTopology(t.id)}
+                  className={`px-2.5 py-1 rounded-lg transition-all font-bold ${
+                    isActive
+                      ? 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-md'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                  title={t.desc}
+                >
+                  {t.label}
+                </button>
+              );
+            })}
           </div>
 
           {/* Bank Quick Filter */}
-          <div className="hidden md:flex items-center gap-1 bg-slate-950/90 backdrop-blur-md p-1 rounded-xl border border-slate-800 text-[11px] font-semibold">
+          <div className="hidden lg:flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-[11px] font-semibold">
             {['ALL', 'BANK_A', 'BANK_B', 'BANK_C', 'BANK_D'].map((b) => (
               <button
                 key={b}
@@ -320,18 +350,31 @@ export default function MuleRingCanvas({
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                {b === 'ALL' ? 'All Banks' : b.replace('BANK_', 'Bank ')}
+                {b === 'ALL' ? 'All' : b.replace('BANK_', '')}
               </button>
             ))}
           </div>
         </div>
 
         {/* View Mode & Layout Buttons */}
-        <div className="flex items-center gap-2 pointer-events-auto">
+        <div className="flex items-center gap-2">
+          {/* Explainer Toggle */}
+          <button
+            onClick={() => setShowExplainer(!showExplainer)}
+            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold border flex items-center gap-1.5 transition-colors ${
+              showExplainer
+                ? 'bg-purple-600/30 border-purple-500/50 text-purple-200'
+                : 'bg-slate-800 border-slate-700 text-slate-300'
+            }`}
+          >
+            <Info className="w-3.5 h-3.5 text-purple-400" />
+            <span>Explainer</span>
+          </button>
+
           {/* Layout Toggle */}
           <button
             onClick={() => setLayoutMode(layoutMode === 'quadrant' ? 'flow' : 'quadrant')}
-            className="px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 text-xs font-semibold border border-slate-700 flex items-center gap-1.5 shadow-lg transition-all"
+            className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 flex items-center gap-1.5 shadow-lg transition-all"
             title="Toggle Layout"
           >
             <Layers className="w-3.5 h-3.5 text-cyan-400" />
@@ -341,7 +384,7 @@ export default function MuleRingCanvas({
           {/* Pre vs Post Disruption Toggle */}
           <button
             onClick={() => onToggleDisruption(!isPostDisruption)}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all duration-300 flex items-center gap-2 shadow-lg ${
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-300 flex items-center gap-2 shadow-lg ${
               isPostDisruption
                 ? 'bg-rose-600/90 hover:bg-rose-500 text-white border border-rose-400 ring-2 ring-rose-500/30'
                 : 'bg-cyan-600/90 hover:bg-cyan-500 text-white border border-cyan-400 ring-2 ring-cyan-500/30'
@@ -355,89 +398,157 @@ export default function MuleRingCanvas({
             ) : (
               <>
                 <Sparkles className="w-4 h-4 text-white" />
-                <span>⚡ Active Ecosystem</span>
+                <span>⚡ Active Flow</span>
               </>
             )}
           </button>
         </div>
       </div>
 
-      {/* Institutional Quadrant Watermark Overlays */}
-      {layoutMode === 'quadrant' && (
-        <div className="absolute inset-0 pointer-events-none grid grid-cols-2 grid-rows-2 p-5 gap-6 opacity-35">
-          <div className="border border-cyan-500/20 rounded-2xl p-3 flex flex-col justify-start">
-            <span className="text-[10px] font-bold tracking-widest text-cyan-400 uppercase">
-              BANK A • Retail Clearing & High-Velocity UPI Hub
-            </span>
+      {/* "What is Happening?" Interactive Explainability Banner */}
+      {showExplainer && topoMetadata && (
+        <div className="bg-slate-900/95 border-b border-slate-800 p-4 flex flex-col gap-3 transition-all animate-fadeIn">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-2.5">
+            <div className="flex items-center gap-2">
+              <span className="px-2.5 py-1 rounded-md text-[11px] font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
+                {topoMetadata.badge || 'Relational Pattern Intelligence'}
+              </span>
+              <h3 className="text-sm font-extrabold text-white tracking-tight">
+                {topoMetadata.title || 'Relational Fraud Network Topology'}
+              </h3>
+            </div>
+            <div className="text-[11px] text-amber-300 font-sans flex items-center gap-1.5 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/30">
+              <AlertTriangle className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+              <span>Potential investigation pattern — not automatic proof of fraud.</span>
+            </div>
           </div>
-          <div className="border border-emerald-500/20 rounded-2xl p-3 flex flex-col justify-start items-end">
-            <span className="text-[10px] font-bold tracking-widest text-emerald-400 uppercase">
-              BANK B • Corporate Treasury & Merchant Settlement
-            </span>
-          </div>
-          <div className="border border-purple-500/20 rounded-2xl p-3 flex flex-col justify-end">
-            <span className="text-[10px] font-bold tracking-widest text-purple-400 uppercase">
-              BANK C • Regional Cooperative Credit Society
-            </span>
-          </div>
-          <div className="border border-amber-500/20 rounded-2xl p-3 flex flex-col justify-end items-end">
-            <span className="text-[10px] font-bold tracking-widest text-amber-400 uppercase">
-              BANK D • Private Wealth & Remittance Gateway
-            </span>
+
+          {/* Narrative Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 text-xs">
+            <div className="lg:col-span-2 p-3.5 rounded-xl bg-slate-950/90 border border-slate-800 flex flex-col gap-2.5">
+              <div className="text-slate-400 text-[10px] uppercase tracking-wider font-extrabold flex items-center gap-1.5 text-cyan-400">
+                <Sparkles className="w-3.5 h-3.5" /> What is happening in this network:
+              </div>
+              <p className="text-slate-200 leading-relaxed font-sans text-xs">
+                {topoMetadata.what_is_happening}
+              </p>
+
+              {/* Step-by-Step Flow Cards */}
+              {topoMetadata.steps?.length > 0 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
+                  {topoMetadata.steps.map((st, sIdx) => (
+                    <div
+                      key={sIdx}
+                      className="px-3 py-2 rounded-lg bg-slate-900/90 border border-slate-800 text-[11px] text-slate-300 flex items-start gap-2 shadow-sm"
+                    >
+                      <span className="w-4 h-4 rounded-full bg-cyan-500/20 text-cyan-300 font-mono font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5 border border-cyan-500/40">
+                        {sIdx + 1}
+                      </span>
+                      <span className="leading-snug">{st}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* How GNN Learns This Structure */}
+            <div className="p-3.5 rounded-xl bg-purple-950/20 border border-purple-500/30 flex flex-col justify-between gap-3">
+              <div>
+                <div className="text-purple-300 text-[10px] uppercase tracking-wider font-extrabold flex items-center gap-1.5">
+                  <Activity className="w-3.5 h-3.5 text-purple-400" /> How GNN Learns This Relationship:
+                </div>
+                <p className="text-slate-300 text-[11px] leading-relaxed mt-2 font-sans">
+                  {topoMetadata.gnn_learning}
+                </p>
+              </div>
+
+              <div className="pt-2.5 border-t border-purple-500/20 flex items-center justify-between text-[11px] font-mono">
+                <span className="text-slate-400">Message Passing:</span>
+                <span className="text-purple-300 font-bold">4-Hop Relational Hops</span>
+              </div>
+            </div>
           </div>
         </div>
       )}
 
-      {/* React Flow Canvas */}
-      <ReactFlow
-        nodes={flowNodes}
-        edges={flowEdges}
-        nodeTypes={nodeTypes}
-        onNodeClick={(_, node) => onSelectNode(node.id)}
-        fitView
-        fitViewOptions={{ padding: 0.2 }}
-        minZoom={0.25}
-        maxZoom={1.6}
-        className="bg-[#080d1a]"
-      >
-        <Background color="#1e293b" gap={24} size={1} />
-        <Controls className="!bg-slate-900 !border-slate-800 !fill-slate-300 !rounded-xl !overflow-hidden !shadow-xl" />
-        <MiniMap
-          nodeColor={(n) => {
-            const b = (n.data?.bank || '').toUpperCase();
-            if (b.includes('A')) return '#06b6d4';
-            if (b.includes('B')) return '#10b981';
-            if (b.includes('C')) return '#a855f7';
-            return '#f59e0b';
-          }}
-          maskColor="rgba(7, 11, 20, 0.75)"
-          className="!bg-slate-950 !border !border-slate-800 !rounded-xl !overflow-hidden"
-        />
-      </ReactFlow>
+      {/* React Flow Canvas Body */}
+      <div className="relative w-full h-[540px] bg-[#080d1a]">
+        {/* Institutional Quadrant Watermark Overlays */}
+        {layoutMode === 'quadrant' && (
+          <div className="absolute inset-0 pointer-events-none grid grid-cols-2 grid-rows-2 p-5 gap-6 opacity-35">
+            <div className="border border-cyan-500/25 rounded-2xl p-3 flex flex-col justify-start">
+              <span className="text-[10px] font-extrabold tracking-widest text-cyan-400 uppercase">
+                BANK A • Retail Clearing Hub (A101 · A102 · A103)
+              </span>
+            </div>
+            <div className="border border-emerald-500/25 rounded-2xl p-3 flex flex-col justify-start items-end">
+              <span className="text-[10px] font-extrabold tracking-widest text-emerald-400 uppercase">
+                BANK B • Corporate Treasury Core (B201 · B202 · B205)
+              </span>
+            </div>
+            <div className="border border-purple-500/25 rounded-2xl p-3 flex flex-col justify-end">
+              <span className="text-[10px] font-extrabold tracking-widest text-purple-400 uppercase">
+                BANK C • Regional Cooperative Society (C301 · C302 · C310)
+              </span>
+            </div>
+            <div className="border border-amber-500/25 rounded-2xl p-3 flex flex-col justify-end items-end">
+              <span className="text-[10px] font-extrabold tracking-widest text-amber-400 uppercase">
+                BANK D • Wealth & Remittance Gateway (D401 · D402 · D410)
+              </span>
+            </div>
+          </div>
+        )}
 
-      {/* Bottom Ecosystem Legend */}
-      <div className="absolute bottom-4 left-5 z-10 hidden md:flex items-center gap-3 px-3.5 py-1.5 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-800 text-[11px] text-slate-300 shadow-lg pointer-events-none">
-        <span className="text-slate-400 font-semibold uppercase tracking-wider text-[10px]">Ecosystem Legend:</span>
-        <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-cyan-400" />
-          <span>Bank A (Retail)</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-          <span>Bank B (Corporate)</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-purple-400" />
-          <span>Bank C (Cooperative)</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-          <span>Bank D (Wealth)</span>
-        </div>
-        <span className="text-slate-600">|</span>
-        <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping" />
-          <span className="text-rose-300 font-bold">Choke Point Bottleneck</span>
+        <ReactFlow
+          nodes={flowNodes}
+          edges={flowEdges}
+          nodeTypes={nodeTypes}
+          onNodeClick={(_, node) => onSelectNode(node.id)}
+          fitView
+          fitViewOptions={{ padding: 0.2 }}
+          minZoom={0.25}
+          maxZoom={1.6}
+          className="bg-[#080d1a]"
+        >
+          <Background color="#1e293b" gap={24} size={1} />
+          <Controls className="!bg-slate-900 !border-slate-800 !fill-slate-300 !rounded-xl !overflow-hidden !shadow-xl" />
+          <MiniMap
+            nodeColor={(n) => {
+              const b = (n.data?.bank || '').toUpperCase();
+              if (b.includes('A')) return '#06b6d4';
+              if (b.includes('B')) return '#10b981';
+              if (b.includes('C')) return '#a855f7';
+              return '#f59e0b';
+            }}
+            maskColor="rgba(7, 11, 20, 0.75)"
+            className="!bg-slate-950 !border !border-slate-800 !rounded-xl !overflow-hidden"
+          />
+        </ReactFlow>
+
+        {/* Bottom Ecosystem Legend */}
+        <div className="absolute bottom-4 left-5 z-10 hidden md:flex items-center gap-3 px-3.5 py-1.5 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-800 text-[11px] text-slate-300 shadow-lg pointer-events-none">
+          <span className="text-slate-400 font-semibold uppercase tracking-wider text-[10px]">Ecosystem Legend:</span>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan-400" />
+            <span>Bank A (Retail)</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+            <span>Bank B (Corporate)</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-purple-400" />
+            <span>Bank C (Cooperative)</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+            <span>Bank D (Wealth)</span>
+          </div>
+          <span className="text-slate-600">|</span>
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping" />
+            <span className="text-rose-300 font-bold">Choke Point Bottleneck</span>
+          </div>
         </div>
       </div>
     </div>
