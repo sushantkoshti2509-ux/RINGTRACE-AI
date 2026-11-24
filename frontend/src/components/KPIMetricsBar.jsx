@@ -11,7 +11,7 @@ export default function KPIMetricsBar({ summary = {} }) {
       trend: '↑ 15.4% increase this month',
       trendColor: 'text-emerald-400',
       bgClass: 'bg-gradient-to-br from-[#1e3a8a] to-[#1e40af] text-white',
-      labelColor: 'text-blue-200',
+      labelColor: 'text-blue-100 font-extrabold',
     },
     {
       label: 'FLAGGED HIGH-RISK MULES',
@@ -19,9 +19,9 @@ export default function KPIMetricsBar({ summary = {} }) {
       badgeIcon: Lightbulb,
       badgeColor: 'text-blue-600',
       trend: '↑ 7.4% same as before',
-      trendColor: 'text-blue-300',
+      trendColor: 'text-blue-200',
       bgClass: 'bg-gradient-to-r from-[#1e2d42] to-[#14233a] text-white',
-      labelColor: 'text-slate-400',
+      labelColor: 'text-slate-200 font-extrabold',
     },
     {
       label: 'INTERCEPTION LATENCY',
@@ -29,9 +29,9 @@ export default function KPIMetricsBar({ summary = {} }) {
       badgeIcon: Zap,
       badgeColor: 'text-indigo-600',
       trend: '↓ 15.4% less latency',
-      trendColor: 'text-indigo-200',
+      trendColor: 'text-indigo-100',
       bgClass: 'bg-gradient-to-r from-[#4f46e5] to-[#6366f1] text-white',
-      labelColor: 'text-indigo-100',
+      labelColor: 'text-indigo-100 font-extrabold',
     },
     {
       label: 'FINANCIAL CAPITAL SHIELDED',
@@ -41,7 +41,7 @@ export default function KPIMetricsBar({ summary = {} }) {
       trend: '↑ 24.1% prevented loss',
       trendColor: 'text-teal-100',
       bgClass: 'bg-gradient-to-r from-[#0d9488] to-[#059669] text-white',
-      labelColor: 'text-teal-100',
+      labelColor: 'text-teal-100 font-extrabold',
     },
   ];
 
@@ -56,10 +56,10 @@ export default function KPIMetricsBar({ summary = {} }) {
           >
             <div className="flex items-start justify-between">
               <div>
-                <span className={`text-[11px] font-bold tracking-wider uppercase block ${c.labelColor}`}>
+                <span className={`text-xs font-extrabold tracking-wider uppercase block ${c.labelColor}`}>
                   {c.label}
                 </span>
-                <div className="text-3xl font-extrabold font-mono mt-2 tracking-tight">
+                <div className="text-3xl md:text-4xl font-extrabold font-mono mt-2 tracking-tight">
                   {c.value}
                 </div>
               </div>
@@ -68,7 +68,7 @@ export default function KPIMetricsBar({ summary = {} }) {
               </div>
             </div>
 
-            <div className={`text-xs font-semibold mt-4 flex items-center gap-1 ${c.trendColor}`}>
+            <div className={`text-xs font-bold mt-4 flex items-center gap-1 ${c.trendColor}`}>
               <span>{c.trend}</span>
             </div>
           </div>

@@ -5,8 +5,11 @@
 @layer base {
   body {
     background-color: #f4f6f9;
-    color: #1e293b;
+    color: #0f172a;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 }
 

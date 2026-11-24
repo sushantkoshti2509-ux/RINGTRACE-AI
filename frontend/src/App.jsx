@@ -167,20 +167,20 @@ export default function App() {
         {/* Template Header Bar */}
         <header className="px-8 pt-7 pb-5 flex flex-wrap items-center justify-between gap-4 bg-[#f4f6f9]">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            <h1 className="text-2xl font-extrabold tracking-tight text-slate-900">
               {pageMeta.title}
             </h1>
-            <p className="text-xs text-slate-500 mt-1">
+            <p className="text-xs text-slate-600 font-semibold mt-1">
               {pageMeta.subtitle}
             </p>
           </div>
 
           <div className="flex items-center gap-3">
             <div className="hidden sm:flex items-center gap-2 text-xs font-mono">
-              <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600 shadow-xs font-semibold">
+              <span className="px-3.5 py-1 rounded-full bg-white border border-slate-300 text-slate-800 shadow-xs font-bold">
                 Mode: Federated (46,380 Txns)
               </span>
-              <span className="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-bold shadow-xs">
+              <span className="px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 font-extrabold shadow-xs">
                 Latency: 11.4 ms
               </span>
             </div>

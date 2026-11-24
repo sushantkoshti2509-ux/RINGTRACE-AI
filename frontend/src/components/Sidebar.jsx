@@ -85,7 +85,7 @@ export default function Sidebar({ activeTab, setActiveTab }) {
               <span>RINGTRACE</span>
               <span className="text-blue-600">AI</span>
             </div>
-            <div className="text-[10px] text-slate-400 font-medium">Central Regulatory Defense</div>
+            <div className="text-xs text-slate-500 font-semibold">Central Regulatory Defense</div>
           </div>
         </div>
 
@@ -100,25 +100,25 @@ export default function Sidebar({ activeTab, setActiveTab }) {
                 {/* Accordion Group Header */}
                 <button
                   onClick={() => toggleSection(sec.key)}
-                  className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold tracking-tight transition-all ${
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-extrabold tracking-tight transition-all ${
                     hasActiveChild
-                      ? 'text-blue-600 bg-blue-50/70 font-bold'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                      ? 'text-blue-600 bg-blue-50/80 font-extrabold'
+                      : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
                   }`}
                 >
                   <span className="flex items-center gap-2">
                     <span>{sec.label}</span>
                   </span>
                   {isOpen ? (
-                    <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                    <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
                   ) : (
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
                   )}
                 </button>
 
                 {/* Sub-items */}
                 {isOpen && (
-                  <div className="mt-1 flex flex-col gap-0.5 pl-3 border-l-2 border-slate-100 ml-3">
+                  <div className="mt-1 flex flex-col gap-0.5 pl-3 border-l-2 border-slate-200 ml-3">
                     {sec.items.map((item) => {
                       const isActive = activeTab === item.id;
                       const Icon = item.icon;
@@ -126,13 +126,13 @@ export default function Sidebar({ activeTab, setActiveTab }) {
                         <button
                           key={item.id}
                           onClick={() => setActiveTab(item.id)}
-                          className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all ${
+                          className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs transition-all ${
                             isActive
                               ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/20 font-bold'
-                              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70'
+                              : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100 font-semibold'
                           }`}
                         >
-                          <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-400'}`} />
+                          <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500'}`} />
                           <span className="truncate">{item.label}</span>
                         </button>
                       );

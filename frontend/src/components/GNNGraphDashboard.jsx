@@ -270,17 +270,17 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-sm text-slate-900 tracking-tight flex items-center gap-1.5">
+              <span className="font-extrabold text-base text-slate-900 tracking-tight flex items-center gap-2">
                 <span>Four-Bank Unified Relational Fraud Network</span>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-extrabold bg-blue-50 text-blue-700 border border-blue-200 shadow-xs">
                   Bank A · B · C · D
                 </span>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-extrabold bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-xs">
                   Unified Ecosystem
                 </span>
               </span>
             </div>
-            <div className="text-[11px] text-slate-500 mt-0.5">
+            <div className="text-xs text-slate-600 font-semibold mt-0.5">
               One unified network combining accounts and transactions across all four banks with GNN relational fraud detection
             </div>
           </div>
@@ -289,15 +289,15 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
         {/* Toolbar Controls */}
         <div className="flex flex-wrap items-center gap-2">
           {/* Bank Quick Filter */}
-          <div className="flex items-center gap-1 bg-slate-50 p-1 rounded-xl border border-slate-200 text-[11px] font-semibold">
+          <div className="flex items-center gap-1 bg-slate-50 p-1 rounded-xl border border-slate-200 text-xs font-bold">
             {['ALL', 'BANK_A', 'BANK_B', 'BANK_C', 'BANK_D'].map((b) => (
               <button
                 key={b}
                 onClick={() => setBankFilter(b)}
-                className={`px-2.5 py-1 rounded-lg transition-all ${
+                className={`px-3 py-1.5 rounded-lg transition-all ${
                   bankFilter === b
-                    ? 'bg-blue-600 text-white font-bold shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-blue-600 text-white font-extrabold shadow-xs'
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
                 {b === 'ALL' ? 'All Banks' : b.replace('BANK_', 'Bank ')}
@@ -308,25 +308,25 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
           {/* Layout Mode Toggle */}
           <button
             onClick={() => setLayoutMode(layoutMode === 'quadrant' ? 'flow' : 'quadrant')}
-            className="px-2.5 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 flex items-center gap-1.5 transition-colors shadow-xs"
+            className="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 text-xs font-bold border border-slate-200 flex items-center gap-1.5 transition-colors shadow-xs"
             title="Toggle between 4-Bank Ecosystem Mesh and Flow DAG"
           >
-            <Layers className="w-3.5 h-3.5 text-blue-600" />
+            <Layers className="w-4 h-4 text-blue-600" />
             <span>{layoutMode === 'quadrant' ? '4-Bank Quadrants' : 'Flow DAG'}</span>
           </button>
 
           <button
             onClick={fetchGraphData}
             disabled={isLoading}
-            className="p-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-600 border border-slate-200 transition-colors shadow-xs"
+            className="p-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 transition-colors shadow-xs"
             title="Refresh GNN Topology"
           >
-            <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin text-blue-600' : ''}`} />
+            <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin text-blue-600' : ''}`} />
           </button>
 
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="p-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-600 border border-slate-200 transition-colors shadow-xs"
+            className="p-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 transition-colors shadow-xs"
             title={isCollapsed ? 'Expand GNN Graph' : 'Collapse GNN Graph'}
           >
             {isCollapsed ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
@@ -341,40 +341,40 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
           {layoutMode === 'quadrant' && (
             <div className="absolute inset-0 pointer-events-none grid grid-cols-2 grid-rows-2 p-5 gap-6">
               {/* Top-Left: Bank A */}
-              <div className="border-2 border-dashed border-cyan-300/80 bg-cyan-50/40 rounded-2xl p-3 flex flex-col justify-start">
-                <div className="inline-flex items-center gap-1.5 w-fit px-3 py-1.5 rounded-xl bg-white border border-cyan-200 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
-                  <span className="text-[10px] font-extrabold tracking-wider text-cyan-900 uppercase font-mono">
+              <div className="border-2 border-dashed border-cyan-400 bg-cyan-50/50 rounded-2xl p-3 flex flex-col justify-start">
+                <div className="inline-flex items-center gap-2 w-fit px-3 py-1.5 rounded-xl bg-white border border-cyan-300 shadow-xs">
+                  <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
+                  <span className="text-xs font-extrabold tracking-wider text-cyan-950 uppercase font-mono">
                     BANK A • Retail Clearing Hub (A101 · A102)
                   </span>
                 </div>
               </div>
 
               {/* Top-Right: Bank B */}
-              <div className="border-2 border-dashed border-emerald-300/80 bg-emerald-50/40 rounded-2xl p-3 flex flex-col justify-start items-end">
-                <div className="inline-flex items-center gap-1.5 w-fit px-3 py-1.5 rounded-xl bg-white border border-emerald-200 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-[10px] font-extrabold tracking-wider text-emerald-900 uppercase font-mono">
+              <div className="border-2 border-dashed border-emerald-400 bg-emerald-50/50 rounded-2xl p-3 flex flex-col justify-start items-end">
+                <div className="inline-flex items-center gap-2 w-fit px-3 py-1.5 rounded-xl bg-white border border-emerald-300 shadow-xs">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-xs font-extrabold tracking-wider text-emerald-950 uppercase font-mono">
                     BANK B • Corporate Treasury Core (B201 · B205)
                   </span>
                 </div>
               </div>
 
               {/* Bottom-Left: Bank D */}
-              <div className="border-2 border-dashed border-amber-300/80 bg-amber-50/40 rounded-2xl p-3 flex flex-col justify-end">
-                <div className="inline-flex items-center gap-1.5 w-fit px-3 py-1.5 rounded-xl bg-white border border-amber-200 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                  <span className="text-[10px] font-extrabold tracking-wider text-amber-900 uppercase font-mono">
+              <div className="border-2 border-dashed border-amber-400 bg-amber-50/50 rounded-2xl p-3 flex flex-col justify-end">
+                <div className="inline-flex items-center gap-2 w-fit px-3 py-1.5 rounded-xl bg-white border border-amber-300 shadow-xs">
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
+                  <span className="text-xs font-extrabold tracking-wider text-amber-950 uppercase font-mono">
                     BANK D • Wealth & Remittance Gateway (D401 · D410)
                   </span>
                 </div>
               </div>
 
               {/* Bottom-Right: Bank C */}
-              <div className="border-2 border-dashed border-purple-300/80 bg-purple-50/40 rounded-2xl p-3 flex flex-col justify-end items-end">
-                <div className="inline-flex items-center gap-1.5 w-fit px-3 py-1.5 rounded-xl bg-white border border-purple-200 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
-                  <span className="text-[10px] font-extrabold tracking-wider text-purple-900 uppercase font-mono">
+              <div className="border-2 border-dashed border-purple-400 bg-purple-50/50 rounded-2xl p-3 flex flex-col justify-end items-end">
+                <div className="inline-flex items-center gap-2 w-fit px-3 py-1.5 rounded-xl bg-white border border-purple-300 shadow-xs">
+                  <span className="w-2.5 h-2.5 rounded-full bg-purple-500 animate-pulse" />
+                  <span className="text-xs font-extrabold tracking-wider text-purple-950 uppercase font-mono">
                     BANK C • Regional Cooperative Society (C301 · C310)
                   </span>
                 </div>
@@ -395,53 +395,53 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
             className="bg-[#f8fafc]"
           >
             <Background color="#cbd5e1" gap={24} size={1.2} />
-            <Controls className="!bg-white !border !border-slate-200 !text-slate-700 !fill-slate-700 !rounded-xl !overflow-hidden !shadow-md" />
+            <Controls className="!bg-white !border !border-slate-300 !text-slate-800 !fill-slate-800 !rounded-xl !overflow-hidden !shadow-md" />
           </ReactFlow>
 
           {/* Topology Legend Bar (Top-Right, neatly positioned without overlapping Bank A) */}
-          <div className="absolute top-4 right-4 z-10 hidden md:flex flex-wrap items-center gap-2.5 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-slate-200 text-[10px] text-slate-700 shadow-md pointer-events-none">
-            <span className="font-bold text-slate-900 flex items-center gap-1">
-              <Network className="w-3.5 h-3.5 text-blue-600" /> Legend:
+          <div className="absolute top-4 right-4 z-10 hidden md:flex flex-wrap items-center gap-3 bg-white/98 backdrop-blur-md px-4 py-2 rounded-xl border border-slate-200 text-xs text-slate-800 font-bold shadow-md pointer-events-none">
+            <span className="font-extrabold text-slate-900 flex items-center gap-1.5">
+              <Network className="w-4 h-4 text-blue-600" /> Legend:
             </span>
-            <span className="flex items-center gap-1 text-cyan-800 font-semibold">
-              <span className="w-2 h-2 rounded-full bg-cyan-500" /> Bank A
+            <span className="flex items-center gap-1 text-cyan-900 font-extrabold">
+              <span className="w-2.5 h-2.5 rounded-full bg-cyan-500" /> Bank A
             </span>
-            <span className="flex items-center gap-1 text-emerald-800 font-semibold">
-              <span className="w-2 h-2 rounded-full bg-emerald-500" /> Bank B
+            <span className="flex items-center gap-1 text-emerald-900 font-extrabold">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" /> Bank B
             </span>
-            <span className="flex items-center gap-1 text-purple-800 font-semibold">
-              <span className="w-2 h-2 rounded-full bg-purple-500" /> Bank C
+            <span className="flex items-center gap-1 text-purple-900 font-extrabold">
+              <span className="w-2.5 h-2.5 rounded-full bg-purple-500" /> Bank C
             </span>
-            <span className="flex items-center gap-1 text-amber-800 font-semibold">
-              <span className="w-2 h-2 rounded-full bg-amber-500" /> Bank D
+            <span className="flex items-center gap-1 text-amber-900 font-extrabold">
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500" /> Bank D
             </span>
             <span className="text-slate-300">|</span>
-            <span className="flex items-center gap-1 text-rose-700 font-semibold">
-              <span className="w-2.5 h-0.5 bg-rose-500 rounded" /> Circular Loop
+            <span className="flex items-center gap-1 text-rose-700 font-extrabold">
+              <span className="w-3 h-1 bg-rose-500 rounded" /> Circular Loop
             </span>
-            <span className="flex items-center gap-1 text-purple-700 font-semibold">
-              <span className="w-2.5 h-0.5 bg-purple-500 rounded" /> Smurfing Fan-In
+            <span className="flex items-center gap-1 text-purple-700 font-extrabold">
+              <span className="w-3 h-1 bg-purple-500 rounded" /> Smurfing Fan-In
             </span>
-            <span className="flex items-center gap-1 text-emerald-700 font-semibold">
-              <span className="w-2.5 h-0.5 bg-emerald-500 rounded" /> Clearing
+            <span className="flex items-center gap-1 text-emerald-700 font-extrabold">
+              <span className="w-3 h-1 bg-emerald-500 rounded" /> Clearing
             </span>
           </div>
 
           {/* Selected Node Floating GNN Inspector Drawer (Clean Light Card, High Contrast) */}
           {selectedNode && (
-            <div className="absolute bottom-4 left-4 z-20 bg-white/98 backdrop-blur-xl rounded-2xl p-4 border border-slate-200 shadow-xl max-w-sm flex flex-col gap-2.5 animate-fadeIn">
+            <div className="absolute bottom-4 left-4 z-20 bg-white/98 backdrop-blur-xl rounded-2xl p-4 border border-slate-200 shadow-xl max-w-sm flex flex-col gap-3 animate-fadeIn">
               <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-2">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse shrink-0" />
-                  <span className="font-mono text-sm font-extrabold text-slate-900">
+                  <span className="font-mono text-base font-extrabold text-slate-900">
                     {selectedNode.account_code || selectedNode.id}
                   </span>
-                  <span className="text-[11px] text-slate-500 font-mono font-medium">
+                  <span className="text-xs text-slate-600 font-mono font-bold">
                     ({selectedNode.masked_id})
                   </span>
                 </div>
                 <span
-                  className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-bold border ${
+                  className={`px-2.5 py-1 rounded-full text-xs font-mono font-extrabold border shadow-xs ${
                     selectedNode.is_mule
                       ? 'bg-rose-50 text-rose-700 border-rose-200'
                       : 'bg-emerald-50 text-emerald-700 border-emerald-200'
@@ -452,13 +452,13 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
               </div>
 
               <div className="grid grid-cols-2 gap-2 text-xs">
-                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                  <span className="text-slate-500 block text-[10px] font-medium">Bank Institution</span>
-                  <span className="font-bold text-slate-900 font-mono text-xs">{selectedNode.bank}</span>
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <span className="text-slate-600 block text-xs font-bold uppercase tracking-wider">Bank Institution</span>
+                  <span className="font-extrabold text-slate-900 font-mono text-sm mt-0.5 block">{selectedNode.bank}</span>
                 </div>
-                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                  <span className="text-slate-500 block text-[10px] font-medium">Relational Role</span>
-                  <span className="font-semibold text-slate-700 truncate block text-xs">
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <span className="text-slate-600 block text-xs font-bold uppercase tracking-wider">Relational Role</span>
+                  <span className="font-bold text-slate-800 truncate block text-xs mt-0.5">
                     {selectedNode.role || 'Transit Relay'}
                   </span>
                 </div>
@@ -467,9 +467,9 @@ export default function GNNGraphDashboard({ onFilterAccount = () => {} }) {
               <div className="pt-1">
                 <button
                   onClick={() => onFilterAccount(selectedNode.account_code || selectedNode.id)}
-                  className="w-full py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-md shadow-blue-500/20 transition-all"
+                  className="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-md shadow-blue-500/25 transition-all"
                 >
-                  <Filter className="w-3.5 h-3.5" />
+                  <Filter className="w-4 h-4" />
                   <span>Filter Ledger by This Account</span>
                 </button>
               </div>

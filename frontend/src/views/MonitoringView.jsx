@@ -200,27 +200,27 @@ export default function MonitoringView() {
           {/* Top 3 Sub-metrics row */}
           <div className="flex items-center justify-around pb-4 border-b border-slate-100">
             <div className="flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-1">
+              <div className="w-9 h-9 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-1 shadow-xs">
                 <Users className="w-4 h-4" />
               </div>
-              <div className="text-lg font-bold text-slate-900 font-mono">2,345</div>
-              <div className="text-[11px] text-slate-400 font-medium">Bank A Monitored</div>
+              <div className="text-2xl font-extrabold text-slate-900 font-mono">2,345</div>
+              <div className="text-xs text-slate-600 font-bold uppercase tracking-wider mt-0.5">Bank A Monitored</div>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center mb-1">
+              <div className="w-9 h-9 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center mb-1 shadow-xs">
                 <Keyboard className="w-4 h-4" />
               </div>
-              <div className="text-lg font-bold text-slate-900 font-mono">3,568</div>
-              <div className="text-[11px] text-slate-400 font-medium">Inter-Bank Hops</div>
+              <div className="text-2xl font-extrabold text-slate-900 font-mono">3,568</div>
+              <div className="text-xs text-slate-600 font-bold uppercase tracking-wider mt-0.5">Inter-Bank Hops</div>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center mb-1">
+              <div className="w-9 h-9 rounded-full bg-cyan-50 text-cyan-700 flex items-center justify-center mb-1 shadow-xs">
                 <BarChart2 className="w-4 h-4" />
               </div>
-              <div className="text-lg font-bold text-slate-900 font-mono">₹9,693</div>
-              <div className="text-[11px] text-slate-400 font-medium">Avg Intercepted</div>
+              <div className="text-2xl font-extrabold text-slate-900 font-mono">₹9,693</div>
+              <div className="text-xs text-slate-600 font-bold uppercase tracking-wider mt-0.5">Avg Intercepted</div>
             </div>
           </div>
 
@@ -228,7 +228,7 @@ export default function MonitoringView() {
           <div className="py-4 text-center">
             <button
               onClick={() => handleFilterAccount('')}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-blue-800 transition-colors"
             >
               <Eye className="w-3.5 h-3.5" />
               <span>Generate Audit Trail Reports</span>
@@ -252,27 +252,27 @@ export default function MonitoringView() {
           {/* Top 3 Sub-metrics row */}
           <div className="flex items-center justify-around pb-2 border-b border-slate-100">
             <div className="flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-1">
+              <div className="w-9 h-9 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-1 shadow-xs">
                 <Users className="w-4 h-4" />
               </div>
-              <div className="text-lg font-bold text-slate-900 font-mono">128</div>
-              <div className="text-[11px] text-slate-400 font-medium">Mule Accounts</div>
+              <div className="text-2xl font-extrabold text-slate-900 font-mono">128</div>
+              <div className="text-xs text-slate-600 font-bold uppercase tracking-wider mt-0.5">Mule Accounts</div>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center mb-1">
+              <div className="w-9 h-9 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center mb-1 shadow-xs">
                 <Keyboard className="w-4 h-4" />
               </div>
-              <div className="text-lg font-bold text-slate-900 font-mono">4</div>
-              <div className="text-[11px] text-slate-400 font-medium">Active Rings</div>
+              <div className="text-2xl font-extrabold text-slate-900 font-mono">4</div>
+              <div className="text-xs text-slate-600 font-bold uppercase tracking-wider mt-0.5">Active Rings</div>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center mb-1">
+              <div className="w-9 h-9 rounded-full bg-cyan-50 text-cyan-700 flex items-center justify-center mb-1 shadow-xs">
                 <BarChart2 className="w-4 h-4" />
               </div>
-              <div className="text-lg font-bold text-slate-900 font-mono">₹3.42 Cr</div>
-              <div className="text-[11px] text-slate-400 font-medium">Capital At Risk</div>
+              <div className="text-2xl font-extrabold text-slate-900 font-mono">₹3.42 Cr</div>
+              <div className="text-xs text-slate-600 font-bold uppercase tracking-wider mt-0.5">Capital At Risk</div>
             </div>
           </div>
 
@@ -289,7 +289,7 @@ export default function MonitoringView() {
 
           {/* Bottom Controls Row: Trend + Action Button */}
           <div className="flex flex-col items-center gap-2 pt-2">
-            <span className="text-xs font-semibold text-rose-500 flex items-center gap-1">
+            <span className="text-xs font-bold text-rose-600 flex items-center gap-1">
               <span>↑ 15.4% high-threat velocity detected today</span>
             </span>
             <button
@@ -297,7 +297,7 @@ export default function MonitoringView() {
                 setRiskFilter('High');
                 setPage(0);
               }}
-              className="px-5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-sm shadow-blue-500/20 flex items-center gap-1.5 transition-all"
+              className="px-5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs shadow-md shadow-blue-500/20 flex items-center gap-1.5 transition-all"
             >
               <Eye className="w-3.5 h-3.5" />
               <span>View Flagged Mule Detections</span>
@@ -316,10 +316,10 @@ export default function MonitoringView() {
         {/* Table Top Header Bar */}
         <div className="p-5 border-b border-slate-100 flex flex-wrap items-center justify-between gap-3 bg-white">
           <div>
-            <h3 className="text-sm font-bold text-slate-900 tracking-tight">
+            <h3 className="text-base font-extrabold text-slate-900 tracking-tight">
               Transaction & Account Risk Status
             </h3>
-            <p className="text-xs text-slate-400 mt-0.5">
+            <p className="text-xs text-slate-600 font-semibold mt-0.5">
               Live multi-bank dual-ledger verified records with GNN threat progression
             </p>
           </div>
@@ -328,13 +328,13 @@ export default function MonitoringView() {
             <button
               onClick={fetchTransactions}
               disabled={isLoading}
-              className="p-2 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-500 transition-colors"
+              className="p-2 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 transition-colors shadow-xs"
               title="Refresh Telemetry"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin text-blue-600' : ''}`} />
             </button>
             <button
-              className="p-2 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-500 transition-colors"
+              className="p-2 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 transition-colors shadow-xs"
               title="Table Configuration"
             >
               <Settings className="w-3.5 h-3.5" />
@@ -343,22 +343,22 @@ export default function MonitoringView() {
         </div>
 
         {/* Filter Toolbar */}
-        <form onSubmit={handleSearchSubmit} className="p-4 bg-slate-50/70 border-b border-slate-100 flex flex-wrap items-center gap-3">
+        <form onSubmit={handleSearchSubmit} className="p-4 bg-slate-50 border-b border-slate-100 flex flex-wrap items-center gap-3">
           <div className="relative flex-1 min-w-[200px]">
-            <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2.5" />
+            <Search className="w-4 h-4 text-slate-500 absolute left-3 top-2.5" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by Account (e.g. 0048) or Txn ID..."
-              className="w-full bg-white border border-slate-200 rounded-xl pl-8 pr-3 py-1.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500"
+              className="w-full bg-white border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-xs font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 shadow-xs"
             />
           </div>
 
           <select
             value={bankFilter}
             onChange={(e) => { setBankFilter(e.target.value); setPage(0); }}
-            className="bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-blue-500"
+            className="bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 focus:outline-none focus:border-blue-600 shadow-xs"
           >
             <option value="ALL">All Banks (A · B · C · D)</option>
             <option value="BANK_A">Bank A (Retail)</option>
@@ -370,7 +370,7 @@ export default function MonitoringView() {
           <select
             value={riskFilter}
             onChange={(e) => { setRiskFilter(e.target.value); setPage(0); }}
-            className="bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-blue-500"
+            className="bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 focus:outline-none focus:border-blue-600 shadow-xs"
           >
             <option value="ALL">All Risk Tiers</option>
             <option value="High">Flagged / High Risk Only</option>
@@ -379,7 +379,7 @@ export default function MonitoringView() {
 
           <button
             type="submit"
-            className="px-4 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition-all shadow-sm shadow-blue-500/20"
+            className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs transition-all shadow-sm shadow-blue-500/25"
           >
             Filter
           </button>
@@ -389,20 +389,20 @@ export default function MonitoringView() {
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs">
             <thead>
-              <tr className="bg-slate-50/80 text-slate-400 font-bold uppercase tracking-wider border-b border-slate-100 text-[10px]">
-                <th className="py-3 px-4 w-12">#</th>
-                <th className="py-3 px-4">NAME / ACCOUNT</th>
-                <th className="py-3 px-4">INSTITUTION</th>
-                <th className="py-3 px-4">AMOUNT</th>
-                <th className="py-3 px-4">STATUS</th>
-                <th className="py-3 px-4 w-48">PROGRESS / THREAT RISK</th>
-                <th className="py-3 px-4 text-center w-20">ACTIONS</th>
+              <tr className="bg-slate-100/90 text-slate-700 font-extrabold uppercase tracking-wider border-b border-slate-200 text-xs">
+                <th className="py-3.5 px-4 w-12">#</th>
+                <th className="py-3.5 px-4">NAME / ACCOUNT</th>
+                <th className="py-3.5 px-4">INSTITUTION</th>
+                <th className="py-3.5 px-4">AMOUNT</th>
+                <th className="py-3.5 px-4">STATUS</th>
+                <th className="py-3.5 px-4 w-48">PROGRESS / THREAT RISK</th>
+                <th className="py-3.5 px-4 text-center w-20">ACTIONS</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {transactions.length === 0 ? (
                 <tr>
-                  <td colSpan="7" className="py-12 text-center text-slate-400 text-xs">
+                  <td colSpan="7" className="py-12 text-center text-slate-500 text-xs font-bold">
                     No records found matching filters.
                   </td>
                 </tr>
@@ -415,46 +415,46 @@ export default function MonitoringView() {
                   return (
                     <tr
                       key={tx.transaction_id || idx}
-                      className="hover:bg-slate-50/80 transition-colors cursor-pointer"
+                      className="hover:bg-slate-50 transition-colors cursor-pointer"
                       onClick={() => setSelectedTx(tx)}
                     >
-                      <td className="py-3.5 px-4 font-mono font-bold text-slate-400 text-xs">
+                      <td className="py-3.5 px-4 font-mono font-extrabold text-slate-600 text-xs">
                         {tx.idx || idx + 1}
                       </td>
                       <td className="py-3.5 px-4">
-                        <div className="font-bold text-slate-900">
+                        <div className="font-extrabold text-slate-900 text-sm font-mono">
                           {tx.sender_account_masked || `••••${(tx.sender_account || '').slice(-4)}`}
                         </div>
-                        <div className="text-[11px] text-slate-400">
+                        <div className="text-xs text-slate-600 font-bold mt-0.5">
                           {tx.account_name || 'Retail Clearing Mule'}
                         </div>
                       </td>
                       <td className="py-3.5 px-4">
-                        <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${getBankBadge(tx.bank_id || tx.sender_bank)}`}>
+                        <span className={`px-2.5 py-1 rounded-full text-xs font-extrabold border shadow-xs ${getBankBadge(tx.bank_id || tx.sender_bank)}`}>
                           {tx.bank_id || tx.sender_bank || 'BANK_A'}
                         </span>
                       </td>
-                      <td className="py-3.5 px-4 font-mono font-bold text-slate-900">
+                      <td className="py-3.5 px-4 font-mono font-extrabold text-slate-900 text-sm">
                         ₹{(tx.amount || 0).toLocaleString()}
                       </td>
                       <td className="py-3.5 px-4">
                         {isPending ? (
-                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500 text-white shadow-xs">
+                          <span className="px-3 py-1 rounded-full text-xs font-extrabold bg-amber-500 text-white shadow-xs">
                             PENDING
                           </span>
                         ) : isFlagged ? (
-                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-500 text-white shadow-xs">
+                          <span className="px-3 py-1 rounded-full text-xs font-extrabold bg-rose-600 text-white shadow-xs">
                             HIGH RISK
                           </span>
                         ) : (
-                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500 text-white shadow-xs">
+                          <span className="px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-600 text-white shadow-xs">
                             CLEARED
                           </span>
                         )}
                       </td>
                       <td className="py-3.5 px-4">
-                        <div className="flex items-center gap-2">
-                          <div className="flex-1 h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                        <div className="flex items-center gap-2.5">
+                          <div className="flex-1 h-2 rounded-full bg-slate-200 overflow-hidden">
                             <div
                               className={`h-full rounded-full transition-all duration-500 ${
                                 isFlagged ? 'bg-blue-600' : 'bg-emerald-500'
@@ -462,7 +462,7 @@ export default function MonitoringView() {
                               style={{ width: `${progressVal}%` }}
                             />
                           </div>
-                          <span className="font-mono text-[10px] text-slate-400 w-7 text-right">
+                          <span className="font-mono text-xs font-extrabold text-slate-800 w-10 text-right">
                             {progressVal}%
                           </span>
                         </div>
@@ -470,9 +470,9 @@ export default function MonitoringView() {
                       <td className="py-3.5 px-4 text-center">
                         <button
                           onClick={(e) => { e.stopPropagation(); setSelectedTx(tx); }}
-                          className="w-7 h-7 rounded-full bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-600 flex items-center justify-center transition-colors mx-auto"
+                          className="w-8 h-8 rounded-full bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-700 flex items-center justify-center transition-colors mx-auto shadow-xs font-bold"
                         >
-                          <ArrowRight className="w-3.5 h-3.5" />
+                          <ArrowRight className="w-4 h-4" />
                         </button>
                       </td>
                     </tr>
@@ -484,23 +484,23 @@ export default function MonitoringView() {
         </div>
 
         {/* Pagination Bar */}
-        <div className="p-4 bg-white border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+        <div className="p-4 bg-white border-t border-slate-100 flex items-center justify-between text-xs text-slate-700 font-semibold">
           <span>
-            Showing <strong className="text-slate-900 font-bold">{transactions.length}</strong> of{' '}
-            <strong className="text-slate-900 font-mono font-bold">{totalCount.toLocaleString()}</strong> records
+            Showing <strong className="text-slate-900 font-extrabold">{transactions.length}</strong> of{' '}
+            <strong className="text-slate-900 font-mono font-extrabold">{totalCount.toLocaleString()}</strong> records
           </span>
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2">
             <button
               onClick={() => setPage(Math.max(0, page - 1))}
               disabled={page === 0}
-              className="px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 disabled:opacity-40 text-slate-600 font-medium flex items-center gap-1"
+              className="px-3.5 py-1.5 rounded-xl border border-slate-200 hover:bg-slate-50 disabled:opacity-40 text-slate-800 font-bold flex items-center gap-1 shadow-xs"
             >
               <ChevronLeft className="w-3.5 h-3.5" /> Prev
             </button>
             <button
               onClick={() => setPage(page + 1)}
               disabled={transactions.length < limit}
-              className="px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 disabled:opacity-40 text-slate-600 font-medium flex items-center gap-1"
+              className="px-3.5 py-1.5 rounded-xl border border-slate-200 hover:bg-slate-50 disabled:opacity-40 text-slate-800 font-bold flex items-center gap-1 shadow-xs"
             >
               Next <ChevronRight className="w-3.5 h-3.5" />
             </button>

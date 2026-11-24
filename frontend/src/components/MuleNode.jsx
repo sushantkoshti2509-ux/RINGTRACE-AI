@@ -95,54 +95,54 @@ function MuleNode({ data, selected }) {
 
       {/* Top Header Badge: Bank & DPDP Masked ID */}
       <div className="flex items-center justify-between gap-1.5 mb-2">
-        <span className={`text-[10px] px-2 py-0.5 rounded-md font-mono font-bold border ${bStyle.badge}`}>
+        <span className={`text-xs px-2.5 py-0.5 rounded-md font-mono font-extrabold border shadow-xs ${bStyle.badge}`}>
           {data.bank}
         </span>
 
         {isTarget ? (
-          <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-rose-100 text-rose-700 border border-rose-300 flex items-center gap-1 font-bold animate-pulse">
-            <Ban className="w-2.5 h-2.5" /> CHOKE POINT
+          <span className="text-[11px] px-2 py-0.5 rounded-md bg-rose-100 text-rose-800 border border-rose-300 flex items-center gap-1 font-extrabold animate-pulse">
+            <Ban className="w-3 h-3" /> CHOKE POINT
           </span>
         ) : isNeutralized ? (
-          <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-slate-200 text-slate-700 border border-slate-300 flex items-center gap-1 font-semibold">
-            <Lock className="w-2.5 h-2.5" /> SEVERED
+          <span className="text-[11px] px-2 py-0.5 rounded-md bg-slate-200 text-slate-800 border border-slate-300 flex items-center gap-1 font-bold">
+            <Lock className="w-3 h-3" /> SEVERED
           </span>
         ) : (
-          <span className="text-[10px] text-slate-500 flex items-center gap-1 font-medium">
-            <Lock className="w-2.5 h-2.5 text-slate-400" /> DPDP
+          <span className="text-xs text-slate-600 flex items-center gap-1 font-bold">
+            <Lock className="w-3 h-3 text-slate-500" /> DPDP
           </span>
         )}
       </div>
 
       {/* Account Code & Masked ID */}
-      <div className="font-mono text-sm font-bold text-slate-900 tracking-wide flex items-center justify-between">
+      <div className="font-mono text-base font-extrabold text-slate-900 tracking-wide flex items-center justify-between">
         <div className="flex items-center gap-1.5">
           <span className={`w-2.5 h-2.5 rounded-full ${isTarget ? 'bg-rose-500 animate-ping' : bStyle.dot}`} />
-          <span className="text-slate-900 font-extrabold text-sm">{data.account_code || data.masked_id}</span>
+          <span className="text-slate-900 font-extrabold text-base">{data.account_code || data.masked_id}</span>
         </div>
         {data.account_code && (
-          <span className="text-[10px] text-slate-500 font-mono font-medium">
+          <span className="text-xs text-slate-600 font-mono font-bold">
             {data.masked_id}
           </span>
         )}
       </div>
 
       {/* Role Tag */}
-      <div className="text-[11px] text-slate-600 font-medium mt-1 truncate">
+      <div className="text-xs text-slate-700 font-bold mt-1 truncate">
         {data.role}
       </div>
 
       {/* Stats Line */}
-      <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+      <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
         <div>
-          <span className="text-slate-400">Flow: </span>
-          <span className="text-slate-900 font-mono font-bold">
+          <span className="text-slate-500 font-bold">Flow: </span>
+          <span className="text-slate-900 font-mono font-extrabold">
             ₹{(data.outbound_volume || 0).toLocaleString()}
           </span>
         </div>
         <div className="text-right">
-          <span className="text-slate-400">Deg: </span>
-          <span className="text-slate-600 font-mono font-medium">
+          <span className="text-slate-500 font-bold">Deg: </span>
+          <span className="text-slate-800 font-mono font-bold">
             {data.in_degree}↓ {data.out_degree}↑
           </span>
         </div>
