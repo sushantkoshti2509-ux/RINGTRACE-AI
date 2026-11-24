@@ -66,6 +66,12 @@ def test_multi_source_data_manager():
     manager = MultiSourceDataManager()
     summary = manager.get_source_comparison_summary()
 
-    assert len(summary) == 4
+    assert len(summary) == 5
     source_keys = set(summary["Source Key"])
-    assert source_keys == {"OUR_UPI_SIMULATOR", "IBM_AMLSIM", "IBM_AMLDATA", "PAYSIM"}
+    assert source_keys == {
+        "OUR_UPI_SIMULATOR",
+        "IBM_AMLSIM",
+        "IBM_AMLDATA",
+        "PAYSIM",
+        "RBIH_NFPC_PHASE_2",
+    }
