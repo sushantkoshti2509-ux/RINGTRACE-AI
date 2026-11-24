@@ -19,6 +19,7 @@ import {
   GitBranch,
   Split,
   Repeat,
+  CheckCircle2,
 } from 'lucide-react';
 
 export default function DigitalTwinSimulator() {
@@ -110,25 +111,34 @@ export default function DigitalTwinSimulator() {
   return (
     <div className="flex flex-col gap-6">
       {/* Top Header Card */}
-      <div className="glass-panel rounded-2xl p-5 border border-cyan-500/20 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h2 className="text-lg font-bold text-white flex items-center gap-2">
-            <Cpu className="w-5 h-5 text-cyan-400" />
-            <span>Fraud Network Digital Twin & Scenario Simulator</span>
-          </h2>
-          <p className="text-xs text-slate-400 mt-0.5">
-            Chronological transaction replay and predictive what-if scenario modeling
-          </p>
+      <div className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 shrink-0">
+            <Cpu className="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <h2 className="text-lg font-extrabold text-slate-900 tracking-tight">
+                Fraud Network Digital Twin & Scenario Simulator
+              </h2>
+              <span className="bg-blue-50 text-blue-700 border border-blue-200 font-extrabold text-[10px] px-2 py-0.5 rounded-full font-mono">
+                GRAPH SIMULATOR
+              </span>
+            </div>
+            <p className="text-xs text-slate-600 font-semibold mt-0.5">
+              Chronological transaction replay and predictive what-if scenario modeling
+            </p>
+          </div>
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex items-center gap-2 bg-slate-900/90 p-1 rounded-xl border border-slate-800">
+        <div className="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
           <button
             onClick={() => setActiveTab('replay')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${
+            className={`px-4 py-2 rounded-lg text-xs font-extrabold transition-all flex items-center gap-1.5 cursor-pointer ${
               activeTab === 'replay'
-                ? 'bg-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
+                : 'text-slate-700 hover:text-slate-900 hover:bg-white'
             }`}
           >
             <Clock className="w-3.5 h-3.5" />
@@ -136,10 +146,10 @@ export default function DigitalTwinSimulator() {
           </button>
           <button
             onClick={() => setActiveTab('scenario')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${
+            className={`px-4 py-2 rounded-lg text-xs font-extrabold transition-all flex items-center gap-1.5 cursor-pointer ${
               activeTab === 'scenario'
-                ? 'bg-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
+                : 'text-slate-700 hover:text-slate-900 hover:bg-white'
             }`}
           >
             <Sliders className="w-3.5 h-3.5" />
@@ -152,13 +162,13 @@ export default function DigitalTwinSimulator() {
       {activeTab === 'replay' && (
         <div className="flex flex-col gap-6">
           {/* Timeline Scrubber & Playback Controls */}
-          <div className="glass-panel rounded-2xl p-5 border border-slate-800 shadow-xl flex flex-col gap-4">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-white uppercase tracking-wider">
+          <div className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm flex flex-col gap-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
+              <div className="flex items-center gap-2.5">
+                <span className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
                   Replay Progress: Step {currentStep + 1} of {replayData?.total_steps || 1}
                 </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
+                <span className="text-xs font-mono font-extrabold px-2.5 py-0.5 rounded-lg bg-blue-50 text-blue-700 border border-blue-200">
                   {activeFrame ? activeFrame.timestamp : 'Initializing...'}
                 </span>
               </div>
@@ -170,7 +180,7 @@ export default function DigitalTwinSimulator() {
                     setIsPlaying(false);
                     setCurrentStep(0);
                   }}
-                  className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700"
+                  className="p-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 shadow-xs transition-colors cursor-pointer"
                   title="Reset to Start"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
@@ -178,14 +188,14 @@ export default function DigitalTwinSimulator() {
                 <button
                   onClick={() => setCurrentStep((prev) => Math.max(0, prev - 1))}
                   disabled={currentStep === 0}
-                  className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 disabled:opacity-40 text-slate-300 border border-slate-700"
+                  className="p-2 rounded-xl bg-white hover:bg-slate-50 disabled:opacity-40 text-slate-700 border border-slate-300 shadow-xs transition-colors cursor-pointer"
                   title="Step Backward"
                 >
                   <SkipBack className="w-3.5 h-3.5" />
                 </button>
                 <button
                   onClick={() => setIsPlaying(!isPlaying)}
-                  className="px-4 py-1.5 rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-md shadow-cyan-600/20"
+                  className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-md shadow-blue-500/20 transition-all cursor-pointer"
                 >
                   {isPlaying ? (
                     <>
@@ -204,20 +214,20 @@ export default function DigitalTwinSimulator() {
                     )
                   }
                   disabled={currentStep >= (replayData?.frames?.length || 1) - 1}
-                  className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 disabled:opacity-40 text-slate-300 border border-slate-700"
+                  className="p-2 rounded-xl bg-white hover:bg-slate-50 disabled:opacity-40 text-slate-700 border border-slate-300 shadow-xs transition-colors cursor-pointer"
                   title="Step Forward"
                 >
                   <SkipForward className="w-3.5 h-3.5" />
                 </button>
 
                 {/* Speed toggle */}
-                <div className="flex items-center gap-1 ml-2 bg-slate-900 border border-slate-700 rounded-lg p-0.5 text-[10px] font-mono">
+                <div className="flex items-center gap-1 ml-2 bg-slate-100 border border-slate-200 rounded-xl p-1 text-[11px] font-mono">
                   {[1, 2, 4].map((s) => (
                     <button
                       key={s}
                       onClick={() => setPlaySpeed(s)}
-                      className={`px-2 py-0.5 rounded ${
-                        playSpeed === s ? 'bg-cyan-500 text-slate-950 font-bold' : 'text-slate-400'
+                      className={`px-2.5 py-0.5 rounded-lg font-extrabold transition-all cursor-pointer ${
+                        playSpeed === s ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
                       }`}
                     >
                       {s}x
@@ -235,12 +245,12 @@ export default function DigitalTwinSimulator() {
                 max={(replayData?.frames?.length || 1) - 1}
                 value={currentStep}
                 onChange={(e) => setCurrentStep(Number(e.target.value))}
-                className="w-full accent-cyan-400 bg-slate-800 h-2 rounded-lg cursor-pointer"
+                className="w-full accent-blue-600 bg-slate-200 h-2.5 rounded-lg cursor-pointer"
               />
-              <div className="flex justify-between text-[10px] text-slate-500 font-mono">
+              <div className="flex justify-between text-[11px] text-slate-500 font-mono font-semibold">
                 <span>Start: First Transfer</span>
                 <span>Current: Step {currentStep + 1}</span>
-                <span>End: Network Final Hop</span>
+                <span>End: Final Network Hop</span>
               </div>
             </div>
           </div>
@@ -248,80 +258,80 @@ export default function DigitalTwinSimulator() {
           {/* Active Frame Telemetry & Dynamic Inter-Bank Flow */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Visual Fund Hop Simulation */}
-            <div className="lg:col-span-8 glass-panel rounded-2xl p-6 border border-slate-800 shadow-xl flex flex-col justify-between">
+            <div className="lg:col-span-8 bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between">
               <div>
-                <span className="text-xs font-bold text-white uppercase tracking-wider block mb-4">
+                <span className="text-xs font-extrabold text-slate-900 uppercase tracking-wider block mb-4">
                   Dynamic Inter-Bank Hop Visualization
                 </span>
 
                 {activeFrame ? (
-                  <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+                  <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
                     {/* Sender Bank Box */}
-                    <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-slate-900 border border-cyan-500/30 w-full md:w-44 text-center">
-                      <span className="text-[10px] text-cyan-400 uppercase font-mono font-bold">
+                    <div className="flex flex-col items-center gap-1.5 p-4 rounded-xl bg-blue-50/80 border-2 border-blue-200 w-full md:w-44 text-center">
+                      <span className="text-[10px] text-blue-800 uppercase font-mono font-extrabold">
                         Source Institution
                       </span>
-                      <span className="text-base font-bold text-white font-mono">
+                      <span className="text-base font-extrabold text-blue-950 font-mono">
                         {activeFrame.sender_bank}
                       </span>
-                      <span className="text-xs font-mono text-slate-300">
+                      <span className="text-xs font-mono font-bold text-blue-700">
                         {activeFrame.masked_sender}
                       </span>
                     </div>
 
                     {/* Animated Fund Transfer Vector */}
                     <div className="flex flex-col items-center gap-1.5 flex-1 w-full">
-                      <span className="text-sm font-extrabold text-emerald-400 font-mono">
-                        ₹{activeFrame.amount.toLocaleString()}
+                      <span className="text-sm font-extrabold text-emerald-700 font-mono">
+                        ₹{activeFrame.amount.toLocaleString('en-IN')}
                       </span>
                       <div className="w-full flex items-center gap-2">
-                        <div className="flex-1 h-0.5 bg-gradient-to-r from-cyan-500 via-emerald-400 to-amber-500 relative">
-                          <div className="w-2.5 h-2.5 rounded-full bg-white absolute top-1/2 -translate-y-1/2 animate-ping" />
+                        <div className="flex-1 h-1.5 bg-gradient-to-r from-blue-500 via-emerald-500 to-amber-500 rounded-full relative">
+                          <div className="w-3 h-3 rounded-full bg-blue-600 border-2 border-white shadow-xs absolute top-1/2 -translate-y-1/2 animate-ping" />
                         </div>
-                        <ArrowRight className="w-5 h-5 text-emerald-400 shrink-0" />
+                        <ArrowRight className="w-5 h-5 text-emerald-600 shrink-0" />
                       </div>
-                      <span className="text-[10px] text-slate-400 font-mono">
+                      <span className="text-[11px] text-slate-500 font-mono font-bold">
                         {activeFrame.tx_type} • Turnaround &lt; 90s
                       </span>
                     </div>
 
                     {/* Receiver Bank Box */}
-                    <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-slate-900 border border-emerald-500/30 w-full md:w-44 text-center">
-                      <span className="text-[10px] text-emerald-400 uppercase font-mono font-bold">
+                    <div className="flex flex-col items-center gap-1.5 p-4 rounded-xl bg-emerald-50/80 border-2 border-emerald-200 w-full md:w-44 text-center">
+                      <span className="text-[10px] text-emerald-800 uppercase font-mono font-extrabold">
                         Destination Institution
                       </span>
-                      <span className="text-base font-bold text-white font-mono">
+                      <span className="text-base font-extrabold text-emerald-950 font-mono">
                         {activeFrame.receiver_bank}
                       </span>
-                      <span className="text-xs font-mono text-slate-300">
+                      <span className="text-xs font-mono font-bold text-emerald-700">
                         {activeFrame.masked_receiver}
                       </span>
                     </div>
                   </div>
                 ) : (
-                  <div className="text-center py-12 text-xs text-slate-400">
+                  <div className="text-center py-12 text-xs text-slate-500 font-semibold">
                     Loading chronological replay frames...
                   </div>
                 )}
               </div>
 
               {/* Cumulative Metrics Bar */}
-              <div className="grid grid-cols-3 gap-3 mt-6 pt-4 border-t border-slate-800">
-                <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                  <span className="text-[10px] text-slate-400 uppercase block">Cumulative Volume</span>
-                  <span className="text-base font-bold text-cyan-300 font-mono mt-0.5 block">
-                    ₹{activeFrame ? activeFrame.cumulative_volume.toLocaleString() : '0'}
+              <div className="grid grid-cols-3 gap-3.5 mt-6 pt-4 border-t border-slate-100">
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                  <span className="text-[10px] text-slate-600 uppercase font-extrabold block">Cumulative Volume</span>
+                  <span className="text-base font-extrabold text-emerald-700 font-mono mt-0.5 block">
+                    ₹{activeFrame ? activeFrame.cumulative_volume.toLocaleString('en-IN') : '0'}
                   </span>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                  <span className="text-[10px] text-slate-400 uppercase block">Involved Accounts</span>
-                  <span className="text-base font-bold text-white font-mono mt-0.5 block">
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                  <span className="text-[10px] text-slate-600 uppercase font-extrabold block">Involved Accounts</span>
+                  <span className="text-base font-extrabold text-slate-900 font-mono mt-0.5 block">
                     {activeFrame ? activeFrame.total_active_accounts : 0} Accounts
                   </span>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                  <span className="text-[10px] text-slate-400 uppercase block">Cross-Bank Edges</span>
-                  <span className="text-base font-bold text-emerald-400 font-mono mt-0.5 block">
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                  <span className="text-[10px] text-slate-600 uppercase font-extrabold block">Cross-Bank Edges</span>
+                  <span className="text-base font-extrabold text-blue-700 font-mono mt-0.5 block">
                     {activeFrame ? activeFrame.total_active_connections : 0} Hops
                   </span>
                 </div>
@@ -329,53 +339,53 @@ export default function DigitalTwinSimulator() {
             </div>
 
             {/* Right: Step Transaction Inspector */}
-            <div className="lg:col-span-4 glass-panel rounded-2xl p-5 border border-slate-800 shadow-xl flex flex-col justify-between">
+            <div className="lg:col-span-4 bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between">
               <div>
-                <span className="text-xs font-bold text-white uppercase tracking-wider block border-b border-slate-800 pb-3 mb-3">
+                <span className="text-xs font-extrabold text-slate-900 uppercase tracking-wider block border-b border-slate-100 pb-3 mb-3">
                   Step Transaction Inspector
                 </span>
 
                 {activeFrame ? (
-                  <div className="space-y-3 text-xs font-sans">
-                    <div className="flex justify-between items-center py-1.5 border-b border-slate-850">
-                      <span className="text-slate-400">Transaction ID:</span>
-                      <span className="font-mono text-cyan-300 font-bold">{activeFrame.tx_id}</span>
+                  <div className="space-y-3 text-xs">
+                    <div className="flex justify-between items-center py-1.5 border-b border-slate-100">
+                      <span className="text-slate-600 font-bold">Transaction ID:</span>
+                      <span className="font-mono text-slate-900 font-extrabold text-xs">{activeFrame.tx_id}</span>
                     </div>
-                    <div className="flex justify-between items-center py-1.5 border-b border-slate-850">
-                      <span className="text-slate-400">Execution Time:</span>
-                      <span className="font-mono text-slate-200">{activeFrame.timestamp}</span>
+                    <div className="flex justify-between items-center py-1.5 border-b border-slate-100">
+                      <span className="text-slate-600 font-bold">Execution Time:</span>
+                      <span className="font-mono text-slate-800 font-semibold">{activeFrame.timestamp}</span>
                     </div>
-                    <div className="flex justify-between items-center py-1.5 border-b border-slate-850">
-                      <span className="text-slate-400">Transfer Amount:</span>
-                      <span className="font-mono text-emerald-400 font-bold">
-                        ₹{activeFrame.amount.toLocaleString()}
+                    <div className="flex justify-between items-center py-1.5 border-b border-slate-100">
+                      <span className="text-slate-600 font-bold">Transfer Amount:</span>
+                      <span className="font-mono text-emerald-700 font-extrabold text-sm">
+                        ₹{activeFrame.amount.toLocaleString('en-IN')}
                       </span>
                     </div>
-                    <div className="flex justify-between items-center py-1.5 border-b border-slate-850">
-                      <span className="text-slate-400">Corridor:</span>
-                      <span className="font-mono text-slate-200">
+                    <div className="flex justify-between items-center py-1.5 border-b border-slate-100">
+                      <span className="text-slate-600 font-bold">Corridor:</span>
+                      <span className="font-mono text-blue-700 font-extrabold text-xs">
                         {activeFrame.sender_bank} ➔ {activeFrame.receiver_bank}
                       </span>
                     </div>
-                    <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 mt-2">
-                      <span className="text-[10px] text-cyan-400 font-bold uppercase block mb-1">
+                    <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 mt-3">
+                      <span className="text-[11px] text-blue-900 font-extrabold uppercase block mb-1">
                         Turnaround Dynamics:
                       </span>
-                      <span className="text-slate-300 text-[11px] leading-relaxed">
+                      <span className="text-slate-700 text-xs leading-relaxed font-medium">
                         Funds were forwarded within seconds of settlement. The zero-balance retention
-                        signature indicates intermediate transit rather than genuine customer deposit.
+                        signature indicates intermediate transit rather than genuine retail customer activity.
                       </span>
                     </div>
                   </div>
                 ) : (
-                  <div className="text-center py-8 text-xs text-slate-400">
+                  <div className="text-center py-8 text-xs text-slate-500 font-semibold">
                     No active transaction step selected.
                   </div>
                 )}
               </div>
 
-              <div className="mt-4 p-3 rounded-xl bg-cyan-950/30 border border-cyan-500/30 text-[11px] text-cyan-200 flex items-center gap-2">
-                <Zap className="w-4 h-4 text-cyan-400 shrink-0" />
+              <div className="mt-4 p-3 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-800 font-medium flex items-center gap-2">
+                <Zap className="w-4 h-4 text-blue-600 shrink-0" />
                 <span>Zero real customer data. Synthetic telemetry generated under DPDP Act 2023.</span>
               </div>
             </div>
@@ -387,7 +397,7 @@ export default function DigitalTwinSimulator() {
       {activeTab === 'scenario' && (
         <div className="flex flex-col gap-6">
           {/* Scenario Selection Buttons */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3.5">
             {[
               {
                 id: 'ADD_INTERMEDIARY',
@@ -423,23 +433,23 @@ export default function DigitalTwinSimulator() {
                     setSelectedScenario(scen.id);
                     runScenarioSimulation(scen.id);
                   }}
-                  className={`p-4 rounded-xl border transition-all cursor-pointer ${
+                  className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
                     isSelected
-                      ? 'bg-cyan-950/50 border-cyan-400 shadow-lg shadow-cyan-500/10'
-                      : 'bg-slate-900/70 border-slate-800 hover:border-slate-700'
+                      ? 'bg-blue-50/80 border-blue-600 shadow-md shadow-blue-500/10'
+                      : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 shadow-xs'
                   }`}
                 >
                   <div className="flex items-center gap-2.5 mb-2">
                     <div
-                      className={`w-7 h-7 rounded-lg flex items-center justify-center ${
-                        isSelected ? 'bg-cyan-500 text-slate-950 font-bold' : 'bg-slate-800 text-slate-300'
+                      className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                        isSelected ? 'bg-blue-600 text-white font-bold' : 'bg-slate-100 text-slate-700'
                       }`}
                     >
                       <Icon className="w-4 h-4" />
                     </div>
-                    <span className="font-bold text-xs text-white">{scen.title}</span>
+                    <span className="font-extrabold text-xs text-slate-900">{scen.title}</span>
                   </div>
-                  <p className="text-[11px] text-slate-400 leading-snug">{scen.desc}</p>
+                  <p className="text-xs text-slate-600 font-medium leading-relaxed">{scen.desc}</p>
                 </div>
               );
             })}
@@ -449,15 +459,15 @@ export default function DigitalTwinSimulator() {
           {scenarioResult && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
               {/* Baseline vs Simulated Comparison */}
-              <div className="lg:col-span-7 glass-panel rounded-2xl p-6 border border-slate-800 shadow-xl flex flex-col justify-between">
+              <div className="lg:col-span-7 bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                  <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
                     <div>
-                      <h3 className="text-base font-bold text-white">{scenarioResult.title}</h3>
-                      <p className="text-xs text-slate-400 mt-0.5">{scenarioResult.description}</p>
+                      <h3 className="text-base font-extrabold text-slate-900">{scenarioResult.title}</h3>
+                      <p className="text-xs text-slate-500 font-medium mt-0.5">{scenarioResult.description}</p>
                     </div>
-                    <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">
-                      [SIMULATED SCENARIO]
+                    <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-extrabold bg-amber-50 text-amber-800 border border-amber-200">
+                      SIMULATED SCENARIO
                     </span>
                   </div>
 
@@ -465,54 +475,54 @@ export default function DigitalTwinSimulator() {
                   <div className="overflow-x-auto">
                     <table className="w-full text-left text-xs font-sans">
                       <thead>
-                        <tr className="border-b border-slate-200 bg-slate-50 text-slate-500 uppercase text-[10px] font-bold tracking-wider">
-                          <th className="py-2.5 px-3">Metric</th>
-                          <th className="py-2.5 px-3 text-blue-700">Baseline Actual</th>
-                          <th className="py-2.5 px-3 text-amber-700">Simulated Digital Twin</th>
-                          <th className="py-2.5 px-3">Topological Shift</th>
+                        <tr className="border-b border-slate-300 bg-slate-100 text-slate-700 uppercase text-xs font-extrabold tracking-wider">
+                          <th className="py-3 px-3">Metric</th>
+                          <th className="py-3 px-3 text-blue-700">Baseline Actual</th>
+                          <th className="py-3 px-3 text-amber-700">Simulated Digital Twin</th>
+                          <th className="py-3 px-3">Topological Shift</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-slate-100 font-mono">
                         <tr className="hover:bg-slate-50/80 transition-colors">
-                          <td className="py-3 px-3 text-slate-800 font-sans font-semibold">Network Hops</td>
-                          <td className="py-3 px-3 text-slate-900 font-bold">
+                          <td className="py-3 px-3 text-slate-900 font-sans font-bold">Network Hops</td>
+                          <td className="py-3 px-3 text-slate-900 font-extrabold">
                             {scenarioResult.baseline_comparison.baseline.hops} Hops
                           </td>
-                          <td className="py-3 px-3 text-amber-600 font-bold">
+                          <td className="py-3 px-3 text-amber-700 font-extrabold">
                             {scenarioResult.baseline_comparison.simulated.hops} Hops
                           </td>
-                          <td className="py-3 px-3 text-slate-500 font-medium">
+                          <td className="py-3 px-3 text-slate-600 font-semibold font-sans">
                             +{scenarioResult.baseline_comparison.simulated.hops -
                               scenarioResult.baseline_comparison.baseline.hops}{' '}
                             Synthetic Nodes
                           </td>
                         </tr>
                         <tr className="hover:bg-slate-50/80 transition-colors">
-                          <td className="py-3 px-3 text-slate-800 font-sans font-semibold">Detection Latency</td>
-                          <td className="py-3 px-3 text-slate-900 font-bold">
+                          <td className="py-3 px-3 text-slate-900 font-sans font-bold">Detection Latency</td>
+                          <td className="py-3 px-3 text-slate-900 font-extrabold">
                             {scenarioResult.baseline_comparison.baseline.turnaround_latency_sec}s
                           </td>
-                          <td className="py-3 px-3 text-amber-600 font-bold">
+                          <td className="py-3 px-3 text-amber-700 font-extrabold">
                             {scenarioResult.baseline_comparison.simulated.turnaround_latency_sec}s
                           </td>
-                          <td className="py-3 px-3 text-emerald-700 font-bold">Rapid Anomaly Alert</td>
+                          <td className="py-3 px-3 text-emerald-700 font-extrabold font-sans">Rapid Anomaly Alert</td>
                         </tr>
                         <tr className="hover:bg-slate-50/80 transition-colors">
-                          <td className="py-3 px-3 text-slate-800 font-sans font-semibold">Ring Risk Score</td>
-                          <td className="py-3 px-3 text-slate-900 font-bold">
+                          <td className="py-3 px-3 text-slate-900 font-sans font-bold">Ring Risk Score</td>
+                          <td className="py-3 px-3 text-slate-900 font-extrabold">
                             {scenarioResult.baseline_comparison.baseline.risk_score}%
                           </td>
-                          <td className="py-3 px-3 text-rose-600 font-bold">
+                          <td className="py-3 px-3 text-rose-700 font-extrabold">
                             {scenarioResult.baseline_comparison.simulated.risk_score}%
                           </td>
-                          <td className="py-3 px-3 text-rose-600 font-bold">
+                          <td className="py-3 px-3 text-rose-700 font-extrabold">
                             +{scenarioResult.baseline_comparison.delta.risk_increase_points} pts
                           </td>
                         </tr>
                         <tr className="hover:bg-slate-50/80 transition-colors">
-                          <td className="py-3 px-3 text-slate-800 font-sans font-semibold">Evasion Likelihood</td>
-                          <td className="py-3 px-3 text-slate-500 font-medium">Baseline</td>
-                          <td className="py-3 px-3 text-emerald-700 font-sans font-bold" colSpan="2">
+                          <td className="py-3 px-3 text-slate-900 font-sans font-bold">Evasion Likelihood</td>
+                          <td className="py-3 px-3 text-slate-600 font-semibold font-sans">Baseline</td>
+                          <td className="py-3 px-3 text-emerald-800 font-sans font-extrabold" colSpan="2">
                             {scenarioResult.baseline_comparison.delta.evasion_analysis}
                           </td>
                         </tr>
@@ -521,24 +531,24 @@ export default function DigitalTwinSimulator() {
                   </div>
                 </div>
 
-                <div className="mt-6 p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs">
-                  <span className="font-bold text-white block mb-1">
+                <div className="mt-6 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+                  <span className="font-extrabold text-slate-900 block mb-1">
                     AI Regulatory Defense Takeaway:
                   </span>
-                  <p className="text-slate-300 font-sans leading-relaxed">
+                  <p className="text-slate-700 font-medium leading-relaxed">
                     {scenarioResult.recommendation_notes}
                   </p>
                 </div>
               </div>
 
               {/* Synthetic Subgraph Preview */}
-              <div className="lg:col-span-5 glass-panel rounded-2xl p-5 border border-slate-800 shadow-xl flex flex-col justify-between">
+              <div className="lg:col-span-5 bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">
+                  <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+                    <span className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
                       Synthetic Topology Nodes
                     </span>
-                    <span className="text-[10px] text-amber-400 font-mono font-bold">
+                    <span className="text-xs text-amber-800 font-mono font-extrabold bg-amber-50 border border-amber-200 px-2 py-0.5 rounded">
                       {scenarioResult.synthetic_nodes?.length || 0} Entities
                     </span>
                   </div>
@@ -547,25 +557,25 @@ export default function DigitalTwinSimulator() {
                     {scenarioResult.synthetic_nodes?.map((node, i) => (
                       <div
                         key={i}
-                        className={`p-2.5 rounded-xl border text-xs flex items-center justify-between ${
+                        className={`p-3 rounded-xl border text-xs flex items-center justify-between ${
                           node.is_synthetic
-                            ? 'bg-amber-950/30 border-amber-500/50 text-amber-200'
-                            : 'bg-slate-900 border-slate-800 text-slate-300'
+                            ? 'bg-amber-50/80 border-amber-200 text-amber-950 font-bold'
+                            : 'bg-slate-50 border-slate-200 text-slate-900 font-medium'
                         }`}
                       >
                         <div className="flex items-center gap-2">
                           <span
-                            className={`w-2 h-2 rounded-full ${
-                              node.is_synthetic ? 'bg-amber-400 animate-pulse' : 'bg-cyan-400'
+                            className={`w-2.5 h-2.5 rounded-full ${
+                              node.is_synthetic ? 'bg-amber-500 animate-pulse' : 'bg-blue-600'
                             }`}
                           />
-                          <span className="font-mono font-bold">{node.id}</span>
+                          <span className="font-mono font-extrabold">{node.id}</span>
                         </div>
                         <span
-                          className={`text-[10px] font-mono px-2 py-0.5 rounded ${
+                          className={`text-[10px] font-mono font-extrabold px-2 py-0.5 rounded ${
                             node.is_synthetic
-                              ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
-                              : 'bg-slate-800 text-slate-400'
+                              ? 'bg-amber-100 text-amber-900 border border-amber-300'
+                              : 'bg-slate-200 text-slate-800'
                           }`}
                         >
                           {node.role}
@@ -576,8 +586,8 @@ export default function DigitalTwinSimulator() {
                 </div>
 
                 {/* Simulation Watermark Banner */}
-                <div className="mt-4 p-3 rounded-xl bg-amber-950/40 border border-amber-500/40 text-[10px] font-mono text-amber-300 flex items-center gap-2">
-                  <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0" />
+                <div className="mt-4 p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs font-medium text-amber-900 flex items-center gap-2">
+                  <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />
                   <span>
                     DIGITAL TWIN ISOLATION: Simulated scenario is evaluated strictly in sandbox memory and
                     never committed to production ledger database.

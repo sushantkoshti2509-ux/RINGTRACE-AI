@@ -240,14 +240,7 @@ export default function App() {
             {activeTab === 'gnn' && <GNNIntelligenceView />}
             {activeTab === 'realtime' && <RealtimeScorerView />}
             {activeTab === 'alerts' && <AlertsView />}
-            {activeTab === 'globe3d' && (
-              <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
-                <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">
-                  3D Multi-Bank Cyber Clearing Fabric
-                </h3>
-                <CyberGlobe3D />
-              </div>
-            )}
+            {activeTab === 'globe3d' && <CyberGlobe3D />}
             {activeTab === 'digital_twin' && <DigitalTwinSimulator />}
             {activeTab === 'interception' && (
               <div className="flex flex-col gap-6">
